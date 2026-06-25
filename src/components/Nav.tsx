@@ -35,18 +35,11 @@ function WordmarkLogo() {
   }, []);
 
   return (
-    <span className="nav-wordmark" aria-label="Muxlyve">
-      <Image
-        src="/icon-muxlyve.svg"
-        alt=""
-        width={28}
-        height={28}
-        priority
-        style={{ display: "inline-block", verticalAlign: "middle", marginRight: "0.45rem" }}
-      />
-      <span aria-hidden="true">
+    <span className="nav-wordmark" aria-label="Muxlyve" style={{ display: "inline-flex", alignItems: "center", gap: "0.45rem" }}>
+      <Image src="/icon-muxlyve.svg" alt="" width={28} height={28} priority />
+      <span aria-hidden="true" style={{ display: "inline-flex", alignItems: "center" }}>
         Muxly
-        <span className={`nav-li${open ? " nav-li--open" : ""}`}> Li</span>
+        <span className={`nav-li${open ? " nav-li--open" : ""}`}>&nbsp;Li</span>
         ve
       </span>
     </span>
