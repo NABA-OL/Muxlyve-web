@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   ),
-  title: "Multi_Stream — Multistreaming sin marca de agua",
+  title: "Muxlyve — Multistreaming sin marca de agua",
   description: claim,
   icons: { icon: "/icon.svg", shortcut: "/favicon.ico" },
   openGraph: {
-    title: "Multi_Stream",
+    title: "Muxlyve",
     description: claim,
     images: ["/icon.svg"],
     type: "website",

@@ -23,8 +23,8 @@ export function Nav() {
   return (
     <nav className="nav" data-scrolled={scrolled}>
       <div className="container nav-inner">
-        <Link href="/" className="nav-logo" aria-label="Multi_Stream inicio">
-          <Image src="/logo.svg" alt="Multi_Stream" width={140} height={37} priority />
+        <Link href="/" className="nav-logo" aria-label="Muxlyve inicio">
+          <Image src="/logo.svg" alt="Muxlyve" width={140} height={37} priority />
         </Link>
         <div className="nav-links">
           {LINKS.map((l) => (

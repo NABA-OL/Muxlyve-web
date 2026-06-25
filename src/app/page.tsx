@@ -21,7 +21,7 @@ const FEATURES = [
   {
     icon: "🔁",
     title: "Reconexión automática",
-    body: "Si una plataforma se cae, Multi_Stream la reconecta sola sin cortar el resto de tus destinos.",
+    body: "Si una plataforma se cae, Muxlyve la reconecta sola sin cortar el resto de tus destinos.",
   },
   {
     icon: "👁️",
@@ -44,7 +44,7 @@ const COMPARE = [
   { kind: "bad" as const, text: "Servicios como Restream cobran mensualidad." },
   { kind: "bad" as const, text: "Ponen su marca de agua sobre tu video en el plan gratis." },
   { kind: "bad" as const, text: "Tu transmisión depende de los servidores de un tercero." },
-  { kind: "good" as const, text: "Multi_Stream: un pago, sin marca de agua, desde tu propio PC." },
+  { kind: "good" as const, text: "Muxlyve: un pago, sin marca de agua, desde tu propio PC." },
 ];
 
 export default function Home() {
@@ -67,7 +67,7 @@ export default function Home() {
                 <p className="section-lead">
                   Llegar a Twitch, Kick, YouTube y TikTok a la vez normalmente
                   significa pagar un servicio que pone su logo sobre tu video.
-                  Multi_Stream lo hace desde tu equipo, limpio y de una sola
+                  Muxlyve lo hace desde tu equipo, limpio y de una sola
                   compra.
                 </p>
               </div>

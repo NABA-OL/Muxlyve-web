@@ -6,7 +6,7 @@ export function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div>
-            <strong className="gradient-text">Multi_Stream</strong>
+            <strong className="gradient-text">Muxlyve</strong>
             <p style={{ marginTop: "0.5rem", maxWidth: "32ch" }}>
               Multistreaming de escritorio sin marca de agua. Un pago único.
             </p>
@@ -20,7 +20,7 @@ export function Footer() {
         </div>
         <div className="footer-legal">
           <span>
-            © {new Date().getFullYear()} <strong>NABA-OL</strong>. Multi_Stream es
+            © {new Date().getFullYear()} <strong>NABA-OL</strong>. Muxlyve es
             propiedad de NABA-OL. Todos los derechos reservados.
           </span>
           <span>

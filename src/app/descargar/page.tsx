@@ -5,15 +5,11 @@ import { Footer } from "@/components/Footer";
 import styles from "./descargar.module.css";
 
 export const metadata: Metadata = {
-  title: "Descargar — Multi_Stream",
-  description: "Descarga Multi_Stream para Windows. Requisitos e instrucciones de OBS.",
+  title: "Descargar — Muxlyve",
+  description: "Descarga Muxlyve para Windows. Requisitos e instrucciones de OBS.",
 };
 
-// ponytail: versión y enlace fijos por ahora. Apuntar a GitHub Releases cuando
-// el repo de la app publique el primer instalador (el doc lo deja como fuente única).
 const VERSION = "0.1.0 (beta)";
-const DOWNLOAD_URL =
-  "https://github.com/tu-usuario/Multi_Stream/releases/latest";
 
 const REQUISITOS = [
   "Windows 10 o 11 (64 bits)",
@@ -23,10 +19,10 @@ const REQUISITOS = [
 ];
 
 const PASOS_OBS = [
-  "Abre Multi_Stream e inicia sesión / activa tu licencia.",
+  "Abre Muxlyve e inicia sesión / activa tu licencia.",
   "En cada plataforma (Twitch, Kick, YouTube, TikTok) copia tu clave de transmisión.",
-  "Pégalas en Multi_Stream, una por destino.",
-  "En OBS, configura Multi_Stream como destino de salida y pulsa «Iniciar transmisión».",
+  "Pégalas en Muxlyve, una por destino.",
+  "En OBS, configura Muxlyve como destino de salida y pulsa «Iniciar transmisión».",
 ];
 
 export default function DescargarPage() {
@@ -38,7 +34,7 @@ export default function DescargarPage() {
           <div className="container">
             <span className="eyebrow">Descarga</span>
             <h1 className="section-title" style={{ fontSize: "var(--text-h2)" }}>
-              Multi_Stream para Windows
+              Muxlyve para Windows
             </h1>
             <p className="section-lead">
               Versión actual: <strong style={{ color: "var(--text)" }}>{VERSION}</strong>.
@@ -47,7 +43,7 @@ export default function DescargarPage() {
             </p>
 
             <div className={styles.downloadRow}>
-              <a className="btn btn-primary" href={DOWNLOAD_URL} rel="noopener noreferrer">
+              <a className="btn btn-primary" href="/api/download/win">
                 Descargar para Windows
               </a>
               <span className={styles.macNote}>macOS — próximamente</span>
