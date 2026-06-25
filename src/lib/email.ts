@@ -7,7 +7,7 @@ export async function sendLicenseEmail(
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) throw new Error("RESEND_API_KEY not configured");
 
-  const from = process.env.RESEND_FROM ?? "noreply@multistream.app";
+  const from = process.env.RESEND_FROM ?? "noreply@muxlyve.app";
   const resend = new Resend(apiKey);
 
   await resend.emails.send({

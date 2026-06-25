@@ -15,7 +15,7 @@ export function Footer() {
             <Link href="/descargar">Descargar</Link>
             <a href="#caracteristicas">Características</a>
             <a href="#precio">Precio</a>
-            <a href="mailto:soporte@multistream.app">Contacto</a>
+            <a href="mailto:soporte@muxlyve.app">Contacto</a>
           </nav>
         </div>
         <div className="footer-legal">
