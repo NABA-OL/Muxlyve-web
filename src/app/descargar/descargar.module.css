@@ -1,0 +1,67 @@
+.downloadRow {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.macNote {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 3rem;
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.list,
+.steps {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.7rem;
+  color: var(--muted);
+}
+
+.list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.list li {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.list li::before {
+  content: "•";
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.back {
+  margin-top: 3rem;
+}
+
+.back a {
+  color: var(--muted);
+}
+
+.back a:hover {
+  color: var(--text);
+}
+
+@media (max-width: 760px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
