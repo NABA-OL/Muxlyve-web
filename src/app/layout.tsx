@@ -18,11 +18,11 @@ export const metadata: Metadata = {
   ),
   title: "Muxlyve — Multistreaming sin marca de agua",
   description: claim,
-  icons: { icon: "/icon.svg", shortcut: "/favicon.ico" },
+  icons: { icon: "/icon-muxlyve.svg", shortcut: "/favicon-muxlyve.ico" },
   openGraph: {
     title: "Muxlyve",
     description: claim,
-    images: ["/icon.svg"],
+    images: ["/icon-muxlyve.svg"],
     type: "website",
   },
 };
