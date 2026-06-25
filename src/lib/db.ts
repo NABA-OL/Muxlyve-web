@@ -19,4 +19,18 @@ export async function ensureSchema(): Promise<void> {
       created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
     )
   `;
+  await sql`
+    CREATE TABLE IF NOT EXISTS settings (
+      key        TEXT PRIMARY KEY,
+      value      TEXT NOT NULL,
+      updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    )
+  `;
+  await sql`
+    INSERT INTO settings (key, value) VALUES
+      ('price_monthly',  ''),
+      ('price_annual',   ''),
+      ('price_lifetime', '')
+    ON CONFLICT DO NOTHING
+  `;
 }

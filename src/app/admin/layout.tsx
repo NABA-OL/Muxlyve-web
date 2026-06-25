@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { logoutAction } from "./login/actions";
 
 export default function AdminLayout({
@@ -18,11 +19,28 @@ export default function AdminLayout({
           position: "sticky",
           top: 0,
           zIndex: 50,
+          gap: "1rem",
         }}
       >
-        <span className="gradient-text" style={{ fontWeight: 700 }}>
-          Muxlyve · Admin
-        </span>
+        <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+          <span className="gradient-text" style={{ fontWeight: 700 }}>
+            Muxlyve · Admin
+          </span>
+          <nav style={{ display: "flex", gap: "1rem" }}>
+            <Link
+              href="/admin"
+              style={{ color: "var(--muted)", fontSize: "0.88rem", textDecoration: "none" }}
+            >
+              Licencias
+            </Link>
+            <Link
+              href="/admin/precios"
+              style={{ color: "var(--muted)", fontSize: "0.88rem", textDecoration: "none" }}
+            >
+              Precios
+            </Link>
+          </nav>
+        </div>
         <form action={logoutAction}>
           <button
             type="submit"

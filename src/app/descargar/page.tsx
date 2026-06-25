@@ -9,7 +9,30 @@ export const metadata: Metadata = {
   description: "Descarga Muxlyve para Windows. Requisitos e instrucciones de OBS.",
 };
 
-const VERSION = "0.1.0 (beta)";
+export const revalidate = 3600;
+
+const REPO = process.env.GITHUB_REPO ?? "NABA-OL/Muxlyve";
+
+async function getLatestVersion(): Promise<string> {
+  try {
+    const headers: HeadersInit = {
+      Accept: "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+    };
+    if (process.env.GITHUB_TOKEN) {
+      headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+    }
+    const res = await fetch(
+      `https://api.github.com/repos/${REPO}/releases/latest`,
+      { headers, next: { revalidate: 3600 } },
+    );
+    if (!res.ok) return "0.1.5 (beta)";
+    const data = (await res.json()) as { tag_name: string };
+    return `${data.tag_name.replace(/^v/, "")} (beta)`;
+  } catch {
+    return "0.1.5 (beta)";
+  }
+}
 
 const REQUISITOS = [
   "Windows 10 o 11 (64 bits)",
@@ -25,7 +48,8 @@ const PASOS_OBS = [
   "En OBS, configura Muxlyve como destino de salida y pulsa «Iniciar transmisión».",
 ];
 
-export default function DescargarPage() {
+export default async function DescargarPage() {
+  const version = await getLatestVersion();
   return (
     <>
       <Nav />
@@ -37,7 +61,7 @@ export default function DescargarPage() {
               Muxlyve para Windows
             </h1>
             <p className="section-lead">
-              Versión actual: <strong style={{ color: "var(--text)" }}>{VERSION}</strong>.
+              Versión actual: <strong style={{ color: "var(--text)" }}>{version}</strong>.
               Instálalo, activa tu licencia y transmite a las cuatro plataformas a
               la vez.
             </p>

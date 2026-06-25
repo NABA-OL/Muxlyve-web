@@ -5,7 +5,11 @@ import { Footer } from "@/components/Footer";
 import { RevealObserver } from "@/components/RevealObserver";
 import { PlatformIcon } from "@/components/PlatformIcon";
 import { PLATFORMS } from "@/lib/platforms";
+import { ensureSchema } from "@/lib/db";
+import { getSetting } from "@/lib/settings";
 import styles from "./page.module.css";
+
+export const revalidate = 60;
 
 const FEATURES = [
   {
@@ -47,7 +51,25 @@ const COMPARE = [
   { kind: "good" as const, text: "Muxlyve: un pago, sin marca de agua, desde tu propio PC." },
 ];
 
-export default function Home() {
+export default async function Home() {
+  let priceMonthly = "";
+  let priceAnnual = "";
+  let priceLifetime = "";
+  try {
+    await ensureSchema();
+    [priceMonthly, priceAnnual, priceLifetime] = await Promise.all([
+      getSetting("price_monthly"),
+      getSetting("price_annual"),
+      getSetting("price_lifetime"),
+    ]);
+  } catch {
+    // DB unavailable — show placeholders
+  }
+
+  function fmt(v: string) {
+    return v ? `$${v}` : "$—";
+  }
+
   return (
     <>
       <RevealObserver />
@@ -166,7 +188,7 @@ export default function Home() {
               <div className={styles.planCard}>
                 <span className="eyebrow">Mensual</span>
                 <div className={styles.amount}>
-                  $—<small>/mes</small>
+                  {fmt(priceMonthly)}<small>/mes</small>
                 </div>
                 <ul className={styles.includes}>
                   <li>Transmisión a las 4 plataformas</li>
@@ -189,7 +211,7 @@ export default function Home() {
                 <div className={styles.planBadge}>2 meses gratis</div>
                 <span className="eyebrow">Anual</span>
                 <div className={styles.amount}>
-                  $—<small>/año</small>
+                  {fmt(priceAnnual)}<small>/año</small>
                 </div>
                 <ul className={styles.includes}>
                   <li>Transmisión a las 4 plataformas</li>
@@ -213,7 +235,7 @@ export default function Home() {
                 </div>
                 <span className="eyebrow">Vitalicia</span>
                 <div className={styles.amount}>
-                  $—<small> / pago único</small>
+                  {fmt(priceLifetime)}<small> / pago único</small>
                 </div>
                 <p className={styles.planTagline}>
                   Deja de pagar mensualidades para siempre.
