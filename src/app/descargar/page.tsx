@@ -6,7 +6,7 @@ import styles from "./descargar.module.css";
 
 export const metadata: Metadata = {
   title: "Descargar — Muxlyve",
-  description: "Descarga Muxlyve para Windows. Requisitos e instrucciones de OBS.",
+  description: "Descarga Muxlyve para Windows y macOS. Requisitos e instrucciones de OBS.",
 };
 
 export const revalidate = 3600;
@@ -58,7 +58,7 @@ export default async function DescargarPage() {
           <div className="container">
             <span className="eyebrow">Descarga</span>
             <h1 className="section-title" style={{ fontSize: "var(--text-h2)" }}>
-              Muxlyve para Windows
+              Descarga Muxlyve
             </h1>
             <p className="section-lead">
               Versión actual: <strong style={{ color: "var(--text)" }}>{version}</strong>.
@@ -70,7 +70,9 @@ export default async function DescargarPage() {
               <a className="btn btn-primary" href="/api/download/win">
                 Descargar para Windows
               </a>
-              <span className={styles.macNote}>macOS — próximamente</span>
+              <a className="btn btn-ghost" href="/api/download/mac">
+                Descargar para macOS
+              </a>
             </div>
 
             <div className={styles.cards}>
