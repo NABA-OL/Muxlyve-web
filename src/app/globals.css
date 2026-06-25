@@ -127,7 +127,6 @@ section {
   border-radius: 10px;
   font-weight: 600;
   font-size: 0.98rem;
-  border: 1px solid transparent;
   cursor: pointer;
   transition: transform 0.18s var(--ease), box-shadow 0.18s var(--ease),
     background 0.18s var(--ease), border-color 0.18s var(--ease);
@@ -189,13 +188,13 @@ section {
 }
 
 .nav-links a {
-  color: var(--muted);
+  color: var(--text);
   font-size: 0.95rem;
   transition: color 0.18s var(--ease);
 }
 
 .nav-links a:hover {
-  color: var(--text);
+  color: var(--border);
 }
 
 .nav-logo img {
