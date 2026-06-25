@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   ),
   title: "Muxlyve — Multistreaming sin marca de agua",
   description: claim,
-  icons: { icon: "/icon-muxlyve.svg", shortcut: "/favicon-muxlyve.ico" },
+  icons: { icon: "/icon-muxlyve.svg", shortcut: "/favicon.ico" },
   openGraph: {
     title: "Muxlyve",
     description: claim,
