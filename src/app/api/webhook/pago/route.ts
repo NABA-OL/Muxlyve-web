@@ -10,14 +10,24 @@ async function verifyFreemius(req: NextRequest, body: string): Promise<boolean> 
   const secret = process.env.FREEMIUS_SECRET_KEY;
   if (!secret) return false;
 
+  // Log all headers for debugging (names only, not values)
+  console.log("Freemius webhook headers:", [...req.headers.keys()].join(", "));
+
   const sig =
     req.headers.get("x-fs-signature") ??
-    req.headers.get("x-wc-webhook-signature");
-  if (!sig) return false;
+    req.headers.get("x-wc-webhook-signature") ??
+    req.headers.get("x-freemius-signature");
+
+  if (!sig) {
+    console.error("Freemius webhook: no signature header found");
+    return false;
+  }
+
+  console.log("Freemius sig header present, length:", sig.length);
 
   const key = await crypto.subtle.importKey(
     "raw",
-    new TextEncoder().encode(secret),
+    new TextEncoder().encode(secret.trim()),
     { name: "HMAC", hash: "SHA-256" },
     false,
     ["sign"],
@@ -27,8 +37,14 @@ async function verifyFreemius(req: NextRequest, body: string): Promise<boolean> 
     key,
     new TextEncoder().encode(body),
   );
-  const expected = Buffer.from(hmac).toString("hex");
-  return sig === expected;
+  const expectedHex = Buffer.from(hmac).toString("hex");
+  const expectedB64 = Buffer.from(hmac).toString("base64");
+
+  const match = sig === expectedHex || sig === expectedB64;
+  if (!match) {
+    console.error("Freemius sig mismatch — sig length:", sig.length, "hex length:", expectedHex.length);
+  }
+  return match;
 }
 
 export async function POST(req: NextRequest) {
