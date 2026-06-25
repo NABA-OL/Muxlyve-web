@@ -196,14 +196,15 @@ export default async function Home() {
                   <li>1 equipo activo</li>
                   <li>Soporte por correo</li>
                 </ul>
-                {/* ponytail: placeholder Freemius — Fase 3 */}
-                <button
+                <a
                   className="btn btn-ghost"
+                  href="https://checkout.freemius.com/mode/page/plugin/32832/plan/53907/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{ width: "100%", justifyContent: "center" }}
-                  disabled
                 >
-                  Próximamente
-                </button>
+                  Suscribirse mensual
+                </a>
               </div>
 
               {/* Anual */}
@@ -219,13 +220,15 @@ export default async function Home() {
                   <li>1 equipo activo</li>
                   <li>Soporte por correo</li>
                 </ul>
-                <button
+                <a
                   className="btn btn-ghost"
+                  href="https://checkout.freemius.com/mode/page/plugin/32832/plan/53907/?billing_cycle=annual"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{ width: "100%", justifyContent: "center" }}
-                  disabled
                 >
-                  Próximamente
-                </button>
+                  Suscribirse anual
+                </a>
               </div>
 
               {/* Vitalicia — destacada */}
@@ -247,13 +250,15 @@ export default async function Home() {
                   <li>Actualizaciones de por vida</li>
                   <li>Soporte prioritario</li>
                 </ul>
-                <button
+                <a
                   className="btn btn-primary"
+                  href="https://checkout.freemius.com/mode/page/plugin/32832/plan/53899/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{ width: "100%", justifyContent: "center" }}
-                  disabled
                 >
-                  Comprar licencia (próximamente)
-                </button>
+                  Comprar licencia vitalicia
+                </a>
               </div>
             </div>
           </div>
