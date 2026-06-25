@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
 
-const REPO = process.env.GITHUB_REPO ?? "tu-usuario/Muxlyve";
+const REPO = process.env.GITHUB_REPO ?? "NABA-OL/Muxlyve";
 const RELEASES_PAGE = `https://github.com/${REPO}/releases`;
 
 const ASSET_PATTERN: Record<string, RegExp> = {
