@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { BackgroundFX } from "@/components/BackgroundFX";
 import "./globals.css";
 
 const inter = Inter({
@@ -31,7 +32,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" className={inter.variable}>
-      <body>{children}</body>
+      <body>
+        <BackgroundFX />
+        {children}
+      </body>
     </html>
   );
 }

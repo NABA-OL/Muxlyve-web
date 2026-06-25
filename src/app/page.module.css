@@ -111,24 +111,57 @@
 }
 
 /* ---- Precio ---- */
-.priceWrap {
+.pricingGrid {
   display: grid;
-  place-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  align-items: start;
 }
 
-.priceCard {
-  width: min(420px, 100%);
-  text-align: center;
-  background:
-    radial-gradient(120% 90% at 50% 0%, rgba(124, 92, 255, 0.14), transparent 60%),
-    var(--surface);
-  border: 1px solid color-mix(in oklab, var(--accent) 35%, var(--border));
+.planCard {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 2.4rem 2rem;
+  padding: 2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.planFeatured {
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(124, 92, 255, 0.16), transparent 60%),
+    var(--surface);
+  border-color: color-mix(in oklab, var(--accent) 45%, var(--border));
+  transform: scale(1.04);
+}
+
+.planBadge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--accent) 18%, transparent);
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+
+.planBadgeFeatured {
+  background: var(--grad);
+  color: #fff;
+}
+
+.planTagline {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin: 0.3rem 0 0.6rem;
 }
 
 .amount {
-  font-size: 3.2rem;
+  font-size: 3rem;
   font-weight: 700;
   letter-spacing: -0.03em;
   margin-block: 0.4rem;
@@ -143,22 +176,25 @@
 .includes {
   list-style: none;
   padding: 0;
-  margin: 1.6rem 0;
+  margin: 1.4rem 0 1.6rem;
   display: grid;
   gap: 0.7rem;
   text-align: left;
+  flex: 1;
 }
 
 .includes li {
   display: flex;
   gap: 0.6rem;
   color: var(--muted);
+  font-size: 0.94rem;
 }
 
 .includes li::before {
   content: "✓";
   color: var(--success);
   font-weight: 700;
+  flex: none;
 }
 
 /* ---- Descarga CTA ---- */
@@ -178,5 +214,11 @@
   }
   .features {
     grid-template-columns: 1fr;
+  }
+  .pricingGrid {
+    grid-template-columns: 1fr;
+  }
+  .planFeatured {
+    transform: none;
   }
 }

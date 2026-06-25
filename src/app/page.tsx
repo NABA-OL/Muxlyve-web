@@ -151,29 +151,86 @@ export default function Home() {
             >
               <span className="eyebrow">Precio</span>
               <h2 className="section-title" style={{ marginInline: "auto" }}>
-                Un pago. Tuyo para siempre.
+                Elige tu plan. Sin mensualidad eterna.
               </h2>
+              <p
+                className="section-lead"
+                style={{ marginInline: "auto", marginTop: "1rem" }}
+              >
+                Todos los planes incluyen transmisión sin marca de agua a las 4
+                plataformas.
+              </p>
             </div>
-            <div className={`${styles.priceWrap} reveal`}>
-              <div className={styles.priceCard}>
-                <span className="eyebrow">Licencia única</span>
+            <div className={`${styles.pricingGrid} reveal`}>
+              {/* Mensual */}
+              <div className={styles.planCard}>
+                <span className="eyebrow">Mensual</span>
+                <div className={styles.amount}>
+                  $—<small>/mes</small>
+                </div>
+                <ul className={styles.includes}>
+                  <li>Transmisión a las 4 plataformas</li>
+                  <li>Sin marca de agua</li>
+                  <li>1 equipo activo</li>
+                  <li>Soporte por correo</li>
+                </ul>
+                {/* ponytail: placeholder Freemius — Fase 3 */}
+                <button
+                  className="btn btn-ghost"
+                  style={{ width: "100%", justifyContent: "center" }}
+                  disabled
+                >
+                  Próximamente
+                </button>
+              </div>
+
+              {/* Anual */}
+              <div className={styles.planCard}>
+                <div className={styles.planBadge}>2 meses gratis</div>
+                <span className="eyebrow">Anual</span>
+                <div className={styles.amount}>
+                  $—<small>/año</small>
+                </div>
+                <ul className={styles.includes}>
+                  <li>Transmisión a las 4 plataformas</li>
+                  <li>Sin marca de agua</li>
+                  <li>1 equipo activo</li>
+                  <li>Soporte por correo</li>
+                </ul>
+                <button
+                  className="btn btn-ghost"
+                  style={{ width: "100%", justifyContent: "center" }}
+                  disabled
+                >
+                  Próximamente
+                </button>
+              </div>
+
+              {/* Vitalicia — destacada */}
+              <div className={`${styles.planCard} ${styles.planFeatured}`}>
+                <div className={`${styles.planBadge} ${styles.planBadgeFeatured}`}>
+                  Mejor valor
+                </div>
+                <span className="eyebrow">Vitalicia</span>
                 <div className={styles.amount}>
                   $—<small> / pago único</small>
                 </div>
-                <p style={{ color: "var(--muted)" }}>Precio por confirmar</p>
+                <p className={styles.planTagline}>
+                  Deja de pagar mensualidades para siempre.
+                </p>
                 <ul className={styles.includes}>
-                  <li>Transmisión simultánea a las 4 plataformas</li>
-                  <li>Sin marca de agua, sin suscripción</li>
-                  <li>Activación en hasta 2 equipos</li>
-                  <li>Actualizaciones incluidas</li>
+                  <li>Transmisión a las 4 plataformas</li>
+                  <li>Sin marca de agua</li>
+                  <li>Hasta 2 equipos activos</li>
+                  <li>Actualizaciones de por vida</li>
+                  <li>Soporte prioritario</li>
                 </ul>
-                {/* ponytail: placeholder de Freemius hasta integrar checkout (Fase 3) */}
                 <button
                   className="btn btn-primary"
                   style={{ width: "100%", justifyContent: "center" }}
                   disabled
                 >
-                  Comprar (próximamente)
+                  Comprar licencia (próximamente)
                 </button>
               </div>
             </div>

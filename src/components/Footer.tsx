@@ -19,10 +19,13 @@ export function Footer() {
           </nav>
         </div>
         <div className="footer-legal">
-          <span>© {new Date().getFullYear()} Multi_Stream</span>
           <span>
-            Usa FFmpeg (LGPL). Twitch, Kick, YouTube y TikTok son marcas de sus
-            respectivos dueños.
+            © {new Date().getFullYear()} <strong>NABA-OL</strong>. Multi_Stream es
+            propiedad de NABA-OL. Todos los derechos reservados.
+          </span>
+          <span>
+            Desarrollado por NABA-OL · Usa FFmpeg (LGPL). Twitch, Kick, YouTube y
+            TikTok son marcas de sus respectivos dueños.
           </span>
         </div>
       </div>
