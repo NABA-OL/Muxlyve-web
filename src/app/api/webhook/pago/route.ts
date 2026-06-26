@@ -3,28 +3,12 @@ import { createLicense } from "@/lib/licenses";
 import { sendLicenseEmail } from "@/lib/email";
 import { ensureSchema } from "@/lib/db";
 
-// Freemius firma el cuerpo del webhook con HMAC-SHA256.
-// Verifica el header exacto en: Freemius Dashboard → App → Webhooks.
-// Normalmente es "x-fs-signature" o "x-wc-webhook-signature".
 async function verifyFreemius(req: NextRequest, body: string): Promise<boolean> {
   const secret = process.env.FREEMIUS_SECRET_KEY;
   if (!secret) return false;
 
-  // Log all headers for debugging (names only, not values)
-  console.log("Freemius webhook headers:", [...req.headers.keys()].join(", "));
-
-  const sig =
-    req.headers.get("x-signature") ??
-    req.headers.get("x-fs-signature") ??
-    req.headers.get("x-wc-webhook-signature") ??
-    req.headers.get("x-freemius-signature");
-
-  if (!sig) {
-    console.error("Freemius webhook: no signature header found");
-    return false;
-  }
-
-  console.log("Freemius sig header present, length:", sig.length);
+  const sig = req.headers.get("x-signature") ?? req.headers.get("x-fs-signature");
+  if (!sig) return false;
 
   const key = await crypto.subtle.importKey(
     "raw",
@@ -33,20 +17,22 @@ async function verifyFreemius(req: NextRequest, body: string): Promise<boolean> 
     false,
     ["sign"],
   );
-  const hmac = await crypto.subtle.sign(
-    "HMAC",
-    key,
-    new TextEncoder().encode(body),
-  );
+  const hmac = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(body));
   const expectedHex = Buffer.from(hmac).toString("hex");
   const expectedB64 = Buffer.from(hmac).toString("base64");
-
-  const match = sig === expectedHex || sig === expectedB64;
-  if (!match) {
-    console.error("Freemius sig mismatch — sig length:", sig.length, "hex length:", expectedHex.length);
-  }
-  return match;
+  return sig === expectedHex || sig === expectedB64;
 }
+
+// Freemius payload shape (confirmed from logs):
+// { type, plugin_id, user_id, install_id, data, event_trigger,
+//   process_time, id, created, objects, is_live }
+// Purchase types observed: "plugin_purchase", "plugin_subscription_new"
+const PURCHASE_TYPES = new Set([
+  "plugin_purchase",
+  "plugin_subscription_new",
+  "purchase",
+  "subscription_new",
+]);
 
 export async function POST(req: NextRequest) {
   const body = await req.text();
@@ -63,30 +49,31 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  const event = payload.event as string;
-  console.log("Freemius event:", event, "keys:", Object.keys(payload).join(", "));
-  if (!["purchase.completed", "subscription.new", "purchase.new", "payment.new"].includes(event)) {
-    return NextResponse.json({ ok: true, skipped: true, event });
+  const type = payload.type as string;
+  console.log("Freemius type:", type, "objects keys:", Object.keys((payload.objects as Record<string, unknown>) ?? {}).join(", "));
+
+  if (!PURCHASE_TYPES.has(type)) {
+    return NextResponse.json({ ok: true, skipped: true, type });
   }
 
-  const purchase = payload.purchase as Record<string, unknown> | undefined;
-  const license = (payload.license ?? purchase?.license) as
-    | Record<string, unknown>
-    | undefined;
+  // objects contains the relevant records keyed by entity name
+  const objects = payload.objects as Record<string, unknown> | undefined;
+  const purchase = (objects?.purchase ?? objects?.payment) as Record<string, unknown> | undefined;
+  const license = (objects?.license) as Record<string, unknown> | undefined;
+  const user = (objects?.user) as Record<string, unknown> | undefined;
 
-  const email = (purchase?.billing_email ?? payload.email) as string;
-  const key = license?.secret_key as string;
-  const orderId = (purchase?.id as string | undefined) ?? null;
+  const email = (user?.email ?? purchase?.billing_email) as string | undefined;
+  const licenseKey = license?.secret_key as string | undefined;
+  const orderId = (purchase?.id as string | number | undefined)?.toString() ?? null;
 
-  if (!email || !key) {
+  if (!email || !licenseKey) {
+    console.error("Freemius webhook: missing email or license key. objects:", JSON.stringify(objects));
     return NextResponse.json({ error: "Missing email or key" }, { status: 400 });
   }
 
   await ensureSchema();
-  await createLicense({ key, email, orderId: orderId ?? undefined });
-  await sendLicenseEmail(email, key).catch(() => {
-    // Email failure no bloquea la respuesta al webhook
-  });
+  await createLicense({ key: licenseKey, email, orderId: orderId ?? undefined });
+  await sendLicenseEmail(email, licenseKey).catch(() => {});
 
   return NextResponse.json({ ok: true });
 }
