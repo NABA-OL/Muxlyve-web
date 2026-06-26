@@ -61,8 +61,12 @@ export async function POST(req: NextRequest) {
 
   if (SOFT_CANCEL_TYPES.has(type)) {
     if (licenseKey) {
+      const sub = objects?.subscription as Record<string, unknown> | undefined;
+      const nextPayment = sub?.next_payment as Record<string, unknown> | string | undefined;
+      const expiryStr = (typeof nextPayment === "object" ? nextPayment?.date : nextPayment) as string | undefined;
+      const expiresAt = expiryStr ? new Date(expiryStr) : null;
       await ensureSchema();
-      await softCancelLicense(licenseKey);
+      await softCancelLicense(licenseKey, expiresAt);
     }
     return NextResponse.json({ ok: true, type });
   }

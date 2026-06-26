@@ -100,11 +100,11 @@ export async function cancelLicense(key: string): Promise<void> {
 }
 
 // User cancelled auto-renewal but access continues until period end.
-// Keep status=active and devices; only clear renewsAt.
-export async function softCancelLicense(key: string): Promise<void> {
+// Keep status=active and devices; clear renewsAt, set expiresAt.
+export async function softCancelLicense(key: string, expiresAt?: Date | null): Promise<void> {
   const sql = getDb();
   await sql`
-    UPDATE licenses SET renews_at = NULL
+    UPDATE licenses SET renews_at = NULL, expires_at = ${expiresAt ?? null}
     WHERE key = ${hashKey(key)}
   `;
 }
