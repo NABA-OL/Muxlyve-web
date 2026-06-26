@@ -63,11 +63,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  // Freemius events: "purchase.completed", "subscription.new", etc.
-  // Ajusta los nombres de campo según el payload real de Freemius.
   const event = payload.event as string;
-  if (!["purchase.completed", "subscription.new"].includes(event)) {
-    return NextResponse.json({ ok: true, skipped: true });
+  console.log("Freemius event:", event, "keys:", Object.keys(payload).join(", "));
+  if (!["purchase.completed", "subscription.new", "purchase.new", "payment.new"].includes(event)) {
+    return NextResponse.json({ ok: true, skipped: true, event });
   }
 
   const purchase = payload.purchase as Record<string, unknown> | undefined;
