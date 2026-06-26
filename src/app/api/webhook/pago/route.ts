@@ -23,16 +23,10 @@ async function verifyFreemius(req: NextRequest, body: string): Promise<boolean> 
   return sig === expectedHex || sig === expectedB64;
 }
 
-// Freemius payload shape (confirmed from logs):
-// { type, plugin_id, user_id, install_id, data, event_trigger,
-//   process_time, id, created, objects, is_live }
-// Purchase types observed: "plugin_purchase", "plugin_subscription_new"
-const PURCHASE_TYPES = new Set([
-  "plugin_purchase",
-  "plugin_subscription_new",
-  "purchase",
-  "subscription_new",
-]);
+// Freemius confirmed types (from webhook logs):
+// license.created    → objects: { user, license }         — one-time purchase
+// subscription.created → objects: { user, subscription, license } — subscription
+const PURCHASE_TYPES = new Set(["license.created", "subscription.created"]);
 
 export async function POST(req: NextRequest) {
   const body = await req.text();
