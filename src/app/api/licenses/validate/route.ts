@@ -11,7 +11,14 @@ export async function POST(req: NextRequest) {
 
   try {
     const license = await validateDevice(key, machineId);
-    return NextResponse.json({ valid: true, email: license.email });
+    return NextResponse.json({
+      valid: true,
+      email: license.email,
+      plan: license.plan ?? "lifetime",
+      status: license.status,
+      renewsAt: license.renews_at ? new Date(license.renews_at).getTime() : null,
+      expiresAt: license.expires_at ? new Date(license.expires_at).getTime() : null,
+    });
   } catch {
     return NextResponse.json({ valid: false, error: "INVALID_LICENSE" }, { status: 403 });
   }
