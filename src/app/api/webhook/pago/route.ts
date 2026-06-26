@@ -66,9 +66,21 @@ export async function POST(req: NextRequest) {
   }
 
   const purchase = (objects?.purchase ?? objects?.payment) as Record<string, unknown> | undefined;
+  const subscription = objects?.subscription as Record<string, unknown> | undefined;
   const user = objects?.user as Record<string, unknown> | undefined;
   const email = (user?.email ?? purchase?.billing_email) as string | undefined;
   const orderId = (purchase?.id as string | number | undefined)?.toString() ?? null;
+
+  // Determine plan from subscription billing_cycle; no subscription = lifetime
+  let plan: "monthly" | "annual" | "lifetime" = "lifetime";
+  let renewsAt: Date | null = null;
+  if (subscription) {
+    const cycle = subscription.billing_cycle as string | undefined;
+    plan = cycle === "annual" ? "annual" : "monthly";
+    const nextDate = (subscription.next_payment as Record<string, unknown> | undefined)?.date as string | undefined
+      ?? subscription.next_payment as string | undefined;
+    if (nextDate) renewsAt = new Date(nextDate);
+  }
 
   if (!email || !licenseKey) {
     console.error("Freemius webhook: missing email or license key. objects:", JSON.stringify(objects));
@@ -76,7 +88,7 @@ export async function POST(req: NextRequest) {
   }
 
   await ensureSchema();
-  await createLicense({ key: licenseKey, email, orderId: orderId ?? undefined });
+  await createLicense({ key: licenseKey, email, orderId: orderId ?? undefined, plan, renewsAt });
   await sendLicenseEmail(email, licenseKey).catch(() => {});
 
   return NextResponse.json({ ok: true });

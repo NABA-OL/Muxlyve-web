@@ -16,9 +16,16 @@ export async function ensureSchema(): Promise<void> {
       max_devices INT  NOT NULL DEFAULT 2,
       devices     JSONB NOT NULL DEFAULT '[]',
       order_id    TEXT,
+      plan        TEXT,
+      renews_at   TIMESTAMPTZ,
+      expires_at  TIMESTAMPTZ,
       created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
     )
   `;
+  // Add columns to existing tables that predate this migration
+  await sql`ALTER TABLE licenses ADD COLUMN IF NOT EXISTS plan TEXT`;
+  await sql`ALTER TABLE licenses ADD COLUMN IF NOT EXISTS renews_at TIMESTAMPTZ`;
+  await sql`ALTER TABLE licenses ADD COLUMN IF NOT EXISTS expires_at TIMESTAMPTZ`;
   await sql`
     CREATE TABLE IF NOT EXISTS settings (
       key        TEXT PRIMARY KEY,

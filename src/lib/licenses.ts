@@ -8,6 +8,9 @@ export interface License {
   max_devices: number;
   devices: string[];
   order_id: string | null;
+  plan: "monthly" | "annual" | "lifetime" | null;
+  renews_at: string | null;
+  expires_at: string | null;
   created_at: string;
 }
 
@@ -30,14 +33,20 @@ export async function createLicense(data: {
   email: string;
   orderId?: string;
   maxDevices?: number;
+  plan?: "monthly" | "annual" | "lifetime";
+  renewsAt?: Date | null;
 }): Promise<void> {
   const sql = getDb();
   await sql`
-    INSERT INTO licenses (key, email, order_id, max_devices)
-    VALUES (${hashKey(data.key)}, ${data.email}, ${data.orderId ?? null}, ${data.maxDevices ?? 2})
+    INSERT INTO licenses (key, email, order_id, max_devices, plan, renews_at)
+    VALUES (
+      ${hashKey(data.key)}, ${data.email}, ${data.orderId ?? null},
+      ${data.maxDevices ?? 2}, ${data.plan ?? null}, ${data.renewsAt ?? null}
+    )
     ON CONFLICT (key) DO UPDATE
       SET status = 'active', devices = '[]'::jsonb,
-          email = EXCLUDED.email, order_id = EXCLUDED.order_id
+          email = EXCLUDED.email, order_id = EXCLUDED.order_id,
+          plan = EXCLUDED.plan, renews_at = EXCLUDED.renews_at
       WHERE licenses.status IN ('cancelled', 'refunded', 'disabled')
   `;
 }

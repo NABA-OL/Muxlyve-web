@@ -14,8 +14,15 @@ export async function POST(req: NextRequest) {
 
   try {
     const license = await activateDevice(key, machineId);
-    // token = the original plaintext key; Electron stores it to send on validate calls
-    return NextResponse.json({ valid: true, token: key, email: license.email });
+    return NextResponse.json({
+      valid: true,
+      token: key,
+      email: license.email,
+      plan: license.plan ?? "lifetime",
+      status: license.status,
+      renewsAt: license.renews_at ? new Date(license.renews_at).getTime() : null,
+      expiresAt: license.expires_at ? new Date(license.expires_at).getTime() : null,
+    });
   } catch (err) {
     const msg = err instanceof Error ? err.message : "ERROR";
     const status = msg === "DEVICE_LIMIT_REACHED_OR_INVALID" ? 403 : 400;
