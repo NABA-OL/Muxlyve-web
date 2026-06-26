@@ -91,14 +91,11 @@ export async function releaseDevice(
   key: string,
   machineId: string,
 ): Promise<void> {
-  const license = await findLicense(key);
-  if (!license) return;
-
-  const updated = license.devices.filter((d) => d !== machineId);
   const sql = getDb();
+  // jsonb - removes the element from the array directly in DB, no fetch needed
   await sql`
     UPDATE licenses
-    SET devices = ${JSON.stringify(updated)}::jsonb
+    SET devices = devices - ${machineId}
     WHERE key = ${hashKey(key)}
   `;
 }
