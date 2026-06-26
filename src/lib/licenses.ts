@@ -1,3 +1,4 @@
+import { createHmac } from "crypto";
 import { getDb } from "./db";
 
 export interface License {
@@ -10,9 +11,17 @@ export interface License {
   created_at: string;
 }
 
+// Keys stored as HMAC-SHA256 so DB leak doesn't expose usable keys.
+// KEY_HASH_SECRET must be set in env; without it keys are stored plaintext (unsafe).
+function hashKey(key: string): string {
+  const secret = process.env.KEY_HASH_SECRET;
+  if (!secret) return key; // ponytail: fallback keeps app working before env is set
+  return createHmac("sha256", secret).update(key.trim()).digest("hex");
+}
+
 export async function findLicense(key: string): Promise<License | null> {
   const sql = getDb();
-  const rows = await sql`SELECT * FROM licenses WHERE key = ${key}`;
+  const rows = await sql`SELECT * FROM licenses WHERE key = ${hashKey(key)}`;
   return (rows[0] as License) ?? null;
 }
 
@@ -25,7 +34,7 @@ export async function createLicense(data: {
   const sql = getDb();
   await sql`
     INSERT INTO licenses (key, email, order_id, max_devices)
-    VALUES (${data.key}, ${data.email}, ${data.orderId ?? null}, ${data.maxDevices ?? 2})
+    VALUES (${hashKey(data.key)}, ${data.email}, ${data.orderId ?? null}, ${data.maxDevices ?? 2})
     ON CONFLICT (key) DO NOTHING
   `;
 }
@@ -35,16 +44,17 @@ export async function activateDevice(
   machineId: string,
 ): Promise<License> {
   const sql = getDb();
+  const hashed = hashKey(key);
 
   const existing = await sql`
-    SELECT * FROM licenses WHERE key = ${key} AND devices @> ${JSON.stringify([machineId])}::jsonb
+    SELECT * FROM licenses WHERE key = ${hashed} AND devices @> ${JSON.stringify([machineId])}::jsonb
   `;
   if (existing[0]) return existing[0] as License;
 
   const rows = await sql`
     UPDATE licenses
     SET devices = devices || ${JSON.stringify([machineId])}::jsonb
-    WHERE key = ${key}
+    WHERE key = ${hashed}
       AND status = 'active'
       AND jsonb_array_length(devices) < max_devices
     RETURNING *
@@ -60,7 +70,7 @@ export async function validateDevice(
   const sql = getDb();
   const rows = await sql`
     SELECT * FROM licenses
-    WHERE key = ${key}
+    WHERE key = ${hashKey(key)}
       AND status = 'active'
       AND devices @> ${JSON.stringify([machineId])}::jsonb
   `;
@@ -73,7 +83,7 @@ export async function cancelLicense(key: string): Promise<void> {
   await sql`
     UPDATE licenses
     SET status = 'cancelled', devices = '[]'::jsonb
-    WHERE key = ${key}
+    WHERE key = ${hashKey(key)}
   `;
 }
 
@@ -89,6 +99,6 @@ export async function releaseDevice(
   await sql`
     UPDATE licenses
     SET devices = ${JSON.stringify(updated)}::jsonb
-    WHERE key = ${key}
+    WHERE key = ${hashKey(key)}
   `;
 }

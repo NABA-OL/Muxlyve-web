@@ -14,8 +14,8 @@ export async function POST(req: NextRequest) {
 
   try {
     const license = await activateDevice(key, machineId);
-    // token = the license key itself; Electron stores it for validate calls
-    return NextResponse.json({ valid: true, token: license.key, email: license.email });
+    // token = the original plaintext key; Electron stores it to send on validate calls
+    return NextResponse.json({ valid: true, token: key, email: license.email });
   } catch (err) {
     const msg = err instanceof Error ? err.message : "ERROR";
     const status = msg === "DEVICE_LIMIT_REACHED_OR_INVALID" ? 403 : 400;
