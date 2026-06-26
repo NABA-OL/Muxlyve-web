@@ -82,11 +82,12 @@ export async function POST(req: NextRequest) {
   const orderId = (purchase?.id as string | number | undefined)?.toString() ?? null;
 
   // Determine plan from subscription billing_cycle; no subscription = lifetime
+  // Freemius sends billing_cycle as a number: 1 = monthly, 12 = annual
   let plan: "monthly" | "annual" | "lifetime" = "lifetime";
   let renewsAt: Date | null = null;
   if (subscription) {
-    const cycle = subscription.billing_cycle as string | undefined;
-    plan = cycle === "annual" ? "annual" : "monthly";
+    const cycle = Number(subscription.billing_cycle ?? 1);
+    plan = cycle >= 12 ? "annual" : "monthly";
     const nextDate = (subscription.next_payment as Record<string, unknown> | undefined)?.date as string | undefined
       ?? subscription.next_payment as string | undefined;
     if (nextDate) renewsAt = new Date(nextDate);
