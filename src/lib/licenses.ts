@@ -3,7 +3,7 @@ import { getDb } from "./db";
 export interface License {
   key: string;
   email: string;
-  status: "active" | "refunded" | "disabled";
+  status: "active" | "cancelled" | "refunded" | "disabled";
   max_devices: number;
   devices: string[];
   order_id: string | null;
@@ -67,6 +67,15 @@ export async function validateDevice(
   `;
   if (!rows[0]) throw new Error("NOT_FOUND");
   return rows[0] as License;
+}
+
+export async function cancelLicense(key: string): Promise<void> {
+  const sql = getDb();
+  await sql`
+    UPDATE licenses
+    SET status = 'cancelled', devices = '[]'::jsonb
+    WHERE key = ${key}
+  `;
 }
 
 export async function releaseDevice(

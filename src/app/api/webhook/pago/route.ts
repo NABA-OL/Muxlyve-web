@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createLicense } from "@/lib/licenses";
+import { createLicense, cancelLicense } from "@/lib/licenses";
 import { sendLicenseEmail } from "@/lib/email";
 import { ensureSchema } from "@/lib/db";
 
@@ -23,10 +23,13 @@ async function verifyFreemius(req: NextRequest, body: string): Promise<boolean> 
   return sig === expectedHex || sig === expectedB64;
 }
 
-// Freemius confirmed types (from webhook logs):
-// license.created    → objects: { user, license }         — one-time purchase
-// subscription.created → objects: { user, subscription, license } — subscription
 const PURCHASE_TYPES = new Set(["license.created", "subscription.created"]);
+const CANCEL_TYPES = new Set([
+  "license.cancelled",
+  "license.expired",
+  "subscription.cancelled",
+  "refund.created",
+]);
 
 export async function POST(req: NextRequest) {
   const body = await req.text();
@@ -46,18 +49,25 @@ export async function POST(req: NextRequest) {
   const type = payload.type as string;
   console.log("Freemius type:", type, "objects keys:", Object.keys((payload.objects as Record<string, unknown>) ?? {}).join(", "));
 
+  const objects = payload.objects as Record<string, unknown> | undefined;
+  const license = objects?.license as Record<string, unknown> | undefined;
+  const licenseKey = license?.secret_key as string | undefined;
+
+  if (CANCEL_TYPES.has(type)) {
+    if (licenseKey) {
+      await ensureSchema();
+      await cancelLicense(licenseKey);
+    }
+    return NextResponse.json({ ok: true, type });
+  }
+
   if (!PURCHASE_TYPES.has(type)) {
     return NextResponse.json({ ok: true, skipped: true, type });
   }
 
-  // objects contains the relevant records keyed by entity name
-  const objects = payload.objects as Record<string, unknown> | undefined;
   const purchase = (objects?.purchase ?? objects?.payment) as Record<string, unknown> | undefined;
-  const license = (objects?.license) as Record<string, unknown> | undefined;
-  const user = (objects?.user) as Record<string, unknown> | undefined;
-
+  const user = objects?.user as Record<string, unknown> | undefined;
   const email = (user?.email ?? purchase?.billing_email) as string | undefined;
-  const licenseKey = license?.secret_key as string | undefined;
   const orderId = (purchase?.id as string | number | undefined)?.toString() ?? null;
 
   if (!email || !licenseKey) {
