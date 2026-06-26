@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createLicense, cancelLicense } from "@/lib/licenses";
+import { createLicense, cancelLicense, softCancelLicense } from "@/lib/licenses";
 import { sendLicenseEmail } from "@/lib/email";
 import { ensureSchema } from "@/lib/db";
 
@@ -24,12 +24,10 @@ async function verifyFreemius(req: NextRequest, body: string): Promise<boolean> 
 }
 
 const PURCHASE_TYPES = new Set(["license.created", "subscription.created"]);
-const CANCEL_TYPES = new Set([
-  "license.cancelled",
-  "license.expired",
-  "subscription.cancelled",
-  "refund.created",
-]);
+// Hard cancel: revoke access immediately, evict devices
+const HARD_CANCEL_TYPES = new Set(["license.cancelled", "license.expired", "refund.created"]);
+// Soft cancel: user cancelled auto-renew, access continues until period ends
+const SOFT_CANCEL_TYPES = new Set(["subscription.cancelled"]);
 
 export async function POST(req: NextRequest) {
   const body = await req.text();
@@ -53,10 +51,18 @@ export async function POST(req: NextRequest) {
   const license = objects?.license as Record<string, unknown> | undefined;
   const licenseKey = license?.secret_key as string | undefined;
 
-  if (CANCEL_TYPES.has(type)) {
+  if (HARD_CANCEL_TYPES.has(type)) {
     if (licenseKey) {
       await ensureSchema();
       await cancelLicense(licenseKey);
+    }
+    return NextResponse.json({ ok: true, type });
+  }
+
+  if (SOFT_CANCEL_TYPES.has(type)) {
+    if (licenseKey) {
+      await ensureSchema();
+      await softCancelLicense(licenseKey);
     }
     return NextResponse.json({ ok: true, type });
   }
