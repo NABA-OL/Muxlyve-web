@@ -35,7 +35,10 @@ export async function createLicense(data: {
   await sql`
     INSERT INTO licenses (key, email, order_id, max_devices)
     VALUES (${hashKey(data.key)}, ${data.email}, ${data.orderId ?? null}, ${data.maxDevices ?? 2})
-    ON CONFLICT (key) DO NOTHING
+    ON CONFLICT (key) DO UPDATE
+      SET status = 'active', devices = '[]'::jsonb,
+          email = EXCLUDED.email, order_id = EXCLUDED.order_id
+      WHERE licenses.status IN ('cancelled', 'refunded', 'disabled')
   `;
 }
 
