@@ -14,6 +14,7 @@ async function verifyFreemius(req: NextRequest, body: string): Promise<boolean> 
   console.log("Freemius webhook headers:", [...req.headers.keys()].join(", "));
 
   const sig =
+    req.headers.get("x-signature") ??
     req.headers.get("x-fs-signature") ??
     req.headers.get("x-wc-webhook-signature") ??
     req.headers.get("x-freemius-signature");
