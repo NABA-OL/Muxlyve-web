@@ -10,11 +10,9 @@ export interface License {
   created_at: string;
 }
 
-const norm = (k: string) => k.toLowerCase().trim();
-
 export async function findLicense(key: string): Promise<License | null> {
   const sql = getDb();
-  const rows = await sql`SELECT * FROM licenses WHERE key = ${norm(key)}`;
+  const rows = await sql`SELECT * FROM licenses WHERE key = ${key}`;
   return (rows[0] as License) ?? null;
 }
 
@@ -27,7 +25,7 @@ export async function createLicense(data: {
   const sql = getDb();
   await sql`
     INSERT INTO licenses (key, email, order_id, max_devices)
-    VALUES (${norm(data.key)}, ${data.email}, ${data.orderId ?? null}, ${data.maxDevices ?? 2})
+    VALUES (${data.key}, ${data.email}, ${data.orderId ?? null}, ${data.maxDevices ?? 2})
     ON CONFLICT (key) DO NOTHING
   `;
 }
@@ -37,17 +35,16 @@ export async function activateDevice(
   machineId: string,
 ): Promise<License> {
   const sql = getDb();
-  const k = norm(key);
 
   const existing = await sql`
-    SELECT * FROM licenses WHERE key = ${k} AND devices @> ${JSON.stringify([machineId])}::jsonb
+    SELECT * FROM licenses WHERE key = ${key} AND devices @> ${JSON.stringify([machineId])}::jsonb
   `;
   if (existing[0]) return existing[0] as License;
 
   const rows = await sql`
     UPDATE licenses
     SET devices = devices || ${JSON.stringify([machineId])}::jsonb
-    WHERE key = ${k}
+    WHERE key = ${key}
       AND status = 'active'
       AND jsonb_array_length(devices) < max_devices
     RETURNING *
@@ -63,7 +60,7 @@ export async function validateDevice(
   const sql = getDb();
   const rows = await sql`
     SELECT * FROM licenses
-    WHERE key = ${norm(key)}
+    WHERE key = ${key}
       AND status = 'active'
       AND devices @> ${JSON.stringify([machineId])}::jsonb
   `;
@@ -76,7 +73,7 @@ export async function cancelLicense(key: string): Promise<void> {
   await sql`
     UPDATE licenses
     SET status = 'cancelled', devices = '[]'::jsonb
-    WHERE key = ${norm(key)}
+    WHERE key = ${key}
   `;
 }
 
@@ -92,6 +89,6 @@ export async function releaseDevice(
   await sql`
     UPDATE licenses
     SET devices = ${JSON.stringify(updated)}::jsonb
-    WHERE key = ${norm(key)}
+    WHERE key = ${key}
   `;
 }
