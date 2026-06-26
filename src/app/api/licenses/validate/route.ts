@@ -6,19 +6,13 @@ export async function POST(req: NextRequest) {
   const { key, machineId } = body;
 
   if (!key || !machineId) {
-    return NextResponse.json(
-      { ok: false, error: "MISSING_PARAMS" },
-      { status: 400 },
-    );
+    return NextResponse.json({ valid: false, error: "MISSING_PARAMS" }, { status: 400 });
   }
 
   try {
-    await validateDevice(key, machineId);
-    return NextResponse.json({ ok: true, status: "active" });
+    const license = await validateDevice(key, machineId);
+    return NextResponse.json({ valid: true, email: license.email });
   } catch {
-    return NextResponse.json(
-      { ok: false, error: "INVALID_LICENSE" },
-      { status: 403 },
-    );
+    return NextResponse.json({ valid: false, error: "INVALID_LICENSE" }, { status: 403 });
   }
 }
