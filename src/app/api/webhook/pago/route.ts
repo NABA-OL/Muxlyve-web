@@ -1,3 +1,4 @@
+// Desarrollado por NABA-OL
 import { NextRequest, NextResponse } from "next/server";
 import { createLicense, cancelLicense, softCancelLicense } from "@/lib/licenses";
 import { sendLicenseEmail } from "@/lib/email";

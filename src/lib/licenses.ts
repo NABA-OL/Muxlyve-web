@@ -1,3 +1,4 @@
+// Desarrollado por NABA-OL
 import { createHmac } from "crypto";
 import { getDb } from "./db";
 

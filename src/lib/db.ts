@@ -1,3 +1,4 @@
+// Desarrollado por NABA-OL
 import { neon } from "@neondatabase/serverless";
 
 export function getDb() {
