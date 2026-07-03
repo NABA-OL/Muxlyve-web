@@ -17,7 +17,7 @@ export function Footer() {
             <a href="#precio">Precio</a>
             <a href="mailto:soporte@muxlyve.app">Contacto</a>
             <a
-              href="https://discord.gg/muxlyve"
+              href="https://discord.gg/ttRqRkAG"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Discord de Muxlyve"
