@@ -9,7 +9,7 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muxlyve.vercel.app";
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muxlyve.com";
 
 const claim =
   "Software de multistreaming para Windows. Transmite a Twitch, Kick, YouTube y TikTok al mismo tiempo, sin marca de agua y sin pagar mensualidad. Pago único.";

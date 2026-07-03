@@ -11,7 +11,7 @@ import styles from "./page.module.css";
 
 export const revalidate = 60;
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muxlyve.vercel.app";
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muxlyve.com";
 
 const jsonLd = {
   "@context": "https://schema.org",
