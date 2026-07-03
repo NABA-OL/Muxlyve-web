@@ -5,9 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 const LINKS = [
-  { href: "#que-hace", label: "Inicio" },
-  { href: "#caracteristicas", label: "Características" },
-  { href: "#precio", label: "Precio" },
+  { href: "/#que-hace", label: "Inicio" },
+  { href: "/#caracteristicas", label: "Características" },
+  { href: "/#precio", label: "Precio" },
 ];
 
 function WordmarkLogo() {
