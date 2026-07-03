@@ -11,6 +11,31 @@ import styles from "./page.module.css";
 
 export const revalidate = 60;
 
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muxlyve.vercel.app";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Muxlyve",
+  operatingSystem: "Windows",
+  applicationCategory: "MultimediaApplication",
+  description:
+    "Software de multistreaming para Windows. Transmite a Twitch, Kick, YouTube y TikTok al mismo tiempo sin marca de agua.",
+  url: BASE,
+  offers: [
+    { "@type": "Offer", name: "Mensual", priceCurrency: "USD", priceSpecification: { "@type": "UnitPriceSpecification", priceType: "https://schema.org/RecurringCharge", billingIncrement: 1 } },
+    { "@type": "Offer", name: "Anual", priceCurrency: "USD", priceSpecification: { "@type": "UnitPriceSpecification", priceType: "https://schema.org/RecurringCharge", billingIncrement: 12 } },
+    { "@type": "Offer", name: "Vitalicia", priceCurrency: "USD", priceSpecification: { "@type": "UnitPriceSpecification", priceType: "https://schema.org/OneTimePurchase" } },
+  ],
+  featureList: [
+    "Multistreaming sin marca de agua",
+    "Compatible con OBS",
+    "Reconexión automática",
+    "Preview en vivo por destino",
+    "Twitch, Kick, YouTube, TikTok",
+  ],
+};
+
 const FEATURES = [
   {
     icon: "🚫",
@@ -72,6 +97,10 @@ export default async function Home() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <RevealObserver />
       <Nav />
       <main>
