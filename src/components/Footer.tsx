@@ -8,7 +8,7 @@ export function Footer() {
           <div>
             <strong className="gradient-text">Muxlyve</strong>
             <p style={{ marginTop: "0.5rem", maxWidth: "32ch" }}>
-              Multistreaming de escritorio sin marca de agua. Un pago único.
+              Multistreaming de escritorio sin marca de agua. Mensual, anual o de por vida.
             </p>
           </div>
           <nav className="footer-links" aria-label="Pie de página">
@@ -19,13 +19,9 @@ export function Footer() {
           </nav>
         </div>
         <div className="footer-legal">
+          <span>© {new Date().getFullYear()} Muxlyve. Todos los derechos reservados.</span>
           <span>
-            © {new Date().getFullYear()} <strong>NABA-OL</strong>. Muxlyve es
-            propiedad de NABA-OL. Todos los derechos reservados.
-          </span>
-          <span>
-            Desarrollado por NABA-OL · Usa FFmpeg (LGPL). Twitch, Kick, YouTube y
-            TikTok son marcas de sus respectivos dueños.
+            Desarrollado por NABA-OL · Usa FFmpeg (LGPL) · Twitch, Kick, YouTube y TikTok son marcas de sus respectivos dueños.
           </span>
         </div>
       </div>

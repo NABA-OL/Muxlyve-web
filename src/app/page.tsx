@@ -202,7 +202,7 @@ export default async function Home() {
             >
               <span className="eyebrow">Precio</span>
               <h2 className="section-title" style={{ marginInline: "auto" }}>
-                Elige tu plan. Sin mensualidad eterna.
+                Elige tu plan. Mensual, anual o de por vida.
               </h2>
               <p
                 className="section-lead"
@@ -220,7 +220,7 @@ export default async function Home() {
                   {fmt(priceMonthly)}<small>/mes</small>
                 </div>
                 <ul className={styles.includes}>
-                  <li>Transmisión a las 4 plataformas</li>
+                  <li>Transmisión a 2 plataformas</li>
                   <li>Sin marca de agua</li>
                   <li>1 equipo activo</li>
                   <li>Soporte por correo</li>
@@ -244,7 +244,7 @@ export default async function Home() {
                   {fmt(priceAnnual)}<small>/año</small>
                 </div>
                 <ul className={styles.includes}>
-                  <li>Transmisión a las 4 plataformas</li>
+                  <li>Transmisión a 3 plataformas</li>
                   <li>Sin marca de agua</li>
                   <li>1 equipo activo</li>
                   <li>Soporte por correo</li>
@@ -273,10 +273,9 @@ export default async function Home() {
                   Deja de pagar mensualidades para siempre.
                 </p>
                 <ul className={styles.includes}>
-                  <li>Transmisión a las 4 plataformas</li>
+                  <li>Transmisión a todas las plataformas</li>
                   <li>Sin marca de agua</li>
                   <li>Hasta 2 equipos activos</li>
-                  <li>Actualizaciones de por vida</li>
                   <li>Soporte prioritario</li>
                 </ul>
                 <a

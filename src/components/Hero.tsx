@@ -35,8 +35,8 @@ export function Hero() {
               a la vez.
             </h1>
             <p className={styles.lead}>
-              Sin marca de agua. Desde tu PC. Un pago único, sin suscripciones ni
-              servidores intermediarios.
+              Sin marca de agua. Desde tu PC. Sin servidores intermediarios ni
+              ancho de banda de terceros.
             </p>
             <div className={styles.actions}>
               <Link href="/descargar" className="btn btn-primary">
@@ -47,7 +47,7 @@ export function Hero() {
               </Link>
             </div>
             <p className={styles.note}>
-              Windows · Mac próximamente · No necesita tarjeta
+              Windows · Mac próximamente
             </p>
           </div>
 
