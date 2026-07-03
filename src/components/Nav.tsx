@@ -22,11 +22,11 @@ function WordmarkLogo() {
       // wait 1.5-4s, then expand
       t = setTimeout(() => {
         setOpen(true);
-        // hold 1.2s, then collapse and reschedule
+        // hold 2.8s, then collapse and reschedule
         t = setTimeout(() => {
           setOpen(false);
           cycle();
-        }, 1200);
+        }, 2800);
       }, 1500 + Math.random() * 2500);
     }
 
