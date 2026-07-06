@@ -80,13 +80,32 @@ export default async function Home() {
   let priceMonthly = "";
   let priceAnnual = "";
   let priceLifetime = "";
+  let monthlyVisible = true;
+  let annualVisible = true;
+  let lifetimeVisible = true;
+  let promoActive = false;
+  let promoText = "";
+  let promoCoupon = "";
   try {
     await ensureSchema();
-    [priceMonthly, priceAnnual, priceLifetime] = await Promise.all([
+    const settings = await Promise.all([
       getSetting("price_monthly"),
       getSetting("price_annual"),
       getSetting("price_lifetime"),
+      getSetting("plan_monthly_visible", "true"),
+      getSetting("plan_annual_visible", "true"),
+      getSetting("plan_lifetime_visible", "true"),
+      getSetting("promo_active", "false"),
+      getSetting("promo_text"),
+      getSetting("promo_coupon"),
     ]);
+    [priceMonthly, priceAnnual, priceLifetime] = settings;
+    monthlyVisible = settings[3] !== "false";
+    annualVisible = settings[4] !== "false";
+    lifetimeVisible = settings[5] !== "false";
+    promoActive = settings[6] === "true";
+    promoText = settings[7];
+    promoCoupon = settings[8];
   } catch {
     // DB unavailable — show placeholders
   }
@@ -103,6 +122,21 @@ export default async function Home() {
       />
       <RevealObserver />
       <Nav />
+      {promoActive && promoText && (
+        <div style={{
+          background: "linear-gradient(90deg, rgba(124,92,255,0.18), rgba(77,163,255,0.18))",
+          borderBottom: "1px solid rgba(124,92,255,0.3)",
+          padding: "0.6rem 1.5rem",
+          textAlign: "center",
+          fontSize: "0.9rem",
+          color: "var(--text)",
+        }}>
+          {promoText}
+          {promoCoupon && (
+            <> · Código: <code style={{ background: "rgba(124,92,255,0.2)", padding: "0.1rem 0.5rem", borderRadius: "4px", fontWeight: 700 }}>{promoCoupon}</code></>
+          )}
+        </div>
+      )}
       <main>
         <Hero />
 
@@ -214,7 +248,7 @@ export default async function Home() {
             </div>
             <div className={`${styles.pricingGrid} reveal`}>
               {/* Mensual */}
-              <div className={styles.planCard}>
+              {monthlyVisible && <div className={styles.planCard}>
                 <span className="eyebrow">Mensual</span>
                 <div className={styles.amount}>
                   {fmt(priceMonthly)}<small>/mes</small>
@@ -234,10 +268,10 @@ export default async function Home() {
                 >
                   Suscribirse mensual
                 </a>
-              </div>
+              </div>}
 
               {/* Anual */}
-              <div className={styles.planCard}>
+              {annualVisible && <div className={styles.planCard}>
                 <div className={styles.planBadge}>2 meses gratis</div>
                 <span className="eyebrow">Anual</span>
                 <div className={styles.amount}>
@@ -258,10 +292,10 @@ export default async function Home() {
                 >
                   Suscribirse anual
                 </a>
-              </div>
+              </div>}
 
               {/* Vitalicia — destacada */}
-              <div className={`${styles.planCard} ${styles.planFeatured}`}>
+              {lifetimeVisible && <div className={`${styles.planCard} ${styles.planFeatured}`}>
                 <div className={`${styles.planBadge} ${styles.planBadgeFeatured}`}>
                   Mejor valor
                 </div>
@@ -287,7 +321,7 @@ export default async function Home() {
                 >
                   Comprar licencia vitalicia
                 </a>
-              </div>
+              </div>}
             </div>
           </div>
         </section>

@@ -41,4 +41,17 @@ export async function ensureSchema(): Promise<void> {
       ('price_lifetime', '')
     ON CONFLICT DO NOTHING
   `;
+  await sql`
+    CREATE TABLE IF NOT EXISTS error_reports (
+      id          SERIAL PRIMARY KEY,
+      email       TEXT,
+      app_version TEXT,
+      platform    TEXT,
+      os_version  TEXT,
+      description TEXT NOT NULL,
+      log_excerpt TEXT,
+      ip          TEXT NOT NULL,
+      created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+    )
+  `;
 }

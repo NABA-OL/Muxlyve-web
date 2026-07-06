@@ -40,6 +40,18 @@ export default function AdminLayout({
               Precios
             </Link>
             <Link
+              href="/admin/banner"
+              style={{ color: "var(--muted)", fontSize: "0.88rem", textDecoration: "none" }}
+            >
+              Banner
+            </Link>
+            <Link
+              href="/admin/reportes"
+              style={{ color: "var(--muted)", fontSize: "0.88rem", textDecoration: "none" }}
+            >
+              Reportes
+            </Link>
+            <Link
               href="/admin/contrasena"
               style={{ color: "var(--muted)", fontSize: "0.88rem", textDecoration: "none" }}
             >
