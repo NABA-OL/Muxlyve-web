@@ -147,13 +147,12 @@ export default async function Home() {
               <div>
                 <span className="eyebrow">El problema</span>
                 <h2 className="section-title">
-                  Multistreaming sin pagar una mensualidad ni regalar tu marca.
+                  Multistreaming.
                 </h2>
                 <p className="section-lead">
                   Llegar a Twitch, Kick, YouTube y TikTok a la vez normalmente
                   significa pagar un servicio que pone su logo sobre tu video.
-                  Muxlyve lo hace desde tu equipo, limpio y de una sola
-                  compra.
+                  Muxlyve lo hace desde tu equipo, limpio y seguro.
                 </p>
               </div>
               <div className={styles.compare}>
