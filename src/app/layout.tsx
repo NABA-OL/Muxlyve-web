@@ -12,7 +12,7 @@ const inter = Inter({
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muxlyve.com";
 
 const claim =
-  "Software de multistreaming para Windows. Transmite a Twitch, Kick, YouTube y TikTok al mismo tiempo, sin marca de agua y sin pagar mensualidad. Pago único.";
+  "Software de multistreaming para Windows. Transmite a Twitch, Kick, YouTube y TikTok al mismo tiempo, sin marca de agua.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE),
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   keywords: [
     "multistreaming", "multistream windows", "transmitir twitch kick youtube tiktok",
     "software multistream", "multistreaming sin marca de agua", "alternativa restream",
-    "multistream pago único", "transmitir varias plataformas", "OBS multistream",
+    "multistream", "transmitir varias plataformas", "OBS multistream",
   ],
   icons: { icon: "/icon-muxlyve.svg", shortcut: "/favicon.ico" },
   alternates: { canonical: BASE },
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Muxlyve — Multistreaming sin marca de agua",
-    description: "Transmite a Twitch, Kick, YouTube y TikTok a la vez. Sin marca de agua. Pago único.",
+    description: "Transmite a Twitch, Kick, YouTube y TikTok a la vez. Sin marca de agua.",
     images: ["/og-image.png"],
   },
 };

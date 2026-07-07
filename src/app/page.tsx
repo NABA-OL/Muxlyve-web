@@ -59,8 +59,8 @@ const FEATURES = [
   },
   {
     icon: "💸",
-    title: "Pago único",
-    body: "Una sola compra. Sin suscripción mensual, sin cobros por horas transmitidas.",
+    title: "Pagos accequibles",
+    body: "Pagos accequibles, sin cobros por horas transmitidas.",
   },
   {
     icon: "⚙️",
