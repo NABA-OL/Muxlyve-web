@@ -1,4 +1,4 @@
-// Desarrollado por NABA-OL
+// Desarrollado por BlacKraken Solutions
 import { NextRequest, NextResponse } from "next/server";
 import { activateDevice } from "@/lib/licenses";
 import { ensureSchema } from "@/lib/db";

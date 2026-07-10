@@ -1,4 +1,4 @@
-// Desarrollado por NABA-OL
+// Desarrollado por BlacKraken Solutions
 import { createHmac } from "crypto";
 import { getDb } from "./db";
 

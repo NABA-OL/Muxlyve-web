@@ -31,11 +31,18 @@ export function Footer() {
           </nav>
         </div>
         <div className="footer-legal">
-          <span>© {new Date().getFullYear()} Muxlyve. Todos los derechos reservados.</span>
+          <span>© {new Date().getFullYear()} Muxlyve · All rights reserved</span>
           <span style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
             <Link href="/privacidad">Privacidad</Link>
             <Link href="/terminos">Términos</Link>
-            <span>Desarrollado por NABA-OL · Usa FFmpeg (LGPL) · Twitch, Kick, YouTube y TikTok son marcas de sus respectivos dueños.</span>
+            <a
+              href="https://blackraken.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "inherit" }}
+            >
+              Developed by BlacKraken Solutions.
+            </a>
           </span>
         </div>
       </div>

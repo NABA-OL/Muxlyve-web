@@ -1,4 +1,4 @@
-// Desarrollado por NABA-OL
+// Desarrollado por BlacKraken Solutions
 export const metadata = {
   title: "Política de Privacidad – Muxlyve",
 };

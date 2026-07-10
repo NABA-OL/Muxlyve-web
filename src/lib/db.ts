@@ -1,4 +1,4 @@
-// Desarrollado por NABA-OL
+// Desarrollado por BlacKraken Solutions
 import { neon } from "@neondatabase/serverless";
 
 export function getDb() {
