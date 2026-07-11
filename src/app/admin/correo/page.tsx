@@ -1,6 +1,7 @@
 // Desarrollado por BlacKraken Solutions
 import type { CSSProperties } from "react";
 import { sendOutreachAction } from "./actions";
+import { BodyEditor } from "./BodyEditor";
 
 type Props = {
   searchParams: Promise<{ sent?: string; error?: string }>;
@@ -89,17 +90,9 @@ export default async function CorreoPage({ searchParams }: Props) {
 
         <label style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
           <span style={{ fontSize: "0.85rem", fontWeight: 600 }}>Cuerpo del correo</span>
-          <textarea
-            name="body"
-            required
-            rows={14}
-            placeholder={
-              "Hola **Nombre**,\n\nMe puse en contacto contigo porque creo que **Muxlyve** puede ayudarte a:\n\n- Transmitir a Twitch, YouTube y Kick al mismo tiempo\n- Sin marca de agua\n- Sin costos recurrentes\n\nSaludos,"
-            }
-            style={{ ...inputStyle, resize: "vertical", lineHeight: 1.65, fontFamily: "inherit" }}
-          />
+          <BodyEditor />
           <span style={{ fontSize: "0.78rem", color: "var(--muted)" }}>
-            Soporta Markdown: <code>**negrita**</code>, <code>*cursiva*</code>, <code>- listas</code>, <code>[link](url)</code>
+            Escribe aquí o pega (Ctrl+V) un correo copiado de Gmail — negrillas, listas y links se conservan igual.
           </span>
         </label>
 
