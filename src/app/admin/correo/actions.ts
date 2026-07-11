@@ -2,7 +2,7 @@
 "use server";
 import { Resend } from "resend";
 import { redirect } from "next/navigation";
-import DOMPurify from "isomorphic-dompurify";
+import sanitizeHtml from "sanitize-html";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -55,7 +55,17 @@ const SIGNATURE_HTML = `
 
 function buildHtml(bodyText: string): string {
   const year = new Date().getFullYear();
-  const bodyHtml = DOMPurify.sanitize(bodyText);
+  const bodyHtml = sanitizeHtml(bodyText, {
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img", "span", "u", "font"]),
+    allowedAttributes: {
+      ...sanitizeHtml.defaults.allowedAttributes,
+      "*": ["style", "class"],
+      img: ["src", "alt", "width", "height", "style"],
+      a: ["href", "name", "target", "style"],
+      font: ["color", "size", "face"],
+    },
+    allowedSchemes: ["http", "https", "mailto", "data"],
+  });
   return `
     <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0d1117;color:#e6edf3;max-width:1200px;margin:0 auto;border-radius:14px;overflow:hidden;border:1px solid #21262d;">
       <div style="background:linear-gradient(135deg,rgba(124,92,255,0.18) 0%,rgba(77,163,255,0.10) 100%);border-bottom:1px solid rgba(124,92,255,0.28);padding:1.8rem 2.5rem;text-align:center;">
