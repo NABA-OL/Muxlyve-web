@@ -94,12 +94,12 @@ export default async function CorreoPage({ searchParams }: Props) {
             required
             rows={14}
             placeholder={
-              "Hola,\n\nMe puse en contacto contigo porque creo que Muxlyve puede ayudarte...\n\nSaludos,"
+              "Hola **Nombre**,\n\nMe puse en contacto contigo porque creo que **Muxlyve** puede ayudarte a:\n\n- Transmitir a Twitch, YouTube y Kick al mismo tiempo\n- Sin marca de agua\n- Sin costos recurrentes\n\nSaludos,"
             }
             style={{ ...inputStyle, resize: "vertical", lineHeight: 1.65, fontFamily: "inherit" }}
           />
           <span style={{ fontSize: "0.78rem", color: "var(--muted)" }}>
-            El texto se inserta en la plantilla de Muxlyve. Los saltos de línea se conservan.
+            Soporta Markdown: <code>**negrita**</code>, <code>*cursiva*</code>, <code>- listas</code>, <code>[link](url)</code>
           </span>
         </label>
 
