@@ -26,7 +26,7 @@ export async function sendLicenseEmail(
           Puedes activarla en hasta 2 equipos.
         </p>
         <p style="color:#8b949e;font-size:0.85rem;margin-top:2rem">
-          Desarrollado por NABA-OL · Muxlyve
+          Desarrollado por BlacKraken Solutions · Muxlyve
         </p>
       </div>
     `,

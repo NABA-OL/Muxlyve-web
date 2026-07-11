@@ -46,6 +46,12 @@ export default function AdminLayout({
               Banner
             </Link>
             <Link
+              href="/admin/correo"
+              style={{ color: "var(--muted)", fontSize: "0.88rem", textDecoration: "none" }}
+            >
+              Correo
+            </Link>
+            <Link
               href="/admin/reportes"
               style={{ color: "var(--muted)", fontSize: "0.88rem", textDecoration: "none" }}
             >
