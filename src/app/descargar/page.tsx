@@ -13,6 +13,12 @@ export const revalidate = 3600;
 
 const REPO = process.env.GITHUB_REPO ?? "NABA-OL/Muxlyve";
 
+function formatVersion(tag: string): string {
+  const version = tag.replace(/^v/, "");
+  const major = parseInt(version.split(".")[0] ?? "0", 10);
+  return major < 1 ? `${version} (beta)` : version;
+}
+
 async function getLatestVersion(): Promise<string> {
   try {
     const headers: HeadersInit = {
@@ -26,11 +32,11 @@ async function getLatestVersion(): Promise<string> {
       `https://api.github.com/repos/${REPO}/releases/latest`,
       { headers, next: { revalidate: 3600 } },
     );
-    if (!res.ok) return "0.1.5 (beta)";
+    if (!res.ok) return formatVersion("0.1.5");
     const data = (await res.json()) as { tag_name: string };
-    return `${data.tag_name.replace(/^v/, "")} (beta)`;
+    return formatVersion(data.tag_name);
   } catch {
-    return "0.1.5 (beta)";
+    return formatVersion("0.1.5");
   }
 }
 

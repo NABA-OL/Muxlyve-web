@@ -29,7 +29,7 @@ const jsonLd = {
   ],
   featureList: [
     "Multistreaming sin marca de agua",
-    "Compatible con OBS",
+    "Compatible con tu app de streaming favorita",
     "Reconexión automática",
     "Preview en vivo por destino",
     "Twitch, Kick, YouTube, TikTok",
@@ -64,8 +64,8 @@ const FEATURES = [
   },
   {
     icon: "⚙️",
-    title: "Compatible con OBS",
-    body: "Conéctalo como destino de tu OBS habitual. No cambias tu flujo de trabajo, solo lo multiplicas.",
+    title: "Compatible con tu app favorita",
+    body: "Conéctalo como destino desde tu aplicación de streaming favorita (OBS, Streamlabs, XSplit). No cambias tu flujo de trabajo, solo lo multiplicas.",
   },
 ];
 
