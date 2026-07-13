@@ -144,7 +144,7 @@ section {
 }
 
 .btn-ghost {
-  background: var(--surface);
+  background: var(--accent-2);
   border-color: var(--border);
   color: var(--text);
 }
