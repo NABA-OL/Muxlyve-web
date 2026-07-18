@@ -73,6 +73,19 @@
   font-size: 0.95rem;
 }
 
+.featureLink {
+  display: inline-block;
+  margin-top: 0.8rem;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.featureLink:hover {
+  text-decoration: underline;
+}
+
 /* ---- Plataformas ---- */
 .platforms {
   display: flex;

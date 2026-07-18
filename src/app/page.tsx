@@ -4,6 +4,7 @@ import { Hero } from "@/components/Hero";
 import { Footer } from "@/components/Footer";
 import { RevealObserver } from "@/components/RevealObserver";
 import { PlatformIcon } from "@/components/PlatformIcon";
+import { StreamDeckIcon } from "@/components/StreamDeckIcon";
 import { PLATFORMS } from "@/lib/platforms";
 import { ensureSchema } from "@/lib/db";
 import { getSetting } from "@/lib/settings";
@@ -12,6 +13,9 @@ import styles from "./page.module.css";
 export const revalidate = 60;
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muxlyve.com";
+
+// TODO: reemplazar con la URL real cuando el plugin de Stream Deck esté publicado.
+const STREAM_DECK_PLUGIN_URL = "#";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -30,13 +34,22 @@ const jsonLd = {
   featureList: [
     "Multistreaming sin marca de agua",
     "Compatible con tu app de streaming favorita",
+    "Compatible con Elgato Stream Deck",
     "Reconexión automática",
     "Preview en vivo por destino",
     "Twitch, Kick, YouTube, TikTok",
   ],
 };
 
-const FEATURES = [
+interface Feature {
+  icon: string;
+  title: string;
+  body: string;
+  link?: string;
+  linkLabel?: string;
+}
+
+const FEATURES: Feature[] = [
   {
     icon: "🚫",
     title: "Sin marca de agua",
@@ -66,6 +79,13 @@ const FEATURES = [
     icon: "⚙️",
     title: "Compatible con tu app favorita",
     body: "Conéctalo como destino desde tu aplicación de streaming favorita (OBS, Streamlabs, XSplit). No cambias tu flujo de trabajo, solo lo multiplicas.",
+  },
+  {
+    icon: "🎛️",
+    title: "Compatible con Stream Deck",
+    body: "Controla tus destinos en vivo desde tu Stream Deck, sin tocar el teclado.",
+    link: STREAM_DECK_PLUGIN_URL,
+    linkLabel: "Ver plugin",
   },
 ];
 
@@ -189,6 +209,16 @@ export default async function Home() {
                   </div>
                   <h3 className={styles.featureTitle}>{f.title}</h3>
                   <p className={styles.featureBody}>{f.body}</p>
+                  {f.link && (
+                    <a
+                      href={f.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.featureLink}
+                    >
+                      {f.linkLabel} →
+                    </a>
+                  )}
                 </article>
               ))}
             </div>
@@ -222,6 +252,40 @@ export default async function Home() {
                   </span>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Integraciones */}
+        <section id="integraciones">
+          <div className="container">
+            <div className="reveal">
+              <span className="eyebrow">Integraciones</span>
+              <h2 className="section-title">
+                Controla tus destinos sin tocar el teclado.
+              </h2>
+              <p className="section-lead">
+                Plugin oficial gratis con cualquier licencia de Muxlyve.
+              </p>
+            </div>
+            <div className={styles.platforms}>
+              <a
+                href={STREAM_DECK_PLUGIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.platform} reveal`}
+                style={{ color: "#7c5cff" }}
+              >
+                <span className={styles.platformGlyph}>
+                  <StreamDeckIcon size={28} />
+                </span>
+                <span
+                  className={styles.platformName}
+                  style={{ color: "var(--text)" }}
+                >
+                  Elgato Stream Deck
+                </span>
+              </a>
             </div>
           </div>
         </section>
