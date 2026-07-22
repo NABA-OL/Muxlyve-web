@@ -43,7 +43,56 @@
   color: var(--success);
 }
 
+/* ---- Cómo funciona ---- */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-top: 3rem;
+  counter-reset: step;
+}
+
+.step {
+  position: relative;
+  padding-top: 0.5rem;
+}
+
+.stepNumber {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--accent) 18%, transparent);
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.stepTitle {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.stepBody {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 /* ---- Características ---- */
+.featureGroup + .featureGroup {
+  margin-top: 2.5rem;
+}
+
+.featureGroupTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
 .features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -229,6 +278,9 @@
     grid-template-columns: 1fr;
   }
   .features {
+    grid-template-columns: 1fr;
+  }
+  .steps {
     grid-template-columns: 1fr;
   }
   .pricingGrid {

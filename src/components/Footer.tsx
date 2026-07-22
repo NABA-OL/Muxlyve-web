@@ -14,6 +14,7 @@ export function Footer() {
           <nav className="footer-links" aria-label="Pie de página">
             <Link href="/descargar">Descargar</Link>
             <a href="#caracteristicas">Características</a>
+            <Link href="/ayuda">Ayuda</Link>
             <a href="#precio">Precio</a>
             <a href="mailto:soporte@muxlyve.app">Contacto</a>
             <a

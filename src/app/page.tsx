@@ -34,6 +34,11 @@ const jsonLd = {
   featureList: [
     "Multistreaming sin marca de agua",
     "Compatible con tu app de streaming favorita",
+    "Chat unificado de Twitch y Kick",
+    "Overlay de chat para OBS",
+    "Grabador de clips en buffer",
+    "Acceso remoto por LAN",
+    "Bilingüe español / inglés",
     "Compatible con Elgato Stream Deck",
     "Reconexión automática",
     "Preview en vivo por destino",
@@ -49,43 +54,103 @@ interface Feature {
   linkLabel?: string;
 }
 
-const FEATURES: Feature[] = [
+interface FeatureGroup {
+  title: string;
+  features: Feature[];
+}
+
+const STEPS = [
   {
-    icon: "🚫",
-    title: "Sin marca de agua",
-    body: "Tu transmisión sale limpia a cada plataforma. Nada de logos de terceros encima de tu contenido.",
+    title: "Conectá tu software",
+    body: "Apuntá OBS, Streamlabs, XSplit, vMix, N.Air o cualquier encoder RTMP a Muxlyve como servidor de salida.",
   },
   {
-    icon: "🖥️",
-    title: "Corre en tu máquina",
-    body: "El video se reparte desde tu PC, no por un servidor intermediario. Más privacidad y cero mensualidad por ancho de banda.",
+    title: "Conectá tus plataformas",
+    body: "Vinculá Twitch, Kick y YouTube con un clic (OAuth), o pegá tu clave de TikTok.",
   },
   {
-    icon: "🔁",
-    title: "Reconexión automática",
-    body: "Si una plataforma se cae, Muxlyve la reconecta sola sin cortar el resto de tus destinos.",
+    title: "Transmití a las 4 a la vez",
+    body: "Una sola señal, sin recodificar, sin marca de agua y sin depender de un servidor ajeno.",
+  },
+];
+
+const FEATURE_GROUPS: FeatureGroup[] = [
+  {
+    title: "Streaming",
+    features: [
+      {
+        icon: "🚫",
+        title: "Sin marca de agua",
+        body: "Tu transmisión sale limpia a cada plataforma. Nada de logos de terceros encima de tu contenido.",
+      },
+      {
+        icon: "🖥️",
+        title: "Corre en tu máquina",
+        body: "El video se reparte desde tu PC, no por un servidor intermediario. Más privacidad y cero mensualidad por ancho de banda.",
+      },
+      {
+        icon: "🔁",
+        title: "Reconexión automática",
+        body: "Si una plataforma se cae, Muxlyve la reconecta sola sin cortar el resto de tus destinos.",
+      },
+      {
+        icon: "👁️",
+        title: "Preview en vivo",
+        body: "Mira exactamente lo que está saliendo a cada destino antes y durante la transmisión.",
+      },
+      {
+        icon: "💸",
+        title: "Pagos accequibles",
+        body: "Pagos accequibles, sin cobros por horas transmitidas.",
+      },
+      {
+        icon: "⚙️",
+        title: "Compatible con tu app favorita",
+        body: "Conéctalo como destino desde OBS, Streamlabs, XSplit, vMix, N.Air o cualquier encoder que hable RTMP. No cambias tu flujo de trabajo, solo lo multiplicas.",
+      },
+    ],
   },
   {
-    icon: "👁️",
-    title: "Preview en vivo",
-    body: "Mira exactamente lo que está saliendo a cada destino antes y durante la transmisión.",
+    title: "Chat y clips",
+    features: [
+      {
+        icon: "💬",
+        title: "Chat unificado",
+        body: "Los mensajes de Twitch y Kick en un solo lugar. Respondé a ambas plataformas sin cambiar de pestaña.",
+      },
+      {
+        icon: "🪟",
+        title: "Overlay de chat para OBS",
+        body: "Agregá el chat como fuente de Navegador en OBS, con fondo transparente, directo sobre tu transmisión.",
+      },
+      {
+        icon: "🎬",
+        title: "Grabador de clips",
+        body: "Buffer circular (30s/1min/2min) corriendo en segundo plano. Guardá lo que acaba de pasar con un clic.",
+      },
+    ],
   },
   {
-    icon: "💸",
-    title: "Pagos accequibles",
-    body: "Pagos accequibles, sin cobros por horas transmitidas.",
-  },
-  {
-    icon: "⚙️",
-    title: "Compatible con tu app favorita",
-    body: "Conéctalo como destino desde tu aplicación de streaming favorita (OBS, Streamlabs, XSplit). No cambias tu flujo de trabajo, solo lo multiplicas.",
-  },
-  {
-    icon: "🎛️",
-    title: "Compatible con Stream Deck",
-    body: "Controla tus destinos en vivo desde tu Stream Deck, sin tocar el teclado.",
-    link: STREAM_DECK_PLUGIN_URL,
-    linkLabel: "Ver plugin",
+    title: "Control remoto",
+    features: [
+      {
+        icon: "🎛️",
+        title: "Compatible con Stream Deck",
+        body: "Prende destinos, activa el buffer y guarda clips desde botones físicos, sin tocar el teclado.",
+        link: STREAM_DECK_PLUGIN_URL,
+        linkLabel: "Ver plugin",
+      },
+      {
+        icon: "📡",
+        title: "Acceso remoto por LAN",
+        body: "Controlá destinos, chat y Stream Deck desde otra máquina de tu red, con token de acceso seguro.",
+      },
+      {
+        icon: "🌐",
+        title: "Bilingüe español / inglés",
+        body: "La interfaz detecta el idioma de tu sistema automáticamente. Se puede cambiar en cualquier momento.",
+      },
+    ],
   },
 ];
 
@@ -160,6 +225,29 @@ export default async function Home() {
       <main>
         <Hero />
 
+        {/* Cómo funciona */}
+        <section id="como-funciona">
+          <div className="container">
+            <div className="reveal">
+              <span className="eyebrow">Cómo funciona</span>
+              <h2 className="section-title">
+                Tres pasos, sin complicarte.
+              </h2>
+            </div>
+            <div className={styles.steps}>
+              {STEPS.map((s, i) => (
+                <div key={s.title} className="reveal">
+                  <div className={styles.stepNumber} aria-hidden="true">
+                    {i + 1}
+                  </div>
+                  <h3 className={styles.stepTitle}>{s.title}</h3>
+                  <p className={styles.stepBody}>{s.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Qué hace / problema */}
         <section id="que-hace">
           <div className="container">
@@ -201,26 +289,58 @@ export default async function Home() {
                 Todo lo necesario para transmitir en serio.
               </h2>
             </div>
-            <div className={styles.features}>
-              {FEATURES.map((f) => (
-                <article key={f.title} className="card reveal">
-                  <div className={styles.featureIcon} aria-hidden="true">
-                    {f.icon}
-                  </div>
-                  <h3 className={styles.featureTitle}>{f.title}</h3>
-                  <p className={styles.featureBody}>{f.body}</p>
-                  {f.link && (
-                    <a
-                      href={f.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.featureLink}
-                    >
-                      {f.linkLabel} →
-                    </a>
-                  )}
-                </article>
-              ))}
+            {FEATURE_GROUPS.map((group) => (
+              <div key={group.title} className={styles.featureGroup}>
+                <span className={`${styles.featureGroupTitle} reveal`}>
+                  {group.title}
+                </span>
+                <div className={styles.features}>
+                  {group.features.map((f) => (
+                    <article key={f.title} className="card reveal">
+                      <div className={styles.featureIcon} aria-hidden="true">
+                        {f.icon}
+                      </div>
+                      <h3 className={styles.featureTitle}>{f.title}</h3>
+                      <p className={styles.featureBody}>{f.body}</p>
+                      {f.link && (
+                        <a
+                          href={f.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.featureLink}
+                        >
+                          {f.linkLabel} →
+                        </a>
+                      )}
+                    </article>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* No estás atado a OBS */}
+        <section id="independiente">
+          <div className="container">
+            <div
+              className="reveal"
+              style={{ textAlign: "center", maxWidth: "640px", margin: "0 auto" }}
+            >
+              <span className="eyebrow">No estás atado a OBS</span>
+              <h2 className="section-title" style={{ marginInline: "auto" }}>
+                Tu propia estación de restreaming, no un plugin.
+              </h2>
+              <p
+                className="section-lead"
+                style={{ marginInline: "auto", marginTop: "1rem" }}
+              >
+                Los plugins dentro de OBS dependen de que OBS esté corriendo y
+                de lo que OBS permita. Muxlyve es una app aparte: recibe
+                cualquier señal RTMP — de OBS, Streamlabs, XSplit, vMix, N.Air
+                o un encoder de hardware — y la reenvía sin recodificar.
+                Controlá todo, incluso desde otra máquina de tu red.
+              </p>
             </div>
           </div>
         </section>

@@ -1,0 +1,68 @@
+/* ---- Índice ---- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.cardSummary {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* ---- Artículo ---- */
+.prose {
+  margin-top: 2rem;
+  line-height: 1.75;
+}
+
+.prose h2 {
+  font-size: 1.25rem;
+  margin: 2rem 0 0.8rem;
+}
+
+.prose p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.prose ul,
+.prose ol {
+  margin: 0 0 1rem;
+  padding-left: 1.3rem;
+  display: grid;
+  gap: 0.5rem;
+  color: var(--muted);
+}
+
+.prose strong {
+  color: var(--text);
+}
+
+.prose a {
+  color: var(--accent);
+}
+
+.back {
+  margin-top: 3rem;
+}
+
+.back a {
+  color: var(--muted);
+}
+
+.back a:hover {
+  color: var(--text);
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
