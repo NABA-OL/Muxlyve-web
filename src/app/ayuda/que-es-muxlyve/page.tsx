@@ -31,6 +31,10 @@ export default function Page() {
         src="/help/que-es-muxlyve-2.png"
         label="vista adicional de Muxlyve en uso"
       />
+      <ScreenshotPlaceholder
+        src="/help/que-es-muxlyve-3.png"
+        label="vista adicional de Muxlyve en uso"
+      />
     </ArticleLayout>
   );
 }
