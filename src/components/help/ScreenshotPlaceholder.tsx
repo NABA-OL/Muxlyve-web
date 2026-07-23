@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { ZoomableImage } from "./ZoomableImage";
 
 interface Props {
   /** Ruta pública, ej. "/help/stream-deck.png". Poné el archivo en public/help/ con ese nombre exacto. */
@@ -11,21 +12,7 @@ export function ScreenshotPlaceholder({ src, label }: Props) {
   const exists = fs.existsSync(path.join(process.cwd(), "public", src));
 
   if (exists) {
-    return (
-      // eslint-disable-next-line @next/next/no-img-element -- dimensiones reales desconocidas hasta que el usuario sube la captura
-      <img
-        src={src}
-        alt={label}
-        style={{
-          width: "100%",
-          height: "auto",
-          display: "block",
-          borderRadius: "var(--radius)",
-          border: "1px solid var(--border)",
-          margin: "1.5rem 0",
-        }}
-      />
-    );
+    return <ZoomableImage src={src} alt={label} />;
   }
 
   return (

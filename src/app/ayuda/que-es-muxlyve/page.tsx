@@ -24,8 +24,12 @@ export default function Page() {
         directamente. No pasa por un servidor de terceros.
       </p>
       <ScreenshotPlaceholder
-        src="/help/que-es-muxlyve.png"
+        src="/help/que-es-muxlyve-1.png"
         label="panel principal con el preview en vivo"
+      />
+      <ScreenshotPlaceholder
+        src="/help/que-es-muxlyve-2.png"
+        label="vista adicional de Muxlyve en uso"
       />
     </ArticleLayout>
   );
