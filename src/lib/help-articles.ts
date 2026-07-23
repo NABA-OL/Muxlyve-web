@@ -37,8 +37,18 @@ export const HELP_ARTICLES: HelpArticle[] = [
   },
   {
     slug: "grabador-de-clips",
-    title: "Grabador de clips (buffer)",
-    summary: "Guardar lo que acaba de pasar sin grabar todo el stream.",
+    title: "Grabador de clips y grabación completa",
+    summary: "Guardar lo que acaba de pasar con el buffer, o grabar el stream entero a un archivo.",
+  },
+  {
+    slug: "programar-inicio",
+    title: "Programar inicio y comprobación previa",
+    summary: "Elegí destinos y hora para arrancar solo, y revisá que todo esté bien antes de salir en vivo.",
+  },
+  {
+    slug: "resumen-del-stream",
+    title: "Resumen del stream",
+    summary: "Duración, pico de espectadores, mensajes de chat y bitrate promedio al terminar de transmitir.",
   },
   {
     slug: "stream-deck",

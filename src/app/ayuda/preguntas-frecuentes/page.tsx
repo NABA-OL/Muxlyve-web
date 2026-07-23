@@ -3,7 +3,7 @@ import { ArticleLayout } from "@/components/help/ArticleLayout";
 export const metadata = {
   title: "Preguntas frecuentes — Ayuda",
   description:
-    "Internet, reconexión de TikTok, compatibilidad con otros encoders, calidad de la señal y cómo reportar un bug.",
+    "Internet, reconexión de TikTok, compatibilidad con otros encoders, calidad de la señal, límite de bitrate, notificaciones, Linux y cómo reportar un bug.",
 };
 
 export default function Page() {
@@ -32,6 +32,31 @@ export default function Page() {
       <p>
         No. Muxlyve usa <code>-c copy</code>: reenvía la señal sin
         recodificar, con carga mínima de CPU.
+      </p>
+
+      <h2>¿Puedo ponerle un límite de bitrate a un destino?</h2>
+      <p>
+        Sí, es opcional. En la tarjeta de cada destino podés desplegar
+        &quot;Bitrate máximo (kbps) — opcional&quot; y poner un tope. Mientras
+        tu bitrate real se mantenga por debajo, Muxlyve sigue reenviando sin
+        recodificar. Solo si se sostiene por encima del límite, recodifica
+        ese destino puntual para bajarlo al tope. Sin límite configurado,
+        nunca recodifica.
+      </p>
+
+      <h2>¿Me avisa si se cae un destino mientras hago otra cosa?</h2>
+      <p>
+        Sí. Si tenés otra ventana o juego en primer plano y un destino se
+        cae, Muxlyve manda una notificación nativa del sistema operativo (no
+        una alerta dentro de la app). En algunas distros de Linux sin daemon
+        de notificaciones esto puede no estar disponible — falla en
+        silencio, no rompe la app.
+      </p>
+
+      <h2>¿Muxlyve corre en Linux?</h2>
+      <p>
+        Hoy la app está disponible para Windows y macOS. Linux está en el
+        roadmap, pero todavía no confirmado.
       </p>
 
       <h2>¿Dónde reporto un bug?</h2>

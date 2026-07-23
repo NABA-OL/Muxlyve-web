@@ -36,7 +36,9 @@ const jsonLd = {
     "Compatible con tu app de streaming favorita",
     "Chat unificado de Twitch y Kick",
     "Overlay de chat para OBS",
-    "Grabador de clips en buffer",
+    "Grabador de clips en buffer y grabación completa",
+    "Programar inicio de transmisión",
+    "Resumen automático del stream",
     "Acceso remoto por LAN",
     "Bilingüe español / inglés",
     "Compatible con Elgato Stream Deck",
@@ -108,6 +110,16 @@ const FEATURE_GROUPS: FeatureGroup[] = [
         title: "Compatible con tu app favorita",
         body: "Conéctalo como destino desde OBS, Streamlabs, XSplit, vMix, N.Air o cualquier encoder que hable RTMP. No cambias tu flujo de trabajo, solo lo multiplicas.",
       },
+      {
+        icon: "⏰",
+        title: "Programar inicio",
+        body: "Elegí destinos y hora, y Muxlyve arranca solo. No hace falta estar pendiente en el momento exacto.",
+      },
+      {
+        icon: "📊",
+        title: "Resumen del stream",
+        body: "Al terminar, un resumen automático: duración, pico de espectadores por plataforma, mensajes de chat y bitrate promedio por destino.",
+      },
     ],
   },
   {
@@ -125,8 +137,8 @@ const FEATURE_GROUPS: FeatureGroup[] = [
       },
       {
         icon: "🎬",
-        title: "Grabador de clips",
-        body: "Buffer circular (30s/1min/2min) corriendo en segundo plano. Guardá lo que acaba de pasar con un clic.",
+        title: "Grabador de clips y grabación completa",
+        body: "Buffer circular (30s/1min/2min) para guardar lo que acaba de pasar, y grabación completa de todo el stream a un archivo — cada una con su propio switch.",
       },
     ],
   },
