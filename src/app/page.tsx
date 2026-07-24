@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
@@ -174,6 +176,9 @@ const COMPARE = [
 ];
 
 export default async function Home() {
+  const streamDeckMockupExists = fs.existsSync(
+    path.join(process.cwd(), "public", "streamdeck-mockup.png"),
+  );
   let priceMonthly = "";
   let priceAnnual = "";
   let priceLifetime = "";
@@ -391,33 +396,37 @@ export default async function Home() {
         {/* Integraciones */}
         <section id="integraciones">
           <div className="container">
-            <div className="reveal">
-              <span className="eyebrow">Integraciones</span>
-              <h2 className="section-title">
-                Controla tus destinos sin tocar el teclado.
+            <div className={`${styles.integrationCard} reveal`}>
+              <div className={styles.integrationBadge}>
+                <StreamDeckIcon size={16} />
+                Funciona con Stream Deck
+              </div>
+              <h2 className={styles.integrationTitle}>
+                Muxlyve <span className={styles.integrationX}>×</span> Stream
+                Deck
               </h2>
-              <p className="section-lead">
-                Plugin oficial gratis con cualquier licencia de Muxlyve.
+              <p className="section-lead" style={{ marginInline: "auto" }}>
+                Controlá tus destinos en vivo, activá el buffer y guardá
+                clips desde botones físicos, sin tocar el teclado.
               </p>
-            </div>
-            <div className={styles.platforms}>
               <a
                 href={STREAM_DECK_PLUGIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${styles.platform} reveal`}
-                style={{ color: "#7c5cff" }}
+                className="btn btn-primary"
+                style={{ marginTop: "1.5rem" }}
               >
-                <span className={styles.platformGlyph}>
-                  <StreamDeckIcon size={28} />
-                </span>
-                <span
-                  className={styles.platformName}
-                  style={{ color: "var(--text)" }}
-                >
-                  Elgato Stream Deck
-                </span>
+                Ver plugin
               </a>
+              {streamDeckMockupExists && (
+                <div className={styles.integrationMockup}>
+                  {/* eslint-disable-next-line @next/next/no-img-element -- mockup con transparencia provisto por el usuario, dimensiones reales desconocidas */}
+                  <img
+                    src="/streamdeck-mockup.png"
+                    alt="Stream Deck con los accesos directos de Muxlyve"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </section>

@@ -262,6 +262,54 @@
   flex: none;
 }
 
+/* ---- Integración Stream Deck ---- */
+.integrationCard {
+  text-align: center;
+  background:
+    radial-gradient(70% 120% at 50% 0%, rgba(124, 92, 255, 0.18), transparent 60%),
+    var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: clamp(2.5rem, 2rem + 4vw, 4.5rem) clamp(1.5rem, 1rem + 2vw, 3rem);
+}
+
+.integrationBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.integrationTitle {
+  font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+  font-weight: 800;
+  margin: 0 0 1rem;
+  margin-inline: auto;
+}
+
+.integrationX {
+  color: var(--accent);
+}
+
+.integrationMockup {
+  max-width: 640px;
+  margin: 3rem auto 0;
+}
+
+.integrationMockup img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+}
+
 /* ---- Descarga CTA ---- */
 .cta {
   text-align: center;
