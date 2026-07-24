@@ -17,7 +17,7 @@ export const revalidate = 60;
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muxlyve.com";
 
 // TODO: reemplazar con la URL real cuando el plugin de Stream Deck esté publicado.
-const STREAM_DECK_PLUGIN_URL = "#";
+const STREAM_DECK_PLUGIN_URL = "https://marketplace.elgato.com/product/muxlyve-3bb96a31-6c46-4a52-be62-9868e624b117";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -409,15 +409,6 @@ export default async function Home() {
                 Controlá tus destinos en vivo, activá el buffer y guardá
                 clips desde botones físicos, sin tocar el teclado.
               </p>
-              <a
-                href={STREAM_DECK_PLUGIN_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary"
-                style={{ marginTop: "1.5rem" }}
-              >
-                Ver plugin
-              </a>
               {streamDeckMockupExists && (
                 <div className={styles.integrationMockup}>
                   {/* eslint-disable-next-line @next/next/no-img-element -- mockup con transparencia provisto por el usuario, dimensiones reales desconocidas */}
@@ -427,6 +418,15 @@ export default async function Home() {
                   />
                 </div>
               )}
+              <a
+                href={STREAM_DECK_PLUGIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+                style={{ marginTop: "1.5rem" }}
+              >
+                Ver plugin
+              </a>
             </div>
           </div>
         </section>
