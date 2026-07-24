@@ -266,7 +266,7 @@
 .integrationCard {
   text-align: center;
   background:
-    radial-gradient(70% 120% at 50% 0%, rgba(124, 92, 255, 0.18), transparent 60%),
+    radial-gradient(70% 120% at 50% 0%, rgba(124, 92, 255, 0.18), transparent 20%),
     var(--surface);
   border: 1px solid var(--border);
   border-radius: 20px;
