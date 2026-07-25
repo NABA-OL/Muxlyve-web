@@ -41,6 +41,16 @@ export const HELP_ARTICLES: HelpArticle[] = [
     summary: "Guardar lo que acaba de pasar con el buffer, o grabar el stream entero a un archivo.",
   },
   {
+    slug: "comando-clip-chat",
+    title: 'Guardar un clip escribiendo "!clip" en el chat',
+    summary: "Moderadores y streamer guardan un clip del buffer sin salir del juego.",
+  },
+  {
+    slug: "perfiles-de-destinos",
+    title: 'Perfiles: cambiar de "solo Twitch" a "todo" con un clic',
+    summary: "Guardá combinaciones de destinos prendidos y aplicalas con un clic. Hasta 6 perfiles.",
+  },
+  {
     slug: "programar-inicio",
     title: "Programar inicio y comprobación previa",
     summary: "Elegí destinos y hora para arrancar solo, y revisá que todo esté bien antes de salir en vivo.",
@@ -59,6 +69,11 @@ export const HELP_ARTICLES: HelpArticle[] = [
     slug: "acceso-remoto-lan",
     title: "Usar Muxlyve desde otra máquina de tu red",
     summary: "Controlar destinos, chat y Stream Deck desde una máquina distinta a la que transmite.",
+  },
+  {
+    slug: "avisos-discord-telegram",
+    title: "Avisar en Discord y Telegram cuando arrancás en vivo",
+    summary: "Mensaje automático a hasta 3 webhooks de Discord y 3 bots de Telegram apenas empieza tu stream.",
   },
   {
     slug: "preguntas-frecuentes",

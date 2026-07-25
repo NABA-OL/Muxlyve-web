@@ -54,4 +54,16 @@ export async function ensureSchema(): Promise<void> {
       created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
     )
   `;
+  await sql`
+    CREATE TABLE IF NOT EXISTS feedback (
+      id          SERIAL PRIMARY KEY,
+      email       TEXT,
+      app_version TEXT,
+      platform    TEXT,
+      description TEXT NOT NULL,
+      status      TEXT NOT NULL DEFAULT 'new',
+      ip          TEXT NOT NULL,
+      created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+    )
+  `;
 }

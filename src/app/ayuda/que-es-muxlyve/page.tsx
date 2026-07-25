@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <ArticleLayout title="¿Qué es Muxlyve?">
+    <ArticleLayout slug="que-es-muxlyve" title="¿Qué es Muxlyve?">
       <p>
         Muxlyve transmite tu señal a Twitch, Kick, YouTube y TikTok Live al
         mismo tiempo, sin marca de agua.

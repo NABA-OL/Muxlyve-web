@@ -58,6 +58,12 @@ export default function AdminLayout({
               Reportes
             </Link>
             <Link
+              href="/admin/feedback"
+              style={{ color: "var(--muted)", fontSize: "0.88rem", textDecoration: "none" }}
+            >
+              Feedback
+            </Link>
+            <Link
               href="/admin/contrasena"
               style={{ color: "var(--muted)", fontSize: "0.88rem", textDecoration: "none" }}
             >

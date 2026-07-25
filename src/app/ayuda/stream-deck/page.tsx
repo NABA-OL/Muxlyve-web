@@ -12,7 +12,7 @@ const STREAM_DECK_PLUGIN_URL = "#";
 
 export default function Page() {
   return (
-    <ArticleLayout title="Plugin de Stream Deck">
+    <ArticleLayout slug="stream-deck" title="Plugin de Stream Deck">
       <p>
         Prendé y apagá destinos, activá el buffer y guardá clips con botones
         físicos, sin tocar el teclado.

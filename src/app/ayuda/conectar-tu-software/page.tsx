@@ -9,7 +9,10 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <ArticleLayout title="Conectar OBS (o cualquier software de streaming)">
+    <ArticleLayout
+      slug="conectar-tu-software"
+      title="Conectar OBS (o cualquier software de streaming)"
+    >
       <ul>
         <li>
           Server RTMP: <code>rtmp://localhost:19350/live</code> (puerto

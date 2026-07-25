@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { Nav } from "@/components/Nav";
-import { Footer } from "@/components/Footer";
 import { HELP_ARTICLES } from "@/lib/help-articles";
 import styles from "./ayuda.module.css";
 
@@ -12,35 +10,25 @@ export const metadata = {
 
 export default function AyudaPage() {
   return (
-    <>
-      <Nav />
-      <main>
-        <section>
-          <div className="container">
-            <span className="eyebrow">Ayuda</span>
-            <h1 className="section-title" style={{ fontSize: "var(--text-h2)" }}>
-              Cómo funciona Muxlyve
-            </h1>
-            <p className="section-lead">
-              Guías cortas y directas, paso a paso. Sin jerga innecesaria.
-            </p>
-            <div className={styles.grid}>
-              {HELP_ARTICLES.map((a) => (
-                <Link
-                  key={a.slug}
-                  href={`/ayuda/${a.slug}`}
-                  className="card"
-                  style={{ display: "block" }}
-                >
-                  <h2 className={styles.cardTitle}>{a.title}</h2>
-                  <p className={styles.cardSummary}>{a.summary}</p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </>
+    <div>
+      <h1 className={styles.articleTitle}>Cómo funciona Muxlyve</h1>
+      <p className={styles.intro}>
+        Guías cortas y directas, paso a paso. Sin jerga innecesaria. Elegí un
+        artículo de la lista.
+      </p>
+      <div className={styles.grid}>
+        {HELP_ARTICLES.map((a) => (
+          <Link
+            key={a.slug}
+            href={`/ayuda/${a.slug}`}
+            className="card"
+            style={{ display: "block" }}
+          >
+            <h2 className={styles.cardTitle}>{a.title}</h2>
+            <p className={styles.cardSummary}>{a.summary}</p>
+          </Link>
+        ))}
+      </div>
+    </div>
   );
 }

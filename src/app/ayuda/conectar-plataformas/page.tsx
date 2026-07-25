@@ -9,7 +9,10 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <ArticleLayout title="Conectar tus plataformas (Twitch, Kick, YouTube, TikTok)">
+    <ArticleLayout
+      slug="conectar-plataformas"
+      title="Conectar tus plataformas (Twitch, Kick, YouTube, TikTok)"
+    >
       <p>
         Twitch, Kick y YouTube: iniciá sesión con un clic (OAuth), sin pegar
         claves a mano.

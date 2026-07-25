@@ -1,9 +1,81 @@
+/* ---- Layout con sidebar ---- */
+.layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 3rem;
+  align-items: start;
+  padding-block: 3rem;
+}
+
+.sidebar {
+  position: sticky;
+  top: 5.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  max-height: calc(100vh - 5.5rem - 2rem);
+  overflow-y: auto;
+}
+
+.sidebarEyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.sidebarList {
+  display: grid;
+  gap: 0.2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid var(--border);
+}
+
+.sidebarLink {
+  display: block;
+  padding: 0.5rem 0.9rem;
+  margin-left: -1px;
+  border-left: 2px solid transparent;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.sidebarLink:hover {
+  color: var(--text);
+}
+
+.sidebarLinkActive {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  font-weight: 600;
+}
+
+.content {
+  min-width: 0;
+}
+
+.articleTitle {
+  font-size: var(--text-h2);
+  margin-bottom: 0.5rem;
+}
+
+.intro {
+  color: var(--muted);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
 /* ---- Índice ---- */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.2rem;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
 }
 
 .cardTitle {
@@ -18,7 +90,7 @@
 
 /* ---- Artículo ---- */
 .prose {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   line-height: 1.75;
 }
 
@@ -49,16 +121,83 @@
   color: var(--accent);
 }
 
-.back {
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
   margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
 }
 
-.back a {
+.pagerLink {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  max-width: 45%;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.2s var(--ease);
+}
+
+.pagerLink:hover {
+  border-color: var(--accent);
+}
+
+.pagerLinkNext {
+  margin-left: auto;
+  text-align: right;
+}
+
+.pagerLabel {
+  font-size: 0.75rem;
   color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.back a:hover {
+.pagerTitle {
+  font-size: 0.92rem;
   color: var(--text);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-block: 2rem;
+  }
+
+  .sidebar {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .sidebarList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    border-left: none;
+  }
+
+  .sidebarLink {
+    border-left: none;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.35rem 0.8rem;
+    margin-left: 0;
+  }
+
+  .sidebarLinkActive {
+    border-color: var(--accent);
+    background: color-mix(in oklab, var(--accent) 12%, transparent);
+  }
 }
 
 @media (max-width: 760px) {

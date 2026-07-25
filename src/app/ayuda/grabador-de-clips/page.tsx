@@ -9,7 +9,10 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <ArticleLayout title="Grabador de clips y grabación completa">
+    <ArticleLayout
+      slug="grabador-de-clips"
+      title="Grabador de clips y grabación completa"
+    >
       <h2>Buffer de clips</h2>
       <p>
         Muxlyve graba en un buffer circular (30s / 1min / 2min) mientras

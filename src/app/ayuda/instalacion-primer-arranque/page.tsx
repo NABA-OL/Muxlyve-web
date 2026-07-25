@@ -9,7 +9,10 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <ArticleLayout title="Instalación y primer arranque">
+    <ArticleLayout
+      slug="instalacion-primer-arranque"
+      title="Instalación y primer arranque"
+    >
       <ol>
         <li>
           Descargá el instalador (Windows <code>.exe</code> / macOS{" "}

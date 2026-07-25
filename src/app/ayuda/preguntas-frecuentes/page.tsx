@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <ArticleLayout title="Preguntas frecuentes">
+    <ArticleLayout slug="preguntas-frecuentes" title="Preguntas frecuentes">
       <h2>¿Necesito internet solo para transmitir, o también para usar la app?</h2>
       <p>
         Activar la licencia sí necesita internet una vez. Transmitir no

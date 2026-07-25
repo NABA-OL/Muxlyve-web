@@ -10,7 +10,10 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <ArticleLayout title="Usar Muxlyve desde otra máquina en tu red (emisora secundaria)">
+    <ArticleLayout
+      slug="acceso-remoto-lan"
+      title="Usar Muxlyve desde otra máquina en tu red (emisora secundaria)"
+    >
       <p>
         Caso de uso: transmitís desde una PC potente, pero controlás todo
         (destinos, chat, Stream Deck) desde una laptop o Mac Mini en la misma

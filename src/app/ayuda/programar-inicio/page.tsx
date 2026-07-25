@@ -8,7 +8,10 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <ArticleLayout title="Programar inicio y comprobación previa">
+    <ArticleLayout
+      slug="programar-inicio"
+      title="Programar inicio y comprobación previa"
+    >
       <h2>Programar inicio</h2>
       <p>
         Elegí una hora futura para que los destinos seleccionados arranquen

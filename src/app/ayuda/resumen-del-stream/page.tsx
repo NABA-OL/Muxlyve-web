@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <ArticleLayout title="Resumen del stream">
+    <ArticleLayout slug="resumen-del-stream" title="Resumen del stream">
       <p>
         Al terminar una transmisión, Muxlyve arma un resumen automático con:
       </p>

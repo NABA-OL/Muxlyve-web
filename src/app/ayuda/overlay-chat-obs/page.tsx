@@ -10,7 +10,10 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <ArticleLayout title="Mostrar el chat en tu transmisión (overlay para OBS)">
+    <ArticleLayout
+      slug="overlay-chat-obs"
+      title="Mostrar el chat en tu transmisión (overlay para OBS)"
+    >
       <ol>
         <li>Abrí Preferencias → Información de conexión → Conexión del chat.</li>
         <li>
