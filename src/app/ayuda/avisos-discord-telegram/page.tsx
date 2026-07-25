@@ -156,6 +156,10 @@ export default function Page() {
         src="/help/avisos-discord-telegram-2.png"
         label='modal "Mensaje de aviso"'
       />
+      <ScreenshotPlaceholder
+        src="/help/avisos-discord-telegram-3.png"
+        label='modal "Mensaje de aviso"'
+      />
     </ArticleLayout>
   );
 }
