@@ -25,8 +25,16 @@ export default function Page() {
         <li>Ponele un nombre (por ejemplo &quot;Solo Twitch&quot; o &quot;Todo&quot;).</li>
       </ol>
       <ScreenshotPlaceholder
-        src="/help/perfiles-de-destinos.png"
-        label='fila de chips de perfiles con "Guardar actual"'
+        src="/help/perfiles-de-destinos-1.png"
+        label="Fila de chips de perfiles con 'Guardar actual'"
+      />
+      <ScreenshotPlaceholder
+        src="/help/perfiles-de-destinos-2.png"
+        label="Modal para crear perfil"
+      />
+      <ScreenshotPlaceholder
+        src="/help/perfiles-de-destinos-3.png"
+        label="Fila de perfiles creados"
       />
       <h2>Borrar un perfil</h2>
       <p>

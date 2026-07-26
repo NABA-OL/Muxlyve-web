@@ -15,12 +15,24 @@ export default function Page() {
       title="Mostrar el chat en tu transmisión (overlay para OBS)"
     >
       <ol>
-        <li>Abrí Preferencias → Información de conexión → Conexión del chat.</li>
+        <li>Abre Conexión RTMP → Conexión del chat → URL del chat.</li>
+        <ScreenshotPlaceholder
+          src="/help/overlay-chat-obs-3.png"
+          label="URL del chat"
+        />
         <li>
-          Copiá la URL de <code>/chat-overlay</code>.
+          Copia la URL de <code>/chat-overlay</code>.
         </li>
         <li>
-          En OBS: Fuente → Navegador → pegá la URL. Fondo transparente, sin
+          Si tu muxlyve esta en otra maquina copia la URL de la otra maquina{" "}
+          <code>/chat-overlay</code>.
+        </li>
+        <ScreenshotPlaceholder
+          src="/help/overlay-chat-obs-4.png"
+          label="Si tu muxlyve esta en otra maquina copia la URL de la otra maquina"
+        />
+        <li>
+          En OBS: Fuente → Navegador → pega la URL. Fondo transparente, sin
           controles.
           <ScreenshotPlaceholder
             src="/help/overlay-chat-obs-1.png"
@@ -33,8 +45,8 @@ export default function Page() {
         label="overlay de chat compuesto sobre la escena"
       />
       <p>
-        ¿Vas a controlar el overlay desde otra máquina de tu red? Mirá{" "}
-        <Link href="/ayuda/acceso-remoto-lan">
+        ¿Vas a controlar el overlay desde otra máquina de tu red?{" "}
+        <Link href="/ayuda/control-lan">
           Usar Muxlyve desde otra máquina de tu red
         </Link>
         .

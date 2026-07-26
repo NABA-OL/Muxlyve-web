@@ -23,7 +23,43 @@ export default function Page() {
         Preferencias.
       </p>
       <ScreenshotPlaceholder
-        src="/help/stream-deck.png"
+        src="/help/stream-deck-1.png"
+        label="botones del Stream Deck con los íconos de cada plataforma"
+      />
+      <ScreenshotPlaceholder
+        src="/help/stream-deck-2.png"
+        label="botones del Stream Deck con los íconos de cada plataforma"
+      />
+      <ScreenshotPlaceholder
+        src="/help/stream-deck-3.png"
+        label="botones del Stream Deck con los íconos de cada plataforma"
+      />
+      <ScreenshotPlaceholder
+        src="/help/stream-deck-4.png"
+        label="botones del Stream Deck con los íconos de cada plataforma"
+      />
+      <ScreenshotPlaceholder
+        src="/help/stream-deck-5.png"
+        label="botones del Stream Deck con los íconos de cada plataforma"
+      />
+      <ScreenshotPlaceholder
+        src="/help/stream-deck-6.png"
+        label="botones del Stream Deck con los íconos de cada plataforma"
+      />
+      <ScreenshotPlaceholder
+        src="/help/stream-deck-7.png"
+        label="botones del Stream Deck con los íconos de cada plataforma"
+      />
+      <ScreenshotPlaceholder
+        src="/help/stream-deck-8.png"
+        label="botones del Stream Deck con los íconos de cada plataforma"
+      />
+      <ScreenshotPlaceholder
+        src="/help/stream-deck-9.png"
+        label="botones del Stream Deck con los íconos de cada plataforma"
+      />
+      <ScreenshotPlaceholder
+        src="/help/stream-deck-10.png"
         label="botones del Stream Deck con los íconos de cada plataforma"
       />
       <p>

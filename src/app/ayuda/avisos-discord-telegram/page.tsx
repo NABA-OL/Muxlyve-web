@@ -2,7 +2,7 @@ import { ArticleLayout } from "@/components/help/ArticleLayout";
 import { ScreenshotPlaceholder } from "@/components/help/ScreenshotPlaceholder";
 
 export const metadata = {
-  title: "Avisar en Discord y Telegram cuando arrancás en vivo — Ayuda",
+  title: "Avisos en Discord y Telegram cuando arrancás en vivo — Ayuda",
   description:
     "Cómo configurar webhooks de Discord y bots de Telegram para que Muxlyve avise automáticamente apenas empieza tu transmisión.",
 };
@@ -11,7 +11,7 @@ export default function Page() {
   return (
     <ArticleLayout
       slug="avisos-discord-telegram"
-      title="Avisar en Discord y Telegram cuando arrancás en vivo"
+      title="Avisos en Discord y Telegram cuando arrancás en vivo"
     >
       <p>
         Muxlyve manda un mensaje automático apenas empieza la transmisión, a
@@ -29,8 +29,8 @@ export default function Page() {
         <li>Copiá la URL del webhook.</li>
         <li>Pegala en Muxlyve, en Preferencias → Webhooks.</li>
         <li>
-          Tocá &quot;Probar&quot; para confirmar que funciona antes de salir
-          en vivo.
+          Tocá &quot;Probar&quot; para confirmar que funciona antes de salir en
+          vivo.
         </li>
       </ol>
 
@@ -44,16 +44,16 @@ export default function Page() {
           Escribir <code>/newbot</code>.
         </li>
         <li>
-          Elegir un nombre para mostrar, y después un username que termine
-          en &quot;bot&quot; (ej. <code>mi_canal_avisos_bot</code>) —
-          BotFather avisa si ya está tomado.
+          Elegir un nombre para mostrar, y después un username que termine en
+          &quot;bot&quot; (ej. <code>mi_canal_avisos_bot</code>) — BotFather
+          avisa si ya está tomado.
         </li>
         <li>
           BotFather responde con el token — una línea larga tipo{" "}
-          <code>123456789:AAHqhK9DsSNGCQnQanCwHzXTVo1TVe0MYCA</code>. Ese es
-          el que va en Muxlyve. Si se pierde: en BotFather,{" "}
-          <code>/mybots</code> → elegir el bot → &quot;API Token&quot; →
-          &quot;Revoke current token&quot; genera uno nuevo.
+          <code>123456789:AAHqhK9DsSNGCQnQanCwHzXTVo1TVe0MYCA</code>. Ese es el
+          que va en Muxlyve. Si se pierde: en BotFather, <code>/mybots</code> →
+          elegir el bot → &quot;API Token&quot; → &quot;Revoke current
+          token&quot; genera uno nuevo.
         </li>
       </ol>
       <ScreenshotPlaceholder
@@ -67,8 +67,8 @@ export default function Page() {
       </p>
       <ol>
         <li>
-          Agregar <code>@RawDataBot</code> (o <code>@getidsbot</code>) al
-          grupo como a cualquier miembro.
+          Agregar <code>@RawDataBot</code> (o <code>@getidsbot</code>) al grupo
+          como a cualquier miembro.
         </li>
         <li>
           Apenas entra, tira un mensaje con toda la data del chat — buscar
@@ -85,18 +85,21 @@ export default function Page() {
       />
 
       <p>
-        <strong>Si es un canal:</strong> los canales funcionan distinto — un
-        bot agregado como simple miembro no ve ni puede postear nada ahí,
-        así que el método del grupo no funciona en un canal. Dos formas de
-        conseguir el ID igual:
+        <strong>Si es un canal:</strong> los canales funcionan distinto — un bot
+        agregado como simple miembro no ve ni puede postear nada ahí, así que el
+        método del grupo no funciona en un canal. Dos formas de conseguir el ID
+        igual:
       </p>
       <ol>
         <li>
-          Reenviar un mensaje (la más simple, no hace falta agregar ningún
-          bot al canal): reenviar cualquier mensaje DEL canal, por privado,
-          a <code>@JsonDumpBot</code> o <code>@RawDataBot</code>. Responde
-          con el JSON completo — buscar{" "}
-          <code>&quot;forward_from_chat&quot;:{"{"}&quot;id&quot;:-100...{"}"}</code>. Ese es el ID.
+          Reenviar un mensaje (la más simple, no hace falta agregar ningún bot
+          al canal): reenviar cualquier mensaje DEL canal, por privado, a{" "}
+          <code>@JsonDumpBot</code> o <code>@RawDataBot</code>. Responde con el
+          JSON completo — buscar{" "}
+          <code>
+            &quot;forward_from_chat&quot;:{"{"}&quot;id&quot;:-100...{"}"}
+          </code>
+          . Ese es el ID.
         </li>
       </ol>
       <ScreenshotPlaceholder
@@ -105,38 +108,42 @@ export default function Page() {
       />
       <ol start={2}>
         <li>
-          Con el propio bot: en el canal → Administradores → agregar el bot
-          como administrador (no como miembro — como miembro no alcanza).
-          Publicar algo, después abrir{" "}
+          Con el propio bot: en el canal → Administradores → agregar el bot como
+          administrador (no como miembro — como miembro no alcanza). Publicar
+          algo, después abrir{" "}
           <code>https://api.telegram.org/bot&lt;TOKEN&gt;/getUpdates</code>{" "}
-          (reemplazando <code>&lt;TOKEN&gt;</code> por el token real) y
-          buscar{" "}
-          <code>&quot;channel_post&quot;:{"{"}&quot;chat&quot;:{"{"}&quot;id&quot;:-100...{"}"}{"}"}</code>.
+          (reemplazando <code>&lt;TOKEN&gt;</code> por el token real) y buscar{" "}
+          <code>
+            &quot;channel_post&quot;:{"{"}&quot;chat&quot;:{"{"}
+            &quot;id&quot;:-100...{"}"}
+            {"}"}
+          </code>
+          .
         </li>
       </ol>
       <p>
-        El link de invitación (<code>t.me/+AbCdEfGh...</code>) NO sirve
-        como chat ID — es solo un enlace para unirse, no identifica al canal
-        ante la API.
+        El link de invitación (<code>t.me/+AbCdEfGh...</code>) NO sirve como
+        chat ID — es solo un enlace para unirse, no identifica al canal ante la
+        API.
       </p>
       <p>
         Atajo si el grupo/canal es público (tiene @usuario): usar{" "}
-        <code>@usuario_del_canal</code> directo en el campo Chat ID de
-        Muxlyve, sin buscar ningún número.
+        <code>@usuario_del_canal</code> directo en el campo Chat ID de Muxlyve,
+        sin buscar ningún número.
       </p>
       <p>
         Los IDs de grupos, supergrupos y canales siempre empiezan en{" "}
-        <code>-100</code> cuando son numéricos — si el número no arranca
-        así, seguramente es el ID de una persona, no el del grupo/canal.
+        <code>-100</code> cuando son numéricos — si el número no arranca así,
+        seguramente es el ID de una persona, no el del grupo/canal.
       </p>
 
       <h2>Guardar en Muxlyve</h2>
       <ol>
         <li>Pegá el token y el chat ID en Muxlyve.</li>
         <li>
-          Tocá &quot;Guardar&quot; — a diferencia de Discord, en Telegram
-          hace falta guardar explícito porque el bot necesita el token y el
-          chat ID juntos.
+          Tocá &quot;Guardar&quot; — a diferencia de Discord, en Telegram hace
+          falta guardar explícito porque el bot necesita el token y el chat ID
+          juntos.
         </li>
       </ol>
 
@@ -149,8 +156,8 @@ export default function Page() {
         muestra como texto plano.
       </p>
       <p>
-        Desde ese mismo modal, &quot;Probar&quot; manda el mensaje guardado
-        a todos los canales configurados de una.
+        Desde ese mismo modal, &quot;Probar&quot; manda el mensaje guardado a
+        todos los canales configurados de una.
       </p>
       <ScreenshotPlaceholder
         src="/help/avisos-discord-telegram-2.png"

@@ -25,11 +25,15 @@ export default function Page() {
             label="pantalla del instalador NSIS bilingüe"
           />
           Mac: arrastrá Muxlyve a la carpeta Aplicaciones.
+          <ScreenshotPlaceholder
+            src="/help/instalacion-primer-arranque-2.png"
+            label="pantalla de instalador de mac"
+          />
         </li>
         <li>
           Primer arranque: activá tu licencia.
           <ScreenshotPlaceholder
-            src="/help/instalacion-primer-arranque-2.png"
+            src="/help/instalacion-primer-arranque-3.png"
             label="modal de activar licencia"
           />
         </li>

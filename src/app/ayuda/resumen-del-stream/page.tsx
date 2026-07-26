@@ -1,4 +1,5 @@
 import { ArticleLayout } from "@/components/help/ArticleLayout";
+import { ScreenshotPlaceholder } from "@/components/help/ScreenshotPlaceholder";
 
 export const metadata = {
   title: "Resumen del stream — Ayuda",
@@ -18,6 +19,10 @@ export default function Page() {
         <li>Cantidad de mensajes de chat recibidos.</li>
         <li>Bitrate promedio por destino.</li>
       </ul>
+      <ScreenshotPlaceholder
+        src="/help/resumen-del-stream.png"
+        label="Informacion que muestra resumen de la ultima transmision"
+      />
     </ArticleLayout>
   );
 }

@@ -1,4 +1,5 @@
 import { ArticleLayout } from "@/components/help/ArticleLayout";
+import { ScreenshotPlaceholder } from "@/components/help/ScreenshotPlaceholder";
 
 export const metadata = {
   title: "Programar inicio y comprobación previa — Ayuda",
@@ -22,6 +23,14 @@ export default function Page() {
         <li>Elegí los destinos y la hora.</li>
         <li>Confirmá con &quot;Programar&quot;.</li>
       </ol>
+      <ScreenshotPlaceholder
+        src="/help/programar-inicio-1.png"
+        label="Panel de acciones que muestra programar inicio"
+      />
+      <ScreenshotPlaceholder
+        src="/help/programar-inicio-2.png"
+        label="Modal para confirmar la programación de inicio de cada plataforma configurada"
+      />
       <h2>Comprobación previa</h2>
       <p>
         Botón &quot;Comprobar antes de salir en vivo&quot; — corre una
@@ -29,6 +38,14 @@ export default function Page() {
         algo mal configurado. Está en el mismo panel de acciones que
         &quot;Programar inicio&quot;.
       </p>
+      <ScreenshotPlaceholder
+        src="/help/comprobacion-previa-1.png"
+        label="Panel de acciones que muestra comprobación previa"
+      />
+      <ScreenshotPlaceholder
+        src="/help/comprobacion-previa-2.png"
+        label="Modal para validar la comprobación previa del stream"
+      />
     </ArticleLayout>
   );
 }

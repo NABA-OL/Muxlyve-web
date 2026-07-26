@@ -17,7 +17,7 @@ export const HELP_ARTICLES: HelpArticle[] = [
   },
   {
     slug: "conectar-tu-software",
-    title: "Conectar OBS (o cualquier software de streaming)",
+    title: "Conectar tu software de streaming (OBS, Streamlabs, Xsplit, etc.)",
     summary: "Server RTMP y stream key para apuntar tu encoder a Muxlyve.",
   },
   {
@@ -66,13 +66,13 @@ export const HELP_ARTICLES: HelpArticle[] = [
     summary: "Prender destinos, activar el buffer y guardar clips con botones físicos.",
   },
   {
-    slug: "acceso-remoto-lan",
-    title: "Usar Muxlyve desde otra máquina de tu red",
+    slug: "control-lan",
+    title: "Controlar Muxlyve desde otra máquina de tu red",
     summary: "Controlar destinos, chat y Stream Deck desde una máquina distinta a la que transmite.",
   },
   {
     slug: "avisos-discord-telegram",
-    title: "Avisar en Discord y Telegram cuando arrancás en vivo",
+    title: "Avisos en Discord y Telegram cuando arrancás en vivo",
     summary: "Mensaje automático a hasta 3 webhooks de Discord y 3 bots de Telegram apenas empieza tu stream.",
   },
   {
