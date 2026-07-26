@@ -1,4 +1,9 @@
 /* ---- Layout con sidebar ---- */
+.section {
+  /* anula el padding-block gigante de `section` global (pensado para la landing) */
+  padding-block: 0;
+}
+
 .layout {
   display: grid;
   grid-template-columns: 240px 1fr;

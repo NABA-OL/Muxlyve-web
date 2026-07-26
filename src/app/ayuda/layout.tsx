@@ -9,7 +9,7 @@ export default function AyudaLayout({ children }: { children: ReactNode }) {
     <>
       <Nav />
       <main>
-        <section>
+        <section className={styles.section}>
           <div className={`container ${styles.layout}`}>
             <AyudaSidebar />
             <div className={styles.content}>{children}</div>
