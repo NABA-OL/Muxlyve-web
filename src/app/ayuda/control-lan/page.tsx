@@ -11,7 +11,7 @@ export const metadata = {
 export default function Page() {
   return (
     <ArticleLayout
-      slug="acceso-remoto-lan"
+      slug="control-lan"
       title="Controlar Muxlyve desde otra máquina en tu red"
     >
       <p>

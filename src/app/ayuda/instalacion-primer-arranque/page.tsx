@@ -15,23 +15,23 @@ export default function Page() {
     >
       <ol>
         <li>
-          Descargá el instalador (Windows <code>.exe</code> / macOS{" "}
+          Descarga el instalador (Windows <code>.exe</code> / macOS{" "}
           <code>.dmg</code>) desde la página de descarga.
         </li>
         <li>
-          Windows: seguí los pasos del instalador.
+          Windows: sigue los pasos del instalador.
           <ScreenshotPlaceholder
             src="/help/instalacion-primer-arranque-1.png"
             label="pantalla del instalador NSIS bilingüe"
           />
-          Mac: arrastrá Muxlyve a la carpeta Aplicaciones.
+          Mac: arrastra Muxlyve a la carpeta Aplicaciones.
           <ScreenshotPlaceholder
             src="/help/instalacion-primer-arranque-2.png"
             label="pantalla de instalador de mac"
           />
         </li>
         <li>
-          Primer arranque: activá tu licencia.
+          Primer arranque: activa tu licencia.
           <ScreenshotPlaceholder
             src="/help/instalacion-primer-arranque-3.png"
             label="modal de activar licencia"

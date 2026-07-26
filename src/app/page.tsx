@@ -68,15 +68,15 @@ interface FeatureGroup {
 
 const STEPS = [
   {
-    title: "Conectá tu software",
-    body: "Apuntá OBS, Streamlabs, XSplit, vMix, N.Air o cualquier encoder RTMP a Muxlyve como servidor de salida.",
+    title: "Conecta tu software",
+    body: "Apunta OBS, Streamlabs, XSplit, vMix, N.Air o cualquier encoder RTMP a Muxlyve como servidor de salida.",
   },
   {
-    title: "Conectá tus plataformas",
-    body: "Vinculá Twitch, Kick y YouTube con un clic (OAuth), o pegá tu clave de TikTok.",
+    title: "Conecta tus plataformas",
+    body: "Vincula Twitch, Kick y YouTube con un clic (OAuth), o pega tu clave de TikTok.",
   },
   {
-    title: "Transmití a las 4 a la vez",
+    title: "Transmite a las 4 a la vez",
     body: "Una sola señal, sin recodificar, sin marca de agua y sin depender de un servidor ajeno.",
   },
 ];
@@ -118,7 +118,7 @@ const FEATURE_GROUPS: FeatureGroup[] = [
       {
         icon: "⏰",
         title: "Programar inicio",
-        body: "Elegí destinos y hora, y Muxlyve arranca solo. No hace falta estar pendiente en el momento exacto.",
+        body: "Elige destinos y hora, y Muxlyve arranca solo. No hace falta estar pendiente en el momento exacto.",
       },
       {
         icon: "📊",
@@ -128,7 +128,7 @@ const FEATURE_GROUPS: FeatureGroup[] = [
       {
         icon: "🗂️",
         title: "Perfiles de destinos",
-        body: "Guardá combinaciones de destinos prendidos (\"Solo Twitch\", \"Todo\") y aplicalas con un clic, sin tocar cada toggle a mano. Hasta 6 perfiles.",
+        body: "Guarda combinaciones de destinos prendidos (\"Solo Twitch\", \"Todo\") y aplícalas con un clic, sin tocar cada toggle a mano. Hasta 6 perfiles.",
       },
     ],
   },
@@ -138,12 +138,12 @@ const FEATURE_GROUPS: FeatureGroup[] = [
       {
         icon: "💬",
         title: "Chat unificado",
-        body: "Los mensajes de Twitch y Kick en un solo lugar. Respondé a ambas plataformas sin cambiar de pestaña.",
+        body: "Los mensajes de Twitch y Kick en un solo lugar. Responde a ambas plataformas sin cambiar de pestaña.",
       },
       {
         icon: "🪟",
         title: "Overlay de chat para OBS",
-        body: "Agregá el chat como fuente de Navegador en OBS, con fondo transparente, directo sobre tu transmisión.",
+        body: "Agrega el chat como fuente de Navegador en OBS, con fondo transparente, directo sobre tu transmisión.",
       },
       {
         icon: "🎬",
@@ -153,7 +153,7 @@ const FEATURE_GROUPS: FeatureGroup[] = [
       {
         icon: "✂️",
         title: "Comando !clip en el chat",
-        body: "Moderadores (o vos) escriben \"!clip\" y se guarda un clip del buffer al instante, sin salir del juego.",
+        body: "Moderadores (o tú) escriben \"!clip\" y se guarda un clip del buffer al instante, sin salir del juego.",
       },
     ],
   },
@@ -170,7 +170,7 @@ const FEATURE_GROUPS: FeatureGroup[] = [
       {
         icon: "📡",
         title: "Acceso remoto por LAN",
-        body: "Controlá destinos, chat y Stream Deck desde otra máquina de tu red, con token de acceso seguro.",
+        body: "Controla destinos, chat y Stream Deck desde otra máquina de tu red, con token de acceso seguro.",
       },
       {
         icon: "🌐",
@@ -180,7 +180,7 @@ const FEATURE_GROUPS: FeatureGroup[] = [
       {
         icon: "🔔",
         title: "Avisos a Discord y Telegram",
-        body: "Mensaje configurable que se manda solo apenas arrancás en vivo — hasta 3 webhooks de Discord y 3 bots de Telegram a la vez.",
+        body: "Mensaje configurable que se manda solo apenas arrancas en vivo — hasta 3 webhooks de Discord y 3 bots de Telegram a la vez.",
       },
     ],
   },
@@ -374,7 +374,7 @@ export default async function Home() {
                 de lo que OBS permita. Muxlyve es una app aparte: recibe
                 cualquier señal RTMP — de OBS, Streamlabs, XSplit, vMix, N.Air
                 o un encoder de hardware — y la reenvía sin recodificar.
-                Controlá todo, incluso desde otra máquina de tu red.
+                Controla todo, incluso desde otra máquina de tu red.
               </p>
             </div>
           </div>
@@ -424,7 +424,7 @@ export default async function Home() {
                 Deck
               </h2>
               <p className="section-lead" style={{ marginInline: "auto" }}>
-                Controlá tus destinos en vivo, activá el buffer y guardá
+                Controla tus destinos en vivo, activa el buffer y guarda
                 clips desde botones físicos, sin tocar el teclado.
               </p>
               {streamDeckMockupExists && (

@@ -15,13 +15,13 @@ export default function Page() {
     >
       <h2>Programar inicio</h2>
       <p>
-        Elegí una hora futura para que los destinos seleccionados arranquen
+        Elige una hora futura para que los destinos seleccionados arranquen
         solos, sin tener que estar pendiente en el momento exacto.
       </p>
       <ol>
-        <li>Abrí &quot;Programar inicio&quot; en el panel.</li>
-        <li>Elegí los destinos y la hora.</li>
-        <li>Confirmá con &quot;Programar&quot;.</li>
+        <li>Abre &quot;Programar inicio&quot; en el panel.</li>
+        <li>Elige los destinos y la hora.</li>
+        <li>Confirma con &quot;Programar&quot;.</li>
       </ol>
       <ScreenshotPlaceholder
         src="/help/programar-inicio-1.png"

@@ -16,9 +16,9 @@ export default function Page() {
       </p>
       <h2>¿En qué se diferencia de un servicio en la nube?</h2>
       <p>
-        Servicios como Restream o Castr corren en un servidor de terceros: vos
-        les mandás tu señal a ellos, y ellos la reenvían. Muxlyve corre en tu
-        propia computadora — vos generás la señal en tu software de streaming
+        Servicios como Restream o Castr corren en un servidor de terceros: tú
+        les mandas tu señal a ellos, y ellos la reenvían. Muxlyve corre en tu
+        propia computadora — tú generas la señal en tu software de streaming
         (OBS, Streamlabs, XSplit, vMix, o cualquier otro que hable RTMP),
         Muxlyve la recibe localmente y la reenvía a cada plataforma
         directamente. No pasa por un servidor de terceros.

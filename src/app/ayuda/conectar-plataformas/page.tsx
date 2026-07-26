@@ -14,7 +14,7 @@ export default function Page() {
       title="Conectar tus plataformas (Twitch, Kick, YouTube, TikTok)"
     >
       <p>
-        Twitch, Kick y YouTube: iniciá sesión con un clic (OAuth), sin pegar
+        Twitch, Kick y YouTube: inicia sesión con un clic (OAuth), sin pegar
         claves a mano.
       </p>
       <ScreenshotPlaceholder
@@ -22,12 +22,12 @@ export default function Page() {
         label="tarjeta de Twitch con botón Conectar"
       />
       <p>
-        TikTok no tiene login público — copiá el servidor y la clave desde la
+        TikTok no tiene login público — copia el servidor y la clave desde la
         app de TikTok. Esa clave se regenera cada ~2 horas; es una limitación
         de la plataforma, no de Muxlyve.
       </p>
       <p>
-        Prendé o apagá cada destino con un toggle, en caliente, sin cortar la
+        Prende o apaga cada destino con un toggle, en caliente, sin cortar la
         transmisión.
       </p>
       <ScreenshotPlaceholder

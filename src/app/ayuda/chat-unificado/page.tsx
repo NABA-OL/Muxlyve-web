@@ -12,7 +12,7 @@ export default function Page() {
     <ArticleLayout slug="chat-unificado" title="Chat unificado">
       <p>
         Ve los mensajes de Twitch y Kick en un solo lugar, sin cambiar de
-        pestaña. Podés responder desde la app a todas las plataformas
+        pestaña. Puedes responder desde la app a todas las plataformas
         conectadas a la vez.
       </p>
       <p>

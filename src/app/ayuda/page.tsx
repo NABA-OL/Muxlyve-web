@@ -13,7 +13,7 @@ export default function AyudaPage() {
     <div>
       <h1 className={styles.articleTitle}>Cómo funciona Muxlyve</h1>
       <p className={styles.intro}>
-        Guías cortas y directas, paso a paso. Sin jerga innecesaria. Elegí un
+        Guías cortas y directas, paso a paso. Sin jerga innecesaria. Elige un
         artículo de la lista.
       </p>
       <div className={styles.grid}>

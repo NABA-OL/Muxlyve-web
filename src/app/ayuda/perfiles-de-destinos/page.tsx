@@ -20,9 +20,9 @@ export default function Page() {
       </p>
       <h2>Crear un perfil</h2>
       <ol>
-        <li>Prendé y apagá los destinos como querés dejarlos.</li>
-        <li>Tocá &quot;Guardar actual&quot;.</li>
-        <li>Ponele un nombre (por ejemplo &quot;Solo Twitch&quot; o &quot;Todo&quot;).</li>
+        <li>Enciende y apaga los destinos como deseas dejarlos.</li>
+        <li>Presiona &quot;Guardar actual&quot;.</li>
+        <li>Coloca un nombre (por ejemplo &quot;Solo Twitch&quot; o &quot;Todo&quot;).</li>
       </ol>
       <ScreenshotPlaceholder
         src="/help/perfiles-de-destinos-1.png"
@@ -38,10 +38,10 @@ export default function Page() {
       />
       <h2>Borrar un perfil</h2>
       <p>
-        Tocá la ✕ del chip del perfil. Límite: 6 perfiles guardados.
+        Toca la ✕ del chip del perfil. Límite: 6 perfiles guardados.
       </p>
       <p>
-        Si borrás un destino que un perfil usaba, el perfil sigue
+        Si borras un destino que un perfil usaba, el perfil sigue
         funcionando con el resto de los destinos que tenía guardados.
       </p>
       <h2>Desde el Stream Deck</h2>

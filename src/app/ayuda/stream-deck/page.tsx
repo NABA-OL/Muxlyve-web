@@ -14,12 +14,12 @@ export default function Page() {
   return (
     <ArticleLayout slug="stream-deck" title="Plugin de Stream Deck">
       <p>
-        Prendé y apagá destinos, activá el buffer y guardá clips con botones
+        Prende y apaga destinos, activa el buffer y guarda clips con botones
         físicos, sin tocar el teclado.
       </p>
       <p>
         Si tu Stream Deck corre en otra computadora que la que transmite,
-        activá &quot;Permitir Stream Deck / chat desde otra máquina&quot; en
+        activa &quot;Permitir Stream Deck / chat desde otra máquina&quot; en
         Preferencias.
       </p>
       <ScreenshotPlaceholder

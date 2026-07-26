@@ -3,7 +3,7 @@ import path from "node:path";
 import { ZoomableImage } from "./ZoomableImage";
 
 interface Props {
-  /** Ruta pública, ej. "/help/stream-deck.png". Poné el archivo en public/help/ con ese nombre exacto. */
+  /** Ruta pública, ej. "/help/stream-deck.png". Coloca el archivo en public/help/ con ese nombre exacto. */
   src: string;
   label: string;
 }
@@ -31,7 +31,7 @@ export function ScreenshotPlaceholder({ src, label }: Props) {
       [SCREENSHOT: {label}]
       <br />
       <code style={{ fontSize: "0.78rem", opacity: 0.75 }}>
-        Poné el archivo en public{src}
+        Coloca el archivo en public{src}
       </code>
     </div>
   );

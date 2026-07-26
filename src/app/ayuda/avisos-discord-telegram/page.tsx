@@ -2,7 +2,7 @@ import { ArticleLayout } from "@/components/help/ArticleLayout";
 import { ScreenshotPlaceholder } from "@/components/help/ScreenshotPlaceholder";
 
 export const metadata = {
-  title: "Avisos en Discord y Telegram cuando arrancás en vivo — Ayuda",
+  title: "Avisos en Discord y Telegram cuando arrancas en vivo — Ayuda",
   description:
     "Cómo configurar webhooks de Discord y bots de Telegram para que Muxlyve avise automáticamente apenas empieza tu transmisión.",
 };
@@ -11,7 +11,7 @@ export default function Page() {
   return (
     <ArticleLayout
       slug="avisos-discord-telegram"
-      title="Avisos en Discord y Telegram cuando arrancás en vivo"
+      title="Avisos en Discord y Telegram cuando arrancas en vivo"
     >
       <p>
         Muxlyve manda un mensaje automático apenas empieza la transmisión, a
@@ -26,10 +26,10 @@ export default function Page() {
       <h2>Discord</h2>
       <ol>
         <li>En Discord: Ajustes del canal → Integraciones → Webhooks.</li>
-        <li>Copiá la URL del webhook.</li>
-        <li>Pegala en Muxlyve, en Preferencias → Webhooks.</li>
+        <li>Copia la URL del webhook.</li>
+        <li>Pégala en Muxlyve, en Preferencias → Webhooks.</li>
         <li>
-          Tocá &quot;Probar&quot; para confirmar que funciona antes de salir en
+          Toca &quot;Probar&quot; para confirmar que funciona antes de salir en
           vivo.
         </li>
       </ol>
@@ -76,7 +76,7 @@ export default function Page() {
           <code>-1001234567890</code>).
         </li>
         <li>
-          Copiar ese número, sacar al bot del grupo si no lo querés ahí más.
+          Copiar ese número, sacar al bot del grupo si no lo vas a usar ahí más.
         </li>
       </ol>
       <ScreenshotPlaceholder
@@ -139,9 +139,9 @@ export default function Page() {
 
       <h2>Guardar en Muxlyve</h2>
       <ol>
-        <li>Pegá el token y el chat ID en Muxlyve.</li>
+        <li>Pega el token y el chat ID en Muxlyve.</li>
         <li>
-          Tocá &quot;Guardar&quot; — a diferencia de Discord, en Telegram hace
+          Toca &quot;Guardar&quot; — a diferencia de Discord, en Telegram hace
           falta guardar explícito porque el bot necesita el token y el chat ID
           juntos.
         </li>

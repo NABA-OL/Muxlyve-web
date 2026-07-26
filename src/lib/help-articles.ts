@@ -48,12 +48,12 @@ export const HELP_ARTICLES: HelpArticle[] = [
   {
     slug: "perfiles-de-destinos",
     title: 'Perfiles: cambiar de "solo Twitch" a "todo" con un clic',
-    summary: "Guardá combinaciones de destinos prendidos y aplicalas con un clic. Hasta 6 perfiles.",
+    summary: "Guarda combinaciones de destinos prendidos y aplícalas con un clic. Hasta 6 perfiles.",
   },
   {
     slug: "programar-inicio",
     title: "Programar inicio y comprobación previa",
-    summary: "Elegí destinos y hora para arrancar solo, y revisá que todo esté bien antes de salir en vivo.",
+    summary: "Elige destinos y hora para arrancar solo, y revisa que todo esté bien antes de salir en vivo.",
   },
   {
     slug: "resumen-del-stream",

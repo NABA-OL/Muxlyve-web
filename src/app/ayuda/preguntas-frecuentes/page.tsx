@@ -36,7 +36,7 @@ export default function Page() {
 
       <h2>¿Puedo ponerle un límite de bitrate a un destino?</h2>
       <p>
-        Sí, es opcional. En la tarjeta de cada destino podés desplegar
+        Sí, es opcional. En la tarjeta de cada destino puedes desplegar
         &quot;Bitrate máximo (kbps) — opcional&quot; y poner un tope. Mientras
         tu bitrate real se mantenga por debajo, Muxlyve sigue reenviando sin
         recodificar. Solo si se sostiene por encima del límite, recodifica
@@ -46,7 +46,7 @@ export default function Page() {
 
       <h2>¿Me avisa si se cae un destino mientras hago otra cosa?</h2>
       <p>
-        Sí. Si tenés otra ventana o juego en primer plano y un destino se
+        Sí. Si tienes otra ventana o juego en primer plano y un destino se
         cae, Muxlyve manda una notificación nativa del sistema operativo (no
         una alerta dentro de la app). En algunas distros de Linux sin daemon
         de notificaciones esto puede no estar disponible — falla en
@@ -62,7 +62,7 @@ export default function Page() {
       <h2>¿Dónde reporto un bug?</h2>
       <p>
         Botón &quot;Reportar un problema&quot; dentro de la app — adjunta los
-        logs automáticamente. Si preferís no hacerlo desde ahí, escribinos
+        logs automáticamente. Si prefieres no hacerlo desde ahí, escríbenos
         directo a{" "}
         <a href="mailto:soporte@muxlyve.app">soporte@muxlyve.app</a>.
       </p>
