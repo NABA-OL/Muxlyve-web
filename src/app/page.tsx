@@ -50,6 +50,11 @@ const jsonLd = {
     "Reconexión automática",
     "Preview en vivo por destino",
     "Twitch, Kick, YouTube, TikTok",
+    "Destinos personalizados por RTMP, RTMPS o SRT",
+    "Moderación de chat (timeout/ban)",
+    "Historial de sesiones",
+    "Exportar/importar configuración",
+    "Aviso de audio cortado",
   ],
 };
 
@@ -128,7 +133,12 @@ const FEATURE_GROUPS: FeatureGroup[] = [
       {
         icon: "🗂️",
         title: "Perfiles de destinos",
-        body: "Guarda combinaciones de destinos prendidos (\"Solo Twitch\", \"Todo\") y aplícalas con un clic, sin tocar cada toggle a mano. Hasta 6 perfiles.",
+        body: "Guarda combinaciones de destinos prendidos (\"Solo Twitch\", \"Todo\"), con su propio título y categoría de stream. Un clic cambia todo junto. Hasta 6 perfiles.",
+      },
+      {
+        icon: "📜",
+        title: "Historial de sesiones",
+        body: "Registro automático de cada transmisión real: fecha, duración, plataformas y pico de espectadores. 100% local, sin cuenta ni nube, últimas 100 sesiones.",
       },
     ],
   },
@@ -138,7 +148,7 @@ const FEATURE_GROUPS: FeatureGroup[] = [
       {
         icon: "💬",
         title: "Chat unificado",
-        body: "Los mensajes de Twitch y Kick en un solo lugar. Responde a ambas plataformas sin cambiar de pestaña.",
+        body: "Los mensajes de Twitch y Kick en un solo lugar. Responde a ambas plataformas y modera (timeout, ban) sin cambiar de pestaña — moderación hoy solo en Twitch.",
       },
       {
         icon: "🪟",
@@ -180,7 +190,17 @@ const FEATURE_GROUPS: FeatureGroup[] = [
       {
         icon: "🔔",
         title: "Avisos a Discord y Telegram",
-        body: "Mensaje configurable que se manda solo apenas arrancas en vivo — hasta 3 webhooks de Discord y 3 bots de Telegram a la vez.",
+        body: "Mensaje configurable al iniciar Y al finalizar la transmisión — hasta 3 webhooks de Discord y 3 bots de Telegram a la vez, cada evento con su propio texto.",
+      },
+      {
+        icon: "🎚️",
+        title: "Aviso de audio cortado",
+        body: "Si no detecta audio real por 20 segundos mientras estás en vivo, te avisa con una notificación nativa del sistema. Desactivable.",
+      },
+      {
+        icon: "💾",
+        title: "Exportar/importar configuración",
+        body: "Descarga destinos y ajustes en un solo archivo JSON. Útil para cambiar de PC o replicar tu configuración en otra máquina, en un clic.",
       },
     ],
   },
@@ -388,6 +408,13 @@ export default async function Home() {
               <h2 className="section-title">
                 Cuatro destinos, una sola transmisión.
               </h2>
+              <p className="section-lead">
+                Twitch, Kick, YouTube y TikTok con integración directa. Además,
+                agrega cualquier destino personalizado por{" "}
+                <code>rtmp://</code>, <code>rtmps://</code> (RTMP cifrado) o{" "}
+                <code>srt://</code> — útil para servidores privados o CDNs
+                propias.
+              </p>
             </div>
             <div className={styles.platforms}>
               {PLATFORMS.map((p) => (

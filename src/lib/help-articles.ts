@@ -23,12 +23,12 @@ export const HELP_ARTICLES: HelpArticle[] = [
   {
     slug: "conectar-plataformas",
     title: "Conectar tus plataformas",
-    summary: "Vincular Twitch, Kick, YouTube y TikTok, y prender/apagar destinos en caliente.",
+    summary: "Vincular Twitch, Kick, YouTube y TikTok, y agregar destinos personalizados por RTMP, RTMPS o SRT.",
   },
   {
     slug: "chat-unificado",
     title: "Chat unificado",
-    summary: "Ver y responder los mensajes de Twitch y Kick desde un solo lugar.",
+    summary: "Ver y responder los mensajes de Twitch y Kick desde un solo lugar, y moderar sin salir de la app.",
   },
   {
     slug: "overlay-chat-obs",
@@ -48,7 +48,7 @@ export const HELP_ARTICLES: HelpArticle[] = [
   {
     slug: "perfiles-de-destinos",
     title: 'Perfiles: cambiar de "solo Twitch" a "todo" con un clic',
-    summary: "Guarda combinaciones de destinos prendidos y aplícalas con un clic. Hasta 6 perfiles.",
+    summary: "Guarda combinaciones de destinos, título y categoría, y aplícalas con un clic. Hasta 6 perfiles.",
   },
   {
     slug: "programar-inicio",
@@ -58,7 +58,7 @@ export const HELP_ARTICLES: HelpArticle[] = [
   {
     slug: "resumen-del-stream",
     title: "Resumen del stream",
-    summary: "Duración, pico de espectadores, mensajes de chat y bitrate promedio al terminar de transmitir.",
+    summary: "Duración, pico de espectadores, mensajes de chat y bitrate promedio al terminar de transmitir, más tu historial de sesiones.",
   },
   {
     slug: "stream-deck",
@@ -71,9 +71,19 @@ export const HELP_ARTICLES: HelpArticle[] = [
     summary: "Controlar destinos, chat y Stream Deck desde una máquina distinta a la que transmite.",
   },
   {
+    slug: "exportar-importar-config",
+    title: "Exportar e importar tu configuración",
+    summary: "Descarga destinos y ajustes en un archivo JSON, y restáuralos en otra máquina en un clic.",
+  },
+  {
     slug: "avisos-discord-telegram",
-    title: "Avisos en Discord y Telegram cuando arrancás en vivo",
-    summary: "Mensaje automático a hasta 3 webhooks de Discord y 3 bots de Telegram apenas empieza tu stream.",
+    title: "Avisos en Discord y Telegram cuando arrancas (y terminas) en vivo",
+    summary: "Mensaje automático a hasta 3 webhooks de Discord y 3 bots de Telegram al iniciar y al finalizar tu stream.",
+  },
+  {
+    slug: "audio-cortado",
+    title: "Aviso cuando se corta el audio",
+    summary: "Notificación nativa si no detecta audio real por 20 segundos mientras estás en vivo.",
   },
   {
     slug: "preguntas-frecuentes",

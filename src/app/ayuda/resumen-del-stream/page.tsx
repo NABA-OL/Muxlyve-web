@@ -23,6 +23,22 @@ export default function Page() {
         src="/help/resumen-del-stream.png"
         label="Informacion que muestra resumen de la ultima transmision"
       />
+
+      <h2>Historial de sesiones</h2>
+      <p>
+        Cada vez que sales en vivo de verdad, Muxlyve guarda un registro
+        automático: fecha, duración, plataformas usadas y pico de
+        espectadores. Tu propio historial de streams, sin depender del
+        analytics de cada plataforma por separado.
+      </p>
+      <p>
+        100% local — no requiere cuenta ni nube — y guarda las últimas 100
+        sesiones.
+      </p>
+      <ScreenshotPlaceholder
+        src="/help/historial-sesiones.png"
+        label="pestaña Historial en Preferencias, con varias sesiones listadas"
+      />
     </ArticleLayout>
   );
 }

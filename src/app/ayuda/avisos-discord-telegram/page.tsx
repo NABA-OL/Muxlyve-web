@@ -2,21 +2,23 @@ import { ArticleLayout } from "@/components/help/ArticleLayout";
 import { ScreenshotPlaceholder } from "@/components/help/ScreenshotPlaceholder";
 
 export const metadata = {
-  title: "Avisos en Discord y Telegram cuando arrancas en vivo — Ayuda",
+  title:
+    "Avisos en Discord y Telegram cuando arrancas (y terminas) en vivo — Ayuda",
   description:
-    "Cómo configurar webhooks de Discord y bots de Telegram para que Muxlyve avise automáticamente apenas empieza tu transmisión.",
+    "Cómo configurar webhooks de Discord y bots de Telegram para que Muxlyve avise automáticamente al iniciar y al finalizar tu transmisión.",
 };
 
 export default function Page() {
   return (
     <ArticleLayout
       slug="avisos-discord-telegram"
-      title="Avisos en Discord y Telegram cuando arrancas en vivo"
+      title="Avisos en Discord y Telegram cuando arrancas (y terminas) en vivo"
     >
       <p>
-        Muxlyve manda un mensaje automático apenas empieza la transmisión, a
-        hasta 3 webhooks de Discord y 3 bots de Telegram a la vez — mismo
-        mensaje para todos.
+        Muxlyve manda un mensaje automático al iniciar Y al finalizar la
+        transmisión, a hasta 3 webhooks de Discord y 3 bots de Telegram a la
+        vez — tu comunidad se entera del inicio y del final, sin que tengas
+        que escribirlo tú mismo cada vez.
       </p>
       <ScreenshotPlaceholder
         src="/help/avisos-discord-telegram-1.png"
@@ -166,6 +168,18 @@ export default function Page() {
       <ScreenshotPlaceholder
         src="/help/avisos-discord-telegram-3.png"
         label='modal "Mensaje de aviso"'
+      />
+
+      <h2>Al iniciar y al finalizar</h2>
+      <p>
+        El modal &quot;Mensaje de aviso&quot; tiene pestañas separadas — Al
+        iniciar / Al finalizar — cada una con su propio texto y su propio
+        cooldown. El aviso de cierre solo se manda si de verdad hubo una
+        transmisión (nunca un aviso de cierre sin apertura).
+      </p>
+      <ScreenshotPlaceholder
+        src="/help/avisos-discord-telegram-inicio-cierre.png"
+        label="modal Mensaje de aviso con las pestañas Al iniciar / Al finalizar"
       />
     </ArticleLayout>
   );

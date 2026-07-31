@@ -49,6 +49,19 @@ export default function Page() {
         También se puede asignar un perfil a un botón físico del Stream
         Deck.
       </p>
+
+      <h2>Título y categoría por perfil</h2>
+      <p>
+        Cada perfil también recuerda el título del stream y la
+        categoría/juego. Un botón para pasar de &quot;charla&quot; a
+        &quot;ranked&quot; — destinos, título y juego cambian juntos. Un
+        clic aplica el perfil Y actualiza el título/categoría en las
+        plataformas conectadas (vía OAuth).
+      </p>
+      <ScreenshotPlaceholder
+        src="/help/perfiles-de-destinos-titulo-categoria.png"
+        label="lista de perfiles guardados en el panel lateral, con uno aplicado"
+      />
     </ArticleLayout>
   );
 }
