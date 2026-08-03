@@ -51,6 +51,9 @@ export default function RootLayout({
   return (
     <html lang="es" className={inter.variable}>
       <body>
+        <a href="#main-content" className="skip-link">
+          Saltar al contenido
+        </a>
         <BackgroundFX />
         {children}
       </body>

@@ -118,18 +118,43 @@ section {
   color: transparent;
 }
 
+/* Enlace de accesibilidad: oculto hasta recibir foco por teclado */
+.skip-link {
+  position: fixed;
+  top: -3rem;
+  left: 1rem;
+  z-index: 100;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: top 0.18s var(--ease);
+}
+
+.skip-link:focus-visible {
+  top: 1rem;
+}
+
 /* Botones */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.7rem 1.3rem;
+  border: 1px solid transparent;
   border-radius: 10px;
   font-weight: 600;
   font-size: 0.98rem;
   cursor: pointer;
   transition: transform 0.18s var(--ease), box-shadow 0.18s var(--ease),
     background 0.18s var(--ease), border-color 0.18s var(--ease);
+}
+
+.btn:active {
+  transform: scale(0.98);
 }
 
 .btn-primary {
@@ -144,13 +169,14 @@ section {
 }
 
 .btn-ghost {
-  background: var(--accent-2);
+  background: transparent;
   border-color: var(--border);
   color: var(--text);
 }
 
 .btn-ghost:hover {
   border-color: var(--accent);
+  background: color-mix(in oklab, var(--accent) 10%, transparent);
   transform: translateY(-2px);
 }
 
@@ -194,7 +220,7 @@ section {
 }
 
 .nav-links a:hover {
-  color: var(--border);
+  color: var(--accent-2);
 }
 
 .nav-logo img {
