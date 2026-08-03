@@ -17,7 +17,10 @@
 }
 
 /* protege la legibilidad del texto (izquierda) contra el brillo del
-   shader, y funde el borde inferior hacia el fondo de la página */
+   shader, y funde el borde inferior hacia el fondo de la página.
+   rgba() directo en vez de color-mix(..., transparent): ese mezclaba
+   también los canales de color hacia negro (no solo el alpha), lo que
+   se veía gris/desteñido en vez de un fundido limpio de --bg-hero */
 .scrim {
   position: absolute;
   inset: 0;
@@ -26,17 +29,16 @@
   background:
     linear-gradient(
       90deg,
-      color-mix(in oklab, var(--bg-hero) 55%, transparent) 0%,
-      color-mix(in oklab, var(--bg-hero) 32%, transparent) 40%,
+      rgba(1, 0, 43, 0.55) 0%,
+      rgba(1, 0, 43, 0.32) 40%,
       transparent 66%
     ),
-    linear-gradient(0deg, transparent 60%, color-mix(in oklab, black 75%, transparent) 100%);
+    linear-gradient(0deg, transparent 60%, rgba(1, 0, 43, 0.75) 100%);
 }
 
 .content {
   position: relative;
   z-index: 2;
-  max-width: 560px;
 }
 
 /* el fondo pasa detrás del texto en cualquier punto de su animación:
@@ -46,6 +48,7 @@
   font-size: var(--text-hero);
   font-weight: 700;
   letter-spacing: -0.03em;
+  max-width: 640px;
   text-shadow: 0 4px 36px rgba(13, 17, 23, 0.7), 0 2px 14px rgba(13, 17, 23, 0.55);
 }
 
@@ -124,11 +127,11 @@
   .scrim {
     background:
       linear-gradient(
-        90deg,
-        color-mix(in oklab, var(--bg-hero) 55%, transparent) 0%,
-        color-mix(in oklab, var(--bg-hero) 32%, transparent) 40%,
+        180deg,
+        rgba(1, 0, 43, 0.55) 0%,
+        rgba(1, 0, 43, 0.32) 40%,
         transparent 64%
       ),
-      linear-gradient(0deg, color-mix(in oklab, black 45%, transparent) 0%, transparent 30%);
+      linear-gradient(0deg, rgba(1, 0, 43, 0.45) 0%, transparent 30%);
   }
 }
