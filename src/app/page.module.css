@@ -339,6 +339,9 @@
   .features {
     grid-template-columns: 1fr;
   }
+  .featureWide {
+    grid-column: span 1;
+  }
   .steps {
     grid-template-columns: 1fr;
   }

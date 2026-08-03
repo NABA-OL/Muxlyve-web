@@ -40,7 +40,9 @@ function WordmarkLogo() {
       <Image src="/icon-muxlyve.svg" alt="" width={28} height={28} priority />
       <span aria-hidden="true" style={{ display: "inline-flex", alignItems: "center" }}>
         Muxly
-        <span className={`nav-li${open ? " nav-li--open" : ""}`}>&nbsp;Li</span>
+        <span className={`nav-li${open ? " nav-li--open" : ""}`}>
+          <span>&nbsp;Li</span>
+        </span>
         ve
       </span>
     </span>

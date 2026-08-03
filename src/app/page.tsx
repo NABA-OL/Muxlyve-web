@@ -76,7 +76,7 @@ interface FeatureGroup {
 const STEPS = [
   {
     title: "Conecta tu software",
-    body: "Apunta OBS, Streamlabs, XSplit, vMix, N.Air o cualquier encoder RTMP a Muxlyve como servidor de salida.",
+    body: "Apunta OBS, Streamlabs, XSplit, vMix, N.Air o cualquier encoder RTMP/S a Muxlyve como servidor de salida.",
   },
   {
     title: "Conecta tus plataformas",

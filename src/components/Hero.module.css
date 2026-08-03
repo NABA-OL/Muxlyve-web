@@ -1,33 +1,68 @@
 .hero {
   position: relative;
-  padding-block: clamp(3rem, 2rem + 6vw, 6rem) var(--space-section);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: 3rem;
+  min-height: 100dvh;
+  display: flex;
   align-items: center;
+  overflow: hidden;
+  /* el nav es sticky y transparente en reposo: el hero sube por debajo
+     de su franja para que el fondo se vea detrás de él hasta el scroll */
+  margin-top: -4.5rem;
+  padding-block: clamp(7.5rem, 5.5rem + 6vw, 10.5rem) var(--space-section);
 }
 
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
+.bgLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
+/* protege la legibilidad del texto (izquierda) contra el brillo del
+   shader, y funde el borde inferior hacia el fondo de la página */
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--bg-hero) 55%, transparent) 0%,
+      color-mix(in oklab, var(--bg-hero) 32%, transparent) 40%,
+      transparent 66%
+    ),
+    linear-gradient(0deg, transparent 60%, color-mix(in oklab, black 75%, transparent) 100%);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 560px;
+}
+
+/* el fondo pasa detrás del texto en cualquier punto de su animación:
+   una sombra oscura y difusa mantiene el contraste sin depender de qué
+   haya detrás en ese instante */
 .title {
   font-size: var(--text-hero);
   font-weight: 700;
   letter-spacing: -0.03em;
+  text-shadow: 0 4px 36px rgba(13, 17, 23, 0.7), 0 2px 14px rgba(13, 17, 23, 0.55);
+}
+
+/* text-shadow ensucia el relleno de .gradient-text (background-clip:text)
+   porque la sombra se asoma por dentro del glyph "transparente"; el
+   filtro respeta el alpha real ya compuesto, sin ese efecto sucio */
+.title :global(.gradient-text) {
+  text-shadow: none;
+  filter: drop-shadow(0 3px 20px rgba(13, 17, 23, 0.65));
 }
 
 .lead {
   margin-top: 1.4rem;
   font-size: var(--text-lead);
-  color: var(--muted);
+  color: var(--text);
   max-width: 46ch;
+  text-shadow: 0 3px 24px rgba(13, 17, 23, 0.7), 0 1px 10px rgba(13, 17, 23, 0.55);
 }
 
 .actions {
@@ -43,114 +78,57 @@
   color: var(--muted);
 }
 
-/* ---- Animación del diagrama ---- */
-.stage {
-  width: 100%;
-  height: auto;
-  overflow: visible;
+/* ---- Badges de plataformas, siempre debajo del título ----
+   fila estática en todos los tamaños; el tamaño de cada badge escala
+   con el viewport en vez de saltar entre breakpoints fijos */
+.platformRail {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: clamp(0.5rem, 1.2vw, 0.9rem);
+  margin-block: 1.1rem;
 }
 
-.source {
-  transform-origin: 70px 180px;
-  animation: pulse 2.6s ease-in-out infinite;
+.badge {
+  width: clamp(30px, 3vw, 40px);
+  height: clamp(30px, 3vw, 40px);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  box-shadow: 0 4px 16px -6px color-mix(in oklab, var(--badge-color) 60%, transparent);
+  transition: transform 0.25s var(--ease);
 }
 
-.line {
-  fill: none;
-  stroke: url(#heroGrad);
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-dasharray: 640;
-  stroke-dashoffset: 640;
-  animation: draw 0.8s var(--ease) forwards;
-  animation-delay: var(--line-delay, 0s);
+/* el span queda inline por defecto: el hueco de descendente bajo el
+   svg lo corría hacia arriba dentro del círculo */
+.badge span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* "señal fluyendo": pulso discreto y continuo sobre la línea ya dibujada */
-.flow {
-  fill: none;
-  stroke: #fff;
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-dasharray: 6 634;
-  opacity: 0;
-  animation: flow 3.2s linear infinite;
-  animation-delay: var(--pop-delay, 1s);
+.badge:hover {
+  transform: scale(1.08);
 }
 
-.dest {
-  opacity: 0;
-  transform: scale(0);
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: pop 0.45s var(--ease) forwards;
-  animation-delay: var(--pop-delay, 1s);
-}
+@media (max-width: 1400px) {
+  .hero {
+    min-height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    padding-block: clamp(5rem, 4rem + 4vw, 7rem) var(--space-section);
+  }
 
-@keyframes draw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes pop {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  70% {
-    transform: scale(1.18);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.12);
-    opacity: 0.82;
-  }
-}
-
-@keyframes flow {
-  0% {
-    stroke-dashoffset: 640;
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.5;
-  }
-  60% {
-    opacity: 0.5;
-  }
-  100% {
-    stroke-dashoffset: 0;
-    opacity: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .source,
-  .line,
-  .flow,
-  .dest {
-    animation: none;
-  }
-  .line {
-    stroke-dashoffset: 0;
-  }
-  .dest {
-    opacity: 1;
-    transform: none;
-  }
-  .flow {
-    display: none;
+  .scrim {
+    background:
+      linear-gradient(
+        90deg,
+        color-mix(in oklab, var(--bg-hero) 55%, transparent) 0%,
+        color-mix(in oklab, var(--bg-hero) 32%, transparent) 40%,
+        transparent 64%
+      ),
+      linear-gradient(0deg, color-mix(in oklab, black 45%, transparent) 0%, transparent 30%);
   }
 }
