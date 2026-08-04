@@ -336,9 +336,58 @@ section {
   opacity: 1;
 }
 
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.nav-mobile-menu {
+  display: none;
+}
+
 @media (max-width: 680px) {
-  .nav-links a:not(.btn) {
+  .nav-links {
     display: none;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .nav-mobile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.5rem 1.5rem 1.5rem;
+    border-top: 1px solid var(--border);
+    background: rgba(13, 17, 23, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .nav-mobile-menu a:not(.btn) {
+    padding: 0.9rem 0.2rem;
+    color: var(--text);
+    font-size: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-mobile-menu a:not(.btn):hover {
+    color: var(--accent-2);
+  }
+
+  .nav-mobile-menu .btn {
+    margin-top: 1rem;
+    justify-content: center;
   }
 }
 
