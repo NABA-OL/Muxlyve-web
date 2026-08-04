@@ -203,7 +203,7 @@ section {
   transition: opacity 0.2s var(--ease);
   background: radial-gradient(
     140px 140px at var(--x, 50%) var(--y, 0%),
-    rgba(124, 92, 255, 0.275),
+    rgba(77, 163, 255, 0.275),
     transparent 70%
   );
 }
@@ -336,9 +336,77 @@ section {
   opacity: 1;
 }
 
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.nav-mobile-menu {
+  display: none;
+}
+
 @media (max-width: 680px) {
-  .nav-links a:not(.btn) {
+  .nav-links {
     display: none;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  /* despliegue tipo dropdown animando el track del grid (0fr -> 1fr):
+     mismo truco que .nav-li — permite animar "auto height" sin JS y sin
+     el salto que da max-height con un valor fijo */
+  .nav-mobile-menu {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    background: rgba(13, 17, 23, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid transparent;
+    transition: grid-template-rows 0.3s var(--ease), opacity 0.25s var(--ease),
+      border-color 0.3s var(--ease);
+  }
+
+  .nav-mobile-menu[data-open="true"] {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    border-top-color: var(--border);
+  }
+
+  .nav-mobile-menu-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.5rem 1.5rem 1.5rem;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .nav-mobile-menu a:not(.btn) {
+    padding: 0.9rem 0.2rem;
+    color: var(--text);
+    font-size: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-mobile-menu a:not(.btn):hover {
+    color: var(--accent-2);
+  }
+
+  .nav-mobile-menu .btn {
+    margin-top: 1rem;
+    justify-content: center;
   }
 }
 
@@ -375,6 +443,9 @@ section {
   .reveal {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+  .nav-mobile-menu {
     transition: none;
   }
 }
