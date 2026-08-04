@@ -59,7 +59,7 @@ export default async function DescargarPage() {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main-content">
         <section>
           <div className="container">
             <span className="eyebrow">Descarga</span>

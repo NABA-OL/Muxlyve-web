@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { BackgroundFX } from "@/components/BackgroundFX";
+import { GlassSpotlight } from "@/components/GlassSpotlight";
 import "./globals.css";
 
 const inter = Inter({
@@ -51,7 +52,11 @@ export default function RootLayout({
   return (
     <html lang="es" className={inter.variable}>
       <body>
+        <a href="#main-content" className="skip-link">
+          Saltar al contenido
+        </a>
         <BackgroundFX />
+        <GlassSpotlight />
         {children}
       </body>
     </html>

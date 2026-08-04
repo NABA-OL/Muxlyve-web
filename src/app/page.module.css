@@ -95,9 +95,14 @@
 
 .features {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-auto-flow: dense;
   gap: 1.2rem;
   margin-top: 3rem;
+}
+
+.featureWide {
+  grid-column: span 2;
 }
 
 .featureIcon {
@@ -109,7 +114,6 @@
   background: color-mix(in oklab, var(--accent) 18%, transparent);
   color: var(--accent);
   margin-bottom: 1rem;
-  font-size: 1.3rem;
 }
 
 .featureTitle {
@@ -238,6 +242,13 @@
   color: var(--muted);
 }
 
+.amountPending {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
 .includes {
   list-style: none;
   padding: 0;
@@ -327,6 +338,9 @@
   }
   .features {
     grid-template-columns: 1fr;
+  }
+  .featureWide {
+    grid-column: span 1;
   }
   .steps {
     grid-template-columns: 1fr;

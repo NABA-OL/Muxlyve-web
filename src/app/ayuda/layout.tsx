@@ -8,7 +8,7 @@ export default function AyudaLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main-content">
         <section className={styles.section}>
           <div className={`container ${styles.layout}`}>
             <AyudaSidebar />

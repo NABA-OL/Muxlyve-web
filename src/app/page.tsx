@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { RevealObserver } from "@/components/RevealObserver";
 import { PlatformIcon } from "@/components/PlatformIcon";
 import { StreamDeckIcon } from "@/components/StreamDeckIcon";
+import { FeatureIcon, type FeatureIconId } from "@/components/FeatureIcon";
 import { PLATFORMS } from "@/lib/platforms";
 import { ensureSchema } from "@/lib/db";
 import { getSetting } from "@/lib/settings";
@@ -59,11 +60,12 @@ const jsonLd = {
 };
 
 interface Feature {
-  icon: string;
+  icon: FeatureIconId | "streamdeck";
   title: string;
   body: string;
   link?: string;
   linkLabel?: string;
+  wide?: boolean;
 }
 
 interface FeatureGroup {
@@ -74,7 +76,7 @@ interface FeatureGroup {
 const STEPS = [
   {
     title: "Conecta tu software",
-    body: "Apunta OBS, Streamlabs, XSplit, vMix, N.Air o cualquier encoder RTMP a Muxlyve como servidor de salida.",
+    body: "Apunta OBS, Streamlabs, XSplit, vMix, N.Air o cualquier encoder RTMP/S a Muxlyve como servidor de salida.",
   },
   {
     title: "Conecta tus plataformas",
@@ -91,52 +93,53 @@ const FEATURE_GROUPS: FeatureGroup[] = [
     title: "Streaming",
     features: [
       {
-        icon: "🚫",
+        icon: "no-watermark",
         title: "Sin marca de agua",
         body: "Tu transmisión sale limpia a cada plataforma. Nada de logos de terceros encima de tu contenido.",
       },
       {
-        icon: "🖥️",
+        icon: "monitor",
         title: "Corre en tu máquina",
         body: "El video se reparte desde tu PC, no por un servidor intermediario. Más privacidad y cero mensualidad por ancho de banda.",
       },
       {
-        icon: "🔁",
+        icon: "reconnect",
         title: "Reconexión automática",
         body: "Si una plataforma se cae, Muxlyve la reconecta sola sin cortar el resto de tus destinos.",
       },
       {
-        icon: "👁️",
+        icon: "eye",
         title: "Preview en vivo",
         body: "Mira exactamente lo que está saliendo a cada destino antes y durante la transmisión.",
       },
       {
-        icon: "💸",
-        title: "Pagos accequibles",
-        body: "Pagos accequibles, sin cobros por horas transmitidas.",
+        icon: "price-tag",
+        title: "Pagos accesibles",
+        body: "Precio justo, sin cobros por horas transmitidas.",
       },
       {
-        icon: "⚙️",
+        icon: "compatible",
         title: "Compatible con tu app favorita",
         body: "Conéctalo como destino desde OBS, Streamlabs, XSplit, vMix, N.Air o cualquier encoder que hable RTMP. No cambias tu flujo de trabajo, solo lo multiplicas.",
+        wide: true,
       },
       {
-        icon: "⏰",
+        icon: "clock",
         title: "Programar inicio",
         body: "Elige destinos y hora, y Muxlyve arranca solo. No hace falta estar pendiente en el momento exacto.",
       },
       {
-        icon: "📊",
+        icon: "bar-chart",
         title: "Resumen del stream",
         body: "Al terminar, un resumen automático: duración, pico de espectadores por plataforma, mensajes de chat y bitrate promedio por destino.",
       },
       {
-        icon: "🗂️",
+        icon: "layers",
         title: "Perfiles de destinos",
         body: "Guarda combinaciones de destinos prendidos (\"Solo Twitch\", \"Todo\"), con su propio título y categoría de stream. Un clic cambia todo junto. Hasta 6 perfiles.",
       },
       {
-        icon: "📜",
+        icon: "history",
         title: "Historial de sesiones",
         body: "Registro automático de cada transmisión real: fecha, duración, plataformas y pico de espectadores. 100% local, sin cuenta ni nube, últimas 100 sesiones.",
       },
@@ -146,22 +149,23 @@ const FEATURE_GROUPS: FeatureGroup[] = [
     title: "Chat y clips",
     features: [
       {
-        icon: "💬",
+        icon: "chat",
         title: "Chat unificado",
         body: "Los mensajes de Twitch y Kick en un solo lugar. Responde a ambas plataformas y modera (timeout, ban) sin cambiar de pestaña — moderación hoy solo en Twitch.",
       },
       {
-        icon: "🪟",
+        icon: "browser",
         title: "Overlay de chat para OBS",
         body: "Agrega el chat como fuente de Navegador en OBS, con fondo transparente, directo sobre tu transmisión.",
       },
       {
-        icon: "🎬",
+        icon: "record",
         title: "Grabador de clips y grabación completa",
         body: "Buffer circular (30s/1min/2min) para guardar lo que acaba de pasar, y grabación completa de todo el stream a un archivo — cada una con su propio switch.",
+        wide: true,
       },
       {
-        icon: "✂️",
+        icon: "scissors",
         title: "Comando !clip en el chat",
         body: "Moderadores (o tú) escriben \"!clip\" y se guarda un clip del buffer al instante, sin salir del juego.",
       },
@@ -171,34 +175,35 @@ const FEATURE_GROUPS: FeatureGroup[] = [
     title: "Control remoto",
     features: [
       {
-        icon: "🎛️",
+        icon: "streamdeck",
         title: "Compatible con Stream Deck",
         body: "Prende destinos, activa el buffer y guarda clips desde botones físicos, sin tocar el teclado.",
         link: STREAM_DECK_PLUGIN_URL,
         linkLabel: "Ver plugin",
       },
       {
-        icon: "📡",
+        icon: "wifi",
         title: "Acceso remoto por LAN",
         body: "Controla destinos, chat y Stream Deck desde otra máquina de tu red, con token de acceso seguro.",
       },
       {
-        icon: "🌐",
+        icon: "globe",
         title: "Bilingüe español / inglés",
         body: "La interfaz detecta el idioma de tu sistema automáticamente. Se puede cambiar en cualquier momento.",
       },
       {
-        icon: "🔔",
+        icon: "bell",
         title: "Avisos a Discord y Telegram",
         body: "Mensaje configurable al iniciar Y al finalizar la transmisión — hasta 3 webhooks de Discord y 3 bots de Telegram a la vez, cada evento con su propio texto.",
+        wide: true,
       },
       {
-        icon: "🎚️",
+        icon: "mic-off",
         title: "Aviso de audio cortado",
         body: "Si no detecta audio real por 20 segundos mientras estás en vivo, te avisa con una notificación nativa del sistema. Desactivable.",
       },
       {
-        icon: "💾",
+        icon: "export-import",
         title: "Exportar/importar configuración",
         body: "Descarga destinos y ajustes en un solo archivo JSON. Útil para cambiar de PC o replicar tu configuración en otra máquina, en un clic.",
       },
@@ -251,7 +256,7 @@ export default async function Home() {
   }
 
   function fmt(v: string) {
-    return v ? `$${v}` : "$—";
+    return v ? `$${v}` : null;
   }
 
   return (
@@ -277,7 +282,7 @@ export default async function Home() {
           )}
         </div>
       )}
-      <main>
+      <main id="main-content">
         <Hero />
 
         {/* Cómo funciona */}
@@ -351,9 +356,16 @@ export default async function Home() {
                 </span>
                 <div className={styles.features}>
                   {group.features.map((f) => (
-                    <article key={f.title} className="card reveal">
-                      <div className={styles.featureIcon} aria-hidden="true">
-                        {f.icon}
+                    <article
+                      key={f.title}
+                      className={`card reveal ${f.wide ? styles.featureWide : ""}`}
+                    >
+                      <div className={styles.featureIcon}>
+                        {f.icon === "streamdeck" ? (
+                          <StreamDeckIcon size={22} />
+                        ) : (
+                          <FeatureIcon id={f.icon} size={22} />
+                        )}
                       </div>
                       <h3 className={styles.featureTitle}>{f.title}</h3>
                       <p className={styles.featureBody}>{f.body}</p>
@@ -500,7 +512,11 @@ export default async function Home() {
               {monthlyVisible && <div className={styles.planCard}>
                 <span className="eyebrow">Mensual</span>
                 <div className={styles.amount}>
-                  {fmt(priceMonthly)}<small>/mes</small>
+                  {fmt(priceMonthly) ? (
+                    <>{fmt(priceMonthly)}<small>/mes</small></>
+                  ) : (
+                    <span className={styles.amountPending}>Precio no disponible</span>
+                  )}
                 </div>
                 <ul className={styles.includes}>
                   <li>Transmisión a 2 plataformas</li>
@@ -524,7 +540,11 @@ export default async function Home() {
                 <div className={styles.planBadge}>2 meses gratis</div>
                 <span className="eyebrow">Anual</span>
                 <div className={styles.amount}>
-                  {fmt(priceAnnual)}<small>/año</small>
+                  {fmt(priceAnnual) ? (
+                    <>{fmt(priceAnnual)}<small>/año</small></>
+                  ) : (
+                    <span className={styles.amountPending}>Precio no disponible</span>
+                  )}
                 </div>
                 <ul className={styles.includes}>
                   <li>Transmisión a 3 plataformas</li>
@@ -550,7 +570,11 @@ export default async function Home() {
                 </div>
                 <span className="eyebrow">Vitalicia</span>
                 <div className={styles.amount}>
-                  {fmt(priceLifetime)}<small> / pago único</small>
+                  {fmt(priceLifetime) ? (
+                    <>{fmt(priceLifetime)}<small> / pago único</small></>
+                  ) : (
+                    <span className={styles.amountPending}>Precio no disponible</span>
+                  )}
                 </div>
                 <p className={styles.planTagline}>
                   Deja de pagar mensualidades para siempre.
