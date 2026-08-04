@@ -120,8 +120,8 @@ export function Nav() {
         </button>
       </div>
 
-      {mobileOpen && (
-        <div className="nav-mobile-menu">
+      <div className="nav-mobile-menu" data-open={mobileOpen} inert={!mobileOpen}>
+        <div className="nav-mobile-menu-inner">
           {LINKS.map((l) => (
             <a key={l.href} href={l.href} onClick={() => setMobileOpen(false)}>
               {l.label}
@@ -135,7 +135,7 @@ export function Nav() {
             Descargar
           </Link>
         </div>
-      )}
+      </div>
     </nav>
   );
 }

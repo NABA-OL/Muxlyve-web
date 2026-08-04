@@ -117,21 +117,26 @@
 }
 
 @media (max-width: 1400px) {
+  /* ocupa el alto completo y centra el contenido: en vez de un bloque
+     de texto pegado al nav que corta apenas empieza "Cómo funciona",
+     el hero se siente como un momento propio, no un cabezal apretado */
   .hero {
-    min-height: auto;
+    min-height: 100dvh;
     flex-direction: column;
     align-items: stretch;
-    padding-block: clamp(5rem, 4rem + 4vw, 7rem) var(--space-section);
+    justify-content: center;
+    padding-block: clamp(6rem, 5rem + 4vw, 8rem) var(--space-section);
   }
 
   .scrim {
     background:
       linear-gradient(
         180deg,
-        rgba(1, 0, 43, 0.55) 0%,
-        rgba(1, 0, 43, 0.32) 40%,
-        transparent 64%
+        rgba(1, 0, 43, 0.65) 0%,
+        rgba(1, 0, 43, 0.42) 45%,
+        rgba(1, 0, 43, 0.42) 60%,
+        transparent 78%
       ),
-      linear-gradient(0deg, rgba(1, 0, 43, 0.45) 0%, transparent 30%);
+      linear-gradient(0deg, rgba(1, 0, 43, 0.55) 0%, transparent 32%);
   }
 }
