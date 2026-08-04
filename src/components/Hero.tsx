@@ -1,8 +1,8 @@
-import Link from "next/link";
 import type { CSSProperties } from "react";
 import { PLATFORMS } from "@/lib/platforms";
 import { PlatformIcon } from "./PlatformIcon";
 import { HeroFlowBGLazy } from "./HeroFlowBGLazy";
+import { GlassButton } from "./GlassButton";
 import styles from "./Hero.module.css";
 
 export function Hero() {
@@ -46,12 +46,10 @@ export function Hero() {
           ancho de banda de terceros.
         </p>
         <div className={styles.actions}>
-          <Link href="/descargar" className="btn btn-primary">
-            Descargar gratis
-          </Link>
-          <Link href="#precio" className="btn btn-ghost">
+          <GlassButton href="/descargar">Descargar gratis</GlassButton>
+          <GlassButton href="#precio" variant="ghost">
             Ver precio
-          </Link>
+          </GlassButton>
         </div>
         <p className={styles.note}>Windows · Mac próximamente</p>
       </div>

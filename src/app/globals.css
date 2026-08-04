@@ -178,50 +178,74 @@ section {
   transform: scale(0.98);
 }
 
-/* vidrio esmerilado en vez de degradado de 2 colores: color sólido +
-   brillo especular arriba (::before) + sombras internas para dar
-   volumen. El degradado morado-azul en botones leía como plantilla
-   genérica de IA — un solo acento + relieve de vidrio, no. */
-.btn-primary {
+/* vidrio esmerilado en vez de degradado de 2 colores — mismo lenguaje
+   visual que el botón del hero (GlassButton), aplicado acá vía las
+   clases globales para que TODO botón "btn btn-primary/ghost" del
+   sitio lo herede sin tocar cada archivo. */
+.btn-primary,
+.btn-ghost {
   position: relative;
   overflow: hidden;
-  background: var(--accent);
-  color: #fff;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.35),
-    inset 0 -10px 14px -8px rgba(0, 0, 0, 0.35),
-    0 6px 20px -8px rgba(124, 92, 255, 0.55);
+  border-radius: 999px;
+  isolation: isolate;
 }
 
-.btn-primary::before {
+/* mancha de luz que sigue al cursor (--x/--y los actualiza
+   GlassSpotlight con un solo listener global) — igual que el botón
+   del hero, generalizado a cualquier .btn-primary/.btn-ghost */
+.btn-primary::before,
+.btn-ghost::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent 55%);
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s var(--ease);
+  background: radial-gradient(
+    140px 140px at var(--x, 50%) var(--y, 0%),
+    rgba(124, 92, 255, 0.275),
+    transparent 70%
+  );
+}
+
+.btn-primary:hover::before,
+.btn-ghost:hover::before {
+  opacity: 1;
+}
+
+.btn-primary {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px) saturate(160%) brightness(1.05);
+  -webkit-backdrop-filter: blur(10px) saturate(160%) brightness(1.05);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    inset 0 -10px 16px -10px rgba(0, 0, 0, 0.35),
+    0 8px 24px -10px rgba(0, 0, 0, 0.55);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  background: color-mix(in oklab, var(--accent) 90%, white 10%);
+  background: rgba(255, 255, 255, 0.15);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    inset 0 -10px 14px -8px rgba(0, 0, 0, 0.3),
-    0 12px 28px -8px rgba(124, 92, 255, 0.65);
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -10px 16px -10px rgba(0, 0, 0, 0.3),
+    0 12px 30px -10px rgba(0, 0, 0, 0.6);
 }
 
 .btn-ghost {
-  background: color-mix(in oklab, var(--bg) 60%, transparent);
+  background: rgba(13, 17, 23, 0.4);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-color: var(--border);
+  border-color: rgba(255, 255, 255, 0.16);
   color: var(--text);
 }
 
 .btn-ghost:hover {
-  border-color: var(--accent);
-  background: color-mix(in oklab, var(--bg) 75%, var(--accent) 10%);
   transform: translateY(-2px);
+  background: rgba(13, 17, 23, 0.55);
+  border-color: var(--accent);
 }
 
 :focus-visible {
@@ -263,7 +287,7 @@ section {
   transition: color 0.18s var(--ease);
 }
 
-.nav-links a:hover {
+.nav-links a:not(.btn):hover {
   color: var(--accent-2);
 }
 
