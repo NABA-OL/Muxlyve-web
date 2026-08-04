@@ -203,7 +203,7 @@ section {
   transition: opacity 0.2s var(--ease);
   background: radial-gradient(
     140px 140px at var(--x, 50%) var(--y, 0%),
-    rgba(124, 92, 255, 0.275),
+    rgba(77, 163, 255, 0.275),
     transparent 70%
   );
 }
