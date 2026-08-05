@@ -1,0 +1,40 @@
+.frameWrap {
+  margin-top: 2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.frame {
+  display: block;
+  width: 100%;
+  height: 80vh;
+  min-height: 700px;
+  border: 0;
+}
+
+.cta {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.cta p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.back {
+  margin-top: 3rem;
+}
+
+.back a {
+  color: var(--muted);
+}
+
+.back a:hover {
+  color: var(--text);
+}

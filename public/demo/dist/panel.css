@@ -157,11 +157,11 @@
     -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
     -webkit-mask-position: center; mask-position: center; }
   .icon-connections { width: 16px; height: 16px;
-    -webkit-mask-image: url(/connections.svg); mask-image: url(/connections.svg); }
+    -webkit-mask-image: url(/Demo/dist/connections.svg); mask-image: url(/Demo/dist/connections.svg); }
   .icon-chat { width: 16px; height: 16px;
-    -webkit-mask-image: url(/chat.svg); mask-image: url(/chat.svg); }
+    -webkit-mask-image: url(/Demo/dist/chat.svg); mask-image: url(/Demo/dist/chat.svg); }
   .icon-webhook { width: 16px; height: 16px;
-    -webkit-mask-image: url(/webhook.svg); mask-image: url(/webhook.svg); }
+    -webkit-mask-image: url(/Demo/dist/webhook.svg); mask-image: url(/Demo/dist/webhook.svg); }
 
   /* ── Toggle switch ── */
   .switch { position: relative; display: inline-block; width: 42px; height: 24px; flex-shrink: 0; }
@@ -437,7 +437,7 @@
   /* El fondo del preview es negro fijo (#000) sin importar el tema — el ícono va claro
      siempre, no var(--muted)/var(--text) que cambian con tema claro/oscuro. */
   .icon-video-off { width: 40px; height: 40px; background-color: #e6edf3;
-    -webkit-mask-image: url(/video-off.svg); mask-image: url(/video-off.svg);
+    -webkit-mask-image: url(/Demo/dist/video-off.svg); mask-image: url(/Demo/dist/video-off.svg);
     animation: videoOffBlink 3s ease-in-out infinite; }
   @keyframes videoOffBlink { 0%, 100% { opacity: .3; } 50% { opacity: .9; } }
   @media (prefers-reduced-motion: reduce) {
