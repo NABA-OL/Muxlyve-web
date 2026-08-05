@@ -120,6 +120,13 @@ export function Nav() {
         </button>
       </div>
 
+      <div
+        className="nav-mobile-backdrop"
+        data-open={mobileOpen}
+        aria-hidden="true"
+        onClick={() => setMobileOpen(false)}
+      />
+
       <div className="nav-mobile-menu" data-open={mobileOpen} inert={!mobileOpen}>
         <div className="nav-mobile-menu-inner">
           {LINKS.map((l) => (
