@@ -1,7 +1,18 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import * as THREE from "three";
+import {
+  BufferAttribute,
+  BufferGeometry,
+  Color,
+  DoubleSide,
+  Mesh,
+  OrthographicCamera,
+  RawShaderMaterial,
+  Scene,
+  Vector3,
+  WebGLRenderer,
+} from "three";
 import styles from "./HeroFlowBG.module.css";
 
 const VERTEX = `
@@ -47,10 +58,10 @@ const FRAGMENT = `
 `;
 
 // Colores de marca en 0-1, mismos que PLATFORMS en lib/platforms.ts
-const COLOR_TWITCH = new THREE.Vector3(0.569, 0.275, 1.0); // #9146ff
-const COLOR_KICK = new THREE.Vector3(0.325, 0.988, 0.094); // #53fc18
-const COLOR_YOUTUBE = new THREE.Vector3(1.0, 0.0, 0.0); // #ff0000
-const COLOR_TIKTOK = new THREE.Vector3(0.145, 0.957, 0.933); // #25f4ee
+const COLOR_TWITCH = new Vector3(0.569, 0.275, 1.0); // #9146ff
+const COLOR_KICK = new Vector3(0.325, 0.988, 0.094); // #53fc18
+const COLOR_YOUTUBE = new Vector3(1.0, 0.0, 0.0); // #ff0000
+const COLOR_TIKTOK = new Vector3(0.145, 0.957, 0.933); // #25f4ee
 
 export function HeroFlowBG() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -64,9 +75,9 @@ export function HeroFlowBG() {
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    let renderer: THREE.WebGLRenderer;
+    let renderer: WebGLRenderer;
     try {
-      renderer = new THREE.WebGLRenderer({
+      renderer = new WebGLRenderer({
         canvas,
         antialias: false,
         alpha: false,
@@ -74,10 +85,10 @@ export function HeroFlowBG() {
     } catch {
       return;
     }
-    renderer.setClearColor(new THREE.Color(0x0d1117));
+    renderer.setClearColor(new Color(0x0d1117));
 
-    const scene = new THREE.Scene();
-    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, -1);
+    const scene = new Scene();
+    const camera = new OrthographicCamera(-1, 1, 1, -1, 0, -1);
 
     const uniforms = {
       resolution: { value: [1, 1] },
@@ -94,17 +105,17 @@ export function HeroFlowBG() {
     const position = new Float32Array([
       -1, -1, 0, 1, -1, 0, -1, 1, 0, 1, -1, 0, -1, 1, 0, 1, 1, 0,
     ]);
-    const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute("position", new THREE.BufferAttribute(position, 3));
+    const geometry = new BufferGeometry();
+    geometry.setAttribute("position", new BufferAttribute(position, 3));
 
-    const material = new THREE.RawShaderMaterial({
+    const material = new RawShaderMaterial({
       vertexShader: VERTEX,
       fragmentShader: FRAGMENT,
       uniforms,
-      side: THREE.DoubleSide,
+      side: DoubleSide,
     });
 
-    const mesh = new THREE.Mesh(geometry, material);
+    const mesh = new Mesh(geometry, material);
     scene.add(mesh);
 
     let frameId = 0;
