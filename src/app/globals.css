@@ -369,7 +369,10 @@ section {
   .nav-mobile-menu {
     display: grid;
     grid-template-rows: 0fr;
+    overflow: hidden;
     opacity: 0;
+    position: relative;
+    z-index: 2;
     background: rgba(13, 17, 23, 0.97);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -384,13 +387,40 @@ section {
     border-top-color: var(--border);
   }
 
+  /* dimming tras el panel: toca fuera para cerrar. z-index:1 lo mantiene
+     debajo del panel (z-index:2) dentro del stacking context de .nav
+     (position:sticky + z-index:50) */
+  .nav-mobile-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s var(--ease);
+  }
+
+  .nav-mobile-backdrop[data-open="true"] {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   .nav-mobile-menu-inner {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
-    padding: 0.5rem 1.5rem 1.5rem;
+    padding: 0 1.5rem;
     min-height: 0;
     overflow: hidden;
+    /* el padding no colapsa con min-height:0 (solo el contenido lo hace) —
+       si se queda fijo, el track en 0fr igual deja un remanente visible del
+       tamaño del padding. Se anima junto con grid-template-rows para que
+       en 0fr el padding también sea 0 */
+    transition: padding-block 0.3s var(--ease);
+  }
+
+  .nav-mobile-menu[data-open="true"] .nav-mobile-menu-inner {
+    padding-block: 0.5rem 1.5rem;
   }
 
   .nav-mobile-menu a:not(.btn) {
