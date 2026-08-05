@@ -113,10 +113,7 @@ section {
 }
 
 .gradient-text {
-  background: var(--grad);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--accent);
 }
 .twitch-text {
   background: var(--twitch);
@@ -178,6 +175,15 @@ section {
   transform: scale(0.98);
 }
 
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn:disabled:active {
+  transform: none;
+}
+
 /* vidrio esmerilado en vez de degradado de 2 colores — mismo lenguaje
    visual que el botón del hero (GlassButton), aplicado acá vía las
    clases globales para que TODO botón "btn btn-primary/ghost" del
@@ -203,7 +209,7 @@ section {
   transition: opacity 0.2s var(--ease);
   background: radial-gradient(
     140px 140px at var(--x, 50%) var(--y, 0%),
-    rgba(77, 163, 255, 0.275),
+    rgba(124, 92, 255, 0.2),
     transparent 70%
   );
 }
@@ -340,8 +346,8 @@ section {
   display: none;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   flex: none;
   border: 1px solid transparent;
   border-radius: 10px;
@@ -513,4 +519,19 @@ section {
   flex-wrap: wrap;
   padding-top: 1.5rem;
   font-size: 0.82rem;
+}
+
+/* eco fijo del prisma del hero: misma paleta de plataformas, sin
+   animación ni WebGL — una franja estática y tenue en el borde inferior */
+.footer-signature {
+  margin-top: 2.5rem;
+  height: 3px;
+  opacity: 0.45;
+  background: linear-gradient(
+    90deg,
+    var(--twitch),
+    var(--kick),
+    var(--youtube),
+    var(--tiktok)
+  );
 }

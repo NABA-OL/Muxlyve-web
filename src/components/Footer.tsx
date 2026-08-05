@@ -47,6 +47,7 @@ export function Footer() {
           </span>
         </div>
       </div>
+      <div className="footer-signature" aria-hidden="true" />
     </footer>
   );
 }

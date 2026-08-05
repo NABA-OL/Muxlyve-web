@@ -40,6 +40,8 @@ export function ZoomableImage({ src, alt }: Props) {
         <img
           src={src}
           alt={alt}
+          loading="lazy"
+          decoding="async"
           style={{ width: "100%", height: "auto", display: "block" }}
         />
       </button>
