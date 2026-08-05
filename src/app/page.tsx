@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import Image from "next/image";
 import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
@@ -468,10 +469,11 @@ export default async function Home() {
               </p>
               {streamDeckMockupExists && (
                 <div className={styles.integrationMockup}>
-                  {/* eslint-disable-next-line @next/next/no-img-element -- mockup con transparencia provisto por el usuario, dimensiones reales desconocidas */}
-                  <img
+                  <Image
                     src="/streamdeck-mockup.png"
                     alt="Stream Deck con los accesos directos de Muxlyve"
+                    width={1920}
+                    height={960}
                   />
                 </div>
               )}
