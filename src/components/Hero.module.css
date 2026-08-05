@@ -29,11 +29,11 @@
   background:
     linear-gradient(
       90deg,
-      rgba(1, 0, 43, 0.55) 0%,
-      rgba(1, 0, 43, 0.32) 40%,
+      #000012a6 10%,
+      #0300852e 45%,
       transparent 66%
     ),
-    linear-gradient(0deg, transparent 60%, rgba(1, 0, 43, 0.75) 100%);
+    linear-gradient(270deg, transparent 60%, rgba(0, 0, 14, 0.55) 100%);
 }
 
 .content {
@@ -132,11 +132,11 @@
     background:
       linear-gradient(
         180deg,
-        rgba(1, 0, 43, 0.65) 0%,
-        rgba(1, 0, 43, 0.42) 45%,
-        rgba(1, 0, 43, 0.42) 60%,
+        #000012a6 10%,
+        #0300852e 45%,
+        rgba(0, 0, 0, 0.51) 60%,
         transparent 78%
       ),
-      linear-gradient(0deg, rgba(1, 0, 43, 0.55) 0%, transparent 32%);
+      linear-gradient(0deg, rgba(0, 0, 14, 0.55) 0%, transparent 32%);
   }
 }
