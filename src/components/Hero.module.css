@@ -52,14 +52,6 @@
   text-shadow: 0 4px 36px rgba(13, 17, 23, 0.7), 0 2px 14px rgba(13, 17, 23, 0.55);
 }
 
-/* text-shadow ensucia el relleno de .gradient-text (background-clip:text)
-   porque la sombra se asoma por dentro del glyph "transparente"; el
-   filtro respeta el alpha real ya compuesto, sin ese efecto sucio */
-.title :global(.gradient-text) {
-  text-shadow: none;
-  filter: drop-shadow(0 3px 20px rgba(13, 17, 23, 0.65));
-}
-
 .lead {
   margin-top: 1.4rem;
   font-size: var(--text-lead);

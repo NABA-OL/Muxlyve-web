@@ -1,4 +1,5 @@
 import { loginAction } from "./actions";
+import { LoginSubmitButton } from "./LoginSubmitButton";
 
 export const metadata = { title: "Admin — Muxlyve", robots: "noindex" };
 
@@ -44,6 +45,7 @@ export default async function LoginPage({
             type="password"
             name="token"
             placeholder="Token de acceso"
+            aria-label="Token de acceso"
             required
             autoFocus
             style={{
@@ -58,13 +60,7 @@ export default async function LoginPage({
               boxSizing: "border-box",
             }}
           />
-          <button
-            type="submit"
-            className="btn btn-primary"
-            style={{ justifyContent: "center" }}
-          >
-            Entrar
-          </button>
+          <LoginSubmitButton />
         </form>
 
         {error && (
