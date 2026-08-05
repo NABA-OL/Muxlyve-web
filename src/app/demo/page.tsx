@@ -27,12 +27,14 @@ export default function DemoPage() {
             </p>
 
             <div className={styles.frameWrap}>
-              <iframe
-                src="/Demo/dist/index.html"
-                title="Demo de Muxlyve"
-                loading="lazy"
-                className={styles.frame}
-              />
+              <div className={styles.frameScroll}>
+                <iframe
+                  src="/Demo/dist/index.html"
+                  title="Demo de Muxlyve"
+                  loading="lazy"
+                  className={styles.frame}
+                />
+              </div>
             </div>
 
             <div className={styles.cta}>

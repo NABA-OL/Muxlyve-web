@@ -6,12 +6,27 @@
   background: var(--surface);
 }
 
+/* el panel no tiene breakpoints propios (layout de app de escritorio,
+   sidebar fija de 360px) — en vez de achicarlo hasta que se rompa, se
+   deja pannear horizontalmente por debajo de su ancho mínimo real */
+.frameScroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .frame {
   display: block;
   width: 100%;
+  min-width: 980px;
   height: 80vh;
   min-height: 700px;
   border: 0;
+}
+
+@media (min-width: 980px) {
+  .frameScroll {
+    overflow-x: visible;
+  }
 }
 
 .cta {
