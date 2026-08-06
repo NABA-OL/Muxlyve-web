@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
     // el panel de la demo va embebido en <iframe> dentro de /demo (mismo
     // origen) — DENY global lo bloquearía por completo
     {
-      source: "/Demo/:path*",
+      source: "/demo/:path*",
       headers: [{ key: "X-Frame-Options", value: "SAMEORIGIN" }],
     },
   ],

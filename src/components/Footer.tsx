@@ -2,6 +2,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
+    <>
     <footer className="footer">
       <div className="container">
         <div className="footer-grid">
@@ -47,7 +48,8 @@ export function Footer() {
           </span>
         </div>
       </div>
-      <div className="footer-signature" aria-hidden="true" />
     </footer>
+    <div className="footer-signature" aria-hidden="true" />
+    </>
   );
 }

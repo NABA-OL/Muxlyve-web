@@ -29,7 +29,7 @@ export default function DemoPage() {
             <div className={styles.frameWrap}>
               <div className={styles.frameScroll}>
                 <iframe
-                  src="/Demo/dist/index.html"
+                  src="/demo/dist/index.html"
                   title="Demo de Muxlyve"
                   loading="lazy"
                   className={styles.frame}
