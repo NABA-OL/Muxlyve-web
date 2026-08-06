@@ -522,9 +522,11 @@ section {
 }
 
 /* eco fijo del prisma del hero: misma paleta de plataformas, sin
-   animación ni WebGL — una franja estática y tenue en el borde inferior */
+   animación ni WebGL. Vive FUERA de <footer> a propósito — es el "pie
+   del pie de página", no la última fila del footer, así que el
+   padding-bottom del propio footer ya lo separa del contenido; acá
+   solo se define la franja en sí, bien al borde inferior real. */
 .footer-signature {
-  margin-top: 2.5rem;
   height: 3px;
   opacity: 0.45;
   background: linear-gradient(
