@@ -529,11 +529,35 @@ section {
 .footer-signature {
   height: 3px;
   opacity: 0.45;
+  /* la secuencia de 4 colores se repite dos veces; con background-size al
+     200% un desplazamiento de exactamente -100% recorre un ciclo completo
+     y la costura entre la 1ra y la 2da copia es invisible (loop sin salto) */
   background: linear-gradient(
     90deg,
     var(--twitch),
     var(--kick),
     var(--youtube),
+    var(--tiktok),
+    var(--twitch),
+    var(--kick),
+    var(--youtube),
     var(--tiktok)
   );
+  background-size: 200% 100%;
+  animation: footer-signature-drift 22s linear infinite;
+}
+
+@keyframes footer-signature-drift {
+  from {
+    background-position: 0% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-signature {
+    animation: none;
+  }
 }

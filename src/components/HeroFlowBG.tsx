@@ -119,6 +119,11 @@ export function HeroFlowBG() {
     scene.add(mesh);
 
     let frameId = 0;
+    let lastTimestamp: number | null = null;
+    // 0.006/frame a 60fps ≈ 0.36 unidades por segundo real — mismo ritmo
+    // en cualquier pantalla, en vez de depender de cuántas veces dispare
+    // requestAnimationFrame (120Hz+ corría el shader al doble de velocidad)
+    const TIME_UNITS_PER_SECOND = 0.36;
 
     const resize = () => {
       const { width, height } = parent.getBoundingClientRect();
@@ -129,15 +134,17 @@ export function HeroFlowBG() {
       renderer.render(scene, camera);
     };
 
-    const animate = () => {
-      uniforms.time.value += 0.006;
+    const animate = (timestamp: number) => {
+      const deltaSeconds = lastTimestamp === null ? 0 : (timestamp - lastTimestamp) / 1000;
+      lastTimestamp = timestamp;
+      uniforms.time.value += deltaSeconds * TIME_UNITS_PER_SECOND;
       renderer.render(scene, camera);
       frameId = requestAnimationFrame(animate);
     };
 
     resize();
     if (!reduceMotion) {
-      animate();
+      frameId = requestAnimationFrame(animate);
     }
 
     const observer = new ResizeObserver(resize);
