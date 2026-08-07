@@ -9,7 +9,7 @@ export function Footer() {
           <div>
             <strong className="gradient-text">Muxlyve</strong>
             <p style={{ marginTop: "0.5rem", maxWidth: "32ch" }}>
-              Multistreaming de escritorio sin marca de agua. Mensual, anual o de por vida.
+              Multistreaming simultáneo, sin marca de agua, Mensual o anual.
             </p>
           </div>
           <nav className="footer-links" aria-label="Pie de página">

@@ -18,29 +18,30 @@ const claim =
 export const metadata: Metadata = {
   metadataBase: new URL(BASE),
   title: {
-    default: "Muxlyve — Multistreaming sin marca de agua",
+    default: "Muxlyve — Multistreaming",
     template: "%s | Muxlyve",
   },
   description: claim,
   keywords: [
     "multistreaming", "multistream windows", "transmitir twitch kick youtube tiktok",
     "software multistream", "multistreaming sin marca de agua", "alternativa restream",
-    "multistream", "transmitir varias plataformas", "OBS multistream",
+    "multistream", "transmitir varias plataformas", "OBS multistream", "OBS",
+    "Twitch", "Kick", "YouTube", "TikTok", "Streaming", "Live", "En vivo"
   ],
   icons: { icon: "/icon-muxlyve.svg", shortcut: "/favicon.ico" },
   alternates: { canonical: BASE },
   openGraph: {
-    title: "Muxlyve — Multistreaming sin marca de agua",
+    title: "Muxlyve — Multistreaming",
     description: claim,
     url: BASE,
     siteName: "Muxlyve",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Muxlyve — Multistreaming sin marca de agua" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Muxlyve — Multistreaming" }],
     type: "website",
     locale: "es_ES",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muxlyve — Multistreaming sin marca de agua",
+    title: "Muxlyve — Multistreaming",
     description: "Transmite a Twitch, Kick, YouTube y TikTok a la vez. Sin marca de agua.",
     images: ["/og-image.png"],
   },

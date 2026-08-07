@@ -44,11 +44,11 @@ const jsonLd = {
     "Programar inicio de transmisión",
     "Resumen automático del stream",
     "Acceso remoto por LAN",
-    "Bilingüe español / inglés",
+    "Multi Idiomas",
     "Perfiles de destinos guardados",
     "Comando !clip en el chat",
     "Avisos automáticos a Discord y Telegram",
-    "Compatible con Elgato Stream Deck",
+    "Compatible con Elgato Stream Deck","StramDeck",
     "Reconexión automática",
     "Preview en vivo por destino",
     "Twitch, Kick, YouTube, TikTok",
@@ -57,6 +57,8 @@ const jsonLd = {
     "Historial de sesiones",
     "Exportar/importar configuración",
     "Aviso de audio cortado",
+    "Twitch","Kick",
+    "YouTube","TikTok"
   ],
 };
 

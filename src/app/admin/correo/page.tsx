@@ -132,7 +132,7 @@ export default async function CorreoPage({ searchParams }: Props) {
               Muxlyve
             </span>
             <p style={{ margin: "0.25rem 0 0", fontSize: "0.72rem", color: "var(--muted)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
-              Multistreaming de escritorio
+              Multistreaming Simultaneo
             </p>
           </div>
           {/* Body placeholder */}
