@@ -309,37 +309,9 @@ section {
   font-weight: 700;
   font-size: 1.08rem;
   letter-spacing: -0.01em;
-  background: var(--grad);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
   white-space: nowrap;
   user-select: none;
-}
-
-/* revela "Li" animando el track de un grid de 0fr a 1fr: a diferencia de
-   max-width + overflow:hidden sobre texto inline, esto no depende de
-   medidas en `ch` (poco fiables entre motores) y no genera el bug de
-   repintado/superposición que max-width tenía en Chromium, ni el fallo
-   de expansión que tenía en WebKit (Safari/Opera) */
-.nav-li {
-  display: inline-grid;
-  grid-template-columns: 0fr;
-  overflow: hidden;
-  opacity: 0;
-  transition: grid-template-columns 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.45s ease;
-}
-
-.nav-li > span {
-  overflow: hidden;
-  white-space: nowrap;
-  min-width: 0;
-}
-
-.nav-li--open {
-  grid-template-columns: 1fr;
-  opacity: 1;
 }
 
 .nav-toggle {

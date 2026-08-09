@@ -73,7 +73,7 @@ export const HELP_ARTICLES: HelpArticle[] = [
   {
     slug: "exportar-importar-config",
     title: "Exportar e importar tu configuración",
-    summary: "Descarga destinos y ajustes en un archivo JSON, y restáuralos en otra máquina en un clic.",
+    summary: "Backup de destinos y ajustes en un archivo .mux cifrado con contraseña, para restaurar en otra máquina.",
   },
   {
     slug: "avisos-discord-telegram",
@@ -84,6 +84,16 @@ export const HELP_ARTICLES: HelpArticle[] = [
     slug: "audio-cortado",
     title: "Aviso cuando se corta el audio",
     summary: "Notificación nativa si no detecta audio real por 20 segundos mientras estás en vivo.",
+  },
+  {
+    slug: "bandeja-del-sistema",
+    title: "Bandeja del sistema",
+    summary: "Viewers en vivo por plataforma desde el ícono de la bandeja del sistema, sin abrir el panel.",
+  },
+  {
+    slug: "acerca-de-muxlyve",
+    title: "Acerca de Muxlyve",
+    summary: "Dónde ver la versión instalada y los datos del desarrollador.",
   },
   {
     slug: "preguntas-frecuentes",

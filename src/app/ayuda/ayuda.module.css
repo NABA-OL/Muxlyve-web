@@ -30,6 +30,151 @@
   color: var(--muted);
 }
 
+/* ---- Botón que abre el buscador (icono + atajo, no parece un input) ---- */
+.searchTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+  padding: 0.4rem 0.55rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 0.18s var(--ease), color 0.18s var(--ease);
+}
+
+.searchTrigger:hover,
+.searchTrigger:focus-visible {
+  color: var(--text);
+  border-color: color-mix(in oklab, var(--accent) 45%, var(--border));
+}
+
+.searchTrigger:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+}
+
+.searchKbd {
+  font: inherit;
+  font-size: 0.72rem;
+  padding: 0.1rem 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--muted);
+}
+
+/* ---- Panel de búsqueda (estilo Spotlight) ---- */
+.searchOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  /* sin esto el panel se estira (stretch, default de flex) hasta
+     max-height sin importar cuántos resultados tenga adentro */
+  align-items: flex-start;
+  padding: 12vh 1.5rem 1.5rem;
+  background: rgba(13, 17, 23, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.searchPanel {
+  width: 100%;
+  max-width: 560px;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  animation: search-panel-in 0.18s var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .searchPanel {
+    animation: none;
+  }
+}
+
+@keyframes search-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.searchInput {
+  width: 100%;
+  padding: 1.1rem 1.2rem;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.searchInput::placeholder {
+  color: var(--muted);
+}
+
+.searchInput:focus-visible {
+  outline: none;
+}
+
+.searchResults {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem;
+  overflow-y: auto;
+}
+
+.searchResult {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.searchResultActive {
+  background: color-mix(in oklab, var(--accent) 16%, transparent);
+}
+
+.searchResultTitle {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.searchResultSummary {
+  font-size: 0.8rem;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sidebarEmpty {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0;
+  padding: 1.1rem 1.2rem;
+}
+
 .sidebarList {
   display: grid;
   gap: 0.2rem;

@@ -35,6 +35,23 @@ export default function Page() {
         src="/help/chat-unificado-moderacion.png"
         label="menú de moderación (timeout/ban) abierto junto a un mensaje del chat"
       />
+
+      <h2>Traducir mensajes del chat</h2>
+      <p>
+        En Preferencias → Chat, activa &quot;Traducir mensajes del chat&quot;
+        (apagado por defecto). Cuando llega un mensaje en un idioma distinto
+        al de la app, Muxlyve muestra la traducción como una línea aparte
+        debajo del mensaje original — nunca lo reemplaza.
+      </p>
+      <p>
+        Usa un servicio externo no oficial (Google Translate), así que es{" "}
+        <em>best-effort</em>: puede fallar sin avisar en algún mensaje puntual
+        y el chat sigue funcionando igual de bien, solo sin esa traducción.
+      </p>
+      <ScreenshotPlaceholder
+        src="/help/chat-traduccion.png"
+        label="toggle de traducción en Preferencias → Chat, y un mensaje con su traducción debajo"
+      />
     </ArticleLayout>
   );
 }
