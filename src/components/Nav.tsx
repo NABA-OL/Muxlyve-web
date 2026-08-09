@@ -13,39 +13,10 @@ const LINKS = [
 ];
 
 function WordmarkLogo() {
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    let t: ReturnType<typeof setTimeout>;
-
-    function cycle() {
-      // wait 1.5-4s, then expand
-      t = setTimeout(() => {
-        setOpen(true);
-        // hold 2.8s, then collapse and reschedule
-        t = setTimeout(() => {
-          setOpen(false);
-          cycle();
-        }, 2800);
-      }, 1500 + Math.random() * 2500);
-    }
-
-    cycle();
-    return () => clearTimeout(t);
-  }, []);
-
   return (
-    <span className="nav-wordmark" aria-label="Muxlyve" style={{ display: "inline-flex", alignItems: "center", gap: "0.45rem" }}>
+    <span className="nav-wordmark" style={{ display: "inline-flex", alignItems: "center", gap: "0.45rem" }}>
       <Image src="/icon-muxlyve.svg" alt="" width={28} height={28} priority />
-      <span aria-hidden="true" style={{ display: "inline-flex", alignItems: "center" }}>
-        Muxly
-        <span className={`nav-li${open ? " nav-li--open" : ""}`}>
-          <span>&nbsp;Li</span>
-        </span>
-        ve
-      </span>
+      Muxlyve
     </span>
   );
 }

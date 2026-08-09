@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { HELP_ARTICLES } from "@/lib/help-articles";
+import { HelpSearchPalette } from "./HelpSearchPalette";
 import styles from "@/app/ayuda/ayuda.module.css";
 
 export function AyudaSidebar() {
@@ -10,6 +11,7 @@ export function AyudaSidebar() {
   return (
     <nav className={styles.sidebar} aria-label="Artículos de ayuda">
       <span className={styles.sidebarEyebrow}>Ayuda</span>
+      <HelpSearchPalette />
       <ul className={styles.sidebarList}>
         {HELP_ARTICLES.map((a) => {
           const href = `/ayuda/${a.slug}`;
