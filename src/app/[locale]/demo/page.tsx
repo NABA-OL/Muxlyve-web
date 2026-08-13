@@ -2,6 +2,8 @@
  * Propiedad de BlacKraken Solutions
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
+ *  * Correo: nabaol.dev@gmail.com
+ * Copyright (c) 2026 BlacKraken Solutions. Todos los derechos reservados.
  */
 
 import type { Metadata } from "next";
@@ -35,7 +37,10 @@ export default async function DemoPage() {
         <section>
           <div className="container">
             <span className="eyebrow">{t("eyebrow")}</span>
-            <h1 className="section-title" style={{ fontSize: "var(--text-h2)" }}>
+            <h1
+              className="section-title"
+              style={{ fontSize: "var(--text-h2)" }}
+            >
               {t("title")}
             </h1>
             <p className="section-lead">{t("lead")}</p>

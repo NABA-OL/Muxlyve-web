@@ -4,6 +4,8 @@
  * Propiedad de BlacKraken Solutions
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
+ *  * Correo: nabaol.dev@gmail.com
+ * Copyright (c) 2026 BlacKraken Solutions. Todos los derechos reservados.
  */
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -13,7 +15,10 @@ import { routing } from "@/i18n/routing";
 
 function WordmarkLogo() {
   return (
-    <span className="nav-wordmark" style={{ display: "inline-flex", alignItems: "center", gap: "0.45rem" }}>
+    <span
+      className="nav-wordmark"
+      style={{ display: "inline-flex", alignItems: "center", gap: "0.45rem" }}
+    >
       <Image src="/icon-muxlyve.svg" alt="" width={28} height={28} priority />
       Muxlyve
     </span>
@@ -85,7 +90,16 @@ export function Nav() {
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((v) => !v)}
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            aria-hidden="true"
+          >
             {mobileOpen ? (
               <>
                 <line x1="6" y1="6" x2="18" y2="18" />
@@ -109,7 +123,11 @@ export function Nav() {
         onClick={() => setMobileOpen(false)}
       />
 
-      <div className="nav-mobile-menu" data-open={mobileOpen} inert={!mobileOpen}>
+      <div
+        className="nav-mobile-menu"
+        data-open={mobileOpen}
+        inert={!mobileOpen}
+      >
         <div className="nav-mobile-menu-inner">
           {LINKS.map((l) => (
             <a key={l.href} href={l.href} onClick={() => setMobileOpen(false)}>

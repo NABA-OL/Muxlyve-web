@@ -4,6 +4,8 @@
  * Propiedad de BlacKraken Solutions
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
+ *  * Correo: nabaol.dev@gmail.com
+ * Copyright (c) 2026 BlacKraken Solutions. Todos los derechos reservados.
  */
 import { useRef, type PointerEvent, type ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
@@ -22,8 +24,14 @@ export function GlassButton({ href, children, variant = "primary" }: Props) {
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
-    el.style.setProperty("--x", `${((e.clientX - rect.left) / rect.width) * 100}%`);
-    el.style.setProperty("--y", `${((e.clientY - rect.top) / rect.height) * 100}%`);
+    el.style.setProperty(
+      "--x",
+      `${((e.clientX - rect.left) / rect.width) * 100}%`,
+    );
+    el.style.setProperty(
+      "--y",
+      `${((e.clientY - rect.top) / rect.height) * 100}%`,
+    );
   }
 
   return (

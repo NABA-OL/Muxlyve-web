@@ -2,6 +2,8 @@
  * Propiedad de BlacKraken Solutions
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
+ *  * Correo: nabaol.dev@gmail.com
+ * Copyright (c) 2026 BlacKraken Solutions. Todos los derechos reservados.
  */
 
 import type { Metadata } from "next";
@@ -27,7 +29,9 @@ export default function Page() {
       <ArticleBody
         slug={SLUG}
         extraTags={{
-          link1: (chunks) => <Link href="/ayuda/overlay-chat-obs">{chunks}</Link>,
+          link1: (chunks) => (
+            <Link href="/ayuda/overlay-chat-obs">{chunks}</Link>
+          ),
           link2: (chunks) => <Link href="/ayuda/stream-deck">{chunks}</Link>,
         }}
       />

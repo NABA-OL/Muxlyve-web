@@ -2,6 +2,8 @@
  * Propiedad de BlacKraken Solutions
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
+ *  * Correo: nabaol.dev@gmail.com
+ * Copyright (c) 2026 BlacKraken Solutions. Todos los derechos reservados.
  */
 
 import type { ReactNode } from "react";
@@ -45,7 +47,9 @@ export async function ArticleBody({
         ...extraTags,
         shot: (chunks) => {
           const shot = shots[Number(chunks)];
-          return shot ? <ScreenshotPlaceholder src={shot.src} label={shot.label} /> : null;
+          return shot ? (
+            <ScreenshotPlaceholder src={shot.src} label={shot.label} />
+          ) : null;
         },
       })}
     </>
