@@ -1,4 +1,10 @@
 "use client";
+
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-08-13
+ */
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";

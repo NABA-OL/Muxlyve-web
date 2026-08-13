@@ -1,3 +1,9 @@
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-08-13
+ */
+
 export function ArticleJsonLd({ data }: { data: object }) {
   return (
     <script

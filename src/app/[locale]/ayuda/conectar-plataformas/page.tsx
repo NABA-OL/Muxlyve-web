@@ -1,3 +1,9 @@
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-08-13
+ */
+
 import type { Metadata } from "next";
 import { ArticleLayout } from "@/components/help/ArticleLayout";
 import { ArticleBody } from "@/components/help/ArticleBody";

@@ -1,3 +1,9 @@
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-08-13
+ */
+
 import type { CSSProperties } from "react";
 import { useTranslations } from "next-intl";
 import { PLATFORMS } from "@/lib/platforms";

@@ -1,3 +1,9 @@
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-08-13
+ */
+
 import { getTranslations } from "next-intl/server";
 
 function stripTags(s: string): string {
