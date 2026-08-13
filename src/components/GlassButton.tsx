@@ -1,5 +1,10 @@
 "use client";
 
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-08-13
+ */
 import { useRef, type PointerEvent, type ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
 import styles from "./GlassButton.module.css";

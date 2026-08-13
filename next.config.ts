@@ -1,3 +1,9 @@
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-08-13
+ */
+
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 

@@ -1,3 +1,9 @@
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-08-13
+ */
+
 import { routing, type Locale } from "@/i18n/routing";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muxlyve.com";

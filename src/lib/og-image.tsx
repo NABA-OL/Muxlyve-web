@@ -1,3 +1,9 @@
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-08-13
+ */
+
 import { ImageResponse } from "next/og";
 
 export const ogImageSize = { width: 1200, height: 630 };

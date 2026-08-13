@@ -1,4 +1,9 @@
-// Desarrollado por BlacKraken Solutions
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-08-13
+ */
+
 import { getTranslations } from "next-intl/server";
 import { HELP_ARTICLES } from "@/lib/help-articles";
 

@@ -1,4 +1,9 @@
-// Desarrollado por BlacKraken Solutions
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-08-13
+ */
+
 import type { MetadataRoute } from "next";
 import { HELP_ARTICLES } from "@/lib/help-articles";
 import { routing, type Locale } from "@/i18n/routing";
