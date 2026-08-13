@@ -493,6 +493,43 @@ section {
   font-size: 0.82rem;
 }
 
+.footer-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.footer-lang-select {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+.footer-lang-select:hover,
+.footer-lang-select:focus-visible {
+  color: var(--text);
+  border-color: color-mix(in oklab, var(--accent) 45%, var(--border));
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* eco fijo del prisma del hero: misma paleta de plataformas, sin
    animación ni WebGL. Vive FUERA de <footer> a propósito — es el "pie
    del pie de página", no la última fila del footer, así que el

@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     description: claim,
     url: BASE,
     siteName: "Muxlyve",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Muxlyve — Multistreaming" }],
     type: "website",
     locale: "es_ES",
   },
@@ -43,7 +42,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Muxlyve — Multistreaming",
     description: "Transmite a Twitch, Kick, YouTube y TikTok a la vez. Sin marca de agua.",
-    images: ["/og-image.png"],
   },
 };
 

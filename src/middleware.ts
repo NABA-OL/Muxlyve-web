@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { neon } from "@neondatabase/serverless";
+import createIntlMiddleware from "next-intl/middleware";
+import { routing } from "@/i18n/routing";
 
-export async function middleware(req: NextRequest) {
+const intlMiddleware = createIntlMiddleware(routing);
+
+async function adminMiddleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
   if (pathname === "/admin/login") return NextResponse.next();
 
@@ -33,6 +37,13 @@ export async function middleware(req: NextRequest) {
   return NextResponse.next();
 }
 
+export async function middleware(req: NextRequest) {
+  if (req.nextUrl.pathname.startsWith("/admin")) {
+    return adminMiddleware(req);
+  }
+  return intlMiddleware(req);
+}
+
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: ["/admin/:path*", "/((?!api|_next|_vercel|.*\\..*).*)"],
 };

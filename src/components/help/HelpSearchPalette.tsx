@@ -1,8 +1,9 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
 import { HELP_ARTICLES } from "@/lib/help-articles";
-import styles from "@/app/ayuda/ayuda.module.css";
+import styles from "@/app/[locale]/ayuda/ayuda.module.css";
 
 function normalize(value: string): string {
   return value
@@ -13,6 +14,7 @@ function normalize(value: string): string {
 
 export function HelpSearchPalette() {
   const router = useRouter();
+  const t = useTranslations("help");
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
@@ -25,10 +27,16 @@ export function HelpSearchPalette() {
     setIsMac(/Mac|iPod|iPhone|iPad/.test(navigator.platform));
   }, []);
 
+  const articles = HELP_ARTICLES.map((a) => ({
+    slug: a.slug,
+    title: t(`articles.${a.slug}.title`),
+    summary: t(`articles.${a.slug}.summary`),
+  }));
+
   const normalizedQuery = normalize(query.trim());
   // vacío: no repetir la lista completa que ya está en el sidebar detrás
   const results = normalizedQuery
-    ? HELP_ARTICLES.filter((a) =>
+    ? articles.filter((a) =>
         normalize(`${a.title} ${a.summary}`).includes(normalizedQuery),
       )
     : [];
@@ -91,7 +99,7 @@ export function HelpSearchPalette() {
         type="button"
         className={styles.searchTrigger}
         onClick={() => setOpen(true)}
-        aria-label={`Buscar en la ayuda (${isMac ? "Cmd" : "Ctrl"}+K)`}
+        aria-label={t("searchTriggerAria", { shortcut: isMac ? "Cmd+K" : "Ctrl+K" })}
       >
         <svg
           width="16"
@@ -117,7 +125,7 @@ export function HelpSearchPalette() {
           className={styles.searchOverlay}
           role="dialog"
           aria-modal="true"
-          aria-label="Buscar en la ayuda"
+          aria-label={t("searchDialogAria")}
           onClick={close}
         >
           <div
@@ -130,8 +138,8 @@ export function HelpSearchPalette() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={onInputKeyDown}
-              placeholder="Buscar en la ayuda…"
-              aria-label="Buscar artículos de ayuda"
+              placeholder={t("searchPlaceholder")}
+              aria-label={t("searchInputAria")}
               className={styles.searchInput}
             />
             {results.length > 0 ? (
@@ -154,7 +162,7 @@ export function HelpSearchPalette() {
               </ul>
             ) : normalizedQuery ? (
               <p className={styles.sidebarEmpty}>
-                Sin resultados para &quot;{query.trim()}&quot;.
+                {t("searchNoResults", { query: query.trim() })}
               </p>
             ) : null}
           </div>
