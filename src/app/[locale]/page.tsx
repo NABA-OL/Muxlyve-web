@@ -2,6 +2,8 @@
  * Propiedad de BlacKraken Solutions
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
+ *  * Correo: nabaol.dev@gmail.com
+ * Copyright (c) 2026 BlacKraken Solutions. Todos los derechos reservados.
  */
 
 import fs from "node:fs";
@@ -26,7 +28,8 @@ export const revalidate = 60;
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muxlyve.com";
 
 // TODO: reemplazar con la URL real cuando el plugin de Stream Deck esté publicado.
-const STREAM_DECK_PLUGIN_URL = "https://marketplace.elgato.com/product/muxlyve-3bb96a31-6c46-4a52-be62-9868e624b117";
+const STREAM_DECK_PLUGIN_URL =
+  "https://marketplace.elgato.com/product/muxlyve-3bb96a31-6c46-4a52-be62-9868e624b117";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -38,9 +41,35 @@ const jsonLd = {
     "Software de multistreaming para Windows. Transmite a Twitch, Kick, YouTube y TikTok al mismo tiempo sin marca de agua.",
   url: BASE,
   offers: [
-    { "@type": "Offer", name: "Mensual", priceCurrency: "USD", priceSpecification: { "@type": "UnitPriceSpecification", priceType: "https://schema.org/RecurringCharge", billingIncrement: 1 } },
-    { "@type": "Offer", name: "Anual", priceCurrency: "USD", priceSpecification: { "@type": "UnitPriceSpecification", priceType: "https://schema.org/RecurringCharge", billingIncrement: 12 } },
-    { "@type": "Offer", name: "Vitalicia", priceCurrency: "USD", priceSpecification: { "@type": "UnitPriceSpecification", priceType: "https://schema.org/OneTimePurchase" } },
+    {
+      "@type": "Offer",
+      name: "Mensual",
+      priceCurrency: "USD",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        priceType: "https://schema.org/RecurringCharge",
+        billingIncrement: 1,
+      },
+    },
+    {
+      "@type": "Offer",
+      name: "Anual",
+      priceCurrency: "USD",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        priceType: "https://schema.org/RecurringCharge",
+        billingIncrement: 12,
+      },
+    },
+    {
+      "@type": "Offer",
+      name: "Vitalicia",
+      priceCurrency: "USD",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        priceType: "https://schema.org/OneTimePurchase",
+      },
+    },
   ],
   featureList: [
     "Multistreaming sin marca de agua",
@@ -55,7 +84,8 @@ const jsonLd = {
     "Perfiles de destinos guardados",
     "Comando !clip en el chat",
     "Avisos automáticos a Discord y Telegram",
-    "Compatible con Elgato Stream Deck","StramDeck",
+    "Compatible con Elgato Stream Deck",
+    "StramDeck",
     "Reconexión automática",
     "Preview en vivo por destino",
     "Twitch, Kick, YouTube, TikTok",
@@ -64,8 +94,10 @@ const jsonLd = {
     "Historial de sesiones",
     "Exportar/importar configuración",
     "Aviso de audio cortado",
-    "Twitch","Kick",
-    "YouTube","TikTok"
+    "Twitch",
+    "Kick",
+    "YouTube",
+    "TikTok",
   ],
 };
 
@@ -132,11 +164,15 @@ export default async function Home() {
   }
 
   const STEPS = t.raw("landing.comoFunciona.steps") as Step[];
-  const FEATURE_GROUPS = t.raw("landing.caracteristicas.groups") as FeatureGroup[];
+  const FEATURE_GROUPS = t.raw(
+    "landing.caracteristicas.groups",
+  ) as FeatureGroup[];
   const COMPARE = t.raw("landing.queHace.compare") as string[];
   const mensualIncludes = t.raw("landing.precio.mensual.includes") as string[];
   const anualIncludes = t.raw("landing.precio.anual.includes") as string[];
-  const vitaliciaIncludes = t.raw("landing.precio.vitalicia.includes") as string[];
+  const vitaliciaIncludes = t.raw(
+    "landing.precio.vitalicia.includes",
+  ) as string[];
 
   return (
     <>
@@ -147,17 +183,33 @@ export default async function Home() {
       <RevealObserver />
       <Nav />
       {promoActive && promoText && (
-        <div style={{
-          background: "linear-gradient(90deg, rgba(124,92,255,0.18), rgba(77,163,255,0.18))",
-          borderBottom: "1px solid rgba(124,92,255,0.3)",
-          padding: "0.6rem 1.5rem",
-          textAlign: "center",
-          fontSize: "0.9rem",
-          color: "var(--text)",
-        }}>
+        <div
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(124,92,255,0.18), rgba(77,163,255,0.18))",
+            borderBottom: "1px solid rgba(124,92,255,0.3)",
+            padding: "0.6rem 1.5rem",
+            textAlign: "center",
+            fontSize: "0.9rem",
+            color: "var(--text)",
+          }}
+        >
           {promoText}
           {promoCoupon && (
-            <> · Código: <code style={{ background: "rgba(124,92,255,0.2)", padding: "0.1rem 0.5rem", borderRadius: "4px", fontWeight: 700 }}>{promoCoupon}</code></>
+            <>
+              {" "}
+              · Código:{" "}
+              <code
+                style={{
+                  background: "rgba(124,92,255,0.2)",
+                  padding: "0.1rem 0.5rem",
+                  borderRadius: "4px",
+                  fontWeight: 700,
+                }}
+              >
+                {promoCoupon}
+              </code>
+            </>
           )}
         </div>
       )}
@@ -168,8 +220,12 @@ export default async function Home() {
         <section id="como-funciona">
           <div className="container">
             <div className="reveal">
-              <span className="eyebrow">{t("landing.comoFunciona.eyebrow")}</span>
-              <h2 className="section-title">{t("landing.comoFunciona.title")}</h2>
+              <span className="eyebrow">
+                {t("landing.comoFunciona.eyebrow")}
+              </span>
+              <h2 className="section-title">
+                {t("landing.comoFunciona.title")}
+              </h2>
             </div>
             <div className={styles.steps}>
               {STEPS.map((s, i) => (
@@ -215,8 +271,12 @@ export default async function Home() {
         <section id="caracteristicas">
           <div className="container">
             <div className="reveal">
-              <span className="eyebrow">{t("landing.caracteristicas.eyebrow")}</span>
-              <h2 className="section-title">{t("landing.caracteristicas.title")}</h2>
+              <span className="eyebrow">
+                {t("landing.caracteristicas.eyebrow")}
+              </span>
+              <h2 className="section-title">
+                {t("landing.caracteristicas.title")}
+              </h2>
             </div>
             {FEATURE_GROUPS.map((group) => (
               <div key={group.title} className={styles.featureGroup}>
@@ -261,9 +321,15 @@ export default async function Home() {
           <div className="container">
             <div
               className="reveal"
-              style={{ textAlign: "center", maxWidth: "640px", margin: "0 auto" }}
+              style={{
+                textAlign: "center",
+                maxWidth: "640px",
+                margin: "0 auto",
+              }}
             >
-              <span className="eyebrow">{t("landing.independiente.eyebrow")}</span>
+              <span className="eyebrow">
+                {t("landing.independiente.eyebrow")}
+              </span>
               <h2 className="section-title" style={{ marginInline: "auto" }}>
                 {t("landing.independiente.title")}
               </h2>
@@ -281,8 +347,12 @@ export default async function Home() {
         <section id="plataformas">
           <div className="container">
             <div className="reveal">
-              <span className="eyebrow">{t("landing.plataformas.eyebrow")}</span>
-              <h2 className="section-title">{t("landing.plataformas.title")}</h2>
+              <span className="eyebrow">
+                {t("landing.plataformas.eyebrow")}
+              </span>
+              <h2 className="section-title">
+                {t("landing.plataformas.title")}
+              </h2>
               <p className="section-lead">
                 {t.rich("landing.plataformas.lead", {
                   rtmp: (chunks) => <code>{chunks}</code>,
@@ -322,8 +392,11 @@ export default async function Home() {
                 {t("landing.integraciones.badge")}
               </div>
               <h2 className={styles.integrationTitle}>
-                Muxlyve <span className={styles.integrationX}>{t("landing.integraciones.titleX")}</span> Stream
-                Deck
+                Muxlyve{" "}
+                <span className={styles.integrationX}>
+                  {t("landing.integraciones.titleX")}
+                </span>{" "}
+                Stream Deck
               </h2>
               <p className="section-lead" style={{ marginInline: "auto" }}>
                 {t("landing.integraciones.lead")}
@@ -371,89 +444,120 @@ export default async function Home() {
             </div>
             <div className={`${styles.pricingGrid} reveal`}>
               {/* Mensual */}
-              {monthlyVisible && <div className={styles.planCard}>
-                <span className="eyebrow">{t("landing.precio.mensual.label")}</span>
-                <div className={styles.amount}>
-                  {fmt(priceMonthly) ? (
-                    <>{fmt(priceMonthly)}<small>{t("landing.precio.mensual.suffix")}</small></>
-                  ) : (
-                    <span className={styles.amountPending}>{t("landing.precio.pricePending")}</span>
-                  )}
+              {monthlyVisible && (
+                <div className={styles.planCard}>
+                  <span className="eyebrow">
+                    {t("landing.precio.mensual.label")}
+                  </span>
+                  <div className={styles.amount}>
+                    {fmt(priceMonthly) ? (
+                      <>
+                        {fmt(priceMonthly)}
+                        <small>{t("landing.precio.mensual.suffix")}</small>
+                      </>
+                    ) : (
+                      <span className={styles.amountPending}>
+                        {t("landing.precio.pricePending")}
+                      </span>
+                    )}
+                  </div>
+                  <ul className={styles.includes}>
+                    {mensualIncludes.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                  <a
+                    className="btn btn-ghost"
+                    href="https://checkout.freemius.com/mode/page/plugin/32832/plan/53907/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ width: "100%", justifyContent: "center" }}
+                  >
+                    {t("landing.precio.mensual.cta")}
+                  </a>
                 </div>
-                <ul className={styles.includes}>
-                  {mensualIncludes.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-                <a
-                  className="btn btn-ghost"
-                  href="https://checkout.freemius.com/mode/page/plugin/32832/plan/53907/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ width: "100%", justifyContent: "center" }}
-                >
-                  {t("landing.precio.mensual.cta")}
-                </a>
-              </div>}
+              )}
 
               {/* Anual */}
-              {annualVisible && <div className={styles.planCard}>
-                <div className={styles.planBadge}>{t("landing.precio.anual.badge")}</div>
-                <span className="eyebrow">{t("landing.precio.anual.label")}</span>
-                <div className={styles.amount}>
-                  {fmt(priceAnnual) ? (
-                    <>{fmt(priceAnnual)}<small>{t("landing.precio.anual.suffix")}</small></>
-                  ) : (
-                    <span className={styles.amountPending}>{t("landing.precio.pricePending")}</span>
-                  )}
+              {annualVisible && (
+                <div className={styles.planCard}>
+                  <div className={styles.planBadge}>
+                    {t("landing.precio.anual.badge")}
+                  </div>
+                  <span className="eyebrow">
+                    {t("landing.precio.anual.label")}
+                  </span>
+                  <div className={styles.amount}>
+                    {fmt(priceAnnual) ? (
+                      <>
+                        {fmt(priceAnnual)}
+                        <small>{t("landing.precio.anual.suffix")}</small>
+                      </>
+                    ) : (
+                      <span className={styles.amountPending}>
+                        {t("landing.precio.pricePending")}
+                      </span>
+                    )}
+                  </div>
+                  <ul className={styles.includes}>
+                    {anualIncludes.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                  <a
+                    className="btn btn-ghost"
+                    href="https://checkout.freemius.com/mode/page/plugin/32832/plan/53907/?billing_cycle=annual"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ width: "100%", justifyContent: "center" }}
+                  >
+                    {t("landing.precio.anual.cta")}
+                  </a>
                 </div>
-                <ul className={styles.includes}>
-                  {anualIncludes.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-                <a
-                  className="btn btn-ghost"
-                  href="https://checkout.freemius.com/mode/page/plugin/32832/plan/53907/?billing_cycle=annual"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ width: "100%", justifyContent: "center" }}
-                >
-                  {t("landing.precio.anual.cta")}
-                </a>
-              </div>}
+              )}
 
               {/* Vitalicia — destacada */}
-              {lifetimeVisible && <div className={`${styles.planCard} ${styles.planFeatured}`}>
-                <div className={`${styles.planBadge} ${styles.planBadgeFeatured}`}>
-                  {t("landing.precio.vitalicia.badge")}
+              {lifetimeVisible && (
+                <div className={`${styles.planCard} ${styles.planFeatured}`}>
+                  <div
+                    className={`${styles.planBadge} ${styles.planBadgeFeatured}`}
+                  >
+                    {t("landing.precio.vitalicia.badge")}
+                  </div>
+                  <span className="eyebrow">
+                    {t("landing.precio.vitalicia.label")}
+                  </span>
+                  <div className={styles.amount}>
+                    {fmt(priceLifetime) ? (
+                      <>
+                        {fmt(priceLifetime)}
+                        <small> {t("landing.precio.vitalicia.suffix")}</small>
+                      </>
+                    ) : (
+                      <span className={styles.amountPending}>
+                        {t("landing.precio.pricePending")}
+                      </span>
+                    )}
+                  </div>
+                  <p className={styles.planTagline}>
+                    {t("landing.precio.vitalicia.tagline")}
+                  </p>
+                  <ul className={styles.includes}>
+                    {vitaliciaIncludes.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                  <a
+                    className="btn btn-primary"
+                    href="https://checkout.freemius.com/mode/page/plugin/32832/plan/53899/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ width: "100%", justifyContent: "center" }}
+                  >
+                    {t("landing.precio.vitalicia.cta")}
+                  </a>
                 </div>
-                <span className="eyebrow">{t("landing.precio.vitalicia.label")}</span>
-                <div className={styles.amount}>
-                  {fmt(priceLifetime) ? (
-                    <>{fmt(priceLifetime)}<small> {t("landing.precio.vitalicia.suffix")}</small></>
-                  ) : (
-                    <span className={styles.amountPending}>{t("landing.precio.pricePending")}</span>
-                  )}
-                </div>
-                <p className={styles.planTagline}>
-                  {t("landing.precio.vitalicia.tagline")}
-                </p>
-                <ul className={styles.includes}>
-                  {vitaliciaIncludes.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-                <a
-                  className="btn btn-primary"
-                  href="https://checkout.freemius.com/mode/page/plugin/32832/plan/53899/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ width: "100%", justifyContent: "center" }}
-                >
-                  {t("landing.precio.vitalicia.cta")}
-                </a>
-              </div>}
+              )}
             </div>
           </div>
         </section>
@@ -477,7 +581,13 @@ export default async function Home() {
                 }}
               >
                 <span>{t("landing.descarga.availableFor")}</span>
-                <span style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
+                <span
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.35rem",
+                  }}
+                >
                   <svg
                     width="14"
                     height="14"
@@ -490,7 +600,13 @@ export default async function Home() {
                   {t("landing.descarga.windows")}
                 </span>
                 <span>{t("landing.descarga.and")}</span>
-                <span style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
+                <span
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.35rem",
+                  }}
+                >
                   <svg
                     width="20"
                     height="20"

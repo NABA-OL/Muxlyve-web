@@ -2,6 +2,8 @@
  * Propiedad de BlacKraken Solutions
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
+ *  * Correo: nabaol.dev@gmail.com
+ * Copyright (c) 2026 BlacKraken Solutions. Todos los derechos reservados.
  */
 
 import type { ReactNode } from "react";
@@ -26,14 +28,18 @@ export async function ArticleLayout({ slug, children }: Props) {
 
   return (
     <article>
-      <h1 className={styles.articleTitle}>{t(`help.articles.${slug}.title`)}</h1>
+      <h1 className={styles.articleTitle}>
+        {t(`help.articles.${slug}.title`)}
+      </h1>
       <div className={styles.prose}>{children}</div>
       {(prev || next) && (
         <nav className={styles.pager} aria-label={t("help.pagerAria")}>
           {prev ? (
             <Link href={`/ayuda/${prev.slug}`} className={styles.pagerLink}>
               <span className={styles.pagerLabel}>{t("help.pagerPrev")}</span>
-              <span className={styles.pagerTitle}>{t(`help.articles.${prev.slug}.title`)}</span>
+              <span className={styles.pagerTitle}>
+                {t(`help.articles.${prev.slug}.title`)}
+              </span>
             </Link>
           ) : (
             <span />
@@ -44,7 +50,9 @@ export async function ArticleLayout({ slug, children }: Props) {
               className={`${styles.pagerLink} ${styles.pagerLinkNext}`}
             >
               <span className={styles.pagerLabel}>{t("help.pagerNext")}</span>
-              <span className={styles.pagerTitle}>{t(`help.articles.${next.slug}.title`)}</span>
+              <span className={styles.pagerTitle}>
+                {t(`help.articles.${next.slug}.title`)}
+              </span>
             </Link>
           ) : (
             <span />

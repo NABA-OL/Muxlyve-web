@@ -4,6 +4,8 @@
  * Propiedad de BlacKraken Solutions
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
+ *  * Correo: nabaol.dev@gmail.com
+ * Copyright (c) 2026 BlacKraken Solutions. Todos los derechos reservados.
  */
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
@@ -12,10 +14,7 @@ import { HELP_ARTICLES } from "@/lib/help-articles";
 import styles from "@/app/[locale]/ayuda/ayuda.module.css";
 
 function normalize(value: string): string {
-  return value
-    .toLocaleLowerCase("es")
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "");
+  return value.toLocaleLowerCase("es").normalize("NFD").replace(/[̀-ͯ]/g, "");
 }
 
 export function HelpSearchPalette() {
@@ -105,7 +104,9 @@ export function HelpSearchPalette() {
         type="button"
         className={styles.searchTrigger}
         onClick={() => setOpen(true)}
-        aria-label={t("searchTriggerAria", { shortcut: isMac ? "Cmd+K" : "Ctrl+K" })}
+        aria-label={t("searchTriggerAria", {
+          shortcut: isMac ? "Cmd+K" : "Ctrl+K",
+        })}
       >
         <svg
           width="16"
@@ -160,8 +161,12 @@ export function HelpSearchPalette() {
                       onMouseEnter={() => setActiveIndex(i)}
                       onClick={() => goTo(a.slug)}
                     >
-                      <span className={styles.searchResultTitle}>{a.title}</span>
-                      <span className={styles.searchResultSummary}>{a.summary}</span>
+                      <span className={styles.searchResultTitle}>
+                        {a.title}
+                      </span>
+                      <span className={styles.searchResultSummary}>
+                        {a.summary}
+                      </span>
                     </button>
                   </li>
                 ))}

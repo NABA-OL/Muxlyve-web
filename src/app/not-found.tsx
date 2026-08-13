@@ -2,6 +2,8 @@
  * Propiedad de BlacKraken Solutions
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
+ *  * Correo: nabaol.dev@gmail.com
+ * Copyright (c) 2026 BlacKraken Solutions. Todos los derechos reservados.
  */
 
 import Link from "next/link";
@@ -12,7 +14,10 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <main id="main-content" style={{ minHeight: "80dvh", display: "grid", placeItems: "center" }}>
+    <main
+      id="main-content"
+      style={{ minHeight: "80dvh", display: "grid", placeItems: "center" }}
+    >
       <section>
         <div
           className="container"
@@ -26,8 +31,8 @@ export default function NotFound() {
             className="section-lead"
             style={{ marginInline: "auto", marginTop: "1rem" }}
           >
-            El enlace puede estar roto o la página se movió. Vuelve al
-            inicio o revisa el centro de ayuda.
+            El enlace puede estar roto o la página se movió. Vuelve al inicio o
+            revisa el centro de ayuda.
           </p>
           <div
             style={{

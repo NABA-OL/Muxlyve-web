@@ -2,6 +2,8 @@
  * Propiedad de BlacKraken Solutions
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
+ *  * Correo: nabaol.dev@gmail.com
+ * Copyright (c) 2026 BlacKraken Solutions. Todos los derechos reservados.
  */
 
 import type { Metadata } from "next";
@@ -40,8 +42,12 @@ export default async function AyudaPage() {
             className="card"
             style={{ display: "block" }}
           >
-            <h2 className={styles.cardTitle}>{t(`articles.${a.slug}.title`)}</h2>
-            <p className={styles.cardSummary}>{t(`articles.${a.slug}.summary`)}</p>
+            <h2 className={styles.cardTitle}>
+              {t(`articles.${a.slug}.title`)}
+            </h2>
+            <p className={styles.cardSummary}>
+              {t(`articles.${a.slug}.summary`)}
+            </p>
           </Link>
         ))}
       </div>

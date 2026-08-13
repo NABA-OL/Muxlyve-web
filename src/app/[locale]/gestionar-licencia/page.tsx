@@ -2,6 +2,8 @@
  * Propiedad de BlacKraken Solutions
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
+ *  * Correo: nabaol.dev@gmail.com
+ * Copyright (c) 2026 BlacKraken Solutions. Todos los derechos reservados.
  */
 
 import type { Metadata } from "next";
@@ -19,7 +21,10 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "gestionarLicencia.meta" });
+  const t = await getTranslations({
+    locale,
+    namespace: "gestionarLicencia.meta",
+  });
   return {
     alternates: buildAlternates(locale, "/gestionar-licencia"),
     title: t("title"),
@@ -101,7 +106,13 @@ async function SearchForm({ error }: { error?: boolean }) {
         </form>
 
         {error && (
-          <p style={{ color: "#f85149", fontSize: "0.88rem", marginTop: "0.8rem" }}>
+          <p
+            style={{
+              color: "#f85149",
+              fontSize: "0.88rem",
+              marginTop: "0.8rem",
+            }}
+          >
             {t("error")}
           </p>
         )}
@@ -131,9 +142,7 @@ async function LicenseDashboard({
         : t("statusDisabled");
 
   const statusColor =
-    license.status === "active"
-      ? "var(--success)"
-      : "#f85149";
+    license.status === "active" ? "var(--success)" : "#f85149";
 
   return (
     <main
@@ -194,7 +203,9 @@ async function LicenseDashboard({
             >
               {t("email")}
             </div>
-            <div style={{ fontSize: "0.95rem" }}>{maskEmail(license.email)}</div>
+            <div style={{ fontSize: "0.95rem" }}>
+              {maskEmail(license.email)}
+            </div>
           </div>
           <div>
             <div
@@ -208,7 +219,9 @@ async function LicenseDashboard({
             >
               {t("estado")}
             </div>
-            <div style={{ color: statusColor, fontWeight: 600 }}>{statusLabel}</div>
+            <div style={{ color: statusColor, fontWeight: 600 }}>
+              {statusLabel}
+            </div>
           </div>
           <div>
             <div
@@ -312,7 +325,13 @@ async function LicenseDashboard({
         <h2 style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>
           {t("reenviarTitle")}
         </h2>
-        <p style={{ color: "var(--muted)", fontSize: "0.88rem", marginBottom: "1rem" }}>
+        <p
+          style={{
+            color: "var(--muted)",
+            fontSize: "0.88rem",
+            marginBottom: "1rem",
+          }}
+        >
           {t("reenviarLead", { email: maskEmail(license.email) })}
         </p>
 
