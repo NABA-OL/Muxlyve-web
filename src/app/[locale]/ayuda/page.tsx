@@ -1,21 +1,31 @@
-import Link from "next/link";
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { HELP_ARTICLES } from "@/lib/help-articles";
+import { buildAlternates } from "@/lib/i18n-meta";
 import styles from "./ayuda.module.css";
 
-export const metadata = {
-  title: "Ayuda — Muxlyve",
-  description:
-    "Guías paso a paso: instalación, conectar tu software de streaming, chat unificado, overlay, clips, Stream Deck y más.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "help" });
+  return {
+    alternates: buildAlternates(locale, "/ayuda"),
+    title: t("indexMetaTitle"),
+    description: t("indexMetaDescription"),
+  };
+}
 
-export default function AyudaPage() {
+export default async function AyudaPage() {
+  const t = await getTranslations("help");
+
   return (
     <div>
-      <h1 className={styles.articleTitle}>Cómo funciona Muxlyve</h1>
-      <p className={styles.intro}>
-        Guías cortas y directas, paso a paso. Sin jerga innecesaria. Elige un
-        artículo de la lista.
-      </p>
+      <h1 className={styles.articleTitle}>{t("indexTitle")}</h1>
+      <p className={styles.intro}>{t("indexIntro")}</p>
       <div className={styles.grid}>
         {HELP_ARTICLES.map((a) => (
           <Link
@@ -24,8 +34,8 @@ export default function AyudaPage() {
             className="card"
             style={{ display: "block" }}
           >
-            <h2 className={styles.cardTitle}>{a.title}</h2>
-            <p className={styles.cardSummary}>{a.summary}</p>
+            <h2 className={styles.cardTitle}>{t(`articles.${a.slug}.title`)}</h2>
+            <p className={styles.cardSummary}>{t(`articles.${a.slug}.summary`)}</p>
           </Link>
         ))}
       </div>

@@ -1,24 +1,23 @@
+import type { Metadata } from "next";
 import { ArticleLayout } from "@/components/help/ArticleLayout";
-import { ScreenshotPlaceholder } from "@/components/help/ScreenshotPlaceholder";
+import { ArticleBody } from "@/components/help/ArticleBody";
+import { buildArticleMetadata } from "@/lib/help-metadata";
 
-export const metadata = {
-  title: "Acerca de Muxlyve — Ayuda",
-  description:
-    "Dónde ver la versión instalada de Muxlyve y los datos del desarrollador.",
-};
+const SLUG = "acerca-de-muxlyve";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return buildArticleMetadata(locale, SLUG);
+}
 
 export default function Page() {
   return (
-    <ArticleLayout slug="acerca-de-muxlyve" title="Acerca de Muxlyve">
-      <p>
-        &quot;Acerca de Muxlyve&quot; es su propio ítem en el menú de
-        Preferencias (antes vivía como un botón dentro de Licencia). Muestra
-        la versión instalada y los datos del desarrollador.
-      </p>
-      <ScreenshotPlaceholder
-        src="/help/acerca-de-muxlyve.png"
-        label="modal de Acerca de Muxlyve, con versión y datos del desarrollador"
-      />
+    <ArticleLayout slug={SLUG}>
+      <ArticleBody slug={SLUG} />
     </ArticleLayout>
   );
 }

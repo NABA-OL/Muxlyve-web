@@ -1,0 +1,508 @@
+{
+  "meta": {
+    "title": "Muxlyve — Multistreaming",
+    "description": "Logiciel de multistreaming pour Windows. Diffusez sur Twitch, Kick, YouTube et TikTok en même temps, sans filigrane.",
+    "twitterDescription": "Diffusez sur Twitch, Kick, YouTube et TikTok en même temps. Sans filigrane."
+  },
+  "nav": {
+    "inicio": "Accueil",
+    "caracteristicas": "Fonctionnalités",
+    "demo": "Démo",
+    "precio": "Tarifs",
+    "ayuda": "Aide",
+    "descargar": "Télécharger",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "home": "Accueil Muxlyve"
+  },
+  "footer": {
+    "tagline": "Multistreaming simultané, sans filigrane. Mensuel ou annuel.",
+    "descargar": "Télécharger",
+    "caracteristicas": "Fonctionnalités",
+    "ayuda": "Aide",
+    "precio": "Tarifs",
+    "contacto": "Contact",
+    "discordLabel": "Discord de Muxlyve",
+    "footerNavLabel": "Pied de page",
+    "rights": "Tous droits réservés",
+    "privacidad": "Confidentialité",
+    "terminos": "Conditions",
+    "developedBy": "Développé par BlacKraken Solutions.",
+    "languageLabel": "Langue"
+  },
+  "languages": {
+    "es": "Español",
+    "en": "English",
+    "pt": "Português",
+    "fr": "Français"
+  },
+  "hero": {
+    "eyebrow": "Multistreaming de bureau",
+    "title": "Diffusez sur Twitch, Kick, YouTube et TikTok en même temps.",
+    "lead": "Sans filigrane. Depuis votre PC. Sans serveurs intermédiaires ni bande passante tierce.",
+    "ctaPrimary": "Télécharger gratuitement",
+    "ctaSecondary": "Voir les tarifs"
+  },
+  "landing": {
+    "comoFunciona": {
+      "eyebrow": "Comment ça marche",
+      "title": "Trois étapes, sans complications.",
+      "steps": [
+        { "title": "Connectez votre logiciel", "body": "Pointez OBS, Streamlabs, XSplit, vMix, N.Air ou tout encodeur RTMP/S vers Muxlyve comme serveur de sortie." },
+        { "title": "Connectez vos plateformes", "body": "Reliez Twitch, Kick et YouTube en un clic (OAuth), ou collez votre clé TikTok." },
+        { "title": "Diffusez sur les 4 en même temps", "body": "Un seul signal, sans réencodage, sans filigrane et sans dépendre d'un serveur tiers." }
+      ]
+    },
+    "queHace": {
+      "eyebrow": "Le problème",
+      "title": "Multistreaming.",
+      "lead": "Diffuser sur Twitch, Kick, YouTube et TikTok en même temps signifie généralement payer un service qui appose son logo sur votre vidéo. Muxlyve le fait depuis votre propre machine, proprement et en toute sécurité.",
+      "compare": [
+        "Des services comme Restream facturent un abonnement mensuel.",
+        "Ils apposent leur filigrane sur votre vidéo dans le plan gratuit.",
+        "Votre diffusion dépend des serveurs d'un tiers.",
+        "Muxlyve : prix accessible, sans filigrane, depuis votre propre PC."
+      ]
+    },
+    "caracteristicas": {
+      "eyebrow": "Fonctionnalités",
+      "title": "Tout ce qu'il faut pour diffuser sérieusement.",
+      "groups": [
+        {
+          "title": "Streaming",
+          "features": [
+            { "icon": "no-watermark", "title": "Sans filigrane", "body": "Votre diffusion part propre vers chaque plateforme. Aucun logo tiers sur votre contenu." },
+            { "icon": "monitor", "title": "Tourne sur votre machine", "body": "La vidéo est distribuée depuis votre PC, pas via un serveur intermédiaire. Plus de confidentialité et zéro abonnement pour la bande passante." },
+            { "icon": "reconnect", "title": "Reconnexion automatique", "body": "Si une plateforme se déconnecte, Muxlyve la reconnecte seul sans couper vos autres destinations." },
+            { "icon": "eye", "title": "Aperçu en direct", "body": "Voyez exactement ce qui part vers chaque destination avant et pendant la diffusion." },
+            { "icon": "price-tag", "title": "Tarifs accessibles", "body": "Prix juste, sans frais par heure diffusée." },
+            { "icon": "compatible", "title": "Compatible avec votre appli préférée", "body": "Connectez-le comme destination depuis OBS, Streamlabs, XSplit, vMix, N.Air ou tout encodeur parlant RTMP. Vous ne changez pas votre flux de travail, vous le multipliez.", "wide": true },
+            { "icon": "clock", "title": "Programmer le démarrage", "body": "Choisissez destinations et horaire, et Muxlyve démarre seul. Pas besoin d'être présent au moment exact." },
+            { "icon": "bar-chart", "title": "Résumé de la diffusion", "body": "À la fin, un résumé automatique : durée, pic de spectateurs par plateforme, messages du chat et bitrate moyen par destination." },
+            { "icon": "layers", "title": "Profils de destinations", "body": "Enregistrez des combinaisons de destinations activées (« Twitch uniquement », « Tout »), chacune avec son propre titre et sa catégorie de stream. Un clic change tout en même temps. Jusqu'à 6 profils." },
+            { "icon": "history", "title": "Historique des sessions", "body": "Journal automatique de chaque diffusion réelle : date, durée, plateformes et pic de spectateurs. 100% local, sans compte ni cloud, 100 dernières sessions." }
+          ]
+        },
+        {
+          "title": "Chat et clips",
+          "features": [
+            { "icon": "chat", "title": "Chat unifié", "body": "Les messages de Twitch et Kick au même endroit. Répondez aux deux plateformes et modérez (timeout, ban) sans changer d'onglet — modération aujourd'hui sur Twitch uniquement." },
+            { "icon": "browser", "title": "Overlay de chat pour OBS", "body": "Ajoutez le chat comme source Navigateur dans OBS, fond transparent, directement sur votre diffusion." },
+            { "icon": "record", "title": "Enregistreur de clips et enregistrement complet", "body": "Buffer circulaire (30s/1min/2min) pour sauvegarder ce qui vient de se passer, et enregistrement complet de tout le stream dans un fichier — chacun avec son propre interrupteur.", "wide": true },
+            { "icon": "scissors", "title": "Commande !clip dans le chat", "body": "Les modérateurs (ou vous) tapent « !clip » et un clip du buffer est sauvegardé instantanément, sans quitter le jeu." }
+          ]
+        },
+        {
+          "title": "Contrôle à distance",
+          "features": [
+            { "icon": "streamdeck", "title": "Compatible avec Stream Deck", "body": "Activez des destinations, déclenchez le buffer et sauvegardez des clips depuis des boutons physiques, sans toucher au clavier.", "link": true, "linkLabel": "Voir le plugin" },
+            { "icon": "wifi", "title": "Accès distant par réseau local", "body": "Contrôlez destinations, chat et Stream Deck depuis une autre machine de votre réseau, avec un jeton d'accès sécurisé." },
+            { "icon": "globe", "title": "Espagnol, anglais, portugais et français", "body": "L'interface détecte automatiquement la langue de votre système. Modifiable à tout moment." },
+            { "icon": "bell", "title": "Alertes Discord et Telegram", "body": "Message configurable au démarrage ET à la fin de la diffusion — jusqu'à 3 webhooks Discord et 3 bots Telegram à la fois, chaque événement avec son propre texte.", "wide": true },
+            { "icon": "mic-off", "title": "Alerte audio coupé", "body": "Si aucun audio réel n'est détecté pendant 20 secondes en direct, une notification native du système vous prévient. Désactivable." },
+            { "icon": "export-import", "title": "Exporter/importer la configuration", "body": "Téléchargez destinations et réglages dans un fichier .mux chiffré par mot de passe. Pratique pour changer de PC ou reproduire votre configuration sur une autre machine, en un clic." }
+          ]
+        }
+      ]
+    },
+    "independiente": {
+      "eyebrow": "Vous n'êtes pas lié à OBS",
+      "title": "Votre propre station de restreaming, pas un plugin.",
+      "lead": "Les plugins dans OBS dépendent du fait qu'OBS tourne et de ce qu'OBS autorise. Muxlyve est une application à part : elle reçoit n'importe quel signal RTMP — d'OBS, Streamlabs, XSplit, vMix, N.Air ou un encodeur matériel — et le retransmet sans réencodage. Contrôlez tout, même depuis une autre machine de votre réseau."
+    },
+    "plataformas": {
+      "eyebrow": "Plateformes",
+      "title": "Quatre destinations, une seule diffusion.",
+      "lead": "Twitch, Kick, YouTube et TikTok avec intégration directe. Ajoutez aussi n'importe quelle destination personnalisée via <rtmp>rtmp://</rtmp>, <rtmps>rtmps://</rtmps> (RTMP chiffré) ou <srt>srt://</srt> — utile pour des serveurs privés ou vos propres CDN."
+    },
+    "integraciones": {
+      "badge": "Fonctionne avec Stream Deck",
+      "titleX": "×",
+      "lead": "Contrôlez vos destinations en direct, déclenchez le buffer et sauvegardez des clips depuis des boutons physiques, sans toucher au clavier.",
+      "mockupAlt": "Stream Deck avec les raccourcis Muxlyve",
+      "cta": "Voir le plugin"
+    },
+    "precio": {
+      "eyebrow": "Tarifs",
+      "title": "Choisissez votre plan. Mensuel, annuel ou à vie.",
+      "lead": "Tous les plans incluent une diffusion sans filigrane sur les 4 plateformes.",
+      "pricePending": "Prix non disponible",
+      "mensual": {
+        "label": "Mensuel",
+        "suffix": "/mois",
+        "includes": ["Diffusion sur 2 plateformes", "Sans filigrane", "1 appareil actif", "Support par e-mail"],
+        "cta": "S'abonner au mois"
+      },
+      "anual": {
+        "label": "Annuel",
+        "badge": "2 mois offerts",
+        "suffix": "/an",
+        "includes": ["Diffusion sur 3 plateformes", "Sans filigrane", "1 appareil actif", "Support par e-mail"],
+        "cta": "S'abonner à l'année"
+      },
+      "vitalicia": {
+        "label": "À vie",
+        "badge": "Meilleure offre",
+        "suffix": " / paiement unique",
+        "tagline": "Arrêtez de payer un abonnement, pour toujours.",
+        "includes": ["Diffusion sur toutes les plateformes", "Sans filigrane", "Jusqu'à 2 appareils actifs", "Support prioritaire"],
+        "cta": "Acheter la licence à vie"
+      }
+    },
+    "descarga": {
+      "title": "Téléchargez-le et commencez à diffuser aujourd'hui.",
+      "availableFor": "Disponible pour",
+      "and": "et",
+      "windows": "Windows",
+      "mac": "Mac",
+      "cta": "Aller au téléchargement"
+    }
+  },
+  "demo": {
+    "meta": {
+      "title": "Démo — Muxlyve",
+      "description": "Essayez le vrai tableau de bord Muxlyve dans votre navigateur, rien à installer. Données d'exemple, ce n'est pas une vraie diffusion."
+    },
+    "eyebrow": "Démo interactive",
+    "title": "Essayez Muxlyve sans rien installer",
+    "lead": "Voici le vrai tableau de bord, avec des destinations déjà connectées et des données d'exemple — ce n'est pas une vraie diffusion et cela ne nécessite ni OBS ni compte.",
+    "iframeTitle": "Démo Muxlyve",
+    "ctaText": "Vous avez aimé ? Téléchargez-le et diffusez pour de vrai.",
+    "ctaButton": "Télécharger gratuitement",
+    "back": "← Retour à l'accueil"
+  },
+  "descargar": {
+    "meta": {
+      "title": "Télécharger — Muxlyve",
+      "description": "Téléchargez Muxlyve pour Windows et macOS. Prérequis et instructions OBS."
+    },
+    "eyebrow": "Téléchargement",
+    "title": "Téléchargez Muxlyve",
+    "leadPrefix": "Version actuelle :",
+    "leadSuffix": "Installez-le, activez votre licence et diffusez sur les quatre plateformes en même temps.",
+    "windowsButton": "Télécharger pour Windows",
+    "macButton": "Télécharger pour macOS",
+    "requisitosTitle": "Prérequis",
+    "requisitos": [
+      "Windows 10 ou 11 (64 bits)",
+      "Connexion internet pour activer la licence (diffusez ensuite sans en dépendre)",
+      "Débit montant recommandé : 6 Mbps ou plus pour du 1080p sur plusieurs plateformes",
+      "OBS Studio installé (facultatif, pour l'utiliser comme source)"
+    ],
+    "obsTitle": "Comment le connecter avec OBS",
+    "obsSteps": [
+      "Ouvrez Muxlyve et connectez-vous / activez votre licence.",
+      "Sur chaque plateforme (Twitch, Kick, YouTube, TikTok) copiez votre clé de diffusion.",
+      "Collez-les dans Muxlyve, une par destination.",
+      "Dans OBS, configurez Muxlyve comme destination de sortie et cliquez sur « Démarrer la diffusion »."
+    ],
+    "back": "← Retour à l'accueil"
+  },
+  "gestionarLicencia": {
+    "meta": { "title": "Gérer la licence — Muxlyve" },
+    "search": {
+      "title": "Gérer la licence",
+      "lead": "Entrez votre clé pour voir et gérer vos appareils.",
+      "placeholder": "MS-XXXX-XXXX-XXXX",
+      "submit": "Rechercher",
+      "error": "Clé introuvable. Vérifiez que vous l'avez bien copiée."
+    },
+    "dashboard": {
+      "back": "← Rechercher une autre clé",
+      "title": "Votre licence",
+      "statusActive": "Active",
+      "statusRefunded": "Remboursée",
+      "statusDisabled": "Désactivée",
+      "email": "E-mail",
+      "estado": "Statut",
+      "equipos": "Appareils actifs",
+      "desde": "Depuis",
+      "dispositivosTitle": "Appareils enregistrés",
+      "sinDispositivos": "Aucun appareil activé pour l'instant.",
+      "liberar": "Libérer",
+      "reenviarTitle": "Renvoyer la clé par e-mail",
+      "reenviarLead": "Nous enverrons la clé à {email}.",
+      "emailEnviado": "E-mail envoyé. Vérifiez votre boîte de réception.",
+      "dispositivoLiberado": "Appareil libéré avec succès.",
+      "reenviarBoton": "Renvoyer par e-mail"
+    }
+  },
+  "privacidad": {
+    "meta": { "title": "Politique de confidentialité – Muxlyve" },
+    "title": "Politique de confidentialité",
+    "updated": "Dernière mise à jour :",
+    "updatedDate": "2 juillet 2026",
+    "s1title": "1. Informations que nous collectons",
+    "s1lead": "Muxlyve ne collecte que les informations nécessaires pour fournir le service :",
+    "s1items": [
+      "Adresse e-mail (fournie lors de l'authentification avec Google ou à l'achat d'une licence).",
+      "Identifiant de l'appareil, utilisé exclusivement pour gérer les activations de licence.",
+      "Informations de paiement traitées par Freemius ; Muxlyve ne stocke aucune donnée de carte."
+    ],
+    "s2title": "2. Utilisation des informations",
+    "s2lead": "Nous utilisons vos informations pour :",
+    "s2items": [
+      "Activer et valider votre licence Muxlyve.",
+      "Vous envoyer l'e-mail de confirmation d'achat.",
+      "Gérer le support technique lorsque vous le demandez."
+    ],
+    "s3title": "3. Partage des informations",
+    "s3body": "Nous ne vendons ni ne partageons vos informations personnelles avec des tiers, sauf avec les prestataires nécessaires au fonctionnement du service (Freemius pour les paiements, Neon pour la base de données, Vercel pour l'infrastructure).",
+    "s4title": "4. Google OAuth",
+    "s4body": "Si vous vous connectez avec Google, nous recevons votre adresse e-mail et votre nom de profil uniquement pour vous identifier dans l'application. Nous n'accédons à aucune autre donnée de votre compte Google.",
+    "s5title": "5. Conservation des données",
+    "s5bodyPrefix": "Nous conservons vos données tant que votre licence est active. Vous pouvez demander la suppression de vos informations en écrivant à ",
+    "s5bodySuffix": ".",
+    "s6title": "6. Sécurité",
+    "s6body": "Les clés de licence sont stockées chiffrées (HMAC-SHA256). Nous utilisons HTTPS pour toutes les communications.",
+    "s7title": "7. Contact",
+    "s7bodyPrefix": "Pour toute question sur la confidentialité : ",
+    "s7bodySuffix": ""
+  },
+  "terminos": {
+    "meta": { "title": "Conditions d'utilisation – Muxlyve" },
+    "title": "Conditions d'utilisation",
+    "updated": "Dernière mise à jour :",
+    "updatedDate": "2 juillet 2026",
+    "s1title": "1. Acceptation",
+    "s1body": "En utilisant Muxlyve, vous acceptez ces conditions. Si vous n'êtes pas d'accord, n'utilisez pas le logiciel.",
+    "s2title": "2. Licence d'utilisation",
+    "s2body": "En achetant une licence, vous obtenez le droit non exclusif et incessible d'utiliser Muxlyve sur le nombre d'appareils indiqué dans votre plan. Il est interdit de redistribuer, revendre ou décompiler le logiciel.",
+    "s3title": "3. Comptes et appareils",
+    "s3body": "Chaque licence permet d'activer Muxlyve sur un nombre maximal d'appareils selon le plan acheté. Vous pouvez libérer un appareil depuis l'application pour en activer un autre.",
+    "s4title": "4. Paiements et remboursements",
+    "s4bodyPrefix": "Les paiements sont traités via Freemius. Les abonnements se renouvellent automatiquement ; vous pouvez annuler à tout moment depuis votre portail utilisateur sur",
+    "s4bodySuffix": ". Les remboursements sont régis par la politique de Freemius.",
+    "s5title": "5. Disponibilité du service",
+    "s5body": "Muxlyve est fourni « tel quel ». Nous ne garantissons pas une disponibilité ininterrompue et ne sommes pas responsables des interruptions des plateformes de streaming tierces.",
+    "s6title": "6. Limitation de responsabilité",
+    "s6body": "Muxlyve ne pourra en aucun cas être tenu responsable des dommages indirects, accessoires ou consécutifs découlant de l'utilisation ou de l'impossibilité d'utiliser le logiciel.",
+    "s7title": "7. Modifications",
+    "s7body": "Nous pouvons mettre à jour ces conditions à tout moment. L'utilisation continue du logiciel après les changements vaut acceptation.",
+    "s8title": "8. Contact",
+    "s8body": "Questions : soporte@muxlyve.com"
+  },
+  "help": {
+    "eyebrow": "Aide",
+    "sidebarAria": "Articles d'aide",
+    "metaSuffix": "Aide",
+    "indexMetaTitle": "Aide — Muxlyve",
+    "indexMetaDescription": "Guides pas à pas : installation, connecter votre logiciel de streaming, chat unifié, overlay, clips, Stream Deck et plus.",
+    "indexTitle": "Comment fonctionne Muxlyve",
+    "indexIntro": "Des guides courts et directs, pas à pas. Sans jargon inutile. Choisissez un article dans la liste.",
+    "pagerAria": "Navigation entre les articles",
+    "pagerPrev": "← Précédent",
+    "pagerNext": "Suivant →",
+    "searchPlaceholder": "Rechercher dans l'aide…",
+    "searchInputAria": "Rechercher des articles d'aide",
+    "searchDialogAria": "Rechercher dans l'aide",
+    "searchNoResults": "Aucun résultat pour « {query} ».",
+    "searchTriggerAria": "Rechercher dans l'aide ({shortcut})",
+    "articles": {
+      "que-es-muxlyve": {
+        "title": "Qu'est-ce que Muxlyve ?",
+        "summary": "Ce que fait Muxlyve et en quoi il diffère d'un service de restream dans le cloud.",
+        "metaDescription": "Muxlyve diffuse votre signal vers Twitch, Kick, YouTube et TikTok Live en même temps, sans filigrane, en tournant sur votre propre ordinateur.",
+        "content": "<p>Muxlyve diffuse votre signal vers Twitch, Kick, YouTube et TikTok Live en même temps, sans filigrane.</p><h2>En quoi diffère-t-il d'un service dans le cloud ?</h2><p>Des services comme Restream ou Castr tournent sur un serveur tiers : vous leur envoyez votre signal, et ils le retransmettent. Muxlyve tourne sur votre propre ordinateur — vous générez le signal dans votre logiciel de streaming (OBS, Streamlabs, XSplit, vMix, ou tout autre qui parle RTMP), Muxlyve le reçoit localement et le retransmet directement à chaque plateforme. Il ne passe jamais par un serveur tiers.</p><shot>0</shot><shot>1</shot><shot>2</shot>",
+        "shots": [
+          { "src": "/help/que-es-muxlyve-1.png", "label": "panneau principal avec l'aperçu en direct" },
+          { "src": "/help/que-es-muxlyve-2.png", "label": "vue supplémentaire de Muxlyve en cours d'utilisation" },
+          { "src": "/help/que-es-muxlyve-3.png", "label": "vue supplémentaire de Muxlyve en cours d'utilisation" }
+        ]
+      },
+      "instalacion-primer-arranque": {
+        "title": "Installation et premier démarrage",
+        "summary": "Télécharger, installer et activer votre licence pour la première fois.",
+        "metaDescription": "Comment télécharger, installer et activer votre licence Muxlyve pour la première fois, sur Windows ou macOS.",
+        "content": "<ol><li>Téléchargez l'installateur (Windows <code>.exe</code> / macOS <code>.dmg</code>) depuis la page de téléchargement.</li><li>Windows : suivez les étapes de l'installateur.<shot>0</shot>Mac : glissez Muxlyve dans le dossier Applications.<shot>1</shot></li><li>Premier démarrage : activez votre licence.<shot>2</shot></li><li>Muxlyve détecte automatiquement la langue de votre système (espagnol, anglais, portugais ou français) — modifiable ensuite dans les Préférences.</li></ol>",
+        "shots": [
+          { "src": "/help/instalacion-primer-arranque-1.png", "label": "écran de l'installateur NSIS bilingue" },
+          { "src": "/help/instalacion-primer-arranque-2.png", "label": "écran de l'installateur macOS" },
+          { "src": "/help/instalacion-primer-arranque-3.png", "label": "fenêtre d'activation de licence" }
+        ]
+      },
+      "conectar-tu-software": {
+        "title": "Connecter votre logiciel de streaming (OBS, Streamlabs, Xsplit, etc.)",
+        "summary": "Serveur RTMP et clé de stream pour pointer votre encodeur vers Muxlyve.",
+        "metaDescription": "Serveur RTMP et clé de stream pour pointer OBS, Streamlabs, XSplit, vMix ou tout encodeur vers Muxlyve.",
+        "content": "<p>Muxlyve fonctionne avec tout encodeur qui envoie de la vidéo par RTMP/RTMPS.</p><ul><li>Serveur RTMP : <code>rtmp://localhost:19350/live</code> (port configurable).</li><li>Clé de stream : une clé est assignée par défaut, mais vous pouvez définir celle que vous voulez.</li></ul><shot>0</shot><p><strong>Ce n'est pas un plugin OBS</strong> — c'est une application à part, qui fonctionne pareil avec Streamlabs, XSplit, vMix, ou tout encodeur matériel parlant RTMP.</p>",
+        "shots": [
+          { "src": "/help/conectar-tu-software.png", "label": "configuration du stream dans OBS avec le serveur/la clé de Muxlyve" }
+        ]
+      },
+      "conectar-plataformas": {
+        "title": "Connecter vos plateformes (Twitch, Kick, YouTube, TikTok)",
+        "summary": "Relier Twitch, Kick, YouTube et TikTok, et ajouter des destinations personnalisées via RTMP, RTMPS ou SRT.",
+        "metaDescription": "Comment relier Twitch, Kick, YouTube et TikTok dans Muxlyve, activer ou désactiver chaque destination à la volée, et ajouter des destinations personnalisées via RTMP, RTMPS ou SRT.",
+        "content": "<p>Twitch, Kick et YouTube : connectez-vous en un clic (OAuth), sans coller de clés à la main.</p><shot>0</shot><p>TikTok n'a pas de connexion publique — copiez le serveur et la clé depuis l'application TikTok. Cette clé se régénère toutes les ~2 heures ; c'est une limitation de la plateforme, pas de Muxlyve.</p><p>Activez ou désactivez chaque destination avec un interrupteur, à la volée, sans couper la diffusion.</p><shot>1</shot><h2>Destinations personnalisées</h2><p>En plus de Twitch, Kick, YouTube et TikTok avec intégration directe, vous pouvez ajouter n'importe quelle destination personnalisée via <code>rtmp://</code>, <code>rtmps://</code> (RTMP chiffré) ou <code>srt://</code>. Utile pour des serveurs privés, votre propre CDN, ou toute plateforme absente de la liste.</p><p><strong>Important :</strong> il s'agit de la destination de sortie, là où Muxlyve retransmet votre signal. L'entrée ne change pas — votre logiciel de streaming (OBS, Streamlabs, XSplit, etc.) continue de se connecter à Muxlyve en RTMP simple sur <code>localhost</code>, comme expliqué dans <link1>Connecter OBS (ou tout autre logiciel de streaming)</link1>.</p>",
+        "shots": [
+          { "src": "/help/conectar-plataformas-1.png", "label": "carte Twitch avec le bouton Connecter" },
+          { "src": "/help/conectar-plataformas-2.png", "label": "interrupteur vert/rouge d'une plateforme active" }
+        ]
+      },
+      "chat-unificado": {
+        "title": "Chat unifié",
+        "summary": "Voir et répondre aux messages de Twitch et Kick au même endroit, et modérer sans quitter l'application.",
+        "metaDescription": "Voyez les messages de Twitch et Kick au même endroit et répondez depuis Muxlyve sans changer d'onglet.",
+        "content": "<p>Voyez les messages de Twitch et Kick au même endroit, sans changer d'onglet. Vous pouvez répondre depuis l'application à toutes les plateformes connectées à la fois.</p><p>Modération (mode lent, emotes uniquement, épingler un message, timeout et ban) — aujourd'hui c'est <strong>Twitch uniquement</strong>, à cause d'une limite de l'API publique de Kick, pas un choix de Muxlyve.</p><shot>0</shot><h2>Timeout et ban</h2><p>Depuis le même chat, sans aller sur le site de Twitch : timeout (1 min / 10 min / 1 heure) ou ban permanent sur un message. Modérez sans changer de fenêtre.</p><shot>1</shot><h2>Traduire les messages du chat</h2><p>Dans Préférences → Chat, activez « Traduire les messages du chat » (désactivé par défaut). Quand un message arrive dans une langue différente de celle de l'application, Muxlyve affiche la traduction sur une ligne séparée sous le message original — il ne le remplace jamais.</p><p>Utilise un service tiers non officiel (Google Translate), donc c'est du <em>best-effort</em> : cela peut échouer silencieusement sur un message ponctuel, et le chat continue de fonctionner tout aussi bien, juste sans cette traduction.</p><shot>2</shot>",
+        "shots": [
+          { "src": "/help/chat-unificado.png", "label": "panneau de chat avec les messages des deux plateformes" },
+          { "src": "/help/chat-unificado-moderacion.png", "label": "menu de modération (timeout/ban) ouvert à côté d'un message du chat" },
+          { "src": "/help/chat-traduccion.png", "label": "interrupteur de traduction dans Préférences → Chat, et un message avec sa traduction en dessous" }
+        ]
+      },
+      "overlay-chat-obs": {
+        "title": "Afficher le chat sur votre diffusion (overlay pour OBS)",
+        "summary": "Ajouter l'overlay de chat comme source Navigateur dans OBS.",
+        "metaDescription": "Comment ajouter l'overlay de chat de Muxlyve comme source Navigateur dans OBS.",
+        "content": "<ol><li>Ouvrez Connexion RTMP → Connexion du chat → URL du chat.</li><shot>0</shot><li>Copiez l'URL de <code>/chat-overlay</code>.</li><li>Si votre Muxlyve est sur une autre machine, copiez l'URL <code>/chat-overlay</code> de cette machine.</li><shot>1</shot><li>Dans OBS : Source → Navigateur → collez l'URL. Fond transparent, sans contrôles.<shot>2</shot></li></ol><shot>3</shot><p>Vous allez contrôler l'overlay depuis une autre machine de votre réseau ? <link1>Utiliser Muxlyve depuis une autre machine de votre réseau</link1>.</p>",
+        "shots": [
+          { "src": "/help/overlay-chat-obs-3.png", "label": "URL du chat" },
+          { "src": "/help/overlay-chat-obs-4.png", "label": "copie de l'URL de l'autre machine quand Muxlyve y tourne" },
+          { "src": "/help/overlay-chat-obs-1.png", "label": "source navigateur d'OBS pointant vers l'overlay" },
+          { "src": "/help/overlay-chat-obs-2.png", "label": "overlay de chat composé sur la scène" }
+        ]
+      },
+      "grabador-de-clips": {
+        "title": "Enregistreur de clips et enregistrement complet",
+        "summary": "Sauvegarder ce qui vient de se passer avec le buffer, ou enregistrer tout le stream dans un fichier.",
+        "metaDescription": "Comment enregistrer dans un buffer circulaire pendant la diffusion, sauvegarder des clips en un clic, et enregistrer la diffusion complète dans un fichier.",
+        "content": "<h2>Buffer de clips</h2><p>Muxlyve enregistre dans un buffer circulaire (30s / 1min / 2min) pendant que vous diffusez, pour pouvoir sauvegarder « ce qui vient de se passer » sans enregistrer tout le stream.</p><p>Activez le buffer, et sauvegardez le clip en un clic dans un dossier configurable.</p><shot>0</shot><h2>Enregistrement complet</h2><p>En plus du buffer, Muxlyve peut enregistrer toute la diffusion dans un seul fichier, du début à la fin. C'est indépendant du buffer de clips — chacun s'active séparément, avec son propre interrupteur, sur le panneau principal.</p><p>Le dossier de destination se choisit dans Préférences → Enregistreur de clips → « Dossier des enregistrements complets ».</p>",
+        "shots": [
+          { "src": "/help/grabador-de-clips.png", "label": "section enregistreur avec l'interrupteur activé" }
+        ]
+      },
+      "comando-clip-chat": {
+        "title": "Sauvegarder un clip en écrivant « !clip » dans le chat",
+        "summary": "Modérateurs et streamer sauvegardent un clip du buffer sans quitter le jeu.",
+        "metaDescription": "Comment les modérateurs et le streamer sauvegardent un clip du buffer en écrivant !clip dans le chat, sans quitter le jeu.",
+        "content": "<p>N'importe quel modérateur de la chaîne, ou le streamer, peut écrire <code>!clip</code> sur Twitch, Kick ou YouTube et un clip du buffer est sauvegardé instantanément. Un spectateur normal (non-mod) ne peut pas.</p><h2>Prérequis</h2><ul><li>Buffer de clips activé.</li><li>Diffusion en cours.</li></ul><p>Limite : un clip toutes les 15 secondes.</p><shot>0</shot><h2>Le désactiver</h2><p>Peut être désactivé entièrement dans Préférences → Enregistreur de clips.</p>",
+        "shots": [
+          { "src": "/help/comando-clip-chat.png", "label": "interrupteur « Commande !clip dans le chat » dans Préférences" }
+        ]
+      },
+      "perfiles-de-destinos": {
+        "title": "Profils : passer de « Twitch uniquement » à « tout » en un clic",
+        "summary": "Enregistrez des combinaisons de destinations, titre et catégorie, et appliquez-les en un clic. Jusqu'à 6 profils.",
+        "metaDescription": "Comment enregistrer des combinaisons de destinations activées et les appliquer en un clic, sans toucher chaque interrupteur à la main.",
+        "content": "<p>Un profil enregistre une combinaison de destinations activées sous un nom. Un clic applique ce profil : il active ces destinations, désactive le reste — il n'« ajoute » pas, il remplace.</p><h2>Créer un profil</h2><ol><li>Activez et désactivez les destinations comme vous le souhaitez.</li><li>Appuyez sur « Enregistrer l'actuel ».</li><li>Donnez-lui un nom (par exemple « Twitch uniquement » ou « Tout »).</li></ol><shot>0</shot><shot>1</shot><shot>2</shot><h2>Supprimer un profil</h2><p>Touchez le ✕ du chip du profil. Limite : 6 profils enregistrés.</p><p>Si vous supprimez une destination qu'un profil utilisait, le profil continue de fonctionner avec le reste des destinations qu'il avait enregistrées.</p><h2>Depuis le Stream Deck</h2><p>Un profil peut aussi être assigné à un bouton physique du Stream Deck.</p><h2>Titre et catégorie par profil</h2><p>Chaque profil se souvient aussi du titre du stream et de la catégorie/du jeu. Un bouton pour passer de « discussion » à « classée » — destinations, titre et jeu changent ensemble. Un clic applique le profil ET met à jour le titre/la catégorie sur les plateformes connectées (via OAuth).</p><shot>3</shot>",
+        "shots": [
+          { "src": "/help/perfiles-de-destinos-1.png", "label": "rangée de chips de profils avec « Enregistrer l'actuel »" },
+          { "src": "/help/perfiles-de-destinos-2.png", "label": "fenêtre de création de profil" },
+          { "src": "/help/perfiles-de-destinos-3.png", "label": "rangée de profils créés" },
+          { "src": "/help/perfiles-de-destinos-titulo-categoria.png", "label": "liste des profils enregistrés dans le panneau latéral, avec un appliqué" }
+        ]
+      },
+      "programar-inicio": {
+        "title": "Programmer le démarrage et vérification préalable",
+        "summary": "Choisissez destinations et heure pour démarrer seul, et vérifiez que tout va bien avant de passer en direct.",
+        "metaDescription": "Comment programmer le démarrage automatique de vos destinations et vérifier que tout va bien avant de passer en direct.",
+        "content": "<h2>Programmer le démarrage</h2><p>Choisissez une heure future pour que les destinations sélectionnées démarrent seules, sans avoir à être présent au moment exact.</p><ol><li>Ouvrez « Programmer le démarrage » dans le panneau.</li><li>Choisissez les destinations et l'heure.</li><li>Confirmez avec « Programmer ».</li></ol><shot>0</shot><shot>1</shot><h2>Vérification préalable</h2><p>Bouton « Vérifier avant de passer en direct » — lance une vérification rapide avant de démarrer, utile pour ne pas passer en direct avec quelque chose de mal configuré. Il est dans le même panneau d'actions que « Programmer le démarrage ».</p><shot>2</shot><shot>3</shot>",
+        "shots": [
+          { "src": "/help/programar-inicio-1.png", "label": "panneau d'actions montrant programmer le démarrage" },
+          { "src": "/help/programar-inicio-2.png", "label": "fenêtre pour confirmer la programmation de démarrage de chaque plateforme configurée" },
+          { "src": "/help/comprobacion-previa-1.png", "label": "panneau d'actions montrant la vérification préalable" },
+          { "src": "/help/comprobacion-previa-2.png", "label": "fenêtre pour valider la vérification préalable du stream" }
+        ]
+      },
+      "resumen-del-stream": {
+        "title": "Résumé de la diffusion",
+        "summary": "Durée, pic de spectateurs, messages du chat et bitrate moyen à la fin de la diffusion, plus votre historique des sessions.",
+        "metaDescription": "Le résumé automatique que Muxlyve compose à la fin d'une diffusion : durée, spectateurs, chat et bitrate.",
+        "content": "<p>À la fin d'une diffusion, Muxlyve compose un résumé automatique avec :</p><ul><li>Durée totale.</li><li>Pic de spectateurs par plateforme.</li><li>Nombre de messages du chat reçus.</li><li>Bitrate moyen par destination.</li></ul><shot>0</shot><h2>Historique des sessions</h2><p>Chaque fois que vous passez vraiment en direct, Muxlyve enregistre automatiquement : date, durée, plateformes utilisées et pic de spectateurs. Votre propre historique de diffusions, sans dépendre des statistiques de chaque plateforme séparément.</p><p>100% local — ni compte ni cloud nécessaire — et conserve les 100 dernières sessions.</p><shot>1</shot>",
+        "shots": [
+          { "src": "/help/resumen-del-stream.png", "label": "informations montrant le résumé de la dernière diffusion" },
+          { "src": "/help/historial-sesiones.png", "label": "onglet Historique dans Préférences, avec plusieurs sessions listées" }
+        ]
+      },
+      "stream-deck": {
+        "title": "Plugin Stream Deck",
+        "summary": "Activer des destinations, déclencher le buffer et sauvegarder des clips avec des boutons physiques.",
+        "metaDescription": "Activez des destinations, déclenchez le buffer et sauvegardez des clips depuis des boutons physiques avec le plugin officiel Stream Deck.",
+        "content": "<p>Activez et désactivez des destinations, déclenchez le buffer et sauvegardez des clips avec des boutons physiques, sans toucher au clavier.</p><p>Si votre Stream Deck tourne sur un ordinateur différent de celui qui diffuse, activez « Autoriser Stream Deck / chat depuis une autre machine » dans Préférences.</p><shot>0</shot><shot>1</shot><shot>2</shot><shot>3</shot><shot>4</shot><shot>5</shot><shot>6</shot><shot>7</shot><shot>8</shot><shot>9</shot><p><link1>Aller au plugin →</link1></p>",
+        "shots": [
+          { "src": "/help/stream-deck-1.png", "label": "boutons du Stream Deck avec les icônes de chaque plateforme" },
+          { "src": "/help/stream-deck-2.png", "label": "boutons du Stream Deck avec les icônes de chaque plateforme" },
+          { "src": "/help/stream-deck-3.png", "label": "boutons du Stream Deck avec les icônes de chaque plateforme" },
+          { "src": "/help/stream-deck-4.png", "label": "boutons du Stream Deck avec les icônes de chaque plateforme" },
+          { "src": "/help/stream-deck-5.png", "label": "boutons du Stream Deck avec les icônes de chaque plateforme" },
+          { "src": "/help/stream-deck-6.png", "label": "boutons du Stream Deck avec les icônes de chaque plateforme" },
+          { "src": "/help/stream-deck-7.png", "label": "boutons du Stream Deck avec les icônes de chaque plateforme" },
+          { "src": "/help/stream-deck-8.png", "label": "boutons du Stream Deck avec les icônes de chaque plateforme" },
+          { "src": "/help/stream-deck-9.png", "label": "boutons du Stream Deck avec les icônes de chaque plateforme" },
+          { "src": "/help/stream-deck-10.png", "label": "boutons du Stream Deck avec les icônes de chaque plateforme" }
+        ]
+      },
+      "control-lan": {
+        "title": "Contrôler Muxlyve depuis une autre machine de votre réseau",
+        "summary": "Contrôler destinations, chat et Stream Deck depuis une machine différente de celle qui diffuse.",
+        "metaDescription": "Comment contrôler destinations, chat et Stream Deck depuis une autre machine de votre réseau, avec un accès distant sécurisé.",
+        "content": "<p>Cas d'usage : vous utilisez votre ordinateur secondaire pour diffuser, avec Muxlyve qui reçoit le signal de votre PC principal équipé d'OBS — vous pouvez contrôler Muxlyve depuis votre PC principal sans problème.</p><p>Activez dans Préférences « Autoriser Stream Deck / chat depuis une autre machine ». La connexion utilise un jeton d'accès — seul un appareil avec ce jeton peut contrôler votre instance.</p><shot>0</shot><shot>1</shot><p>Voir aussi : <link1>Afficher le chat sur votre diffusion</link1> et <link2>Plugin Stream Deck</link2>.</p>",
+        "shots": [
+          { "src": "/help/acceso-remoto-lan-1.png", "label": "interrupteur « Autoriser Stream Deck / chat depuis une autre machine » dans Préférences" },
+          { "src": "/help/acceso-remoto-lan-2.png", "label": "jeton généré pour connecter cette instance de Muxlyve depuis un Stream Deck" }
+        ]
+      },
+      "exportar-importar-config": {
+        "title": "Exporter et importer votre configuration",
+        "summary": "Sauvegardez destinations et réglages dans un fichier .mux chiffré par mot de passe, pour restaurer sur une autre machine.",
+        "metaDescription": "Comment sauvegarder votre configuration dans un fichier .mux chiffré et protégé par mot de passe, et la restaurer sur une autre machine.",
+        "content": "<p>Vous avez changé de PC, réinstallé, ou aidez quelqu'un à retrouver exactement la même configuration que vous — sans réécrire chaque destination et réglage à la main. Depuis Préférences → Système, Muxlyve regroupe destinations, webhooks et le reste de vos réglages dans un seul fichier <code>.mux</code> chiffré et protégé par mot de passe.</p><shot>0</shot><shot>1</shot><shot>2</shot><h2>Exporter</h2><p>Appuyez sur « Exporter », choisissez un mot de passe pour protéger le fichier et enregistrez-le où vous voulez. Tout est à l'intérieur : destinations, webhooks, profils et le reste de vos réglages, chiffrés avec ce mot de passe.</p><h2>Importer</h2><p>Appuyez sur « Importer », sélectionnez le fichier <code>.mux</code> et entrez le mot de passe avec lequel il a été exporté. Si le fichier provient d'un compte différent de celui actif à ce moment-là, Muxlyve prévient avant d'appliquer quoi que ce soit — il ne remplace jamais silencieusement la configuration de quelqu'un d'autre.</p>",
+        "shots": [
+          { "src": "/help/exportar-importar-config-1.png", "label": "fenêtre Préférences, onglet Système, avec les boutons Exporter/Importer" },
+          { "src": "/help/exportar-importar-config-2.png", "label": "fenêtre de mot de passe pour chiffrer le fichier à exporter" },
+          { "src": "/help/exportar-importar-config-3.png", "label": "fenêtre pour choisir où enregistrer le fichier" }
+        ]
+      },
+      "avisos-discord-telegram": {
+        "title": "Alertes Discord et Telegram quand vous passez en direct (et terminez)",
+        "summary": "Message automatique vers jusqu'à 3 webhooks Discord et 3 bots Telegram au début et à la fin de votre diffusion.",
+        "metaDescription": "Comment configurer des webhooks Discord et des bots Telegram pour que Muxlyve alerte automatiquement au début et à la fin de votre diffusion.",
+        "content": "<p>Muxlyve envoie un message automatique quand vous passez en direct ET quand vous terminez la diffusion, vers jusqu'à 3 webhooks Discord et 3 bots Telegram à la fois — votre communauté est informée du début et de la fin, sans que vous ayez à l'écrire vous-même à chaque fois.</p><shot>0</shot><h2>Discord</h2><ol><li>Dans Discord : Paramètres du salon → Intégrations → Webhooks.</li><li>Copiez l'URL du webhook.</li><li>Collez-la dans Muxlyve, dans Préférences → Webhooks.</li><li>Touchez « Tester » pour confirmer que ça fonctionne avant de passer en direct.</li></ol><h2>Créer le bot avec BotFather</h2><ol><li>Cherchez <code>@BotFather</code> sur Telegram (le bot officiel pour créer des bots) et ouvrez une conversation avec lui.</li><li>Écrivez <code>/newbot</code>.</li><li>Choisissez un nom d'affichage, puis un nom d'utilisateur se terminant par « bot » (ex. <code>mon_canal_alertes_bot</code>) — BotFather prévient s'il est déjà pris.</li><li>BotFather répond avec le token — une longue ligne du type <code>123456789:AAHqhK9DsSNGCQnQanCwHzXTVo1TVe0MYCA</code>. C'est celui-là qu'il faut mettre dans Muxlyve. Si vous le perdez : dans BotFather, <code>/mybots</code> → choisir le bot → « API Token » → « Revoke current token » en génère un nouveau.</li></ol><shot>1</shot><h2>Récupérer le chat ID — la méthode change selon groupe ou canal</h2><p><strong>S'il s'agit d'un groupe (ou supergroupe) :</strong></p><ol><li>Ajoutez <code>@RawDataBot</code> (ou <code>@getidsbot</code>) au groupe comme n'importe quel membre.</li><li>Dès qu'il entre, il envoie un message avec toutes les données du chat — cherchez « id » dedans (commence par un signe moins, ex. <code>-1001234567890</code>).</li><li>Copiez ce numéro, retirez le bot du groupe si vous ne comptez plus l'utiliser là.</li></ol><shot>2</shot><p><strong>S'il s'agit d'un canal :</strong> les canaux fonctionnent différemment — un bot ajouté comme simple membre ne voit ni ne peut rien poster là, donc la méthode du groupe ne fonctionne pas sur un canal. Deux façons d'obtenir l'ID quand même :</p><ol><li>Transférer un message (la plus simple, pas besoin d'ajouter de bot au canal) : transférez n'importe quel message DU canal, en privé, à <code>@JsonDumpBot</code> ou <code>@RawDataBot</code>. Il répond avec le JSON complet — cherchez <code>forward_from_chat → id: -100...</code>. C'est l'ID.</li></ol><shot>3</shot><olcont><li>Avec le bot lui-même : dans le canal → Administrateurs → ajouter le bot comme administrateur (pas comme membre — en tant que membre ce n'est pas suffisant). Publiez quelque chose, puis ouvrez <code>https://api.telegram.org/botTOKEN/getUpdates</code> (en remplaçant TOKEN par le vrai token) et cherchez <code>channel_post → chat → id: -100...</code>.</li></olcont><p>Le lien d'invitation (<code>t.me/+AbCdEfGh...</code>) NE fonctionne PAS comme chat ID — c'est juste un lien pour rejoindre, il n'identifie pas le canal auprès de l'API.</p><p>Raccourci si le groupe/canal est public (a un @utilisateur) : utilisez <code>@utilisateur_du_canal</code> directement dans le champ Chat ID de Muxlyve, sans chercher aucun numéro.</p><p>Les ID des groupes, supergroupes et canaux commencent toujours par <code>-100</code> quand ils sont numériques — si le numéro ne commence pas ainsi, c'est probablement l'ID d'une personne, pas celui du groupe/canal.</p><h2>Enregistrer dans Muxlyve</h2><ol><li>Collez le token et le chat ID dans Muxlyve.</li><li>Touchez « Enregistrer » — contrairement à Discord, Telegram nécessite un enregistrement explicite car le bot a besoin du token et du chat ID ensemble.</li></ol><h2>Modifier le message</h2><p>Il y a un bouton dédié sur l'écran principal (icône à côté de « Programmer le démarrage ») pour modifier le message d'alerte. C'est le même texte pour les deux plateformes : Discord comprend le <strong>gras</strong>, l'<em>italique</em> et les liens ; Telegram l'affiche en texte brut.</p><p>Depuis cette même fenêtre, « Tester » envoie le message enregistré à tous les canaux configurés d'un coup.</p><shot>4</shot><shot>5</shot><h2>Au démarrage et à la fin</h2><p>La fenêtre « Message d'alerte » a des onglets séparés — Au démarrage / À la fin — chacun avec son propre texte et son propre cooldown. L'alerte de fin n'est envoyée que si une diffusion a vraiment eu lieu (jamais d'alerte de fin sans ouverture).</p><shot>6</shot>",
+        "shots": [
+          { "src": "/help/avisos-discord-telegram-1.png", "label": "Préférences → Webhooks avec une ligne Discord et une ligne Telegram" },
+          { "src": "/help/avisos-discord-telegram-botfather.png", "label": "BotFather délivrant le token après /newbot" },
+          { "src": "/help/avisos-discord-telegram-grupo-id.png", "label": "message de RawDataBot montrant l'id du groupe" },
+          { "src": "/help/avisos-discord-telegram-canal-forward.png", "label": "transfert d'un message du canal vers JsonDumpBot et l'id dans la réponse" },
+          { "src": "/help/avisos-discord-telegram-2.png", "label": "fenêtre « Message d'alerte »" },
+          { "src": "/help/avisos-discord-telegram-3.png", "label": "fenêtre « Message d'alerte »" },
+          { "src": "/help/avisos-discord-telegram-inicio-cierre.png", "label": "fenêtre Message d'alerte avec les onglets Au démarrage / À la fin" }
+        ]
+      },
+      "audio-cortado": {
+        "title": "Alerte audio coupé",
+        "summary": "Notification native si aucun audio réel n'est détecté pendant 20 secondes en direct.",
+        "metaDescription": "Muxlyve vous prévient avec une notification native s'il ne détecte pas d'audio réel pendant 20 secondes alors que vous êtes en direct.",
+        "content": "<p>Micro débranché, application de capture plantée — vous le savez immédiatement, pas quand quelqu'un vous le dit dans le chat 20 minutes plus tard.</p><p>Si Muxlyve ne détecte pas d'audio réel pendant 20 secondes alors que vous êtes en direct, il envoie une notification native du système. Il mesure le signal d'entrée réel, donc ça ne se déclenche pas sur une pause normale.</p><shot>0</shot><p>Désactivable depuis les Préférences, pour qui préfère ne pas recevoir cette alerte.</p>",
+        "shots": [
+          { "src": "/help/audio-cortado.png", "label": "notification native « audio coupé », ou l'interrupteur dans Préférences" }
+        ]
+      },
+      "bandeja-del-sistema": {
+        "title": "Barre système",
+        "summary": "Spectateurs en direct par plateforme depuis l'icône de la barre système, sans ouvrir le panneau.",
+        "metaDescription": "L'icône de Muxlyve dans la barre système affiche les spectateurs en direct par plateforme sans avoir le panneau ouvert.",
+        "content": "<p>Pendant que vous diffusez, l'icône de Muxlyve dans la barre système (system tray) affiche le statut en direct de votre stream — spectateurs par plateforme — sans avoir besoin d'ouvrir le panneau principal.</p><shot>0</shot>",
+        "shots": [
+          { "src": "/help/bandeja-del-sistema.png", "label": "icône de Muxlyve dans la barre système avec le menu déroulant des spectateurs par plateforme" }
+        ]
+      },
+      "acerca-de-muxlyve": {
+        "title": "À propos de Muxlyve",
+        "summary": "Où voir la version installée et les coordonnées du développeur.",
+        "metaDescription": "Où voir la version installée de Muxlyve et les coordonnées du développeur.",
+        "content": "<p>« À propos de Muxlyve » est désormais son propre élément dans le menu Préférences (auparavant, c'était un bouton dans Licence). Il affiche la version installée et les coordonnées du développeur.</p><shot>0</shot>",
+        "shots": [
+          { "src": "/help/acerca-de-muxlyve.png", "label": "fenêtre À propos de Muxlyve, avec la version et les coordonnées du développeur" }
+        ]
+      },
+      "preguntas-frecuentes": {
+        "title": "Questions fréquentes",
+        "summary": "Internet, TikTok, compatibilité avec d'autres encodeurs, qualité et signalement de bugs.",
+        "metaDescription": "Internet, reconnexion TikTok, compatibilité avec d'autres encodeurs, qualité du signal, limite de bitrate, notifications, Linux et comment signaler un bug.",
+        "content": "<h2>Ai-je besoin d'internet juste pour diffuser, ou aussi pour utiliser l'application ?</h2><p>Activer la licence nécessite internet, une fois. Diffuser ne dépend pas du cloud de Muxlyve — le signal est retransmis directement depuis votre machine vers chaque plateforme.</p><h2>Pourquoi TikTok demande-t-il de reconnecter la clé si souvent ?</h2><p>C'est une limitation de la plateforme TikTok, pas de Muxlyve : la clé de diffusion fournie par TikTok se régénère toutes les ~2 heures.</p><h2>Ça fonctionne avec vMix, N.Air ou tout autre encodeur ?</h2><p>Oui. Muxlyve n'est pas un plugin OBS — il reçoit n'importe quel signal RTMP, d'où qu'il vienne.</p><h2>La qualité de ma diffusion baisse-t-elle en retransmettant vers 4 plateformes ?</h2><p>Non. Muxlyve utilise <code>-c copy</code> : il retransmet le signal sans réencodage, avec une charge CPU minimale.</p><h2>Puis-je fixer une limite de bitrate sur une destination ?</h2><p>Oui, c'est optionnel. Sur la carte de chaque destination, vous pouvez déplier « Bitrate maximum (kbps) — optionnel » et fixer un plafond. Tant que votre bitrate réel reste en dessous, Muxlyve continue de retransmettre sans réencoder. Ce n'est que s'il reste au-dessus de la limite qu'il réencode cette destination précise pour la ramener au plafond. Sans limite définie, il ne réencode jamais.</p><h2>Ça me prévient si une destination se déconnecte pendant que je fais autre chose ?</h2><p>Oui. Si vous avez une autre fenêtre ou un jeu au premier plan et qu'une destination se déconnecte, Muxlyve envoie une notification native du système d'exploitation (pas une alerte dans l'application). Sur certaines distributions Linux sans démon de notifications, cela peut ne pas être disponible — ça échoue silencieusement, sans casser l'application.</p><h2>Muxlyve tourne-t-il sur Linux ?</h2><p>Aujourd'hui l'application est disponible pour Windows et macOS. Linux est sur la feuille de route, mais pas encore confirmé.</p><h2>Où signaler un bug ?</h2><p>Bouton « Signaler un problème » dans l'application — il joint les journaux automatiquement. Si vous préférez ne pas passer par là, écrivez-nous directement à <mailto>soporte@muxlyve.app</mailto>.</p>",
+        "shots": []
+      }
+    }
+  }
+}

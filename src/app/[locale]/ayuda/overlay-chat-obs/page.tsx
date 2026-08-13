@@ -1,56 +1,29 @@
-import Link from "next/link";
+import type { Metadata } from "next";
 import { ArticleLayout } from "@/components/help/ArticleLayout";
-import { ScreenshotPlaceholder } from "@/components/help/ScreenshotPlaceholder";
+import { ArticleBody } from "@/components/help/ArticleBody";
+import { buildArticleMetadata } from "@/lib/help-metadata";
+import { Link } from "@/i18n/navigation";
 
-export const metadata = {
-  title: "Mostrar el chat en tu transmisión — Ayuda",
-  description:
-    "Cómo agregar el overlay de chat de Muxlyve como fuente de Navegador en OBS.",
-};
+const SLUG = "overlay-chat-obs";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return buildArticleMetadata(locale, SLUG);
+}
 
 export default function Page() {
   return (
-    <ArticleLayout
-      slug="overlay-chat-obs"
-      title="Mostrar el chat en tu transmisión (overlay para OBS)"
-    >
-      <ol>
-        <li>Abre Conexión RTMP → Conexión del chat → URL del chat.</li>
-        <ScreenshotPlaceholder
-          src="/help/overlay-chat-obs-3.png"
-          label="URL del chat"
-        />
-        <li>
-          Copia la URL de <code>/chat-overlay</code>.
-        </li>
-        <li>
-          Si tu muxlyve esta en otra maquina copia la URL de la otra maquina{" "}
-          <code>/chat-overlay</code>.
-        </li>
-        <ScreenshotPlaceholder
-          src="/help/overlay-chat-obs-4.png"
-          label="Si tu muxlyve esta en otra maquina copia la URL de la otra maquina"
-        />
-        <li>
-          En OBS: Fuente → Navegador → pega la URL. Fondo transparente, sin
-          controles.
-          <ScreenshotPlaceholder
-            src="/help/overlay-chat-obs-1.png"
-            label="fuente de navegador de OBS apuntando al overlay"
-          />
-        </li>
-      </ol>
-      <ScreenshotPlaceholder
-        src="/help/overlay-chat-obs-2.png"
-        label="overlay de chat compuesto sobre la escena"
+    <ArticleLayout slug={SLUG}>
+      <ArticleBody
+        slug={SLUG}
+        extraTags={{
+          link1: (chunks) => <Link href="/ayuda/control-lan">{chunks}</Link>,
+        }}
       />
-      <p>
-        ¿Vas a controlar el overlay desde otra máquina de tu red?{" "}
-        <Link href="/ayuda/control-lan">
-          Usar Muxlyve desde otra máquina de tu red
-        </Link>
-        .
-      </p>
     </ArticleLayout>
   );
 }

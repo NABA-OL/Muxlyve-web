@@ -1,36 +1,44 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { buildAlternates } from "@/lib/i18n-meta";
 import styles from "./demo.module.css";
 
-export const metadata: Metadata = {
-  title: "Demo — Muxlyve",
-  description:
-    "Prueba el panel real de Muxlyve en el navegador, sin instalar nada. Datos de muestra, no es una transmisión real.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "demo.meta" });
+  return {
+    alternates: buildAlternates(locale, "/demo"),
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
-export default function DemoPage() {
+export default async function DemoPage() {
+  const t = await getTranslations("demo");
   return (
     <>
       <Nav />
       <main id="main-content">
         <section>
           <div className="container">
-            <span className="eyebrow">Demo interactiva</span>
+            <span className="eyebrow">{t("eyebrow")}</span>
             <h1 className="section-title" style={{ fontSize: "var(--text-h2)" }}>
-              Prueba Muxlyve sin instalar nada
+              {t("title")}
             </h1>
-            <p className="section-lead">
-              Este es el panel real, con destinos ya conectados y datos de
-              muestra — no es una transmisión real ni requiere OBS ni cuenta.
-            </p>
+            <p className="section-lead">{t("lead")}</p>
 
             <div className={styles.frameWrap}>
               <div className={styles.frameScroll}>
                 <iframe
                   src="/demo/dist/index.html"
-                  title="Demo de Muxlyve"
+                  title={t("iframeTitle")}
                   loading="lazy"
                   className={styles.frame}
                 />
@@ -38,14 +46,14 @@ export default function DemoPage() {
             </div>
 
             <div className={styles.cta}>
-              <p>¿Te gustó? Descárgala y transmite de verdad.</p>
+              <p>{t("ctaText")}</p>
               <Link href="/descargar" className="btn btn-primary">
-                Descargar gratis
+                {t("ctaButton")}
               </Link>
             </div>
 
             <p className={styles.back}>
-              <Link href="/">← Volver al inicio</Link>
+              <Link href="/">{t("back")}</Link>
             </p>
           </div>
         </section>

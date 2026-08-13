@@ -2,15 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-
-const LINKS = [
-  { href: "/#que-hace", label: "Inicio" },
-  { href: "/#caracteristicas", label: "Características" },
-  { href: "/demo", label: "Demo" },
-  { href: "/#precio", label: "Precio" },
-  { href: "/ayuda", label: "Ayuda" },
-];
+import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 
 function WordmarkLogo() {
   return (
@@ -22,8 +16,19 @@ function WordmarkLogo() {
 }
 
 export function Nav() {
+  const t = useTranslations("nav");
+  const locale = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const homePrefix = locale === routing.defaultLocale ? "" : `/${locale}`;
+  const LINKS = [
+    { href: `${homePrefix}/#que-hace`, label: t("inicio") },
+    { href: `${homePrefix}/#caracteristicas`, label: t("caracteristicas") },
+    { href: `${homePrefix}/demo`, label: t("demo") },
+    { href: `${homePrefix}/#precio`, label: t("precio") },
+    { href: `${homePrefix}/ayuda`, label: t("ayuda") },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -55,7 +60,7 @@ export function Nav() {
   return (
     <nav className="nav" data-scrolled={scrolled}>
       <div className="container nav-inner">
-        <Link href="/" className="nav-logo" aria-label="Muxlyve inicio">
+        <Link href="/" className="nav-logo" aria-label={t("home")}>
           <WordmarkLogo />
         </Link>
         <div className="nav-links">
@@ -65,13 +70,13 @@ export function Nav() {
             </a>
           ))}
           <Link href="/descargar" className="btn btn-primary">
-            Descargar
+            {t("descargar")}
           </Link>
         </div>
         <button
           type="button"
           className="nav-toggle"
-          aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-label={mobileOpen ? t("closeMenu") : t("openMenu")}
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((v) => !v)}
         >
@@ -111,7 +116,7 @@ export function Nav() {
             className="btn btn-primary"
             onClick={() => setMobileOpen(false)}
           >
-            Descargar
+            {t("descargar")}
           </Link>
         </div>
       </div>

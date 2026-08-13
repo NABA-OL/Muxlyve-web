@@ -1,6 +1,10 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export function Footer() {
+  const t = useTranslations("footer");
+
   return (
     <>
     <footer className="footer">
@@ -9,20 +13,20 @@ export function Footer() {
           <div>
             <strong className="gradient-text">Muxlyve</strong>
             <p style={{ marginTop: "0.5rem", maxWidth: "32ch" }}>
-              Multistreaming simultáneo, sin marca de agua, Mensual o anual.
+              {t("tagline")}
             </p>
           </div>
-          <nav className="footer-links" aria-label="Pie de página">
-            <Link href="/descargar">Descargar</Link>
-            <a href="#caracteristicas">Características</a>
-            <Link href="/ayuda">Ayuda</Link>
-            <a href="#precio">Precio</a>
-            <a href="mailto:soporte@muxlyve.app">Contacto</a>
+          <nav className="footer-links" aria-label={t("footerNavLabel")}>
+            <Link href="/descargar">{t("descargar")}</Link>
+            <a href="#caracteristicas">{t("caracteristicas")}</a>
+            <Link href="/ayuda">{t("ayuda")}</Link>
+            <a href="#precio">{t("precio")}</a>
+            <a href="mailto:soporte@muxlyve.app">{t("contacto")}</a>
             <a
               href="https://discord.gg/ttRqRkAG"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Discord de Muxlyve"
+              aria-label={t("discordLabel")}
               style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -33,17 +37,20 @@ export function Footer() {
           </nav>
         </div>
         <div className="footer-legal">
-          <span>© {new Date().getFullYear()} Muxlyve · All rights reserved</span>
           <span style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
-            <Link href="/privacidad">Privacidad</Link>
-            <Link href="/terminos">Términos</Link>
+            <span>© {new Date().getFullYear()} Muxlyve · {t("rights")}</span>
+            <LanguageSwitcher />
+          </span>
+          <span style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
+            <Link href="/privacidad">{t("privacidad")}</Link>
+            <Link href="/terminos">{t("terminos")}</Link>
             <a
               href="https://blackraken.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: "inherit" }}
             >
-              Developed by BlacKraken Solutions.
+              {t("developedBy")}
             </a>
           </span>
         </div>

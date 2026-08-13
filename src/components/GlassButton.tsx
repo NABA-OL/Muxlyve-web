@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useRef, type PointerEvent, type ReactNode } from "react";
+import { Link } from "@/i18n/navigation";
 import styles from "./GlassButton.module.css";
 
 interface Props {

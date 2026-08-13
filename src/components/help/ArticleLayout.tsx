@@ -1,15 +1,16 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { HELP_ARTICLES } from "@/lib/help-articles";
-import styles from "@/app/ayuda/ayuda.module.css";
+import styles from "@/app/[locale]/ayuda/ayuda.module.css";
 
 interface Props {
   slug: string;
-  title: string;
   children: ReactNode;
 }
 
-export function ArticleLayout({ slug, title, children }: Props) {
+export async function ArticleLayout({ slug, children }: Props) {
+  const t = await getTranslations();
   const index = HELP_ARTICLES.findIndex((a) => a.slug === slug);
   const prev = index > 0 ? HELP_ARTICLES[index - 1] : null;
   const next =
@@ -19,14 +20,14 @@ export function ArticleLayout({ slug, title, children }: Props) {
 
   return (
     <article>
-      <h1 className={styles.articleTitle}>{title}</h1>
+      <h1 className={styles.articleTitle}>{t(`help.articles.${slug}.title`)}</h1>
       <div className={styles.prose}>{children}</div>
       {(prev || next) && (
-        <nav className={styles.pager} aria-label="Navegación entre artículos">
+        <nav className={styles.pager} aria-label={t("help.pagerAria")}>
           {prev ? (
             <Link href={`/ayuda/${prev.slug}`} className={styles.pagerLink}>
-              <span className={styles.pagerLabel}>← Anterior</span>
-              <span className={styles.pagerTitle}>{prev.title}</span>
+              <span className={styles.pagerLabel}>{t("help.pagerPrev")}</span>
+              <span className={styles.pagerTitle}>{t(`help.articles.${prev.slug}.title`)}</span>
             </Link>
           ) : (
             <span />
@@ -36,8 +37,8 @@ export function ArticleLayout({ slug, title, children }: Props) {
               href={`/ayuda/${next.slug}`}
               className={`${styles.pagerLink} ${styles.pagerLinkNext}`}
             >
-              <span className={styles.pagerLabel}>Siguiente →</span>
-              <span className={styles.pagerTitle}>{next.title}</span>
+              <span className={styles.pagerLabel}>{t("help.pagerNext")}</span>
+              <span className={styles.pagerTitle}>{t(`help.articles.${next.slug}.title`)}</span>
             </Link>
           ) : (
             <span />

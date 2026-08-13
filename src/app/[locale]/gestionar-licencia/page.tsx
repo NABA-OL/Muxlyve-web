@@ -1,9 +1,25 @@
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { findLicense } from "@/lib/licenses";
 import { ensureSchema } from "@/lib/db";
 import type { License } from "@/lib/licenses";
+import { buildAlternates } from "@/lib/i18n-meta";
 import { releaseDeviceAction, resendEmailAction } from "./actions";
 
-export const metadata = { title: "Gestionar licencia — Muxlyve" };
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "gestionarLicencia.meta" });
+  return {
+    alternates: buildAlternates(locale, "/gestionar-licencia"),
+    title: t("title"),
+  };
+}
+
 export const dynamic = "force-dynamic";
 
 function maskEmail(email: string): string {
@@ -17,7 +33,8 @@ function maskDevice(id: string): string {
 
 // ── Search form (no key yet) ──────────────────────────────────────────────────
 
-function SearchForm({ error }: { error?: boolean }) {
+async function SearchForm({ error }: { error?: boolean }) {
+  const t = await getTranslations("gestionarLicencia.search");
   return (
     <main
       style={{
@@ -35,7 +52,7 @@ function SearchForm({ error }: { error?: boolean }) {
           className="gradient-text"
           style={{ fontSize: "1.5rem", marginBottom: "0.4rem" }}
         >
-          Gestionar licencia
+          {t("title")}
         </h1>
         <p
           style={{
@@ -44,14 +61,14 @@ function SearchForm({ error }: { error?: boolean }) {
             marginBottom: "1.8rem",
           }}
         >
-          Ingresa tu llave para ver y administrar tus dispositivos.
+          {t("lead")}
         </p>
 
         <form method="GET" style={{ display: "grid", gap: "1rem" }}>
           <input
             type="text"
             name="key"
-            placeholder="MS-XXXX-XXXX-XXXX"
+            placeholder={t("placeholder")}
             required
             autoFocus
             style={{
@@ -73,13 +90,13 @@ function SearchForm({ error }: { error?: boolean }) {
             className="btn btn-primary"
             style={{ justifyContent: "center" }}
           >
-            Buscar
+            {t("submit")}
           </button>
         </form>
 
         {error && (
           <p style={{ color: "#f85149", fontSize: "0.88rem", marginTop: "0.8rem" }}>
-            Llave no encontrada. Verifica que la copiaste correctamente.
+            {t("error")}
           </p>
         )}
       </div>
@@ -89,7 +106,7 @@ function SearchForm({ error }: { error?: boolean }) {
 
 // ── License dashboard ─────────────────────────────────────────────────────────
 
-function LicenseDashboard({
+async function LicenseDashboard({
   license,
   sent,
   released,
@@ -98,12 +115,14 @@ function LicenseDashboard({
   sent: boolean;
   released: boolean;
 }) {
+  const t = await getTranslations("gestionarLicencia.dashboard");
+
   const statusLabel =
     license.status === "active"
-      ? "Activa"
+      ? t("statusActive")
       : license.status === "refunded"
-        ? "Reembolsada"
-        : "Desactivada";
+        ? t("statusRefunded")
+        : t("statusDisabled");
 
   const statusColor =
     license.status === "active"
@@ -120,7 +139,7 @@ function LicenseDashboard({
     >
       {/* Header */}
       <div style={{ marginBottom: "2rem" }}>
-        <a
+        <Link
           href="/gestionar-licencia"
           style={{
             color: "var(--muted)",
@@ -132,10 +151,10 @@ function LicenseDashboard({
             marginBottom: "1.2rem",
           }}
         >
-          ← Buscar otra llave
-        </a>
+          {t("back")}
+        </Link>
         <h1 style={{ fontSize: "1.5rem", marginBottom: "0.2rem" }}>
-          Tu licencia
+          {t("title")}
         </h1>
         <code
           style={{
@@ -167,7 +186,7 @@ function LicenseDashboard({
                 marginBottom: "0.3rem",
               }}
             >
-              Email
+              {t("email")}
             </div>
             <div style={{ fontSize: "0.95rem" }}>{maskEmail(license.email)}</div>
           </div>
@@ -181,7 +200,7 @@ function LicenseDashboard({
                 marginBottom: "0.3rem",
               }}
             >
-              Estado
+              {t("estado")}
             </div>
             <div style={{ color: statusColor, fontWeight: 600 }}>{statusLabel}</div>
           </div>
@@ -195,7 +214,7 @@ function LicenseDashboard({
                 marginBottom: "0.3rem",
               }}
             >
-              Equipos activos
+              {t("equipos")}
             </div>
             <div>
               {license.devices.length} / {license.max_devices}
@@ -211,7 +230,7 @@ function LicenseDashboard({
                 marginBottom: "0.3rem",
               }}
             >
-              Desde
+              {t("desde")}
             </div>
             <div>
               {new Date(license.created_at).toLocaleDateString("es-CO", {
@@ -227,12 +246,12 @@ function LicenseDashboard({
       {/* Devices */}
       <div className="card" style={{ marginBottom: "1.2rem" }}>
         <h2 style={{ fontSize: "1rem", marginBottom: "1rem" }}>
-          Dispositivos registrados
+          {t("dispositivosTitle")}
         </h2>
 
         {license.devices.length === 0 ? (
           <p style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
-            Ningún dispositivo activado aún.
+            {t("sinDispositivos")}
           </p>
         ) : (
           <div style={{ display: "grid", gap: "0.8rem" }}>
@@ -273,7 +292,7 @@ function LicenseDashboard({
                       padding: "0.3rem 0.7rem",
                     }}
                   >
-                    Liberar
+                    {t("liberar")}
                   </button>
                 </form>
               </div>
@@ -285,10 +304,10 @@ function LicenseDashboard({
       {/* Resend */}
       <div className="card">
         <h2 style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>
-          Reenviar llave por email
+          {t("reenviarTitle")}
         </h2>
         <p style={{ color: "var(--muted)", fontSize: "0.88rem", marginBottom: "1rem" }}>
-          Te enviaremos la llave a {maskEmail(license.email)}.
+          {t("reenviarLead", { email: maskEmail(license.email) })}
         </p>
 
         {sent && (
@@ -299,7 +318,7 @@ function LicenseDashboard({
               marginBottom: "0.8rem",
             }}
           >
-            Email enviado. Revisa tu bandeja.
+            {t("emailEnviado")}
           </p>
         )}
         {released && (
@@ -310,7 +329,7 @@ function LicenseDashboard({
               marginBottom: "0.8rem",
             }}
           >
-            Dispositivo liberado correctamente.
+            {t("dispositivoLiberado")}
           </p>
         )}
 
@@ -321,7 +340,7 @@ function LicenseDashboard({
             className="btn btn-ghost"
             style={{ fontSize: "0.9rem" }}
           >
-            Reenviar al email
+            {t("reenviarBoton")}
           </button>
         </form>
       </div>
