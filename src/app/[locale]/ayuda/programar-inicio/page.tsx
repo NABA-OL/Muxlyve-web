@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { ArticleLayout } from "@/components/help/ArticleLayout";
 import { ArticleBody } from "@/components/help/ArticleBody";
+import { ArticleJsonLd } from "@/components/help/ArticleJsonLd";
 import { buildArticleMetadata } from "@/lib/help-metadata";
+import { buildHowToJsonLd } from "@/lib/help-schema";
 
 const SLUG = "programar-inicio";
 
@@ -14,9 +16,11 @@ export async function generateMetadata({
   return buildArticleMetadata(locale, SLUG);
 }
 
-export default function Page() {
+export default async function Page() {
+  const jsonLd = await buildHowToJsonLd(SLUG);
   return (
     <ArticleLayout slug={SLUG}>
+      {jsonLd && <ArticleJsonLd data={jsonLd} />}
       <ArticleBody slug={SLUG} />
     </ArticleLayout>
   );
