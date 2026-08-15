@@ -13,7 +13,7 @@ import { ArticleJsonLd } from "@/components/help/ArticleJsonLd";
 import { buildArticleMetadata } from "@/lib/help-metadata";
 import { buildHowToJsonLd } from "@/lib/help-schema";
 
-const SLUG = "perfiles-de-destinos";
+const SLUG = "perfiles-destinos";
 
 export async function generateMetadata({
   params,

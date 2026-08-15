@@ -8,7 +8,9 @@
 
 import type { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { ScreenshotPlaceholder } from "./ScreenshotPlaceholder";
+import styles from "@/app/[locale]/ayuda/ayuda.module.css";
 
 interface Shot {
   src: string;
@@ -38,7 +40,9 @@ export async function ArticleBody({
   extraTags?: TagMap;
 }) {
   const t = await getTranslations(`help.articles.${slug}`);
+  const tHelp = await getTranslations("help");
   const shots = t.raw("shots") as Shot[];
+  const highlights = t.raw("highlights") as string[] | undefined;
 
   return (
     <>
@@ -51,6 +55,22 @@ export async function ArticleBody({
             <ScreenshotPlaceholder src={shot.src} label={shot.label} />
           ) : null;
         },
+        tldr: () =>
+          highlights ? (
+            <ul className={styles.articleTldr}>
+              {highlights.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          ) : null,
+        cta: () => (
+          <div className={styles.articleCta}>
+            <span>{tHelp("ctaText")}</span>
+            <Link href="/descargar" className="btn btn-primary">
+              {tHelp("ctaButton")}
+            </Link>
+          </div>
+        ),
       })}
     </>
   );
