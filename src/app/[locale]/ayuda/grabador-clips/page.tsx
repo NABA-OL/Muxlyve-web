@@ -11,7 +11,7 @@ import { ArticleLayout } from "@/components/help/ArticleLayout";
 import { ArticleBody } from "@/components/help/ArticleBody";
 import { buildArticleMetadata } from "@/lib/help-metadata";
 
-const SLUG = "acerca-de-muxlyve";
+const SLUG = "grabador-clips";
 
 export async function generateMetadata({
   params,

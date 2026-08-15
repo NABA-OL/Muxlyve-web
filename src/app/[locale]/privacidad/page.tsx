@@ -8,7 +8,9 @@
 
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { buildAlternates } from "@/lib/i18n-meta";
+import styles from "../legal.module.css";
 
 export async function generateMetadata({
   params,
@@ -27,9 +29,11 @@ export default async function PrivacidadPage() {
   const t = await getTranslations("privacidad");
   const s1items = t.raw("s1items") as string[];
   const s2items = t.raw("s2items") as string[];
+  const s4items = t.raw("s4items") as string[];
 
   return (
     <main
+      className={styles.legal}
       style={{
         maxWidth: 720,
         margin: "0 auto",
@@ -63,7 +67,13 @@ export default async function PrivacidadPage() {
       <p>{t("s3body")}</p>
 
       <h2>{t("s4title")}</h2>
-      <p>{t("s4body")}</p>
+      <p>{t("s4lead")}</p>
+      <ul>
+        {s4items.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+      <p>{t("s4note")}</p>
 
       <h2>{t("s5title")}</h2>
       <p>
@@ -81,6 +91,10 @@ export default async function PrivacidadPage() {
         <a href="mailto:soporte@muxlyve.com">soporte@muxlyve.com</a>
         {t("s7bodySuffix")}
       </p>
+
+      <Link href="/" className={styles.back}>
+        {t("back")}
+      </Link>
     </main>
   );
 }

@@ -10,6 +10,7 @@ import type { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { HELP_ARTICLES } from "@/lib/help-articles";
+import { ShareButton } from "./ShareButton";
 import styles from "@/app/[locale]/ayuda/ayuda.module.css";
 
 interface Props {
@@ -26,11 +27,14 @@ export async function ArticleLayout({ slug, children }: Props) {
       ? HELP_ARTICLES[index + 1]
       : null;
 
+  const title = t(`help.articles.${slug}.title`);
+
   return (
     <article>
-      <h1 className={styles.articleTitle}>
-        {t(`help.articles.${slug}.title`)}
-      </h1>
+      <div className={styles.articleHeader}>
+        <h1 className={styles.articleTitle}>{title}</h1>
+        <ShareButton title={title} />
+      </div>
       <div className={styles.prose}>{children}</div>
       {(prev || next) && (
         <nav className={styles.pager} aria-label={t("help.pagerAria")}>

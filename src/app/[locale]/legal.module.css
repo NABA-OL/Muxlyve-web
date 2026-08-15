@@ -1,0 +1,39 @@
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-08-14
+ */
+
+.legal h1 {
+  margin-bottom: 0.5rem;
+}
+
+.legal h2 {
+  margin-top: 2.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.legal p {
+  margin-bottom: 1rem;
+}
+
+.legal ul,
+.legal ol {
+  margin: 0 0 1rem;
+  padding-left: 1.3rem;
+}
+
+.legal li {
+  margin-bottom: 0.4rem;
+}
+
+.legal .back {
+  display: inline-block;
+  margin-top: 2rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.legal .back:hover {
+  color: var(--text);
+}

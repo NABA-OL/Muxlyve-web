@@ -11,7 +11,7 @@ import { ArticleLayout } from "@/components/help/ArticleLayout";
 import { ArticleBody } from "@/components/help/ArticleBody";
 import { buildArticleMetadata } from "@/lib/help-metadata";
 
-const SLUG = "grabador-de-clips";
+const SLUG = "resumen-stream";
 
 export async function generateMetadata({
   params,
