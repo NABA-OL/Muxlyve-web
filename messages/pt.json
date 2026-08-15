@@ -264,7 +264,8 @@
     "s6body": "As chaves de licença são armazenadas criptografadas (HMAC-SHA256). Usamos HTTPS em todas as comunicações.",
     "s7title": "7. Contato",
     "s7bodyPrefix": "Para qualquer dúvida sobre privacidade: ",
-    "s7bodySuffix": ""
+    "s7bodySuffix": "",
+    "back": "← Voltar ao início"
   },
   "terminos": {
     "meta": { "title": "Termos de Serviço – Muxlyve" },
@@ -287,7 +288,8 @@
     "s7title": "7. Modificações",
     "s7body": "Podemos atualizar estes termos a qualquer momento. O uso contínuo do software após as mudanças implica aceitação.",
     "s8title": "8. Contato",
-    "s8body": "Dúvidas: soporte@muxlyve.com"
+    "s8body": "Dúvidas: soporte@muxlyve.com",
+    "back": "← Voltar ao início"
   },
   "help": {
     "eyebrow": "Ajuda",

@@ -264,7 +264,8 @@
     "s6body": "License keys are stored encrypted (HMAC-SHA256). We use HTTPS across all communications.",
     "s7title": "7. Contact",
     "s7bodyPrefix": "For any privacy inquiries: ",
-    "s7bodySuffix": ""
+    "s7bodySuffix": "",
+    "back": "← Back to home"
   },
   "terminos": {
     "meta": { "title": "Terms of Service – Muxlyve" },
@@ -287,7 +288,8 @@
     "s7title": "7. Changes",
     "s7body": "We may update these terms at any time. Continued use of the software after changes implies acceptance.",
     "s8title": "8. Contact",
-    "s8body": "Inquiries: soporte@muxlyve.com"
+    "s8body": "Inquiries: soporte@muxlyve.com",
+    "back": "← Back to home"
   },
   "help": {
     "eyebrow": "Help",

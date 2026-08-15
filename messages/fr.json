@@ -264,7 +264,8 @@
     "s6body": "Les clés de licence sont stockées chiffrées (HMAC-SHA256). Nous utilisons HTTPS pour toutes les communications.",
     "s7title": "7. Contact",
     "s7bodyPrefix": "Pour toute question sur la confidentialité : ",
-    "s7bodySuffix": ""
+    "s7bodySuffix": "",
+    "back": "← Retour à l'accueil"
   },
   "terminos": {
     "meta": { "title": "Conditions d'utilisation – Muxlyve" },
@@ -287,7 +288,8 @@
     "s7title": "7. Modifications",
     "s7body": "Nous pouvons mettre à jour ces conditions à tout moment. L'utilisation continue du logiciel après les changements vaut acceptation.",
     "s8title": "8. Contact",
-    "s8body": "Questions : soporte@muxlyve.com"
+    "s8body": "Questions : soporte@muxlyve.com",
+    "back": "← Retour à l'accueil"
   },
   "help": {
     "eyebrow": "Aide",
