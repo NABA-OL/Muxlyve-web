@@ -256,7 +256,7 @@
       "Mostrar o chat ao vivo da sua transmissão do YouTube dentro do app (somente leitura).",
       "Mostrar o número de espectadores ao vivo da sua transmissão."
     ],
-    "s4note": "Todo o acesso é somente leitura: o Muxlyve nunca publica, modifica ou exclui nada na sua conta do YouTube. Esses dados são usados apenas para preencher automaticamente a configuração e exibir informações dentro do próprio app — nunca são armazenados em nossos servidores nem compartilhados com terceiros.",
+    "s4note": "Todo o acesso é somente leitura: o Muxlyve nunca publica, modifica ou exclui nada na sua conta do YouTube. Esses dados são usados apenas para preencher automaticamente a configuração e exibir informações dentro do próprio app — nunca são armazenados em nossos servidores nem compartilhados com terceiros. Não usamos esses dados para fins publicitários, não os vendemos nem os usamos para treinar modelos de inteligência artificial ou machine learning.",
     "s5title": "5. Retenção de dados",
     "s5bodyPrefix": "Mantemos seus dados enquanto sua licença estiver ativa. Você pode solicitar a exclusão das suas informações escrevendo para ",
     "s5bodySuffix": ".",

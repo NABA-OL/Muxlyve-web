@@ -256,7 +256,7 @@
       "Afficher le chat en direct de votre diffusion YouTube dans l'application (lecture seule).",
       "Afficher le nombre de spectateurs en direct de votre diffusion."
     ],
-    "s4note": "Tout l'accès est en lecture seule : Muxlyve ne publie, ne modifie ni ne supprime jamais rien sur votre compte YouTube. Ces données servent uniquement à préremplir la configuration et à afficher des informations dans l'application elle-même — elles ne sont jamais stockées sur nos serveurs ni partagées avec des tiers.",
+    "s4note": "Tout l'accès est en lecture seule : Muxlyve ne publie, ne modifie ni ne supprime jamais rien sur votre compte YouTube. Ces données servent uniquement à préremplir la configuration et à afficher des informations dans l'application elle-même — elles ne sont jamais stockées sur nos serveurs ni partagées avec des tiers. Nous n'utilisons pas ces données à des fins publicitaires, nous ne les vendons pas et nous ne les utilisons pas pour entraîner des modèles d'intelligence artificielle ou de machine learning.",
     "s5title": "5. Conservation des données",
     "s5bodyPrefix": "Nous conservons vos données tant que votre licence est active. Vous pouvez demander la suppression de vos informations en écrivant à ",
     "s5bodySuffix": ".",
