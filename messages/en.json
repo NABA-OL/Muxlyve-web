@@ -256,7 +256,7 @@
       "Show your YouTube stream's live chat inside the app (read-only).",
       "Show your stream's live viewer count."
     ],
-    "s4note": "All access is read-only: Muxlyve never posts, modifies, or deletes anything in your YouTube account. This data is used solely to auto-fill configuration and display information within the app itself — it is never stored on our servers or shared with third parties.",
+    "s4note": "All access is read-only: Muxlyve never posts, modifies, or deletes anything in your YouTube account. This data is used solely to auto-fill configuration and display information within the app itself — it is never stored on our servers or shared with third parties. We do not use this data for advertising, we do not sell it, and we do not use it to train AI or machine-learning models.",
     "s5title": "5. Data retention",
     "s5bodyPrefix": "We keep your data while your license is active. You can request the deletion of your information by writing to ",
     "s5bodySuffix": ".",
