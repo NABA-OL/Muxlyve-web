@@ -7,6 +7,7 @@
 
 import { redirect } from "next/navigation";
 import { sendTelegramMessage, type TelegramTopic } from "@/lib/telegram";
+import { mockPurchaseTestMessage } from "@/lib/telegram-commands";
 
 const LABELS: Record<TelegramTopic, string> = {
   reports: "reportes de error",
@@ -18,10 +19,13 @@ const LABELS: Record<TelegramTopic, string> = {
 export async function testTelegramAction(formData: FormData) {
   const topic = formData.get("topic") as TelegramTopic;
 
-  const ok = await sendTelegramMessage(
-    `🧪 Prueba — este es un mensaje de prueba del tema de ${LABELS[topic]}.`,
-    topic,
-  ).catch(() => false);
+  const ok =
+    topic === "purchases"
+      ? await sendTelegramMessage(mockPurchaseTestMessage(), topic, "HTML").catch(() => false)
+      : await sendTelegramMessage(
+          `🧪 Prueba — este es un mensaje de prueba del tema de ${LABELS[topic]}.`,
+          topic,
+        ).catch(() => false);
 
   redirect(`/admin/telegram?${ok ? "sent" : "failed"}=${topic}`);
 }
