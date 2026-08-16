@@ -13,6 +13,8 @@ export interface License {
   renews_at: string | null;
   expires_at: string | null;
   created_at: string;
+  name: string | null;
+  nickname: string | null;
 }
 
 // Keys stored as HMAC-SHA256 so DB leak doesn't expose usable keys.
@@ -44,18 +46,19 @@ export async function createLicense(data: {
   maxDevices?: number;
   plan?: "monthly" | "annual" | "lifetime";
   renewsAt?: Date | null;
+  name?: string | null;
 }): Promise<void> {
   const sql = getDb();
   await sql`
-    INSERT INTO licenses (key, email, order_id, max_devices, plan, renews_at)
+    INSERT INTO licenses (key, email, order_id, max_devices, plan, renews_at, name)
     VALUES (
       ${hashKey(data.key)}, ${data.email}, ${data.orderId ?? null},
-      ${data.maxDevices ?? 2}, ${data.plan ?? null}, ${data.renewsAt ?? null}
+      ${data.maxDevices ?? 2}, ${data.plan ?? null}, ${data.renewsAt ?? null}, ${data.name ?? null}
     )
     ON CONFLICT (key) DO UPDATE
       SET status = 'active', devices = '[]'::jsonb,
           email = EXCLUDED.email, order_id = EXCLUDED.order_id,
-          plan = EXCLUDED.plan, renews_at = EXCLUDED.renews_at
+          plan = EXCLUDED.plan, renews_at = EXCLUDED.renews_at, name = EXCLUDED.name
       WHERE licenses.status IN ('cancelled', 'refunded', 'disabled')
   `;
 }
@@ -97,6 +100,35 @@ export async function validateDevice(
   `;
   if (!rows[0]) throw new Error("NOT_FOUND");
   return rows[0] as License;
+}
+
+export async function getNickname(key: string, machineId: string): Promise<string | null> {
+  const sql = getDb();
+  const rows = await sql`
+    SELECT nickname FROM licenses
+    WHERE key = ${hashKey(key)}
+      AND status = 'active'
+      AND devices @> ${JSON.stringify([machineId])}::jsonb
+  `;
+  if (!rows[0]) throw new Error("NOT_FOUND");
+  return (rows[0].nickname as string | null) ?? null;
+}
+
+export async function setNickname(
+  key: string,
+  machineId: string,
+  nickname: string,
+): Promise<string> {
+  const sql = getDb();
+  const rows = await sql`
+    UPDATE licenses SET nickname = ${nickname}
+    WHERE key = ${hashKey(key)}
+      AND status = 'active'
+      AND devices @> ${JSON.stringify([machineId])}::jsonb
+    RETURNING nickname
+  `;
+  if (!rows[0]) throw new Error("NOT_FOUND");
+  return rows[0].nickname as string;
 }
 
 export async function cancelLicense(key: string): Promise<void> {
