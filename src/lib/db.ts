@@ -27,6 +27,8 @@ export async function ensureSchema(): Promise<void> {
   await sql`ALTER TABLE licenses ADD COLUMN IF NOT EXISTS plan TEXT`;
   await sql`ALTER TABLE licenses ADD COLUMN IF NOT EXISTS renews_at TIMESTAMPTZ`;
   await sql`ALTER TABLE licenses ADD COLUMN IF NOT EXISTS expires_at TIMESTAMPTZ`;
+  await sql`ALTER TABLE licenses ADD COLUMN IF NOT EXISTS name TEXT`;
+  await sql`ALTER TABLE licenses ADD COLUMN IF NOT EXISTS nickname VARCHAR(24)`;
   await sql`
     CREATE TABLE IF NOT EXISTS settings (
       key        TEXT PRIMARY KEY,

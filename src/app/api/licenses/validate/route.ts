@@ -15,6 +15,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       valid: true,
       email: license.email,
+      name: license.name,
+      nickname: license.nickname,
       plan: license.plan ?? "lifetime",
       status: license.status,
       renewsAt: license.renews_at ? new Date(license.renews_at).getTime() : null,

@@ -82,6 +82,9 @@ export async function POST(req: NextRequest) {
   const user = objects?.user as Record<string, unknown> | undefined;
   const email = (user?.email ?? purchase?.billing_email) as string | undefined;
   const orderId = (purchase?.id as string | number | undefined)?.toString() ?? null;
+  const first = (user?.first as string | undefined)?.trim();
+  const last = (user?.last as string | undefined)?.trim();
+  const name = [first, last].filter(Boolean).join(" ").trim() || null;
 
   // Determine plan from subscription billing_cycle; no subscription = lifetime
   // Freemius sends billing_cycle as a number: 1 = monthly, 12 = annual
@@ -101,7 +104,7 @@ export async function POST(req: NextRequest) {
   }
 
   await ensureSchema();
-  await createLicense({ key: licenseKey, email, orderId: orderId ?? undefined, plan, renewsAt });
+  await createLicense({ key: licenseKey, email, orderId: orderId ?? undefined, plan, renewsAt, name });
   await sendLicenseEmail(email, licenseKey).catch(() => {});
   await sendTelegramMessage(
     [
