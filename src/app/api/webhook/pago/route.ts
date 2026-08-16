@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createLicense, cancelLicense, softCancelLicense } from "@/lib/licenses";
 import { sendLicenseEmail } from "@/lib/email";
+import { sendTelegramMessage } from "@/lib/telegram";
 import { ensureSchema } from "@/lib/db";
 
 async function verifyFreemius(req: NextRequest, body: string): Promise<boolean> {
@@ -102,6 +103,15 @@ export async function POST(req: NextRequest) {
   await ensureSchema();
   await createLicense({ key: licenseKey, email, orderId: orderId ?? undefined, plan, renewsAt });
   await sendLicenseEmail(email, licenseKey).catch(() => {});
+  await sendTelegramMessage(
+    [
+      "💰 Nueva compra",
+      `Email: ${email}`,
+      `Plan: ${plan}`,
+      `Licencia: ${licenseKey}`,
+    ].join("\n"),
+    "purchases",
+  ).catch(() => {});
 
   return NextResponse.json({ ok: true });
 }

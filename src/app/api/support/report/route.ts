@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb, ensureSchema } from "@/lib/db";
+import { sendTelegramMessage, sendTelegramDocument } from "@/lib/telegram";
 
 const MAX_BODY_BYTES = 100 * 1024;
 const RATE_LIMIT = 5;
@@ -71,6 +72,25 @@ export async function POST(req: NextRequest) {
     `;
   } catch {
     return err("Internal error", 500);
+  }
+
+  const caption = [
+    "🐛 Nuevo reporte de error",
+    `Email: ${email || "no proporcionado"}`,
+    `Versión: ${appVersion || "?"} · ${platform || "?"} ${osVersion}`.trim(),
+    "",
+    description,
+  ].join("\n");
+
+  if (log) {
+    await sendTelegramDocument(
+      log,
+      `reporte-${Date.now()}.txt`,
+      caption.slice(0, 1024),
+      "reports",
+    ).catch(() => {});
+  } else {
+    await sendTelegramMessage(caption, "reports").catch(() => {});
   }
 
   return NextResponse.json({ ok: true });

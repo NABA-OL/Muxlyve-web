@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb, ensureSchema } from "@/lib/db";
+import { sendTelegramMessage } from "@/lib/telegram";
 
 const MAX_BODY_BYTES = 100 * 1024;
 const RATE_LIMIT = 5;
@@ -68,6 +69,15 @@ export async function POST(req: NextRequest) {
   } catch {
     return err("Internal error", 500);
   }
+
+  const text = [
+    "💡 Nuevo feedback",
+    `Email: ${email || "no proporcionado"}`,
+    `Versión: ${appVersion || "?"} · ${platform || "?"}`,
+    "",
+    description,
+  ].join("\n");
+  await sendTelegramMessage(text, "feedback").catch(() => {});
 
   return NextResponse.json({ ok: true });
 }
