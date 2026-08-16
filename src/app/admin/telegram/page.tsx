@@ -61,6 +61,19 @@ export default async function TelegramPage({
           </form>
         ))}
       </div>
+
+      <h2 style={{ fontSize: "1.1rem", margin: "2.5rem 0 0.6rem" }}>Comandos del bot</h2>
+      <p style={{ color: "var(--muted)", fontSize: "0.9rem", marginBottom: "0.8rem" }}>
+        Escríbelos directo en el chat/grupo configurado (requiere el webhook
+        activo — ver <code>TELEGRAM_WEBHOOK_SECRET</code> en{" "}
+        <code>.env.local.example</code>).
+      </p>
+      <ul style={{ color: "var(--muted)", fontSize: "0.88rem", lineHeight: 1.9, paddingLeft: "1.2rem" }}>
+        <li><code>/licencias correo@ejemplo.com</code> — busca licencias por email</li>
+        <li><code>/estado</code> — licencias activas, reportes 24h, feedback sin leer</li>
+        <li><code>/pendientes</code> — feedback sin leer + reportes recientes</li>
+        <li><code>/resumen</code> — compras, reportes y feedback de hoy</li>
+      </ul>
     </main>
   );
 }

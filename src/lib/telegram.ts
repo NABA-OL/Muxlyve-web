@@ -25,9 +25,18 @@ function threadIdFor(topic?: TelegramTopic): string | undefined {
   return process.env[envKey] || undefined;
 }
 
+export function escapeTelegramHtml(text: string): string {
+  return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+export function telegramSpoiler(text: string): string {
+  return `<tg-spoiler>${escapeTelegramHtml(text)}</tg-spoiler>`;
+}
+
 export async function sendTelegramMessage(
   text: string,
   topic?: TelegramTopic,
+  parseMode?: "HTML",
 ): Promise<boolean> {
   const url = apiUrl("sendMessage");
   const chatId = process.env.TELEGRAM_CHAT_ID;
@@ -41,7 +50,31 @@ export async function sendTelegramMessage(
     body: JSON.stringify({
       chat_id: chatId,
       text,
+      ...(parseMode ? { parse_mode: parseMode } : {}),
       ...(messageThreadId ? { message_thread_id: messageThreadId } : {}),
+    }),
+  });
+  return res.ok;
+}
+
+// Replies to a specific chat/thread (e.g. a command's origin), bypassing the topic->env mapping.
+export async function sendTelegramReply(
+  chatId: string | number,
+  text: string,
+  threadId?: number,
+  parseMode?: "HTML",
+): Promise<boolean> {
+  const url = apiUrl("sendMessage");
+  if (!url) return false;
+
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      chat_id: chatId,
+      text,
+      ...(parseMode ? { parse_mode: parseMode } : {}),
+      ...(threadId ? { message_thread_id: threadId } : {}),
     }),
   });
   return res.ok;

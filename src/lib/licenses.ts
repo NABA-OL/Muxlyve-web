@@ -29,6 +29,14 @@ export async function findLicense(key: string): Promise<License | null> {
   return (rows[0] as License) ?? null;
 }
 
+export async function findLicensesByEmail(email: string): Promise<License[]> {
+  const sql = getDb();
+  const rows = await sql`
+    SELECT * FROM licenses WHERE email ILIKE ${email} ORDER BY created_at DESC LIMIT 10
+  `;
+  return rows as License[];
+}
+
 export async function createLicense(data: {
   key: string;
   email: string;
