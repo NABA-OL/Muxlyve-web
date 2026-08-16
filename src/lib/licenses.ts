@@ -15,6 +15,12 @@ export interface License {
   created_at: string;
   name: string | null;
   nickname: string | null;
+  avatar_url: string | null;
+}
+
+// One-way hash reused as the blob storage path so avatar files aren't addressable by raw key.
+export function hashLicenseKey(key: string): string {
+  return hashKey(key);
 }
 
 // Keys stored as HMAC-SHA256 so DB leak doesn't expose usable keys.
@@ -129,6 +135,47 @@ export async function setNickname(
   `;
   if (!rows[0]) throw new Error("NOT_FOUND");
   return rows[0].nickname as string;
+}
+
+export async function getAvatarUrl(key: string, machineId: string): Promise<string | null> {
+  const sql = getDb();
+  const rows = await sql`
+    SELECT avatar_url FROM licenses
+    WHERE key = ${hashKey(key)}
+      AND status = 'active'
+      AND devices @> ${JSON.stringify([machineId])}::jsonb
+  `;
+  if (!rows[0]) throw new Error("NOT_FOUND");
+  return (rows[0].avatar_url as string | null) ?? null;
+}
+
+export async function setAvatarUrl(
+  key: string,
+  machineId: string,
+  avatarUrl: string,
+): Promise<string> {
+  const sql = getDb();
+  const rows = await sql`
+    UPDATE licenses SET avatar_url = ${avatarUrl}
+    WHERE key = ${hashKey(key)}
+      AND status = 'active'
+      AND devices @> ${JSON.stringify([machineId])}::jsonb
+    RETURNING avatar_url
+  `;
+  if (!rows[0]) throw new Error("NOT_FOUND");
+  return rows[0].avatar_url as string;
+}
+
+export async function clearAvatarUrl(key: string, machineId: string): Promise<void> {
+  const sql = getDb();
+  const rows = await sql`
+    UPDATE licenses SET avatar_url = NULL
+    WHERE key = ${hashKey(key)}
+      AND status = 'active'
+      AND devices @> ${JSON.stringify([machineId])}::jsonb
+    RETURNING key
+  `;
+  if (!rows[0]) throw new Error("NOT_FOUND");
 }
 
 export async function cancelLicense(key: string): Promise<void> {
