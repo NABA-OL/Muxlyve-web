@@ -495,6 +495,7 @@
           { "src": "/help/avisos-discord-telegram-canal-forward.png", "label": "encaminhando uma mensagem do canal para o JsonDumpBot e o id na resposta" },
           { "src": "/help/avisos-discord-telegram-2.png", "label": "modal \"Mensagem de aviso\"" },
           { "src": "/help/avisos-discord-telegram-3.png", "label": "modal \"Mensagem de aviso\"" },
+          { "src": "/help/avisos-discord-telegram-4.png", "label": "modal \"Mensagem de aviso\"" },
           { "src": "/help/avisos-discord-telegram-inicio-cierre.png", "label": "modal Mensagem de aviso com as abas Ao iniciar / Ao finalizar" }
         ]
       },
