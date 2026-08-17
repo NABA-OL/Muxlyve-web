@@ -10,12 +10,13 @@ function blobToken(): string | undefined {
   return process.env.BLOB_MUXLYVE_READ_WRITE_TOKEN || process.env.BLOB_READ_WRITE_TOKEN;
 }
 
+// Path único por subida (nunca reusa el nombre anterior) — evita que el CDN
+// sirva la imagen vieja cacheada bajo la misma URL tras un reemplazo.
 export async function uploadAvatar(hashedKey: string, bytes: Buffer): Promise<string> {
-  const result = await put(`avatars/${hashedKey}.jpg`, bytes, {
+  const result = await put(`avatars/${hashedKey}-${Date.now()}.jpg`, bytes, {
     access: "public",
     contentType: "image/jpeg",
     addRandomSuffix: false,
-    allowOverwrite: true,
     token: blobToken(),
   });
   return result.url;
