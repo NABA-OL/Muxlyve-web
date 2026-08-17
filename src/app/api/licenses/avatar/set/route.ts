@@ -4,8 +4,8 @@
  * Fecha de creación: 2026-08-16
  */
 import { NextRequest, NextResponse } from "next/server";
-import { validateDevice, setAvatarUrl, hashLicenseKey } from "@/lib/licenses";
-import { uploadAvatar } from "@/lib/blob";
+import { getAvatarUrl, setAvatarUrl, hashLicenseKey } from "@/lib/licenses";
+import { uploadAvatar, deleteAvatar } from "@/lib/blob";
 
 // ~2.2MB decoded — plenty for a 256x256 jpeg, caps abuse before we touch the buffer.
 const MAX_BASE64_LENGTH = 3_000_000;
@@ -33,8 +33,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: "IMAGE_TOO_LARGE" }, { status: 400 });
   }
 
+  let oldAvatarUrl: string | null;
   try {
-    await validateDevice(key, machineId);
+    oldAvatarUrl = await getAvatarUrl(key, machineId);
   } catch {
     return NextResponse.json({ ok: false, error: "INVALID_LICENSE" }, { status: 403 });
   }
@@ -48,6 +49,7 @@ export async function POST(req: NextRequest) {
 
   const avatarUrl = await uploadAvatar(hashLicenseKey(key), bytes);
   await setAvatarUrl(key, machineId, avatarUrl);
+  if (oldAvatarUrl) await deleteAvatar(oldAvatarUrl).catch(() => {});
 
   return NextResponse.json({ ok: true, avatarUrl });
 }
