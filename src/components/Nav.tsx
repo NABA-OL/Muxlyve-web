@@ -29,11 +29,12 @@ export function Nav() {
   const t = useTranslations("nav");
   const locale = useLocale();
   const [scrolled, setScrolled] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const homePrefix = locale === routing.defaultLocale ? "" : `/${locale}`;
   const LINKS = [
-    { href: `${homePrefix}/#que-hace`, label: t("inicio") },
+    { href: `${homePrefix}/#como-funciona`, label: t("comoFunciona") },
     { href: `${homePrefix}/#caracteristicas`, label: t("caracteristicas") },
     { href: `${homePrefix}/demo`, label: t("demo") },
     { href: `${homePrefix}/#precio`, label: t("precio") },
@@ -41,11 +42,18 @@ export function Nav() {
   ];
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 8);
+      setPastHero(window.scrollY > window.innerHeight * 0.6);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -68,81 +76,123 @@ export function Nav() {
   }, [mobileOpen]);
 
   return (
-    <nav className="nav" data-scrolled={scrolled}>
-      <div className="container nav-inner">
-        <Link href="/" className="nav-logo" aria-label={t("home")}>
-          <WordmarkLogo />
-        </Link>
-        <div className="nav-links">
-          {LINKS.map((l) => (
-            <a key={l.href} href={l.href}>
-              {l.label}
-            </a>
-          ))}
-          <Link href="/descargar" className="btn btn-primary">
-            {t("descargar")}
+    <>
+      <nav className="nav" data-scrolled={scrolled}>
+        <div className="container nav-inner">
+          <Link href="/" className="nav-logo" aria-label={t("home")}>
+            <WordmarkLogo />
           </Link>
+          <div className="nav-links">
+            <div className="nav-menu">
+              <button
+                type="button"
+                className="nav-menu-trigger"
+                aria-label={t("menu")}
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="15 6 9 12 15 18" />
+                </svg>
+              </button>
+              <div className="nav-menu-inline">
+                <div className="nav-menu-inline-inner">
+                  {LINKS.map((l) => (
+                    <a key={l.href} href={l.href}>
+                      {l.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <Link href="/descargar" className="btn btn-primary">
+              {t("descargar")}
+            </Link>
+          </div>
+          <button
+            type="button"
+            className="nav-toggle"
+            aria-label={mobileOpen ? t("closeMenu") : t("openMenu")}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((v) => !v)}
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              aria-hidden="true"
+            >
+              {mobileOpen ? (
+                <>
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                </>
+              ) : (
+                <>
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="18" x2="21" y2="18" />
+                </>
+              )}
+            </svg>
+          </button>
         </div>
-        <button
-          type="button"
-          className="nav-toggle"
-          aria-label={mobileOpen ? t("closeMenu") : t("openMenu")}
-          aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen((v) => !v)}
+
+        <div
+          className="nav-mobile-backdrop"
+          data-open={mobileOpen}
+          aria-hidden="true"
+          onClick={() => setMobileOpen(false)}
+        />
+
+        <div
+          className="nav-mobile-menu"
+          data-open={mobileOpen}
+          inert={!mobileOpen}
         >
-          <svg
-            width="22"
-            height="22"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            aria-hidden="true"
-          >
-            {mobileOpen ? (
-              <>
-                <line x1="6" y1="6" x2="18" y2="18" />
-                <line x1="18" y1="6" x2="6" y2="18" />
-              </>
-            ) : (
-              <>
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="18" x2="21" y2="18" />
-              </>
-            )}
-          </svg>
-        </button>
-      </div>
-
-      <div
-        className="nav-mobile-backdrop"
-        data-open={mobileOpen}
-        aria-hidden="true"
-        onClick={() => setMobileOpen(false)}
-      />
-
-      <div
-        className="nav-mobile-menu"
-        data-open={mobileOpen}
-        inert={!mobileOpen}
-      >
-        <div className="nav-mobile-menu-inner">
-          {LINKS.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setMobileOpen(false)}>
-              {l.label}
-            </a>
-          ))}
-          <Link
-            href="/descargar"
-            className="btn btn-primary"
-            onClick={() => setMobileOpen(false)}
-          >
-            {t("descargar")}
-          </Link>
+          <div className="nav-mobile-menu-inner">
+            {LINKS.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setMobileOpen(false)}
+              >
+                {l.label}
+              </a>
+            ))}
+            <Link
+              href="/descargar"
+              className="btn btn-primary"
+              onClick={() => setMobileOpen(false)}
+            >
+              {t("descargar")}
+            </Link>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+      <button
+        type="button"
+        className="scroll-top-btn"
+        data-visible={pastHero}
+        aria-label={t("scrollTop")}
+        aria-hidden={!pastHero}
+        tabIndex={pastHero ? 0 : -1}
+        onClick={scrollToTop}
+      >
+        <Image src="/icon-muxlyve.svg" alt="" width={26} height={26} />
+      </button>
+    </>
   );
 }
