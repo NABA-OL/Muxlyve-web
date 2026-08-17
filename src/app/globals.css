@@ -333,7 +333,7 @@ section {
   justify-content: center;
   width: 34px;
   height: 34px;
-  border: 1px solid var(--border);
+  border: transparent;
   border-radius: 999px;
   background: transparent;
   color: var(--muted);
@@ -349,7 +349,7 @@ section {
 .nav-menu:hover .nav-menu-trigger,
 .nav-menu:focus-within .nav-menu-trigger {
   color: var(--accent-2);
-  border-color: color-mix(in oklab, var(--accent) 50%, var(--border));
+  border-color: transparent;
 }
 
 .nav-menu:hover .nav-menu-trigger svg,
