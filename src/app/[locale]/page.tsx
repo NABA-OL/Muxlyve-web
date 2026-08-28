@@ -71,6 +71,11 @@ const jsonLd = {
       },
     },
   ],
+  publisher: {
+    "@type": "Organization",
+    name: "BlacKraken Solutions",
+    url: "https://blackraken.vercel.app",
+  },
   featureList: [
     "Multistreaming sin marca de agua",
     "Compatible con tu app de streaming favorita",
@@ -98,6 +103,35 @@ const jsonLd = {
     "Kick",
     "YouTube",
     "TikTok",
+  ],
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "BlacKraken Solutions",
+  url: "https://blackraken.vercel.app",
+  logo: `${BASE}/icon-muxlyve.svg`,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Bogotá",
+    addressRegion: "Bogotá D.C.",
+    postalCode: "110851",
+    addressCountry: "CO",
+  },
+  sameAs: [
+    "https://blackraken.vercel.app",
+    "https://github.com/nabaol",
+    "https://discord.gg/ttRqRkAG",
+    "https://marketplace.elgato.com/@blackraken",
+  ],
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      email: "soporte@muxlyve.com",
+      contactType: "customer support",
+      availableLanguage: ["Spanish", "English", "Portuguese", "French"],
+    },
   ],
 };
 
@@ -179,6 +213,10 @@ export default async function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
       <RevealObserver />
       <Nav />

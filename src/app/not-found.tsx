@@ -50,6 +50,15 @@ export default function NotFound() {
               Centro de ayuda
             </Link>
           </div>
+          <p
+            className="section-lead"
+            style={{ marginInline: "auto", marginTop: "2rem", fontSize: "0.9rem" }}
+          >
+            También podés revisar el{" "}
+            <a href="/sitemap.xml">mapa del sitio</a> o{" "}
+            <a href="/llms.txt">llms.txt</a> para ver todas las páginas
+            disponibles.
+          </p>
         </div>
       </section>
     </main>
