@@ -29,7 +29,7 @@ export function Footer() {
               <a href="#caracteristicas">{t("caracteristicas")}</a>
               <Link href="/ayuda">{t("ayuda")}</Link>
               <a href="#precio">{t("precio")}</a>
-              <a href="mailto:soporte@muxlyve.app">{t("contacto")}</a>
+              <a href="mailto:soporte@muxlyve.com">{t("contacto")}</a>
               <a
                 href="https://discord.gg/ttRqRkAG"
                 target="_blank"

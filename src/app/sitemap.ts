@@ -43,5 +43,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...HELP_ARTICLES.flatMap((a) => entry(`/ayuda/${a.slug}`, "monthly", 0.6)),
     ...entry("/privacidad", "yearly", 0.3),
     ...entry("/terminos", "yearly", 0.3),
+    // Rutas raíz fijas (sin variantes de locale) — páginas ancla de confianza.
+    { url: `${BASE}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.4 },
+    { url: `${BASE}/contact`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.4 },
+    { url: `${BASE}/privacy`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
   ];
 }

@@ -29,7 +29,7 @@ const BASE_TAGS: TagMap = {
   strong: (chunks) => <strong>{chunks}</strong>,
   em: (chunks) => <em>{chunks}</em>,
   code: (chunks) => <code>{chunks}</code>,
-  mailto: (chunks) => <a href="mailto:soporte@muxlyve.app">{chunks}</a>,
+  mailto: (chunks) => <a href="mailto:soporte@muxlyve.com">{chunks}</a>,
 };
 
 export async function ArticleBody({
