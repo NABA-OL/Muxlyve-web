@@ -46,6 +46,12 @@
     "ctaSecondary": "See pricing"
   },
   "landing": {
+    "video": {
+      "eyebrow": "See it in action",
+      "title": "Stream to multiple platforms at once",
+      "lead": "This is Muxlyve sending your signal to Twitch, Kick, YouTube and TikTok at the same time, no watermark, no cloud dependency.",
+      "play": "Play video"
+    },
     "comoFunciona": {
       "eyebrow": "How it works",
       "title": "Three steps, no hassle.",

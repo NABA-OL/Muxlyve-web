@@ -46,6 +46,12 @@
     "ctaSecondary": "Voir les tarifs"
   },
   "landing": {
+    "video": {
+      "eyebrow": "Voyez-le en action",
+      "title": "Diffusez sur plusieurs plateformes à la fois",
+      "lead": "Voici Muxlyve envoyant votre signal vers Twitch, Kick, YouTube et TikTok en même temps, sans filigrane ni dépendance au cloud.",
+      "play": "Lire la vidéo"
+    },
     "comoFunciona": {
       "eyebrow": "Comment ça marche",
       "title": "Trois étapes, sans complications.",

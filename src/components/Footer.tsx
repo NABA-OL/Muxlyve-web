@@ -23,6 +23,20 @@ export function Footer() {
               <p style={{ marginTop: "0.5rem", maxWidth: "32ch" }}>
                 {t("tagline")}
               </p>
+              <a
+                href="https://www.producthunt.com/products/muxlyve?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-muxlyve"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: "inline-block", marginTop: "1rem" }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element -- badge SVG externo generado por Product Hunt */}
+                <img
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1238044&theme=dark"
+                  alt="Muxlyve - Lightweight multi-streaming desktop app | Product Hunt"
+                  width={250}
+                  height={54}
+                />
+              </a>
             </div>
             <nav className="footer-links" aria-label={t("footerNavLabel")}>
               <Link href="/descargar">{t("descargar")}</Link>

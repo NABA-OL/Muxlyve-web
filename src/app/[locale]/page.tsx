@@ -13,6 +13,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
+import { VideoShowcase } from "@/components/VideoShowcase";
 import { Footer } from "@/components/Footer";
 import { RevealObserver } from "@/components/RevealObserver";
 import { PlatformIcon } from "@/components/PlatformIcon";
@@ -30,6 +31,10 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muxlyve.com";
 // TODO: reemplazar con la URL real cuando el plugin de Stream Deck esté publicado.
 const STREAM_DECK_PLUGIN_URL =
   "https://marketplace.elgato.com/product/muxlyve-3bb96a31-6c46-4a52-be62-9868e624b117";
+
+// TODO: pegar el ID del video de YouTube (unlisted) una vez subido — ej. de
+// https://youtu.be/XXXXXXXXXXX el ID es "XXXXXXXXXXX". Vacío = sección oculta.
+const YOUTUBE_VIDEO_ID = "fGgns5yzfcU";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -253,6 +258,26 @@ export default async function Home() {
       )}
       <main id="main-content">
         <Hero />
+
+        {/* Video demo */}
+        {YOUTUBE_VIDEO_ID && (
+          <section id="video">
+            <div className="container">
+              <div className="reveal" style={{ textAlign: "center", maxWidth: "640px", margin: "0 auto 2.5rem" }}>
+                <span className="eyebrow">{t("landing.video.eyebrow")}</span>
+                <h2 className="section-title" style={{ marginInline: "auto" }}>
+                  {t("landing.video.title")}
+                </h2>
+                <p className="section-lead" style={{ marginInline: "auto", marginTop: "1rem" }}>
+                  {t("landing.video.lead")}
+                </p>
+              </div>
+              <div className="reveal">
+                <VideoShowcase youtubeId={YOUTUBE_VIDEO_ID} />
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Cómo funciona */}
         <section id="como-funciona">
