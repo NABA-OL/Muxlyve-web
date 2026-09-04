@@ -1,5 +1,5 @@
 /*
- * Propiedad de BlacKraken Solutions
+ * Propiedad de BlacKraken Solutions <blackraken.com>
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
  *  * Correo: nabaol.dev@gmail.com
@@ -7,7 +7,7 @@
  */
 
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -29,6 +29,8 @@ export async function generateMetadata({
 }
 
 export const revalidate = 3600;
+
+const DL_BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muxlyve.com";
 
 const REPO = process.env.GITHUB_REPO ?? "NABA-OL/Muxlyve";
 
@@ -59,14 +61,41 @@ async function getLatestVersion(): Promise<string> {
   }
 }
 
-export default async function DescargarPage() {
+export default async function DescargarPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations("descargar");
   const version = await getLatestVersion();
   const requisitos = t.raw("requisitos") as string[];
   const obsSteps = t.raw("obsSteps") as string[];
 
+  const downloadJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Muxlyve",
+    applicationCategory: "MultimediaApplication",
+    operatingSystem: "Windows, macOS",
+    softwareVersion: version,
+    downloadUrl: `${DL_BASE}/descargar`,
+    url: `${DL_BASE}/descargar`,
+    publisher: {
+      "@type": "Organization",
+      name: "BlacKraken Solutions",
+      url: "https://blackraken.com",
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(downloadJsonLd) }}
+      />
       <Nav />
       <main id="main-content">
         <section>

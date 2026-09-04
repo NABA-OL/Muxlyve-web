@@ -1,5 +1,5 @@
 /*
- * Propiedad de BlacKraken Solutions
+ * Propiedad de BlacKraken Solutions <blackraken.com>
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
  *  * Correo: nabaol.dev@gmail.com
@@ -7,7 +7,7 @@
  */
 
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { buildAlternates } from "@/lib/i18n-meta";
 import styles from "../legal.module.css";
@@ -22,10 +22,18 @@ export async function generateMetadata({
   return {
     alternates: buildAlternates(locale, "/privacidad"),
     title: t("title"),
+    description: t("description"),
   };
 }
 
-export default async function PrivacidadPage() {
+export default async function PrivacidadPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations("privacidad");
   const s1items = t.raw("s1items") as string[];
   const s2items = t.raw("s2items") as string[];

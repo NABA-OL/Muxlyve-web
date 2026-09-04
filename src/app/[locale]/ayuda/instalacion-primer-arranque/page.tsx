@@ -1,5 +1,5 @@
 /*
- * Propiedad de BlacKraken Solutions
+ * Propiedad de BlacKraken Solutions <blackraken.com>
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
  *  * Correo: nabaol.dev@gmail.com
@@ -7,6 +7,7 @@
  */
 
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import { ArticleLayout } from "@/components/help/ArticleLayout";
 import { ArticleBody } from "@/components/help/ArticleBody";
 import { ArticleJsonLd } from "@/components/help/ArticleJsonLd";
@@ -24,7 +25,14 @@ export async function generateMetadata({
   return buildArticleMetadata(locale, SLUG);
 }
 
-export default async function Page() {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const jsonLd = await buildHowToJsonLd(SLUG);
   return (
     <ArticleLayout slug={SLUG}>

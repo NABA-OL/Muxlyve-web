@@ -1,5 +1,5 @@
 /*
- * Propiedad de BlacKraken Solutions
+ * Propiedad de BlacKraken Solutions <blackraken.com>
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
  *  * Correo: nabaol.dev@gmail.com
@@ -42,7 +42,12 @@ export async function ArticleBody({
   const t = await getTranslations(`help.articles.${slug}`);
   const tHelp = await getTranslations("help");
   const shots = t.raw("shots") as Shot[];
-  const highlights = t.raw("highlights") as string[] | undefined;
+  // No todos los artículos tienen highlights (los que no traen <tldr>). t.raw
+  // registra un MISSING_MESSAGE si la clave no existe, así que se consulta con
+  // t.has antes de leerla.
+  const highlights = t.has("highlights")
+    ? (t.raw("highlights") as string[])
+    : undefined;
 
   return (
     <>

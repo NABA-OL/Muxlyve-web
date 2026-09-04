@@ -1,5 +1,5 @@
 /*
- * Propiedad de BlacKraken Solutions
+ * Propiedad de BlacKraken Solutions <blackraken.com>
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
  *  * Correo: nabaol.dev@gmail.com
@@ -7,7 +7,7 @@
  */
 
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { HELP_ARTICLES } from "@/lib/help-articles";
 import { buildAlternates } from "@/lib/i18n-meta";
@@ -27,11 +27,41 @@ export async function generateMetadata({
   };
 }
 
-export default async function AyudaPage() {
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muxlyve.com";
+
+export default async function AyudaPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations("help");
+
+  const collectionJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: t("indexTitle"),
+    description: t("indexIntro"),
+    url: `${BASE}/ayuda`,
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: HELP_ARTICLES.map((a, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: t(`articles.${a.slug}.title`),
+        url: `${BASE}/ayuda/${a.slug}`,
+      })),
+    },
+  };
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+      />
       <h1 className={styles.articleTitle}>{t("indexTitle")}</h1>
       <p className={styles.intro}>{t("indexIntro")}</p>
       <div className={styles.grid}>

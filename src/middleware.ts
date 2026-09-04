@@ -1,5 +1,5 @@
 /*
- * Propiedad de BlacKraken Solutions
+ * Propiedad de BlacKraken Solutions <blackraken.com>
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
  *  * Correo: nabaol.dev@gmail.com
@@ -70,6 +70,18 @@ function notAcceptable(): NextResponse {
   );
 }
 
+/**
+ * next-intl escribe `NEXT_LOCALE` en cada respuesta. Con `Set-Cookie` presente,
+ * Vercel marca la respuesta como `private, no-store`: cero caché de CDN, ~500ms
+ * de TTFB y una invocación de función por visita. Con `localeDetection: false`
+ * la cookie ya no decide nada (manda la URL) y el selector de idioma navega por
+ * ruta, así que se puede quitar sin cambiar comportamiento.
+ */
+function stripLocaleCookie(res: NextResponse): NextResponse {
+  res.headers.delete("set-cookie");
+  return res;
+}
+
 function contentMiddleware(req: NextRequest): NextResponse {
   const { pathname } = req.nextUrl;
 
@@ -104,12 +116,12 @@ function contentMiddleware(req: NextRequest): NextResponse {
       return res;
     }
 
-    const res = intlMiddleware(req);
+    const res = stripLocaleCookie(intlMiddleware(req));
     appendVaryAccept(res.headers);
     return res;
   }
 
-  return intlMiddleware(req);
+  return stripLocaleCookie(intlMiddleware(req));
 }
 
 async function adminMiddleware(req: NextRequest) {

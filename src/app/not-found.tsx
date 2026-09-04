@@ -1,5 +1,5 @@
 /*
- * Propiedad de BlacKraken Solutions
+ * Propiedad de BlacKraken Solutions <blackraken.com>
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
  *  * Correo: nabaol.dev@gmail.com
@@ -52,10 +52,13 @@ export default function NotFound() {
           </div>
           <p
             className="section-lead"
-            style={{ marginInline: "auto", marginTop: "2rem", fontSize: "0.9rem" }}
+            style={{
+              marginInline: "auto",
+              marginTop: "2rem",
+              fontSize: "0.9rem",
+            }}
           >
-            También podés revisar el{" "}
-            <a href="/sitemap.xml">mapa del sitio</a> o{" "}
+            También podés revisar el <a href="/sitemap.xml">mapa del sitio</a> o{" "}
             <a href="/llms.txt">llms.txt</a> para ver todas las páginas
             disponibles.
           </p>

@@ -1,5 +1,5 @@
 /*
- * Propiedad de BlacKraken Solutions
+ * Propiedad de BlacKraken Solutions <blackraken.com>
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-27
  */
@@ -26,67 +26,92 @@ export const metadata: Metadata = {
   },
 };
 
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contacto — Muxlyve",
+  url: `${BASE}/contact`,
+  mainEntity: {
+    "@type": "Organization",
+    name: "BlacKraken Solutions",
+    url: "https://blackraken.com",
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        email: "soporte@muxlyve.com",
+        contactType: "customer support",
+        availableLanguage: ["Spanish", "English", "Portuguese", "French"],
+      },
+    ],
+  },
+};
+
 export default function ContactPage() {
   return (
-    <main
-      className={styles.legal}
-      style={{
-        maxWidth: 720,
-        margin: "0 auto",
-        padding: "3rem 1.5rem",
-        fontFamily: "system-ui, sans-serif",
-        lineHeight: 1.7,
-      }}
-    >
-      <h1>Contacto</h1>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
+      />
+      <main
+        className={styles.legal}
+        style={{
+          maxWidth: 720,
+          margin: "0 auto",
+          padding: "3rem 1.5rem",
+          fontFamily: "system-ui, sans-serif",
+          lineHeight: 1.7,
+        }}
+      >
+        <h1>Contacto</h1>
 
-      <h2>Soporte técnico</h2>
-      <p>
-        Para dudas de uso, activación de licencia o problemas técnicos,
-        escribe a <a href="mailto:soporte@muxlyve.com">soporte@muxlyve.com</a>
-        . También puedes revisar el{" "}
-        <a href="/ayuda">centro de ayuda</a> antes de escribir, la mayoría de
-        dudas frecuentes ya están documentadas ahí.
-      </p>
+        <h2>Soporte técnico</h2>
+        <p>
+          Para dudas de uso, activación de licencia o problemas técnicos,
+          escribe a <a href="mailto:soporte@muxlyve.com">soporte@muxlyve.com</a>
+          . También puedes revisar el <a href="/ayuda">centro de ayuda</a> antes
+          de escribir, la mayoría de dudas frecuentes ya están documentadas ahí.
+        </p>
 
-      <h2>Reportar un error</h2>
-      <p>
-        Desde la propia aplicación, el botón &quot;Reportar un
-        problema&quot; adjunta automáticamente los logs relevantes. Si
-        prefieres no usar ese flujo, escribe directo a{" "}
-        <a href="mailto:soporte@muxlyve.com">soporte@muxlyve.com</a>{" "}
-        describiendo qué pasó.
-      </p>
+        <h2>Reportar un error</h2>
+        <p>
+          Desde la propia aplicación, el botón &quot;Reportar un problema&quot;
+          adjunta automáticamente los logs relevantes. Si prefieres no usar ese
+          flujo, escribe directo a{" "}
+          <a href="mailto:soporte@muxlyve.com">soporte@muxlyve.com</a>{" "}
+          describiendo qué pasó.
+        </p>
 
-      <h2>Comunidad</h2>
-      <p>
-        Únete al{" "}
-        <a
-          href="https://discord.gg/ttRqRkAG"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Discord de Muxlyve
-        </a>{" "}
-        para hablar con otros streamers que usan la app y con el equipo de
-        desarrollo.
-      </p>
+        <h2>Comunidad</h2>
+        <p>
+          Únete al{" "}
+          <a
+            href="https://discord.gg/ttRqRkAG"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Discord de Muxlyve
+          </a>{" "}
+          para hablar con otros streamers que usan la app y con el equipo de
+          desarrollo.
+        </p>
 
-      <h2>Gestión de licencia</h2>
-      <p>
-        Para activar, transferir o revisar el estado de tu licencia, usa{" "}
-        <a href="/gestionar-licencia">gestionar licencia</a>.
-      </p>
+        <h2>Gestión de licencia</h2>
+        <p>
+          Para activar, transferir o revisar el estado de tu licencia, usa{" "}
+          <a href="/gestionar-licencia">gestionar licencia</a>.
+        </p>
 
-      <h2>Prensa y alianzas</h2>
-      <p>
-        Para consultas comerciales o de prensa, usa el mismo correo:{" "}
-        <a href="mailto:soporte@muxlyve.com">soporte@muxlyve.com</a>.
-      </p>
+        <h2>Prensa y alianzas</h2>
+        <p>
+          Para consultas comerciales o de prensa, usa el mismo correo:{" "}
+          <a href="mailto:soporte@muxlyve.com">soporte@muxlyve.com</a>.
+        </p>
 
-      <a href="/" className={styles.back}>
-        ← Volver al inicio
-      </a>
-    </main>
+        <a href="/" className={styles.back}>
+          ← Volver al inicio
+        </a>
+      </main>
+    </>
   );
 }

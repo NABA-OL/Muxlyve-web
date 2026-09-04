@@ -1,5 +1,5 @@
 /*
- * Propiedad de BlacKraken Solutions
+ * Propiedad de BlacKraken Solutions <blackraken.com>
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
  *  * Correo: nabaol.dev@gmail.com
@@ -9,6 +9,7 @@
 import type { MetadataRoute } from "next";
 import { HELP_ARTICLES } from "@/lib/help-articles";
 import { routing, type Locale } from "@/i18n/routing";
+import { listAllPublished } from "@/lib/blog";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muxlyve.com";
 
@@ -34,9 +35,25 @@ function entry(
   }));
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  // Las entradas del blog viven en la base; si no responde, el sitemap sale
+  // igual con las rutas estáticas (listAllPublished ya devuelve [] si falla).
+  const posts = await listAllPublished();
+
   return [
     ...entry("/", "weekly", 1),
+    ...entry("/precio", "monthly", 0.9),
+    ...entry("/blog", "weekly", 0.7),
+    ...posts.map((p) => ({
+      url: localeUrl(p.locale, `/blog/${p.slug}`),
+      lastModified: new Date(p.updated_at),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+    ...["twitch-kick", "twitch-tiktok", "youtube-tiktok"].flatMap((combo) =>
+      entry(`/multistream/${combo}`, "monthly", 0.8),
+    ),
+    ...entry("/alternativa-restream", "monthly", 0.9),
     ...entry("/demo", "weekly", 0.8),
     ...entry("/descargar", "weekly", 0.9),
     ...entry("/ayuda", "monthly", 0.7),

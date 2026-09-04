@@ -1,4 +1,4 @@
-// Propiedad de BlacKraken Solutions
+// Propiedad de BlacKraken Solutions <blackraken.com>
 // Desarrollado por NABA-OL
 // Lógica de chat compartida entre las 3 vistas (panel principal, popout de chat, overlay
 // de OBS) — antes vivía triplicada (una copia por vista), un fix en una se olvidaba en
