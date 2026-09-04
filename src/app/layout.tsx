@@ -1,5 +1,5 @@
 /*
- * Propiedad de BlacKraken Solutions
+ * Propiedad de BlacKraken Solutions <blackraken.com>
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-13
  *  * Correo: nabaol.dev@gmail.com
@@ -30,10 +30,23 @@ export const metadata: Metadata = {
   title: "Muxlyve — Multistreaming a Twitch, Kick, YouTube y TikTok",
   description: claim,
   keywords: [
-    "multistreaming", "multistream windows", "transmitir twitch kick youtube tiktok",
-    "software multistream", "multistreaming sin marca de agua", "alternativa restream",
-    "multistream", "transmitir varias plataformas", "OBS multistream", "OBS",
-    "Twitch", "Kick", "YouTube", "TikTok", "Streaming", "Live", "En vivo"
+    "multistreaming",
+    "multistream windows",
+    "transmitir twitch kick youtube tiktok",
+    "software multistream",
+    "multistreaming sin marca de agua",
+    "alternativa restream",
+    "multistream",
+    "transmitir varias plataformas",
+    "OBS multistream",
+    "OBS",
+    "Twitch",
+    "Kick",
+    "YouTube",
+    "TikTok",
+    "Streaming",
+    "Live",
+    "En vivo",
   ],
   icons: { icon: "/icon-muxlyve.svg", shortcut: "/favicon.ico" },
   alternates: { canonical: BASE },
@@ -48,7 +61,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Muxlyve — Multistreaming",
-    description: "Transmite a Twitch, Kick, YouTube y TikTok a la vez. Sin marca de agua.",
+    description:
+      "Transmite a Twitch, Kick, YouTube y TikTok a la vez. Sin marca de agua.",
   },
 };
 

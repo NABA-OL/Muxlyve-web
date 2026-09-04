@@ -1,5 +1,5 @@
 /*
- * Propiedad de BlacKraken Solutions
+ * Propiedad de BlacKraken Solutions <blackraken.com>
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-09-03
  */
@@ -70,7 +70,9 @@ export default async function PrecioPage({
               }}
             >
               {t("precio.note")}{" "}
-              <Link href="/alternativa-restream">{t("precio.compareLink")}</Link>
+              <Link href="/alternativa-restream">
+                {t("precio.compareLink")}
+              </Link>
             </p>
           </div>
         </section>

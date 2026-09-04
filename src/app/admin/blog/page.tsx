@@ -1,5 +1,5 @@
 /*
- * Propiedad de BlacKraken Solutions
+ * Propiedad de BlacKraken Solutions <blackraken.com>
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-09-03
  */
@@ -52,7 +52,9 @@ export default async function AdminBlogPage({
   const canTranslate = isTranslationEnabled();
 
   return (
-    <main style={{ padding: "2rem 1.5rem", maxWidth: "980px", margin: "0 auto" }}>
+    <main
+      style={{ padding: "2rem 1.5rem", maxWidth: "980px", margin: "0 auto" }}
+    >
       <h1 style={{ fontSize: "1.6rem", marginBottom: "0.4rem" }}>Blog</h1>
       <p
         style={{

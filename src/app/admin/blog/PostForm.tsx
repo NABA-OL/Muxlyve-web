@@ -1,7 +1,7 @@
 "use client";
 
 /*
- * Propiedad de BlacKraken Solutions
+ * Propiedad de BlacKraken Solutions <blackraken.com>
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-09-03
  */

@@ -1,5 +1,5 @@
 /*
- * Propiedad de BlacKraken Solutions
+ * Propiedad de BlacKraken Solutions <blackraken.com>
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-09-03
  */
@@ -51,122 +51,114 @@ export async function PricingPlans() {
   ) as string[];
 
   return (
-      <div className={`${styles.pricingGrid} reveal`}>
-        {/* Mensual */}
-        {monthlyVisible && (
-          <div className={styles.planCard}>
-            <span className="eyebrow">
-              {t("landing.precio.mensual.label")}
-            </span>
-            <div className={styles.amount}>
-              {fmt(priceMonthly) ? (
-                <>
-                  {fmt(priceMonthly)}
-                  <small>{t("landing.precio.mensual.suffix")}</small>
-                </>
-              ) : (
-                <span className={styles.amountPending}>
-                  {t("landing.precio.pricePending")}
-                </span>
-              )}
-            </div>
-            <ul className={styles.includes}>
-              {mensualIncludes.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <a
-              className="btn btn-ghost"
-              href="https://checkout.freemius.com/mode/page/plugin/32832/plan/53907/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ width: "100%", justifyContent: "center" }}
-            >
-              {t("landing.precio.mensual.cta")}
-            </a>
+    <div className={`${styles.pricingGrid} reveal`}>
+      {/* Mensual */}
+      {monthlyVisible && (
+        <div className={styles.planCard}>
+          <span className="eyebrow">{t("landing.precio.mensual.label")}</span>
+          <div className={styles.amount}>
+            {fmt(priceMonthly) ? (
+              <>
+                {fmt(priceMonthly)}
+                <small>{t("landing.precio.mensual.suffix")}</small>
+              </>
+            ) : (
+              <span className={styles.amountPending}>
+                {t("landing.precio.pricePending")}
+              </span>
+            )}
           </div>
-        )}
+          <ul className={styles.includes}>
+            {mensualIncludes.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <a
+            className="btn btn-ghost"
+            href="https://checkout.freemius.com/mode/page/plugin/32832/plan/53907/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ width: "100%", justifyContent: "center" }}
+          >
+            {t("landing.precio.mensual.cta")}
+          </a>
+        </div>
+      )}
 
-        {/* Anual */}
-        {annualVisible && (
-          <div className={styles.planCard}>
-            <div className={styles.planBadge}>
-              {t("landing.precio.anual.badge")}
-            </div>
-            <span className="eyebrow">
-              {t("landing.precio.anual.label")}
-            </span>
-            <div className={styles.amount}>
-              {fmt(priceAnnual) ? (
-                <>
-                  {fmt(priceAnnual)}
-                  <small>{t("landing.precio.anual.suffix")}</small>
-                </>
-              ) : (
-                <span className={styles.amountPending}>
-                  {t("landing.precio.pricePending")}
-                </span>
-              )}
-            </div>
-            <ul className={styles.includes}>
-              {anualIncludes.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <a
-              className="btn btn-ghost"
-              href="https://checkout.freemius.com/mode/page/plugin/32832/plan/53907/?billing_cycle=annual"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ width: "100%", justifyContent: "center" }}
-            >
-              {t("landing.precio.anual.cta")}
-            </a>
+      {/* Anual */}
+      {annualVisible && (
+        <div className={styles.planCard}>
+          <div className={styles.planBadge}>
+            {t("landing.precio.anual.badge")}
           </div>
-        )}
+          <span className="eyebrow">{t("landing.precio.anual.label")}</span>
+          <div className={styles.amount}>
+            {fmt(priceAnnual) ? (
+              <>
+                {fmt(priceAnnual)}
+                <small>{t("landing.precio.anual.suffix")}</small>
+              </>
+            ) : (
+              <span className={styles.amountPending}>
+                {t("landing.precio.pricePending")}
+              </span>
+            )}
+          </div>
+          <ul className={styles.includes}>
+            {anualIncludes.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <a
+            className="btn btn-ghost"
+            href="https://checkout.freemius.com/mode/page/plugin/32832/plan/53907/?billing_cycle=annual"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ width: "100%", justifyContent: "center" }}
+          >
+            {t("landing.precio.anual.cta")}
+          </a>
+        </div>
+      )}
 
-        {/* Vitalicia — destacada */}
-        {lifetimeVisible && (
-          <div className={`${styles.planCard} ${styles.planFeatured}`}>
-            <div
-              className={`${styles.planBadge} ${styles.planBadgeFeatured}`}
-            >
-              {t("landing.precio.vitalicia.badge")}
-            </div>
-            <span className="eyebrow">
-              {t("landing.precio.vitalicia.label")}
-            </span>
-            <div className={styles.amount}>
-              {fmt(priceLifetime) ? (
-                <>
-                  {fmt(priceLifetime)}
-                  <small> {t("landing.precio.vitalicia.suffix")}</small>
-                </>
-              ) : (
-                <span className={styles.amountPending}>
-                  {t("landing.precio.pricePending")}
-                </span>
-              )}
-            </div>
-            <p className={styles.planTagline}>
-              {t("landing.precio.vitalicia.tagline")}
-            </p>
-            <ul className={styles.includes}>
-              {vitaliciaIncludes.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <a
-              className="btn btn-primary"
-              href="https://checkout.freemius.com/mode/page/plugin/32832/plan/53899/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ width: "100%", justifyContent: "center" }}
-            >
-              {t("landing.precio.vitalicia.cta")}
-            </a>
+      {/* Vitalicia — destacada */}
+      {lifetimeVisible && (
+        <div className={`${styles.planCard} ${styles.planFeatured}`}>
+          <div className={`${styles.planBadge} ${styles.planBadgeFeatured}`}>
+            {t("landing.precio.vitalicia.badge")}
           </div>
-        )}
-      </div>
+          <span className="eyebrow">{t("landing.precio.vitalicia.label")}</span>
+          <div className={styles.amount}>
+            {fmt(priceLifetime) ? (
+              <>
+                {fmt(priceLifetime)}
+                <small> {t("landing.precio.vitalicia.suffix")}</small>
+              </>
+            ) : (
+              <span className={styles.amountPending}>
+                {t("landing.precio.pricePending")}
+              </span>
+            )}
+          </div>
+          <p className={styles.planTagline}>
+            {t("landing.precio.vitalicia.tagline")}
+          </p>
+          <ul className={styles.includes}>
+            {vitaliciaIncludes.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <a
+            className="btn btn-primary"
+            href="https://checkout.freemius.com/mode/page/plugin/32832/plan/53899/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ width: "100%", justifyContent: "center" }}
+          >
+            {t("landing.precio.vitalicia.cta")}
+          </a>
+        </div>
+      )}
+    </div>
   );
 }

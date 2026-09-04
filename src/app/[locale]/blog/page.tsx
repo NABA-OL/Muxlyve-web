@@ -1,5 +1,5 @@
 /*
- * Propiedad de BlacKraken Solutions
+ * Propiedad de BlacKraken Solutions <blackraken.com>
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-09-03
  */
@@ -60,7 +60,10 @@ export default async function BlogIndexPage({
               <div className={styles.grid}>
                 {posts.map((post) => (
                   <article key={post.id} className="card">
-                    <Link href={`/blog/${post.slug}`} className={styles.cardLink}>
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className={styles.cardLink}
+                    >
                       <h2 className={styles.cardTitle}>{post.title}</h2>
                       {post.excerpt && (
                         <p className={styles.cardExcerpt}>{post.excerpt}</p>
@@ -70,11 +73,14 @@ export default async function BlogIndexPage({
                           className={styles.date}
                           dateTime={new Date(post.published_at).toISOString()}
                         >
-                          {new Date(post.published_at).toLocaleDateString(locale, {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                          })}
+                          {new Date(post.published_at).toLocaleDateString(
+                            locale,
+                            {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            },
+                          )}
                         </time>
                       )}
                     </Link>

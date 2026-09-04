@@ -1,5 +1,5 @@
 /*
- * Propiedad de BlacKraken Solutions
+ * Propiedad de BlacKraken Solutions <blackraken.com>
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-27
  */
@@ -10,7 +10,10 @@ import styles from "../[locale]/legal.module.css";
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muxlyve.com";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations({ locale: "es", namespace: "privacidad.meta" });
+  const t = await getTranslations({
+    locale: "es",
+    namespace: "privacidad.meta",
+  });
   return {
     title: t("title"),
     // /privacy es un alias en ruta fija (sin prefijo de locale) del mismo
