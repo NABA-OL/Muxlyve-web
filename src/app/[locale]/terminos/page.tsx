@@ -7,7 +7,7 @@
  */
 
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { buildAlternates } from "@/lib/i18n-meta";
 import styles from "../legal.module.css";
@@ -22,10 +22,18 @@ export async function generateMetadata({
   return {
     alternates: buildAlternates(locale, "/terminos"),
     title: t("title"),
+    description: t("description"),
   };
 }
 
-export default async function TerminosPage() {
+export default async function TerminosPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations("terminos");
 
   return (

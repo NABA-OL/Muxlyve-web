@@ -28,6 +28,7 @@ export async function generateMetadata({
   return {
     alternates: buildAlternates(locale, "/gestionar-licencia"),
     title: t("title"),
+    description: t("description"),
   };
 }
 

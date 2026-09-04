@@ -9,11 +9,12 @@
 import fs from "node:fs";
 import path from "node:path";
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { VideoShowcase } from "@/components/VideoShowcase";
+import { PricingPlans } from "@/components/PricingPlans";
 import { Footer } from "@/components/Footer";
 import { RevealObserver } from "@/components/RevealObserver";
 import { PlatformIcon } from "@/components/PlatformIcon";
@@ -79,7 +80,7 @@ const jsonLd = {
   publisher: {
     "@type": "Organization",
     name: "BlacKraken Solutions",
-    url: "https://blackraken.vercel.app",
+    url: "https://blackraken.com",
   },
   featureList: [
     "Multistreaming sin marca de agua",
@@ -115,7 +116,7 @@ const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "BlacKraken Solutions",
-  url: "https://blackraken.vercel.app",
+  url: "https://blackraken.com",
   logo: `${BASE}/icon-muxlyve.svg`,
   address: {
     "@type": "PostalAddress",
@@ -125,7 +126,7 @@ const organizationJsonLd = {
     addressCountry: "CO",
   },
   sameAs: [
-    "https://blackraken.vercel.app",
+    "https://blackraken.com",
     "https://github.com/nabaol",
     "https://discord.gg/ttRqRkAG",
     "https://marketplace.elgato.com/@blackraken",
@@ -151,6 +152,8 @@ interface Feature {
   body: string;
   link?: boolean;
   linkLabel?: string;
+  /** slug de /ayuda a enlazar desde la tarjeta — reparte enlaces internos a los artículos */
+  helpSlug?: string;
   wide?: boolean;
 }
 
@@ -159,47 +162,34 @@ interface FeatureGroup {
   features: Feature[];
 }
 
-export default async function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations();
 
   const streamDeckMockupExists = fs.existsSync(
     path.join(process.cwd(), "public", "streamdeck-mockup.png"),
   );
-  let priceMonthly = "";
-  let priceAnnual = "";
-  let priceLifetime = "";
-  let monthlyVisible = true;
-  let annualVisible = true;
-  let lifetimeVisible = true;
   let promoActive = false;
   let promoText = "";
   let promoCoupon = "";
   try {
     await ensureSchema();
     const settings = await Promise.all([
-      getSetting("price_monthly"),
-      getSetting("price_annual"),
-      getSetting("price_lifetime"),
-      getSetting("plan_monthly_visible", "true"),
-      getSetting("plan_annual_visible", "true"),
-      getSetting("plan_lifetime_visible", "true"),
       getSetting("promo_active", "false"),
       getSetting("promo_text"),
       getSetting("promo_coupon"),
     ]);
-    [priceMonthly, priceAnnual, priceLifetime] = settings;
-    monthlyVisible = settings[3] !== "false";
-    annualVisible = settings[4] !== "false";
-    lifetimeVisible = settings[5] !== "false";
-    promoActive = settings[6] === "true";
-    promoText = settings[7];
-    promoCoupon = settings[8];
+    promoActive = settings[0] === "true";
+    promoText = settings[1];
+    promoCoupon = settings[2];
   } catch {
     // DB unavailable — show placeholders
-  }
-
-  function fmt(v: string) {
-    return v ? `$${v}` : null;
   }
 
   const STEPS = t.raw("landing.comoFunciona.steps") as Step[];
@@ -207,11 +197,6 @@ export default async function Home() {
     "landing.caracteristicas.groups",
   ) as FeatureGroup[];
   const COMPARE = t.raw("landing.queHace.compare") as string[];
-  const mensualIncludes = t.raw("landing.precio.mensual.includes") as string[];
-  const anualIncludes = t.raw("landing.precio.anual.includes") as string[];
-  const vitaliciaIncludes = t.raw(
-    "landing.precio.vitalicia.includes",
-  ) as string[];
 
   return (
     <>
@@ -263,12 +248,22 @@ export default async function Home() {
         {YOUTUBE_VIDEO_ID && (
           <section id="video">
             <div className="container">
-              <div className="reveal" style={{ textAlign: "center", maxWidth: "640px", margin: "0 auto 2.5rem" }}>
+              <div
+                className="reveal"
+                style={{
+                  textAlign: "center",
+                  maxWidth: "640px",
+                  margin: "0 auto 2.5rem",
+                }}
+              >
                 <span className="eyebrow">{t("landing.video.eyebrow")}</span>
                 <h2 className="section-title" style={{ marginInline: "auto" }}>
                   {t("landing.video.title")}
                 </h2>
-                <p className="section-lead" style={{ marginInline: "auto", marginTop: "1rem" }}>
+                <p
+                  className="section-lead"
+                  style={{ marginInline: "auto", marginTop: "1rem" }}
+                >
                   {t("landing.video.lead")}
                 </p>
               </div>
@@ -370,6 +365,14 @@ export default async function Home() {
                         >
                           {f.linkLabel} →
                         </a>
+                      )}
+                      {f.helpSlug && (
+                        <Link
+                          href={`/ayuda/${f.helpSlug}`}
+                          className={styles.featureLink}
+                        >
+                          {t("landing.caracteristicas.guideLink")} →
+                        </Link>
                       )}
                     </article>
                   ))}
@@ -505,123 +508,7 @@ export default async function Home() {
                 {t("landing.precio.lead")}
               </p>
             </div>
-            <div className={`${styles.pricingGrid} reveal`}>
-              {/* Mensual */}
-              {monthlyVisible && (
-                <div className={styles.planCard}>
-                  <span className="eyebrow">
-                    {t("landing.precio.mensual.label")}
-                  </span>
-                  <div className={styles.amount}>
-                    {fmt(priceMonthly) ? (
-                      <>
-                        {fmt(priceMonthly)}
-                        <small>{t("landing.precio.mensual.suffix")}</small>
-                      </>
-                    ) : (
-                      <span className={styles.amountPending}>
-                        {t("landing.precio.pricePending")}
-                      </span>
-                    )}
-                  </div>
-                  <ul className={styles.includes}>
-                    {mensualIncludes.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                  <a
-                    className="btn btn-ghost"
-                    href="https://checkout.freemius.com/mode/page/plugin/32832/plan/53907/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ width: "100%", justifyContent: "center" }}
-                  >
-                    {t("landing.precio.mensual.cta")}
-                  </a>
-                </div>
-              )}
-
-              {/* Anual */}
-              {annualVisible && (
-                <div className={styles.planCard}>
-                  <div className={styles.planBadge}>
-                    {t("landing.precio.anual.badge")}
-                  </div>
-                  <span className="eyebrow">
-                    {t("landing.precio.anual.label")}
-                  </span>
-                  <div className={styles.amount}>
-                    {fmt(priceAnnual) ? (
-                      <>
-                        {fmt(priceAnnual)}
-                        <small>{t("landing.precio.anual.suffix")}</small>
-                      </>
-                    ) : (
-                      <span className={styles.amountPending}>
-                        {t("landing.precio.pricePending")}
-                      </span>
-                    )}
-                  </div>
-                  <ul className={styles.includes}>
-                    {anualIncludes.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                  <a
-                    className="btn btn-ghost"
-                    href="https://checkout.freemius.com/mode/page/plugin/32832/plan/53907/?billing_cycle=annual"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ width: "100%", justifyContent: "center" }}
-                  >
-                    {t("landing.precio.anual.cta")}
-                  </a>
-                </div>
-              )}
-
-              {/* Vitalicia — destacada */}
-              {lifetimeVisible && (
-                <div className={`${styles.planCard} ${styles.planFeatured}`}>
-                  <div
-                    className={`${styles.planBadge} ${styles.planBadgeFeatured}`}
-                  >
-                    {t("landing.precio.vitalicia.badge")}
-                  </div>
-                  <span className="eyebrow">
-                    {t("landing.precio.vitalicia.label")}
-                  </span>
-                  <div className={styles.amount}>
-                    {fmt(priceLifetime) ? (
-                      <>
-                        {fmt(priceLifetime)}
-                        <small> {t("landing.precio.vitalicia.suffix")}</small>
-                      </>
-                    ) : (
-                      <span className={styles.amountPending}>
-                        {t("landing.precio.pricePending")}
-                      </span>
-                    )}
-                  </div>
-                  <p className={styles.planTagline}>
-                    {t("landing.precio.vitalicia.tagline")}
-                  </p>
-                  <ul className={styles.includes}>
-                    {vitaliciaIncludes.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                  <a
-                    className="btn btn-primary"
-                    href="https://checkout.freemius.com/mode/page/plugin/32832/plan/53899/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ width: "100%", justifyContent: "center" }}
-                  >
-                    {t("landing.precio.vitalicia.cta")}
-                  </a>
-                </div>
-              )}
-            </div>
+            <PricingPlans />
           </div>
         </section>
 

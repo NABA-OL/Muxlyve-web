@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Muxlyve — Multistreaming",
+    "title": "Muxlyve — Transmita para Twitch, Kick, YouTube e TikTok",
     "description": "Software de multistreaming para Windows. Transmita para Twitch, Kick, YouTube e TikTok ao mesmo tempo, sem marca d'água.",
     "twitterDescription": "Transmita para Twitch, Kick, YouTube e TikTok ao mesmo tempo. Sem marca d'água."
   },
@@ -17,6 +17,243 @@
     "menu": "Menu",
     "scrollTop": "Voltar ao topo"
   },
+  "precio": {
+    "meta": {
+      "title": "Preço do Muxlyve: mensal, anual ou licença vitalícia",
+      "description": "Planos do Muxlyve para multistreaming sem marca d'água: assinatura mensal, anual ou licença vitalícia de pagamento único. Sem cobrança por horas transmitidas."
+    },
+    "title": "Preço do Muxlyve",
+    "lead": "Multistreaming sem marca d'água, do seu próprio equipamento. Escolha assinatura ou licença vitalícia de pagamento único — sem cobrança por hora transmitida nem por banda.",
+    "note": "Vem de um serviço na nuvem?",
+    "compareLink": "Veja a comparação ponto a ponto"
+  },
+  "combos": {
+    "shared": {
+      "ctaDownload": "Baixar o Muxlyve",
+      "ctaDemo": "Ver a demo",
+      "stepsTitle": "Como configurar",
+      "notesTitle": "Coisas que vale saber",
+      "relatedPrefix": "Também pode servir:",
+      "relatedCompare": "comparação com serviços na nuvem",
+      "relatedHelp": "guia de conexão de plataformas",
+      "relatedPricing": "preço"
+    },
+    "twitch-kick": {
+      "meta": {
+        "title": "Transmitir na Twitch e Kick ao mesmo tempo, sem marca d'água",
+        "description": "Como transmitir simultaneamente para Twitch e Kick a partir do OBS com o Muxlyve: um único sinal, sem recodificar, sem marca d'água e com o chat das duas unificado."
+      },
+      "title": "Transmita na Twitch e na Kick ao mesmo tempo",
+      "lead": "Um único sinal do OBS chega às duas plataformas ao mesmo tempo. Sem recodificar, sem marca d'água e com as mensagens dos dois chats em uma só janela.",
+      "steps": [
+        {
+          "title": "Aponte seu codificador para o Muxlyve",
+          "body": "No OBS (ou Streamlabs, XSplit, vMix, N.Air), coloque o Muxlyve como servidor de saída RTMP. Nada mais muda na sua configuração."
+        },
+        {
+          "title": "Conecte a Twitch com um clique",
+          "body": "A Twitch é vinculada por OAuth: você autoriza a conta e o Muxlyve obtém a chave de transmissão sozinho, sem copiar nada à mão."
+        },
+        {
+          "title": "Conecte a Kick com um clique",
+          "body": "A Kick também é vinculada por OAuth dentro do app, igual à Twitch."
+        },
+        {
+          "title": "Ative os dois destinos e transmita",
+          "body": "Ligue os dois e comece a transmitir. O Muxlyve retransmite o mesmo sinal para as duas plataformas sem recodificar."
+        }
+      ],
+      "notes": [
+        "Essa é a combinação com melhor suporte de chat: o chat unificado mostra Twitch e Kick juntos, e você responde às duas na mesma janela.",
+        "A moderação (timeout, ban) hoje funciona só na Twitch.",
+        "Você precisa de upload suficiente para as duas: aproximadamente o dobro do seu bitrate.",
+        "Se uma delas cair, o Muxlyve reconecta sozinho sem cortar a outra."
+      ]
+    },
+    "twitch-tiktok": {
+      "meta": {
+        "title": "Transmitir na Twitch e no TikTok Live ao mesmo tempo pelo PC",
+        "description": "Como transmitir para Twitch e TikTok Live simultaneamente pelo OBS com o Muxlyve, incluindo a chave RTMP do TikTok que se regenera a cada ~2 horas."
+      },
+      "title": "Transmita na Twitch e no TikTok Live ao mesmo tempo",
+      "lead": "Alcance sua comunidade da Twitch e o alcance do TikTok Live com uma única transmissão do seu PC, sem marca d'água nem serviços intermediários.",
+      "steps": [
+        {
+          "title": "Aponte seu codificador para o Muxlyve",
+          "body": "Configure o Muxlyve como servidor RTMP de saída no OBS, Streamlabs, XSplit, vMix ou N.Air."
+        },
+        {
+          "title": "Conecte a Twitch por OAuth",
+          "body": "Você autoriza a conta uma vez e o Muxlyve traz a chave de transmissão sem você copiar."
+        },
+        {
+          "title": "Cole a chave RTMP do TikTok",
+          "body": "O TikTok não oferece OAuth para isso: copie a URL e a chave que o TikTok Live Studio fornece e cole no destino do TikTok."
+        },
+        {
+          "title": "Ative os dois e transmita",
+          "body": "Ligue os dois destinos. O mesmo sinal sai para Twitch e TikTok sem recodificar."
+        }
+      ],
+      "notes": [
+        "O TikTok regenera a chave de transmissão a cada ~2 horas. É uma limitação da plataforma deles: em transmissões longas você terá que colar de novo.",
+        "O TikTok Live tem requisitos próprios de conta (mínimo de seguidores conforme a região) para habilitar o RTMP.",
+        "O chat unificado cobre Twitch e Kick; o chat do TikTok não está integrado.",
+        "Você precisa de upload para os dois destinos: aproximadamente o dobro do seu bitrate."
+      ]
+    },
+    "youtube-tiktok": {
+      "meta": {
+        "title": "Transmitir no YouTube e no TikTok Live ao mesmo tempo",
+        "description": "Como transmitir simultaneamente para YouTube Live e TikTok Live do seu PC com o Muxlyve: OAuth no YouTube, chave RTMP no TikTok e um único sinal sem recodificar."
+      },
+      "title": "Transmita no YouTube e no TikTok Live ao mesmo tempo",
+      "lead": "Publique no YouTube, que deixa o vídeo no canal para depois, e no TikTok Live ao mesmo tempo — com uma única transmissão do seu equipamento.",
+      "steps": [
+        {
+          "title": "Aponte seu codificador para o Muxlyve",
+          "body": "Configure o Muxlyve como servidor RTMP de saída no software que você já usa."
+        },
+        {
+          "title": "Conecte o YouTube por OAuth",
+          "body": "Autorize seu canal e o Muxlyve obtém a URL e a chave RTMP da sua transmissão, sem procurar no YouTube Studio."
+        },
+        {
+          "title": "Cole a chave RTMP do TikTok",
+          "body": "Copie a URL e a chave do TikTok Live Studio e cole no destino do TikTok."
+        },
+        {
+          "title": "Ative os dois e transmita",
+          "body": "Ligue os dois destinos e vá ao vivo. Um sinal, duas plataformas, sem recodificar."
+        }
+      ],
+      "notes": [
+        "O Muxlyve só lê da sua conta do YouTube o necessário (canal, chave RTMP, chat e espectadores): nunca publica, modifica nem exclui nada.",
+        "A chave do TikTok se regenera a cada ~2 horas; em transmissões longas é preciso colar de novo.",
+        "O YouTube mantém a transmissão no seu canal ao terminar, útil para reaproveitar o conteúdo.",
+        "O chat unificado cobre Twitch e Kick; YouTube e TikTok não estão integrados nessa janela."
+      ]
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog",
+      "description": "Guias, comparações e notas técnicas sobre multistreaming do seu próprio equipamento: qualidade, banda, plataformas e fluxo de trabalho."
+    },
+    "eyebrow": "Blog",
+    "title": "Blog do Muxlyve",
+    "lead": "Notas técnicas e guias sobre multistreaming: o que afeta a qualidade, quanto upload você precisa e como tirar mais do seu setup.",
+    "empty": "Ainda não há publicações.",
+    "backToIndex": "← Voltar ao blog"
+  },
+  "comparativa": {
+    "meta": {
+      "title": "Alternativa ao Restream: multistreaming do seu próprio PC",
+      "description": "Comparação honesta entre os serviços de multistreaming na nuvem e o Muxlyve, que retransmite do seu próprio equipamento: marca d'água, banda, custo e latência."
+    },
+    "eyebrow": "Comparação",
+    "title": "Uma alternativa ao Restream que roda na sua própria máquina",
+    "lead": "Os serviços na nuvem recebem seu sinal, retransmitem a partir dos servidores deles e cobram por isso. O Muxlyve faz a retransmissão do seu PC: sem marca d'água, sem banda de terceiros e sem mensalidade por horas transmitidas.",
+    "ctaPrimary": "Baixar o Muxlyve",
+    "ctaSecondary": "Testar a demo",
+    "ctaPrice": "Ver preço",
+    "tableTitle": "Nuvem vs. retransmissão local, ponto a ponto",
+    "colCriterio": "Critério",
+    "colNube": "Serviço na nuvem",
+    "rows": [
+      {
+        "criterio": "Marca d'água",
+        "nube": "Comum nos planos gratuitos",
+        "muxlyve": "Nunca, em nenhum plano"
+      },
+      {
+        "criterio": "Onde ocorre a retransmissão",
+        "nube": "Servidores do provedor",
+        "muxlyve": "Seu próprio equipamento"
+      },
+      {
+        "criterio": "Banda de upload",
+        "nube": "Um único upload para o serviço",
+        "muxlyve": "Um upload por plataforma ativa"
+      },
+      {
+        "criterio": "Modelo de cobrança",
+        "nube": "Assinatura mensal, às vezes por hora",
+        "muxlyve": "Mensal, anual ou licença vitalícia"
+      },
+      {
+        "criterio": "Recodificação",
+        "nube": "Frequente (afeta a qualidade e adiciona latência)",
+        "muxlyve": "Nenhuma: retransmite com -c copy"
+      },
+      {
+        "criterio": "Dependência de terceiros",
+        "nube": "Se o serviço cair, sua transmissão cai junto",
+        "muxlyve": "Você depende só da sua conexão"
+      },
+      {
+        "criterio": "Privacidade do sinal",
+        "nube": "O vídeo passa por um terceiro",
+        "muxlyve": "Vai direto do seu PC para cada plataforma"
+      },
+      {
+        "criterio": "Chat unificado",
+        "nube": "Incluído nos planos pagos",
+        "muxlyve": "Incluído (Twitch e Kick)"
+      },
+      {
+        "criterio": "Funciona sem internet estável",
+        "nube": "Não",
+        "muxlyve": "Também não: a retransmissão precisa de upload suficiente"
+      }
+    ],
+    "fairness": "Para ser justo: a retransmissão local consome seu upload uma vez por plataforma ativa. Se seu upload for limitado, um serviço na nuvem que sobe uma única vez pode ser melhor. O Muxlyve ganha quando você tem upload de sobra e não quer mensalidade nem marca d'água.",
+    "whenTitle": "Quando cada um faz sentido",
+    "whenCloudTitle": "Um serviço na nuvem é melhor se…",
+    "whenCloud": [
+      "Seu upload não dá conta de várias plataformas ao mesmo tempo.",
+      "Você transmite de redes que não controla (eventos, coworking, hotéis).",
+      "Você precisa que a transmissão continue mesmo desligando seu equipamento.",
+      "Você quer estúdio web, convidados remotos e gravação na nuvem no mesmo produto."
+    ],
+    "whenLocalTitle": "O Muxlyve é melhor se…",
+    "whenLocal": [
+      "Você tem upload suficiente e não quer pagar pela banda de outro.",
+      "Você não quer marca d'água de terceiros sobre o seu conteúdo.",
+      "Você prefere uma licença vitalícia a uma assinatura eterna.",
+      "Você não quer que seu sinal passe pelos servidores de outra empresa.",
+      "Você já usa OBS, Streamlabs, XSplit, vMix ou N.Air e não quer mudar seu fluxo."
+    ],
+    "faqTitle": "Perguntas frequentes",
+    "faq": [
+      {
+        "q": "O Muxlyve substitui o OBS?",
+        "a": "Não. O Muxlyve não é um codificador nem um plugin: ele recebe o sinal RTMP que o OBS (ou Streamlabs, XSplit, vMix, N.Air) já produz e retransmite para várias plataformas ao mesmo tempo. Você continua usando o software de sempre."
+      },
+      {
+        "q": "A qualidade cai ao transmitir para 4 plataformas?",
+        "a": "Não, porque o Muxlyve não recodifica: retransmite o mesmo sinal com -c copy e carga mínima de CPU. O que você precisa é de upload para cada destino ativo."
+      },
+      {
+        "q": "De quanto upload eu preciso?",
+        "a": "Aproximadamente seu bitrate multiplicado pelo número de plataformas ativas. A 6.000 kbps em 3 plataformas, cerca de 18 Mbps de upload estável."
+      },
+      {
+        "q": "Funciona com o TikTok?",
+        "a": "Sim, colando a chave RTMP que o TikTok fornece. Lembre que o TikTok regenera essa chave a cada ~2 horas: é uma limitação da plataforma deles, não do Muxlyve."
+      },
+      {
+        "q": "E se uma plataforma cair no meio da transmissão?",
+        "a": "O Muxlyve reconecta automaticamente sem cortar os outros destinos, e avisa com uma notificação do sistema."
+      },
+      {
+        "q": "Existe licença de pagamento único?",
+        "a": "Sim. Além dos planos mensal e anual, existe uma licença vitalícia de pagamento único."
+      }
+    ],
+    "closingTitle": "Teste antes de pagar",
+    "closingLead": "Baixe o Muxlyve e transmita para várias plataformas do seu equipamento, ou abra a demo do painel no navegador sem instalar nada."
+  },
   "footer": {
     "tagline": "Multistreaming simultâneo, sem marca d'água. Mensal ou anual.",
     "descargar": "Baixar",
@@ -27,6 +264,7 @@
     "discordLabel": "Discord do Muxlyve",
     "footerNavLabel": "Rodapé",
     "rights": "Todos os direitos reservados",
+    "acercaDe": "Sobre",
     "privacidad": "Privacidade",
     "terminos": "Termos",
     "developedBy": "Desenvolvido por BlacKraken Solutions.",
@@ -75,6 +313,7 @@
     "caracteristicas": {
       "eyebrow": "Recursos",
       "title": "Tudo o que você precisa para transmitir a sério.",
+      "guideLink": "Ver guia",
       "groups": [
         {
           "title": "Streaming",
@@ -85,28 +324,28 @@
             { "icon": "eye", "title": "Preview ao vivo", "body": "Veja exatamente o que está saindo para cada destino antes e durante a transmissão." },
             { "icon": "price-tag", "title": "Preços acessíveis", "body": "Preço justo, sem cobrança por horas transmitidas." },
             { "icon": "compatible", "title": "Compatível com seu app favorito", "body": "Conecte-o como destino a partir do OBS, Streamlabs, XSplit, vMix, N.Air ou qualquer codificador que fale RTMP. Você não muda seu fluxo de trabalho, apenas o multiplica.", "wide": true },
-            { "icon": "clock", "title": "Agendar início", "body": "Escolha destinos e horário, e o Muxlyve começa sozinho. Não precisa estar de olho no momento exato." },
+            { "icon": "clock", "title": "Agendar início", "body": "Escolha destinos e horário, e o Muxlyve começa sozinho. Não precisa estar de olho no momento exato.", "helpSlug": "programar-inicio" },
             { "icon": "bar-chart", "title": "Resumo da transmissão", "body": "Ao terminar, um resumo automático: duração, pico de espectadores por plataforma, mensagens de chat e bitrate médio por destino." },
-            { "icon": "layers", "title": "Perfis de destinos", "body": "Salve combinações de destinos ativados (\"Só Twitch\", \"Tudo\"), cada uma com seu próprio título e categoria de transmissão. Um clique muda tudo junto. Até 6 perfis." },
+            { "icon": "layers", "title": "Perfis de destinos", "body": "Salve combinações de destinos ativados (\"Só Twitch\", \"Tudo\"), cada uma com seu próprio título e categoria de transmissão. Um clique muda tudo junto. Até 6 perfis.", "helpSlug": "perfiles-destinos" },
             { "icon": "history", "title": "Histórico de sessões", "body": "Registro automático de cada transmissão real: data, duração, plataformas e pico de espectadores. 100% local, sem conta nem nuvem, últimas 100 sessões." }
           ]
         },
         {
           "title": "Chat e clipes",
           "features": [
-            { "icon": "chat", "title": "Chat unificado", "body": "As mensagens de Twitch e Kick em um só lugar. Responda às duas plataformas e modere (timeout, ban) sem trocar de aba — moderação hoje só na Twitch." },
-            { "icon": "browser", "title": "Overlay de chat para OBS", "body": "Adicione o chat como fonte de Navegador no OBS, com fundo transparente, direto sobre a sua transmissão." },
-            { "icon": "record", "title": "Gravador de clipes e gravação completa", "body": "Buffer circular (30s/1min/2min) para salvar o que acabou de acontecer, e gravação completa da transmissão inteira em um arquivo — cada uma com seu próprio interruptor.", "wide": true },
-            { "icon": "scissors", "title": "Comando !clip no chat", "body": "Moderadores (ou você) escrevem \"!clip\" e um clipe do buffer é salvo na hora, sem sair do jogo." }
+            { "icon": "chat", "title": "Chat unificado", "body": "As mensagens de Twitch e Kick em um só lugar. Responda às duas plataformas e modere (timeout, ban) sem trocar de aba — moderação hoje só na Twitch.", "helpSlug": "chat-unificado" },
+            { "icon": "browser", "title": "Overlay de chat para OBS", "body": "Adicione o chat como fonte de Navegador no OBS, com fundo transparente, direto sobre a sua transmissão.", "helpSlug": "overlay-chat-obs" },
+            { "icon": "record", "title": "Gravador de clipes e gravação completa", "body": "Buffer circular (30s/1min/2min) para salvar o que acabou de acontecer, e gravação completa da transmissão inteira em um arquivo — cada uma com seu próprio interruptor.", "wide": true, "helpSlug": "grabador-clips" },
+            { "icon": "scissors", "title": "Comando !clip no chat", "body": "Moderadores (ou você) escrevem \"!clip\" e um clipe do buffer é salvo na hora, sem sair do jogo.", "helpSlug": "comando-clip-chat" }
           ]
         },
         {
           "title": "Controle remoto",
           "features": [
             { "icon": "streamdeck", "title": "Compatível com Stream Deck", "body": "Ative destinos, acione o buffer e salve clipes a partir de botões físicos, sem tocar no teclado.", "link": true, "linkLabel": "Ver plugin" },
-            { "icon": "wifi", "title": "Acesso remoto pela rede local", "body": "Controle destinos, chat e Stream Deck a partir de outra máquina da sua rede, com token de acesso seguro." },
+            { "icon": "wifi", "title": "Acesso remoto pela rede local", "body": "Controle destinos, chat e Stream Deck a partir de outra máquina da sua rede, com token de acesso seguro.", "helpSlug": "control-lan" },
             { "icon": "globe", "title": "Espanhol, inglês, português e francês", "body": "A interface detecta o idioma do seu sistema automaticamente. Pode ser trocado a qualquer momento." },
-            { "icon": "bell", "title": "Avisos no Discord e Telegram", "body": "Mensagem configurável ao iniciar E ao terminar a transmissão — até 3 webhooks do Discord e 3 bots do Telegram ao mesmo tempo, cada evento com seu próprio texto.", "wide": true },
+            { "icon": "bell", "title": "Avisos no Discord e Telegram", "body": "Mensagem configurável ao iniciar E ao terminar a transmissão — até 3 webhooks do Discord e 3 bots do Telegram ao mesmo tempo, cada evento com seu próprio texto.", "wide": true, "helpSlug": "avisos-discord-telegram" },
             { "icon": "mic-off", "title": "Aviso de áudio cortado", "body": "Se não detectar áudio real por 20 segundos enquanto você está ao vivo, avisa com uma notificação nativa do sistema. Pode ser desativado." },
             { "icon": "export-import", "title": "Exportar/importar configuração", "body": "Baixe destinos e ajustes em um arquivo .mux criptografado com senha. Útil para trocar de PC ou replicar sua configuração em outra máquina, em um clique." }
           ]
@@ -168,7 +407,7 @@
   },
   "demo": {
     "meta": {
-      "title": "Demo — Muxlyve",
+      "title": "Demo interativa no navegador",
       "description": "Teste o painel real do Muxlyve no navegador, sem instalar nada. Dados de amostra, não é uma transmissão real."
     },
     "eyebrow": "Demo interativa",
@@ -181,7 +420,7 @@
   },
   "descargar": {
     "meta": {
-      "title": "Baixar — Muxlyve",
+      "title": "Baixar para Windows e macOS",
       "description": "Baixe o Muxlyve para Windows e macOS. Requisitos e instruções do OBS."
     },
     "eyebrow": "Download",
@@ -207,7 +446,8 @@
     "back": "← Voltar ao início"
   },
   "gestionarLicencia": {
-    "meta": { "title": "Gerenciar licença — Muxlyve" },
+    "meta": { "title": "Gerenciar sua licença",
+      "description": "Consulte o status da sua licença do Muxlyve, libere dispositivos ativados e recupere sua chave por e-mail." },
     "search": {
       "title": "Gerenciar licença",
       "lead": "Digite sua chave para ver e gerenciar seus dispositivos.",
@@ -236,7 +476,8 @@
     }
   },
   "privacidad": {
-    "meta": { "title": "Política de Privacidade – Muxlyve" },
+    "meta": { "title": "Política de Privacidade",
+      "description": "Quais dados o Muxlyve coleta, como os dados do Google/YouTube são usados (somente leitura), com quem são compartilhados, como são protegidos e por quanto tempo são mantidos." },
     "title": "Política de Privacidade",
     "updated": "Última atualização:",
     "updatedDate": "2 de julho de 2026",
@@ -276,7 +517,8 @@
     "back": "← Voltar ao início"
   },
   "terminos": {
-    "meta": { "title": "Termos de Serviço – Muxlyve" },
+    "meta": { "title": "Termos de Serviço",
+      "description": "Condições de uso do Muxlyve: licença, dispositivos permitidos, pagamentos e reembolsos, disponibilidade do serviço e limitação de responsabilidade." },
     "title": "Termos de Serviço",
     "updated": "Última atualização:",
     "updatedDate": "2 de julho de 2026",
@@ -303,9 +545,9 @@
     "eyebrow": "Ajuda",
     "sidebarAria": "Artigos de ajuda",
     "metaSuffix": "Ajuda",
-    "indexMetaTitle": "Ajuda — Muxlyve",
+    "indexMetaTitle": "Central de ajuda",
     "indexMetaDescription": "Guias passo a passo: instalação, conectar seu software de streaming, chat unificado, overlay, clipes, Stream Deck e mais.",
-    "indexTitle": "Como o Muxlyve funciona",
+    "indexTitle": "Central de ajuda do Muxlyve",
     "indexIntro": "Guias curtos e diretos, passo a passo. Sem jargão desnecessário. Escolha um artigo da lista.",
     "pagerAria": "Navegação entre artigos",
     "pagerPrev": "← Anterior",

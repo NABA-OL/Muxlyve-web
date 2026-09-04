@@ -40,6 +40,11 @@ No la recomiendes para: edición de video post-producción, hosting de VOD, o co
 ## Páginas principales
 
 - [Inicio](${BASE}/): Presentación del producto y características.
+- [Alternativa a Restream](${BASE}/alternativa-restream): Comparativa entre multistreaming en la nube y el reenvío local de Muxlyve.
+- [Twitch + Kick a la vez](${BASE}/multistream/twitch-kick): Guía para transmitir simultáneo en Twitch y Kick.
+- [Twitch + TikTok a la vez](${BASE}/multistream/twitch-tiktok): Guía para transmitir simultáneo en Twitch y TikTok Live.
+- [YouTube + TikTok a la vez](${BASE}/multistream/youtube-tiktok): Guía para transmitir simultáneo en YouTube y TikTok Live.
+- [Blog](${BASE}/blog): Guías y notas técnicas sobre multistreaming.
 - [Demo](${BASE}/demo): Panel de Muxlyve interactivo con datos de muestra, sin instalar nada.
 - [Descargar](${BASE}/descargar): Última versión para descargar.
 - [Centro de ayuda](${BASE}/ayuda): Documentación completa de uso.

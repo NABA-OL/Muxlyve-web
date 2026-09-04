@@ -25,10 +25,9 @@ const claim =
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE),
-  title: {
-    default: "Muxlyve — Multistreaming",
-    template: "%s | Muxlyve",
-  },
+  // Sin `template` a propósito: el layout de [locale] define el suyo. Si el raíz
+  // también lo trae, el `default` del hijo lo hereda y sale "Muxlyve … | Muxlyve".
+  title: "Muxlyve — Multistreaming a Twitch, Kick, YouTube y TikTok",
   description: claim,
   keywords: [
     "multistreaming", "multistream windows", "transmitir twitch kick youtube tiktok",

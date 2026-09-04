@@ -43,7 +43,7 @@ export function Footer() {
               <a href="#caracteristicas">{t("caracteristicas")}</a>
               <Link href="/ayuda">{t("ayuda")}</Link>
               <a href="#precio">{t("precio")}</a>
-              <a href="mailto:soporte@muxlyve.com">{t("contacto")}</a>
+              <a href="/contact">{t("contacto")}</a>
               <a
                 href="https://discord.gg/ttRqRkAG"
                 target="_blank"
@@ -90,10 +90,11 @@ export function Footer() {
                 alignItems: "center",
               }}
             >
+              <a href="/about">{t("acercaDe")}</a>
               <Link href="/privacidad">{t("privacidad")}</Link>
               <Link href="/terminos">{t("terminos")}</Link>
               <a
-                href="https://blackraken.vercel.app"
+                href="https://blackraken.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: "inherit" }}

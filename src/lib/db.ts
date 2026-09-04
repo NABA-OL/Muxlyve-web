@@ -57,6 +57,27 @@ export async function ensureSchema(): Promise<void> {
       created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
     )
   `;
+  // Una fila por (slug, locale). El español es la versión fuente; las demás
+  // se agregan a mano o con el traductor automático cuando haya API key.
+  await sql`
+    CREATE TABLE IF NOT EXISTS blog_posts (
+      id           SERIAL PRIMARY KEY,
+      slug         TEXT NOT NULL,
+      locale       TEXT NOT NULL,
+      title        TEXT NOT NULL,
+      excerpt      TEXT NOT NULL DEFAULT '',
+      body         TEXT NOT NULL,
+      status       TEXT NOT NULL DEFAULT 'draft',
+      published_at TIMESTAMPTZ,
+      created_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
+      updated_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
+      UNIQUE (slug, locale)
+    )
+  `;
+  await sql`
+    CREATE INDEX IF NOT EXISTS blog_posts_published_idx
+    ON blog_posts (locale, status, published_at DESC)
+  `;
   await sql`
     CREATE TABLE IF NOT EXISTS feedback (
       id          SERIAL PRIMARY KEY,

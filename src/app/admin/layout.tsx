@@ -64,6 +64,12 @@ export default function AdminLayout({
               Feedback
             </Link>
             <Link
+              href="/admin/blog"
+              style={{ color: "var(--muted)", fontSize: "0.88rem", textDecoration: "none" }}
+            >
+              Blog
+            </Link>
+            <Link
               href="/admin/telegram"
               style={{ color: "var(--muted)", fontSize: "0.88rem", textDecoration: "none" }}
             >
