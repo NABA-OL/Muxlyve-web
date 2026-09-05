@@ -8,6 +8,7 @@
 
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { BackgroundFX } from "@/components/BackgroundFX";
 import { GlassSpotlight } from "@/components/GlassSpotlight";
 import "./globals.css";
@@ -78,6 +79,7 @@ export default function RootLayout({
         <BackgroundFX />
         <GlassSpotlight />
         {children}
+        <Analytics />
       </body>
     </html>
   );
