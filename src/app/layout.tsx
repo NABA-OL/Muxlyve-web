@@ -9,6 +9,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { BackgroundFX } from "@/components/BackgroundFX";
 import { GlassSpotlight } from "@/components/GlassSpotlight";
 import "./globals.css";
@@ -80,6 +81,7 @@ export default function RootLayout({
         <GlassSpotlight />
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
