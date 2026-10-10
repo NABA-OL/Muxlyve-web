@@ -11,7 +11,7 @@ interface Props {
   className?: string;
 }
 
-// PROVISIONAL: círculo cian con la inicial "S" hasta recibir el logo
+// PROVISIONAL: círculo rosado con la inicial "S" hasta recibir el logo
 // definitivo de Starvios. Al llegar, reemplazar este componente por el
 // path oficial dentro de PlatformIcon y borrar este archivo.
 export function StarviosPlaceholderIcon({ size = 24, className }: Props) {
@@ -23,7 +23,7 @@ export function StarviosPlaceholderIcon({ size = 24, className }: Props) {
       aria-hidden="true"
       className={className}
     >
-      <circle cx="12" cy="12" r="11" fill="#22d3ee" />
+      <circle cx="12" cy="12" r="11" fill="#ff5cb8" />
       <text
         x="12"
         y="16.5"

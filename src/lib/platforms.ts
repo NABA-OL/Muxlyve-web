@@ -20,6 +20,6 @@ export const PLATFORMS: readonly Platform[] = [
   { id: "kick", name: "Kick", color: "#53fc18" },
   { id: "youtube", name: "YouTube", color: "#ff0000" },
   { id: "tiktok", name: "TikTok", color: "#25f4ee" },
-  // PROVISIONAL: color del placeholder de Starvios hasta recibir su logo definitivo.
-  { id: "starvios", name: "Starvios", color: "#22d3ee" },
+  // PROVISIONAL: rosado medido de la UI de Starvios; reemplazar por el hex oficial con su logo.
+  { id: "starvios", name: "Starvios", color: "#ff5cb8" },
 ];
