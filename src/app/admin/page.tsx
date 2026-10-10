@@ -1,3 +1,12 @@
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-06-25
+ * Correo: nabaol.dev@gmail.com
+ * Copyright (c) 2026 BlacKraken Solutions. Todos los derechos reservados.
+ */
+
+import { requireAdmin } from "@/lib/admin-guard";
 import { getDb, ensureSchema } from "@/lib/db";
 import type { License } from "@/lib/licenses";
 
@@ -17,6 +26,7 @@ function statusColor(status: string): string {
 }
 
 export default async function AdminPage() {
+  await requireAdmin();
   let licenses: License[] = [];
   let dbError = false;
 

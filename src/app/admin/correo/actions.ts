@@ -1,5 +1,6 @@
 // Desarrollado por BlacKraken Solutions
 "use server";
+import { requireAdmin } from "@/lib/admin-guard";
 import { Resend } from "resend";
 import { redirect } from "next/navigation";
 import sanitizeHtml from "sanitize-html";
@@ -84,7 +85,7 @@ function buildHtml(bodyText: string): string {
           <a href="https://muxlyve.com" style="color:#7c5cff;text-decoration:none;">muxlyve.com</a>
         </p>
         <p style="margin:0.35rem 0 0;opacity:0.65;">
-          Transmite a Twitch, Kick, YouTube y TikTok sin marca de agua.
+          Transmite a Twitch, Kick, YouTube, TikTok y Starvios sin marca de agua.
         </p>
       </div>
     </div>
@@ -92,6 +93,7 @@ function buildHtml(bodyText: string): string {
 }
 
 export async function sendOutreachAction(formData: FormData): Promise<void> {
+  await requireAdmin();
   const to = ((formData.get("to") as string) ?? "").trim();
   const subject = ((formData.get("subject") as string) ?? "").trim();
   const body = ((formData.get("body") as string) ?? "").trim();

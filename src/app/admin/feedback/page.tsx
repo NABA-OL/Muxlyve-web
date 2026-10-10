@@ -1,3 +1,12 @@
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-07-25
+ * Correo: nabaol.dev@gmail.com
+ * Copyright (c) 2026 BlacKraken Solutions. Todos los derechos reservados.
+ */
+
+import { requireAdmin } from "@/lib/admin-guard";
 import { getDb, ensureSchema } from "@/lib/db";
 import { updateFeedbackStatusAction } from "./actions";
 
@@ -27,6 +36,7 @@ const STATUS_COLOR: Record<string, string> = {
 };
 
 export default async function FeedbackPage() {
+  await requireAdmin();
   await ensureSchema();
   const sql = getDb();
   const items = (await sql`

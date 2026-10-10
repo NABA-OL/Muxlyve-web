@@ -36,6 +36,7 @@ const GLOSSARY = [
   "Kick",
   "YouTube",
   "TikTok",
+  "Starvios",
   "RTMP",
   "RTMPS",
   "SRT",

@@ -3,6 +3,7 @@
  * Desarrollado por: NABAOL
  * Fecha de creación: 2026-08-14
  */
+import { requireAdmin } from "@/lib/admin-guard";
 import { testTelegramAction } from "./actions";
 import type { TelegramTopic } from "@/lib/telegram";
 
@@ -24,6 +25,7 @@ export default async function TelegramPage({
 }: {
   searchParams: Promise<{ sent?: string; failed?: string }>;
 }) {
+  await requireAdmin();
   const { sent, failed } = await searchParams;
 
   return (

@@ -1,4 +1,5 @@
 // Desarrollado por BlacKraken Solutions
+import { requireAdmin } from "@/lib/admin-guard";
 import type { CSSProperties } from "react";
 import { sendOutreachAction } from "./actions";
 import { BodyEditor } from "./BodyEditor";
@@ -19,6 +20,7 @@ const inputStyle: CSSProperties = {
 };
 
 export default async function CorreoPage({ searchParams }: Props) {
+  await requireAdmin();
   const { sent, error } = await searchParams;
 
   return (

@@ -90,4 +90,15 @@ export async function ensureSchema(): Promise<void> {
       created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
     )
   `;
+  await sql`
+    CREATE TABLE IF NOT EXISTS login_attempts (
+      id         SERIAL PRIMARY KEY,
+      ip         TEXT NOT NULL,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    )
+  `;
+  await sql`
+    CREATE INDEX IF NOT EXISTS login_attempts_ip_idx
+    ON login_attempts (ip, created_at DESC)
+  `;
 }

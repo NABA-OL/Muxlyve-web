@@ -1,3 +1,12 @@
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-07-05
+ * Correo: nabaol.dev@gmail.com
+ * Copyright (c) 2026 BlacKraken Solutions. Todos los derechos reservados.
+ */
+
+import { requireAdmin } from "@/lib/admin-guard";
 import { getDb, ensureSchema } from "@/lib/db";
 
 type Report = {
@@ -15,6 +24,7 @@ type Report = {
 export const dynamic = "force-dynamic";
 
 export default async function ReportesPage() {
+  await requireAdmin();
   await ensureSchema();
   const sql = getDb();
   const reports = (await sql`

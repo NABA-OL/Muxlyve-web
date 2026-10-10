@@ -25,9 +25,17 @@ export function hashLicenseKey(key: string): string {
 
 // Keys stored as HMAC-SHA256 so DB leak doesn't expose usable keys.
 // KEY_HASH_SECRET must be set in env; without it keys are stored plaintext (unsafe).
+let warnedMissingKeyHashSecret = false;
+
 function hashKey(key: string): string {
   const secret = process.env.KEY_HASH_SECRET;
-  if (!secret) return key; // ponytail: fallback keeps app working before env is set
+  if (!secret) {
+    if (!warnedMissingKeyHashSecret && process.env.NODE_ENV === "production") {
+      warnedMissingKeyHashSecret = true;
+      console.error("KEY_HASH_SECRET no está configurada: las claves de licencia se guardan en texto plano");
+    }
+    return key; // ponytail: fallback keeps app working before env is set
+  }
   return createHmac("sha256", secret).update(key.trim()).digest("hex");
 }
 

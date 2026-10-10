@@ -1,3 +1,12 @@
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-06-25
+ * Correo: nabaol.dev@gmail.com
+ * Copyright (c) 2026 BlacKraken Solutions. Todos los derechos reservados.
+ */
+
+import { requireAdmin } from "@/lib/admin-guard";
 import { changePasswordAction } from "./actions";
 
 export const metadata = { title: "Contraseña — Admin Muxlyve", robots: "noindex" };
@@ -5,14 +14,15 @@ export const metadata = { title: "Contraseña — Admin Muxlyve", robots: "noind
 const ERRORS: Record<string, string> = {
   wrong: "Contraseña actual incorrecta.",
   mismatch: "Las contraseñas nuevas no coinciden.",
-  short: "La contraseña nueva debe tener al menos 8 caracteres.",
+  short: "La contraseña nueva debe tener al menos 12 caracteres.",
 };
 
-export default function ContrasenaPage({
+export default async function ContrasenaPage({
   searchParams,
 }: {
   searchParams: Promise<{ error?: string; ok?: string }>;
 }) {
+  await requireAdmin();
   return (
     <ContrasenaContent searchParams={searchParams} />
   );

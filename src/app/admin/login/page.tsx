@@ -1,3 +1,11 @@
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-06-25
+ * Correo: nabaol.dev@gmail.com
+ * Copyright (c) 2026 BlacKraken Solutions. Todos los derechos reservados.
+ */
+
 import { loginAction } from "./actions";
 import { LoginSubmitButton } from "./LoginSubmitButton";
 
@@ -71,7 +79,9 @@ export default async function LoginPage({
               marginTop: "0.8rem",
             }}
           >
-            Token incorrecto.
+            {error === "locked"
+              ? "Demasiados intentos fallidos. Intenta de nuevo en 15 minutos."
+              : "Token incorrecto."}
           </p>
         )}
       </div>

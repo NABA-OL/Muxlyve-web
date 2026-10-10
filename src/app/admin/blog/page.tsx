@@ -4,6 +4,7 @@
  * Fecha de creación: 2026-09-03
  */
 
+import { requireAdmin } from "@/lib/admin-guard";
 import Link from "next/link";
 import { ensureSchema } from "@/lib/db";
 import { listAllPosts, getPostById } from "@/lib/blog";
@@ -44,6 +45,7 @@ export default async function AdminBlogPage({
     translated?: string;
   }>;
 }) {
+  await requireAdmin();
   const { edit, saved, error, translated } = await searchParams;
 
   await ensureSchema();

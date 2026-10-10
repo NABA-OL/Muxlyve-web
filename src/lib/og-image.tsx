@@ -70,7 +70,7 @@ export function renderOgImage() {
           maxWidth: 880,
         }}
       >
-        Transmite a Twitch, Kick, YouTube y TikTok al mismo tiempo
+        Transmite a Twitch, Kick, YouTube, TikTok y Starvios al mismo tiempo
       </div>
     </div>,
     { ...ogImageSize },
