@@ -9,6 +9,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { BackgroundFX } from "@/components/BackgroundFX";
 import { GlassSpotlight } from "@/components/GlassSpotlight";
 import "./globals.css";
@@ -22,18 +23,18 @@ const inter = Inter({
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muxlyve.com";
 
 const claim =
-  "Software de multistreaming para Windows. Transmite a Twitch, Kick, YouTube y TikTok al mismo tiempo, sin marca de agua.";
+  "Software de multistreaming para Windows. Transmite a Twitch, Kick, YouTube, TikTok y Starvios al mismo tiempo, sin marca de agua.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE),
   // Sin `template` a propósito: el layout de [locale] define el suyo. Si el raíz
   // también lo trae, el `default` del hijo lo hereda y sale "Muxlyve … | Muxlyve".
-  title: "Muxlyve — Multistreaming a Twitch, Kick, YouTube y TikTok",
+  title: "Muxlyve — Multistreaming a Twitch, Kick, YouTube, TikTok y Starvios",
   description: claim,
   keywords: [
     "multistreaming",
     "multistream windows",
-    "transmitir twitch kick youtube tiktok",
+    "transmitir twitch kick youtube tiktok starvios",
     "software multistream",
     "multistreaming sin marca de agua",
     "alternativa restream",
@@ -45,6 +46,7 @@ export const metadata: Metadata = {
     "Kick",
     "YouTube",
     "TikTok",
+    "Starvios",
     "Streaming",
     "Live",
     "En vivo",
@@ -63,7 +65,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Muxlyve — Multistreaming",
     description:
-      "Transmite a Twitch, Kick, YouTube y TikTok a la vez. Sin marca de agua.",
+      "Transmite a Twitch, Kick, YouTube, TikTok y Starvios a la vez. Sin marca de agua.",
   },
 };
 
@@ -80,6 +82,7 @@ export default function RootLayout({
         <GlassSpotlight />
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

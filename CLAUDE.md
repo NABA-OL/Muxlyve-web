@@ -24,6 +24,10 @@ npm run lint    # eslint
 
 No hay test runner configurado todavía.
 
+## Model orchestration
+
+Sigue la política global (`~/.claude/CLAUDE.md`): planes/features grandes con la versión más reciente de Opus disponible, implementación con la versión más reciente de Sonnet disponible.
+
 ## Estructura
 
 ```

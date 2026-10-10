@@ -44,7 +44,7 @@ const jsonLd = {
   operatingSystem: "Windows",
   applicationCategory: "MultimediaApplication",
   description:
-    "Software de multistreaming para Windows. Transmite a Twitch, Kick, YouTube y TikTok al mismo tiempo sin marca de agua.",
+    "Software de multistreaming para Windows. Transmite a Twitch, Kick, YouTube, TikTok y Starvios al mismo tiempo sin marca de agua.",
   url: BASE,
   offers: [
     {
@@ -99,7 +99,7 @@ const jsonLd = {
     "StramDeck",
     "Reconexión automática",
     "Preview en vivo por destino",
-    "Twitch, Kick, YouTube, TikTok",
+    "Twitch, Kick, YouTube, TikTok, Starvios",
     "Destinos personalizados por RTMP, RTMPS o SRT",
     "Moderación de chat (timeout/ban)",
     "Historial de sesiones",
@@ -109,6 +109,7 @@ const jsonLd = {
     "Kick",
     "YouTube",
     "TikTok",
+    "Starvios",
   ],
 };
 

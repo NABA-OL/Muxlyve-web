@@ -1,3 +1,12 @@
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-07-05
+ * Correo: nabaol.dev@gmail.com
+ * Copyright (c) 2026 BlacKraken Solutions. Todos los derechos reservados.
+ */
+
+import { requireAdmin } from "@/lib/admin-guard";
 import { ensureSchema } from "@/lib/db";
 import { getSetting } from "@/lib/settings";
 import { saveBannerAction } from "./actions";
@@ -6,6 +15,7 @@ export const metadata = { title: "Banner — Admin Muxlyve", robots: "noindex" }
 export const dynamic = "force-dynamic";
 
 export default async function BannerPage() {
+  await requireAdmin();
   await ensureSchema();
   const [active, text, coupon] = await Promise.all([
     getSetting("promo_active", "false"),

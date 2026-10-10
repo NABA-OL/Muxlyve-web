@@ -1,10 +1,21 @@
 "use server";
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-06-25
+ * Correo: nabaol.dev@gmail.com
+ * Copyright (c) 2026 BlacKraken Solutions. Todos los derechos reservados.
+ */
 
+import { requireAdmin } from "@/lib/admin-guard";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { verifyAdminPassword, setAdminPassword, createSession } from "@/lib/admin-auth";
 
+const MIN_PASSWORD_LENGTH = 12;
+
 export async function changePasswordAction(formData: FormData) {
+  await requireAdmin();
   const current = formData.get("current") as string;
   const next = formData.get("next") as string;
   const confirm = formData.get("confirm") as string;
@@ -16,7 +27,7 @@ export async function changePasswordAction(formData: FormData) {
   const valid = await verifyAdminPassword(current);
   if (!valid) redirect("/admin/contrasena?error=wrong");
 
-  if (next.length < 8) redirect("/admin/contrasena?error=short");
+  if (next.length < MIN_PASSWORD_LENGTH) redirect("/admin/contrasena?error=short");
 
   await setAdminPassword(next);
 

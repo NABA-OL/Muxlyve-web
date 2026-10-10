@@ -5,6 +5,7 @@
  */
 "use server";
 
+import { requireAdmin } from "@/lib/admin-guard";
 import { redirect } from "next/navigation";
 import { sendTelegramMessage, type TelegramTopic } from "@/lib/telegram";
 import { mockPurchaseTestMessage } from "@/lib/telegram-commands";
@@ -17,6 +18,7 @@ const LABELS: Record<TelegramTopic, string> = {
 };
 
 export async function testTelegramAction(formData: FormData) {
+  await requireAdmin();
   const topic = formData.get("topic") as TelegramTopic;
 
   const ok =

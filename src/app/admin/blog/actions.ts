@@ -5,6 +5,7 @@
  */
 "use server";
 
+import { requireAdmin } from "@/lib/admin-guard";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { routing, type Locale } from "@/i18n/routing";
@@ -36,6 +37,7 @@ function revalidateBlog(slug: string, locale: Locale): void {
 }
 
 export async function savePostAction(formData: FormData): Promise<void> {
+  await requireAdmin();
   await ensureSchema();
 
   const title = String(formData.get("title") ?? "").trim();
@@ -68,6 +70,7 @@ export async function savePostAction(formData: FormData): Promise<void> {
 }
 
 export async function togglePublishAction(formData: FormData): Promise<void> {
+  await requireAdmin();
   const id = Number(formData.get("id"));
   const next = String(formData.get("next") ?? "");
   if (!id || (next !== "published" && next !== "draft")) return;
@@ -82,6 +85,7 @@ export async function togglePublishAction(formData: FormData): Promise<void> {
 }
 
 export async function deletePostAction(formData: FormData): Promise<void> {
+  await requireAdmin();
   const id = Number(formData.get("id"));
   if (!id) return;
 
@@ -100,6 +104,7 @@ export async function deletePostAction(formData: FormData): Promise<void> {
  * de publicarla (Google penaliza el contenido traducido a máquina sin revisar).
  */
 export async function translatePostAction(formData: FormData): Promise<void> {
+  await requireAdmin();
   const id = Number(formData.get("id"));
   if (!id) return;
 

@@ -1,4 +1,12 @@
-export type PlatformId = "twitch" | "kick" | "youtube" | "tiktok";
+/*
+ * Propiedad de BlacKraken Solutions
+ * Desarrollado por: NABAOL
+ * Fecha de creación: 2026-06-24
+ * Correo: nabaol.dev@gmail.com
+ * Copyright (c) 2026 BlacKraken Solutions. Todos los derechos reservados.
+ */
+
+export type PlatformId = "twitch" | "kick" | "youtube" | "tiktok" | "starvios";
 
 export interface Platform {
   id: PlatformId;
@@ -12,4 +20,6 @@ export const PLATFORMS: readonly Platform[] = [
   { id: "kick", name: "Kick", color: "#53fc18" },
   { id: "youtube", name: "YouTube", color: "#ff0000" },
   { id: "tiktok", name: "TikTok", color: "#25f4ee" },
+  // PROVISIONAL: rosado medido de la UI de Starvios; reemplazar por el hex oficial con su logo.
+  { id: "starvios", name: "Starvios", color: "#ff5cb8" },
 ];

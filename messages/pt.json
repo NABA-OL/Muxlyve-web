@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Muxlyve — Transmita para Twitch, Kick, YouTube e TikTok",
-    "description": "Software de multistreaming para Windows. Transmita para Twitch, Kick, YouTube e TikTok ao mesmo tempo, sem marca d'água.",
-    "twitterDescription": "Transmita para Twitch, Kick, YouTube e TikTok ao mesmo tempo. Sem marca d'água."
+    "title": "Muxlyve — Transmita para Twitch, Kick, YouTube, TikTok e Starvios",
+    "description": "Software de multistreaming para Windows. Transmita para Twitch, Kick, YouTube, TikTok e Starvios ao mesmo tempo, sem marca d'água.",
+    "twitterDescription": "Transmita para Twitch, Kick, YouTube, TikTok e Starvios ao mesmo tempo. Sem marca d'água."
   },
   "nav": {
     "comoFunciona": "Como funciona",
@@ -231,7 +231,7 @@
         "a": "Não. O Muxlyve não é um codificador nem um plugin: ele recebe o sinal RTMP que o OBS (ou Streamlabs, XSplit, vMix, N.Air) já produz e retransmite para várias plataformas ao mesmo tempo. Você continua usando o software de sempre."
       },
       {
-        "q": "A qualidade cai ao transmitir para 4 plataformas?",
+        "q": "A qualidade cai ao transmitir para 5 plataformas?",
         "a": "Não, porque o Muxlyve não recodifica: retransmite o mesmo sinal com -c copy e carga mínima de CPU. O que você precisa é de upload para cada destino ativo."
       },
       {
@@ -278,7 +278,7 @@
   },
   "hero": {
     "eyebrow": "Multistreaming de desktop",
-    "title": "Transmita para Twitch, Kick, YouTube e TikTok ao mesmo tempo.",
+    "title": "Transmita para Twitch, Kick, YouTube, TikTok e Starvios ao mesmo tempo.",
     "lead": "Sem marca d'água. Do seu PC. Sem servidores intermediários nem banda de terceiros.",
     "ctaPrimary": "Baixar grátis",
     "ctaSecondary": "Ver preço"
@@ -295,14 +295,14 @@
       "title": "Três passos, sem complicação.",
       "steps": [
         { "title": "Conecte seu software", "body": "Aponte o OBS, Streamlabs, XSplit, vMix, N.Air ou qualquer codificador RTMP/S para o Muxlyve como servidor de saída." },
-        { "title": "Conecte suas plataformas", "body": "Vincule Twitch, Kick e YouTube com um clique (OAuth), ou cole sua chave do TikTok." },
-        { "title": "Transmita para as 4 ao mesmo tempo", "body": "Um único sinal, sem recodificar, sem marca d'água e sem depender de um servidor de terceiros." }
+        { "title": "Conecte suas plataformas", "body": "Vincule Twitch, Kick e YouTube com um clique (OAuth), ou cole a URL do servidor e a chave do TikTok e da Starvios." },
+        { "title": "Transmita para as 5 ao mesmo tempo", "body": "Um único sinal, sem recodificar, sem marca d'água e sem depender de um servidor de terceiros." }
       ]
     },
     "queHace": {
       "eyebrow": "O problema",
       "title": "Multistreaming.",
-      "lead": "Alcançar Twitch, Kick, YouTube e TikTok ao mesmo tempo normalmente significa pagar um serviço que coloca a marca dele sobre o seu vídeo. O Muxlyve faz isso a partir do seu próprio computador, limpo e seguro.",
+      "lead": "Alcançar Twitch, Kick, YouTube, TikTok e Starvios ao mesmo tempo normalmente significa pagar um serviço que coloca a marca dele sobre o seu vídeo. O Muxlyve faz isso a partir do seu próprio computador, limpo e seguro.",
       "compare": [
         "Serviços como o Restream cobram mensalidade.",
         "Colocam a marca d'água deles no seu vídeo no plano gratuito.",
@@ -359,8 +359,8 @@
     },
     "plataformas": {
       "eyebrow": "Plataformas",
-      "title": "Quatro destinos, uma só transmissão.",
-      "lead": "Twitch, Kick, YouTube e TikTok com integração direta. Além disso, adicione qualquer destino personalizado via <rtmp>rtmp://</rtmp>, <rtmps>rtmps://</rtmps> (RTMP criptografado) ou <srt>srt://</srt> — útil para servidores privados ou CDNs próprias."
+      "title": "Cinco destinos, uma só transmissão.",
+      "lead": "Twitch, Kick, YouTube e TikTok com integração direta; a Starvios é configurada manualmente com a URL do servidor e a chave. Além disso, adicione qualquer destino personalizado via <rtmp>rtmp://</rtmp>, <rtmps>rtmps://</rtmps> (RTMP criptografado) ou <srt>srt://</srt> — útil para servidores privados ou CDNs próprias."
     },
     "integraciones": {
       "badge": "Funciona com Stream Deck",
@@ -372,7 +372,7 @@
     "precio": {
       "eyebrow": "Preço",
       "title": "Escolha seu plano. Mensal, anual ou vitalício.",
-      "lead": "Todos os planos incluem transmissão sem marca d'água nas 4 plataformas.",
+      "lead": "Todos os planos incluem transmissão sem marca d'água nas 5 plataformas.",
       "pricePending": "Preço não disponível",
       "mensual": {
         "label": "Mensal",
@@ -426,7 +426,7 @@
     "eyebrow": "Download",
     "title": "Baixe o Muxlyve",
     "leadPrefix": "Versão atual:",
-    "leadSuffix": "Instale, ative sua licença e transmita para as quatro plataformas ao mesmo tempo.",
+    "leadSuffix": "Instale, ative sua licença e transmita para as cinco plataformas ao mesmo tempo.",
     "windowsButton": "Baixar para Windows",
     "macButton": "Baixar para macOS",
     "requisitosTitle": "Requisitos",
@@ -439,7 +439,7 @@
     "obsTitle": "Como conectar com o OBS",
     "obsSteps": [
       "Abra o Muxlyve e faça login / ative sua licença.",
-      "Em cada plataforma (Twitch, Kick, YouTube, TikTok) copie sua chave de transmissão.",
+      "Em cada plataforma (Twitch, Kick, YouTube, TikTok, Starvios) copie sua chave de transmissão.",
       "Cole-as no Muxlyve, uma por destino.",
       "No OBS, configure o Muxlyve como destino de saída e clique em \"Iniciar transmissão\"."
     ],
@@ -565,9 +565,9 @@
       "que-es-muxlyve": {
         "title": "O que é o Muxlyve?",
         "summary": "O que o Muxlyve faz e no que se diferencia de um serviço de restream na nuvem.",
-        "metaDescription": "O Muxlyve transmite seu sinal para Twitch, Kick, YouTube e TikTok Live ao mesmo tempo, sem marca d'água, rodando no seu próprio computador.",
-        "content": "<p>O Muxlyve transmite seu sinal para Twitch, Kick, YouTube e TikTok Live ao mesmo tempo, sem marca d'água.</p><tldr></tldr><cta></cta><h2>No que se diferencia de um serviço na nuvem?</h2><p>Serviços como Restream ou Castr rodam em um servidor de terceiros: você manda seu sinal para eles, e eles o reenviam. O Muxlyve roda no seu próprio computador — você gera o sinal no seu software de streaming (OBS, Streamlabs, XSplit, vMix, ou qualquer outro que fale RTMP), o Muxlyve o recebe localmente e o reenvia para cada plataforma diretamente. Não passa por um servidor de terceiros.</p><shot>0</shot><shot>1</shot><shot>2</shot>",
-        "highlights": ["Roda no seu próprio PC, não em um servidor de terceiros.","Transmite para Twitch, Kick, YouTube e TikTok ao mesmo tempo.","Sem marca d'água, sem passar por servidores externos."],
+        "metaDescription": "O Muxlyve transmite seu sinal para Twitch, Kick, YouTube, TikTok Live e Starvios ao mesmo tempo, sem marca d'água, rodando no seu próprio computador.",
+        "content": "<p>O Muxlyve transmite seu sinal para Twitch, Kick, YouTube, TikTok Live e Starvios ao mesmo tempo, sem marca d'água.</p><tldr></tldr><cta></cta><h2>No que se diferencia de um serviço na nuvem?</h2><p>Serviços como Restream ou Castr rodam em um servidor de terceiros: você manda seu sinal para eles, e eles o reenviam. O Muxlyve roda no seu próprio computador — você gera o sinal no seu software de streaming (OBS, Streamlabs, XSplit, vMix, ou qualquer outro que fale RTMP), o Muxlyve o recebe localmente e o reenvia para cada plataforma diretamente. Não passa por um servidor de terceiros.</p><shot>0</shot><shot>1</shot><shot>2</shot>",
+        "highlights": ["Roda no seu próprio PC, não em um servidor de terceiros.","Transmite para Twitch, Kick, YouTube, TikTok e Starvios ao mesmo tempo.","Sem marca d'água, sem passar por servidores externos."],
         "shots": [
           { "src": "/help/que-es-muxlyve-1.png", "label": "painel principal com o preview ao vivo" },
           { "src": "/help/que-es-muxlyve-2.png", "label": "vista adicional do Muxlyve em uso" },
@@ -596,11 +596,11 @@
         ]
       },
       "conectar-plataformas": {
-        "title": "Conectar suas plataformas (Twitch, Kick, YouTube, TikTok)",
-        "summary": "Vincular Twitch, Kick, YouTube e TikTok, e adicionar destinos personalizados por RTMP, RTMPS ou SRT.",
-        "metaDescription": "Como vincular Twitch, Kick, YouTube e TikTok no Muxlyve, ativar ou desativar cada destino em tempo real, e adicionar destinos personalizados por RTMP, RTMPS ou SRT.",
-        "content": "<p>Twitch, Kick e YouTube: entre com um clique (OAuth), sem colar chaves manualmente.</p><tldr></tldr><cta></cta><shot>0</shot><p>O TikTok não tem login público — copie o servidor e a chave do app do TikTok. Essa chave se regenera a cada ~2 horas; é uma limitação da plataforma, não do Muxlyve.</p><p>Ative ou desative cada destino com um botão, em tempo real, sem cortar a transmissão.</p><shot>1</shot><h2>Destinos personalizados</h2><p>Além de Twitch, Kick, YouTube e TikTok com integração direta, você pode adicionar qualquer destino personalizado usando <code>rtmp://</code>, <code>rtmps://</code> (RTMP criptografado) ou <code>srt://</code>. Útil para servidores privados, CDNs próprias ou qualquer plataforma que não esteja na lista.</p><p><strong>Importante:</strong> este é o destino de saída, para onde o Muxlyve reenvia seu sinal. A entrada não muda — seu software de streaming (OBS, Streamlabs, XSplit, etc.) continua se conectando ao Muxlyve por RTMP simples em <code>localhost</code>, como explicado em <link1>Conectar o OBS (ou qualquer software de streaming)</link1>.</p>",
-        "highlights": ["Twitch, Kick e YouTube se conectam com OAuth em um clique.","O TikTok exige copiar servidor e chave manualmente (regenera a cada ~2h).","Também aceita destinos personalizados por RTMP, RTMPS ou SRT."],
+        "title": "Conectar suas plataformas (Twitch, Kick, YouTube, TikTok, Starvios)",
+        "summary": "Vincular Twitch, Kick, YouTube, TikTok e Starvios, e adicionar destinos personalizados por RTMP, RTMPS ou SRT.",
+        "metaDescription": "Como vincular Twitch, Kick, YouTube, TikTok e Starvios no Muxlyve, ativar ou desativar cada destino em tempo real, e adicionar destinos personalizados por RTMP, RTMPS ou SRT.",
+        "content": "<p>Twitch, Kick e YouTube: entre com um clique (OAuth), sem colar chaves manualmente.</p><tldr></tldr><cta></cta><shot>0</shot><p>O TikTok não tem login público — copie o servidor e a chave do app do TikTok. Essa chave se regenera a cada ~2 horas; é uma limitação da plataforma, não do Muxlyve.</p><p>A Starvios também é configurada manualmente: cole a URL do servidor e a chave de transmissão no app. Não há conexão de conta (OAuth), a chave não é obtida sozinha e o chat dela não aparece no chat unificado.</p><p>Ative ou desative cada destino com um botão, em tempo real, sem cortar a transmissão.</p><shot>1</shot><h2>Destinos personalizados</h2><p>Além de Twitch, Kick, YouTube, TikTok e Starvios, você pode adicionar qualquer destino personalizado usando <code>rtmp://</code>, <code>rtmps://</code> (RTMP criptografado) ou <code>srt://</code>. Útil para servidores privados, CDNs próprias ou qualquer plataforma que não esteja na lista.</p><p><strong>Importante:</strong> este é o destino de saída, para onde o Muxlyve reenvia seu sinal. A entrada não muda — seu software de streaming (OBS, Streamlabs, XSplit, etc.) continua se conectando ao Muxlyve por RTMP simples em <code>localhost</code>, como explicado em <link1>Conectar o OBS (ou qualquer software de streaming)</link1>.</p>",
+        "highlights": ["Twitch, Kick e YouTube se conectam com OAuth em um clique.","O TikTok e a Starvios exigem copiar servidor e chave manualmente (a do TikTok regenera a cada ~2h).","Também aceita destinos personalizados por RTMP, RTMPS ou SRT."],
         "shots": [
           { "src": "/help/conectar-plataformas-1.png", "label": "cartão da Twitch com botão Conectar" },
           { "src": "/help/conectar-plataformas-2.png", "label": "botão verde/vermelho de uma plataforma ativa" }
@@ -781,7 +781,7 @@
         "title": "Perguntas frequentes",
         "summary": "Internet, TikTok, compatibilidade com outros codificadores, qualidade e relato de bugs.",
         "metaDescription": "Internet, reconexão do TikTok, compatibilidade com outros codificadores, qualidade do sinal, limite de bitrate, notificações, Linux e como relatar um bug.",
-        "content": "<h2>Preciso de internet só para transmitir, ou também para usar o app?</h2><p>Ativar a licença precisa de internet uma vez. Transmitir não depende da nuvem do Muxlyve — o sinal é reenviado direto do seu equipamento para cada plataforma.</p><cta></cta><h2>Por que o TikTok pede para reconectar a chave com tanta frequência?</h2><p>É uma limitação da plataforma do TikTok, não do Muxlyve: a chave de transmissão que o TikTok entrega se regenera a cada ~2 horas.</p><h2>Funciona com vMix, N.Air ou qualquer outro codificador?</h2><p>Sim. O Muxlyve é um app separado que recebe qualquer sinal RTMP, venha de onde vier.</p><h2>A qualidade da minha transmissão cai por reenviar para 4 plataformas?</h2><p>Não. O Muxlyve usa <code>-c copy</code>: reenvia o sinal sem recodificar, com carga mínima de CPU.</p><h2>Posso colocar um limite de bitrate em um destino?</h2><p>Sim, é opcional. No cartão de cada destino você pode abrir \"Bitrate máximo (kbps) — opcional\" e definir um teto. Enquanto seu bitrate real ficar abaixo dele, o Muxlyve continua reenviando sem recodificar. Só se ficar acima do limite por um tempo, ele recodifica esse destino específico para baixá-lo ao teto. Sem limite configurado, nunca recodifica.</p><h2>Ele me avisa se um destino cair enquanto faço outra coisa?</h2><p>Sim. Se você tem outra janela ou jogo em primeiro plano e um destino cai, o Muxlyve manda uma notificação nativa do sistema operacional (não um alerta dentro do app). Em algumas distros de Linux sem daemon de notificações isso pode não estar disponível — falha em silêncio, não quebra o app.</p><h2>O Muxlyve roda em Linux?</h2><p>Hoje o app está disponível para Windows e macOS. Linux está no roadmap, mas ainda não confirmado.</p><h2>Onde relato um bug?</h2><p>Botão \"Relatar um problema\" dentro do app — anexa os logs automaticamente. Se preferir não usar isso, escreva direto para <mailto>soporte@muxlyve.com</mailto>.</p>",
+        "content": "<h2>Preciso de internet só para transmitir, ou também para usar o app?</h2><p>Ativar a licença precisa de internet uma vez. Transmitir não depende da nuvem do Muxlyve — o sinal é reenviado direto do seu equipamento para cada plataforma.</p><cta></cta><h2>Por que o TikTok pede para reconectar a chave com tanta frequência?</h2><p>É uma limitação da plataforma do TikTok, não do Muxlyve: a chave de transmissão que o TikTok entrega se regenera a cada ~2 horas.</p><h2>Funciona com vMix, N.Air ou qualquer outro codificador?</h2><p>Sim. O Muxlyve é um app separado que recebe qualquer sinal RTMP, venha de onde vier.</p><h2>A qualidade da minha transmissão cai por reenviar para 5 plataformas?</h2><p>Não. O Muxlyve usa <code>-c copy</code>: reenvia o sinal sem recodificar, com carga mínima de CPU.</p><h2>Posso colocar um limite de bitrate em um destino?</h2><p>Sim, é opcional. No cartão de cada destino você pode abrir \"Bitrate máximo (kbps) — opcional\" e definir um teto. Enquanto seu bitrate real ficar abaixo dele, o Muxlyve continua reenviando sem recodificar. Só se ficar acima do limite por um tempo, ele recodifica esse destino específico para baixá-lo ao teto. Sem limite configurado, nunca recodifica.</p><h2>Ele me avisa se um destino cair enquanto faço outra coisa?</h2><p>Sim. Se você tem outra janela ou jogo em primeiro plano e um destino cai, o Muxlyve manda uma notificação nativa do sistema operacional (não um alerta dentro do app). Em algumas distros de Linux sem daemon de notificações isso pode não estar disponível — falha em silêncio, não quebra o app.</p><h2>O Muxlyve roda em Linux?</h2><p>Hoje o app está disponível para Windows e macOS. Linux está no roadmap, mas ainda não confirmado.</p><h2>Onde relato um bug?</h2><p>Botão \"Relatar um problema\" dentro do app — anexa os logs automaticamente. Se preferir não usar isso, escreva direto para <mailto>soporte@muxlyve.com</mailto>.</p>",
         "shots": []
       }
     }

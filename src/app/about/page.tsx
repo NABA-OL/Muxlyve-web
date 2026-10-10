@@ -66,8 +66,8 @@ export default function AboutPage() {
         <p>
           Muxlyve es una aplicación de escritorio que recibe la señal de tu
           software de encoding (OBS, Streamlabs, XSplit, vMix o cualquier otro
-          que hable RTMP) y la reenvía en simultáneo a Twitch, Kick, YouTube y
-          TikTok, sin marca de agua y sin pasar por servidores en la nube de
+          que hable RTMP) y la reenvía en simultáneo a Twitch, Kick, YouTube,
+          TikTok y Starvios, sin marca de agua y sin pasar por servidores en la nube de
           terceros. Todo el reenvío ocurre desde tu propio equipo.
         </p>
 

@@ -35,10 +35,10 @@ const HOME_STEPS: Step[] = [
   },
   {
     title: "Conecta tus plataformas",
-    body: "Vincula Twitch, Kick y YouTube con un clic (OAuth), o pega tu clave de TikTok.",
+    body: "Vincula Twitch, Kick y YouTube con un clic (OAuth), o pega la URL del servidor y la clave de TikTok y Starvios.",
   },
   {
-    title: "Transmite a las 4 a la vez",
+    title: "Transmite a las 5 a la vez",
     body: "Una sola señal, sin recodificar, sin marca de agua y sin depender de un servidor ajeno.",
   },
 ];
@@ -82,9 +82,9 @@ export function buildHomeMarkdown(): string {
     (g) => `### ${g.title}\n\n${g.features.map((f) => `- **${f.title}**: ${f.body}`).join("\n")}`,
   ).join("\n\n");
 
-  return `# Transmite a Twitch, Kick, YouTube y TikTok a la vez.
+  return `# Transmite a Twitch, Kick, YouTube, TikTok y Starvios a la vez.
 
-> Software de multistreaming para Windows. Transmite a Twitch, Kick, YouTube y TikTok al mismo tiempo, sin marca de agua.
+> Software de multistreaming para Windows. Transmite a Twitch, Kick, YouTube, TikTok y Starvios al mismo tiempo, sin marca de agua.
 
 Sin marca de agua. Desde tu PC. Sin servidores intermediarios ni ancho de banda de terceros.
 
@@ -118,7 +118,7 @@ export function buildAboutMarkdown(): string {
 
 ## Qué es Muxlyve
 
-Muxlyve es una aplicación de escritorio que recibe la señal de tu software de encoding (OBS, Streamlabs, XSplit, vMix o cualquier otro que hable RTMP) y la reenvía en simultáneo a Twitch, Kick, YouTube y TikTok, sin marca de agua y sin pasar por servidores en la nube de terceros. Todo el reenvío ocurre desde tu propio equipo.
+Muxlyve es una aplicación de escritorio que recibe la señal de tu software de encoding (OBS, Streamlabs, XSplit, vMix o cualquier otro que hable RTMP) y la reenvía en simultáneo a Twitch, Kick, YouTube, TikTok y Starvios, sin marca de agua y sin pasar por servidores en la nube de terceros. Todo el reenvío ocurre desde tu propio equipo.
 
 ## Quién lo desarrolla
 

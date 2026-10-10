@@ -148,7 +148,7 @@
 }
 
 .platform {
-  flex: 1 1 200px;
+  flex: 1 1 180px;
   display: flex;
   align-items: center;
   gap: 0.9rem;
