@@ -40,7 +40,17 @@ function formatVersion(tag: string): string {
   return major < 1 ? `${version} (beta)` : version;
 }
 
-async function getLatestVersion(): Promise<string> {
+interface LatestRelease {
+  version: string;
+  publishedAt: string | null;
+}
+
+const FALLBACK_RELEASE: LatestRelease = {
+  version: formatVersion("0.1.5"),
+  publishedAt: null,
+};
+
+async function getLatestRelease(): Promise<LatestRelease> {
   try {
     const headers: HeadersInit = {
       Accept: "application/vnd.github+json",
@@ -53,12 +63,25 @@ async function getLatestVersion(): Promise<string> {
       `https://api.github.com/repos/${REPO}/releases/latest`,
       { headers, next: { revalidate: 3600 } },
     );
-    if (!res.ok) return formatVersion("0.1.5");
-    const data = (await res.json()) as { tag_name: string };
-    return formatVersion(data.tag_name);
+    if (!res.ok) return FALLBACK_RELEASE;
+    const data = (await res.json()) as {
+      tag_name: string;
+      published_at?: string | null;
+    };
+    return {
+      version: formatVersion(data.tag_name),
+      publishedAt: data.published_at ?? null,
+    };
   } catch {
-    return formatVersion("0.1.5");
+    return FALLBACK_RELEASE;
   }
+}
+
+function formatPublishedDate(iso: string | null, locale: string): string | null {
+  if (!iso) return null;
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return null;
+  return new Intl.DateTimeFormat(locale, { dateStyle: "long", timeZone: "UTC" }).format(date);
 }
 
 export default async function DescargarPage({
@@ -70,7 +93,8 @@ export default async function DescargarPage({
   setRequestLocale(locale);
 
   const t = await getTranslations("descargar");
-  const version = await getLatestVersion();
+  const { version, publishedAt } = await getLatestRelease();
+  const publishedDate = formatPublishedDate(publishedAt, locale);
   const requisitos = t.raw("requisitos") as string[];
   const obsSteps = t.raw("obsSteps") as string[];
 
@@ -81,6 +105,7 @@ export default async function DescargarPage({
     applicationCategory: "MultimediaApplication",
     operatingSystem: "Windows, macOS",
     softwareVersion: version,
+    ...(publishedAt ? { datePublished: publishedAt } : {}),
     downloadUrl: `${DL_BASE}/descargar`,
     url: `${DL_BASE}/descargar`,
     publisher: {
@@ -109,7 +134,8 @@ export default async function DescargarPage({
             </h1>
             <p className="section-lead">
               {t("leadPrefix")}{" "}
-              <strong style={{ color: "var(--text)" }}>{version}</strong>.{" "}
+              <strong style={{ color: "var(--text)" }}>{version}</strong>
+              {publishedDate ? `, ${t("publishedOn", { date: publishedDate })}` : ""}.{" "}
               {t("leadSuffix")}
             </p>
 
