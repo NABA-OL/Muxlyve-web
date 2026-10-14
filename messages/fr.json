@@ -427,6 +427,7 @@
     "title": "Téléchargez Muxlyve",
     "leadPrefix": "Version actuelle :",
     "leadSuffix": "Installez-le, activez votre licence et diffusez sur les cinq plateformes en même temps.",
+    "publishedOn": "publiée le {date}",
     "windowsButton": "Télécharger pour Windows",
     "macButton": "Télécharger pour macOS",
     "requisitosTitle": "Prérequis",
