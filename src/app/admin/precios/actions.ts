@@ -19,5 +19,7 @@ export async function savePricesAction(formData: FormData) {
   await setSetting("plan_monthly_visible", formData.get("plan_monthly_visible") === "on" ? "true" : "false");
   await setSetting("plan_annual_visible", formData.get("plan_annual_visible") === "on" ? "true" : "false");
   await setSetting("plan_lifetime_visible", formData.get("plan_lifetime_visible") === "on" ? "true" : "false");
-  revalidatePath("/");
+  // La home y /precio leen estos ajustes: se invalidan en todos los idiomas.
+  revalidatePath("/[locale]", "page");
+  revalidatePath("/[locale]/precio", "page");
 }

@@ -7,7 +7,19 @@ export function getDb() {
   return neon(url);
 }
 
-export async function ensureSchema(): Promise<void> {
+let schemaReady: Promise<void> | null = null;
+
+// Las migraciones son idempotentes pero costosas (~20 consultas): se corren una
+// sola vez por instancia. Si fallan se descarta la promesa para reintentar.
+export function ensureSchema(): Promise<void> {
+  schemaReady ??= runMigrations().catch((error: unknown) => {
+    schemaReady = null;
+    throw error;
+  });
+  return schemaReady;
+}
+
+async function runMigrations(): Promise<void> {
   const sql = getDb();
   await sql`
     CREATE TABLE IF NOT EXISTS licenses (

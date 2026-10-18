@@ -25,7 +25,7 @@ import { ensureSchema } from "@/lib/db";
 import { getSetting } from "@/lib/settings";
 import styles from "./page.module.css";
 
-export const revalidate = 60;
+export const revalidate = 86400;
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muxlyve.com";
 

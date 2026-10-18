@@ -12,7 +12,7 @@ import { Footer } from "@/components/Footer";
 import { PricingPlans } from "@/components/PricingPlans";
 import { buildAlternates } from "@/lib/i18n-meta";
 
-export const revalidate = 60;
+export const revalidate = 86400;
 
 export async function generateMetadata({
   params,
