@@ -11,6 +11,9 @@ import { HELP_ARTICLES } from "@/lib/help-articles";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muxlyve.com";
 
+// El contenido solo cambia con un deploy: se genera en build, no por request.
+export const dynamic = "force-static";
+
 export async function GET() {
   const t = await getTranslations({ locale: "es", namespace: "help" });
   const helpLinks = HELP_ARTICLES.map(
