@@ -35,6 +35,8 @@ const LOCALE_PREFIXES = ["", "/en", "/pt", "/fr"];
 
 const nextConfig: NextConfig = {
   distDir: process.env.NEXT_DIST_DIR ?? ".next",
+    allowedDevOrigins: ["192.168.*.*", "http://localhost:3000", "nabaol-server", "localhost", 'nabaol-server'],
+
   redirects: async () =>
     RENAMED_ARTICLE_SLUGS.flatMap(([from, to]) =>
       LOCALE_PREFIXES.map((prefix) => ({
